@@ -73,14 +73,17 @@ function execute_rlp_info_table(){
 function execute_rlp_details_table($rlp_info_id){
     global $conn;
     /*
-     * *****************************rlp_details table operation********************
+     * ***************************** rlp_details table operation ********************
      */
     for($count 		= 0; $count<count($_POST['description']); $count++){        
-        $description	= (isset($_POST['description'][$count]) && !empty($_POST['description'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['description'][$count])) : '');
+        //$description	= (isset($_POST['description'][$count]) && !empty($_POST['description'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['description'][$count])) : '');
+        $material_name	= (isset($_POST['material_name'][$count]) && !empty($_POST['material_name'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['material_name'][$count])) : '');
+        $material_id	= (isset($_POST['material_id'][$count]) && !empty($_POST['material_id'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['material_id'][$count])) : '');
         $purpose	= (isset($_POST['purpose'][$count]) && !empty($_POST['purpose'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['purpose'][$count])) : '');
         $quantity	= (isset($_POST['quantity'][$count]) && !empty($_POST['quantity'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['quantity'][$count])) : '');
         $unit	= (isset($_POST['unit'][$count]) && !empty($_POST['unit'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit'][$count])) : '');
-        //$estimatedPrice	= (isset($_POST['estimatedPrice'][$count]) && !empty($_POST['estimatedPrice'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['estimatedPrice'][$count])) : '');        
+        $part_no	= (isset($_POST['part_no'][$count]) && !empty($_POST['part_no'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['part_no'][$count])) : '');
+        //$estimatedPrice	= (isset($_POST['estimatedPrice'][$count]) && !empty($_POST['estimatedPrice'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['estimatedPrice'][$count])) : '');
         $unit_price	= (isset($_POST['unit_price'][$count]) && !empty($_POST['unit_price'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_price'][$count])) : '');        
         $amount	= (isset($_POST['amount'][$count]) && !empty($_POST['amount'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['amount'][$count])) : '');        
         $supplier	= (isset($_POST['supplier'][$count]) && !empty($_POST['supplier'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['supplier'][$count])) : '');        
@@ -198,8 +201,7 @@ function get_role_group_short_name(){
         $role_short_name           =      'ab';
     }else{
         $role_short_name           =      'sa';
-    }
-    
+    } 
     return $role_short_name;
 }
 
