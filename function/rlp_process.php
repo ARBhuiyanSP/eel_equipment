@@ -38,8 +38,9 @@ function execute_rlp_info_table(){
     $request_division		= (isset($_POST['request_division']) && !empty($_POST['request_division']) ? trim(mysqli_real_escape_string($conn,$_POST['request_division'])) : "");
     $request_department		= (isset($_POST['request_department']) && !empty($_POST['request_department']) ? trim(mysqli_real_escape_string($conn,$_POST['request_department'])) : "");
     $request_project		= (isset($_POST['request_project']) && !empty($_POST['request_project']) ? trim(mysqli_real_escape_string($conn,$_POST['request_project'])) : "");
-    $request_person		= (isset($_POST['request_person']) && !empty($_POST['request_person']) ? trim(mysqli_real_escape_string($conn,$_POST['request_person'])) : "");
+    $request_person		= 1;
     $rlpNo		= (isset($_POST['rlp_no']) && !empty($_POST['rlp_no']) ? trim(mysqli_real_escape_string($conn,$_POST['rlp_no'])) : "");
+    $sub_total_amount		= (isset($_POST['sub_total_amount']) && !empty($_POST['sub_total_amount']) ? trim(mysqli_real_escape_string($conn,$_POST['sub_total_amount'])) : "");
     $remarks		= (isset($_POST['remarks']) && !empty($_POST['remarks']) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'])) : "");
     
     /*
@@ -57,11 +58,12 @@ function execute_rlp_info_table(){
         'request_division'      =>  $request_division,
         'request_department'    =>  $request_department,
         'request_project'   	=>  $request_project,
-        'request_person'        =>  $request_person,
-        'designation'           =>  $_SESSION['logged']['designation'],
+        'request_person'        =>  $_SESSION['logged']['office_id'],
+       /*  'designation'           =>  $_SESSION['logged']['designation'],
         'email'                 =>  $_SESSION['logged']['email'],
-        'contact_number'        =>  $_SESSION['logged']['contact_number'],
+        'contact_number'        =>  $_SESSION['logged']['contact_number'], */
         'user_remarks'          =>  $remarks,
+        'totalamount'      		=>  $sub_total_amount,
         'created_by'            =>  $_SESSION['logged']['user_id'],
         'created_at'            =>  date('Y-m-d h:i:s')
     ];
@@ -86,8 +88,8 @@ function execute_rlp_details_table($rlp_info_id){
         //$estimatedPrice	= (isset($_POST['estimatedPrice'][$count]) && !empty($_POST['estimatedPrice'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['estimatedPrice'][$count])) : '');
         $unit_price	= (isset($_POST['unit_price'][$count]) && !empty($_POST['unit_price'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_price'][$count])) : '');        
         $amount	= (isset($_POST['amount'][$count]) && !empty($_POST['amount'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['amount'][$count])) : '');        
-        $supplier	= (isset($_POST['supplier'][$count]) && !empty($_POST['supplier'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['supplier'][$count])) : '');        
-        $details_remarks= (isset($_POST['details_remarks'][$count]) && !empty($_POST['details_remarks'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['details_remarks'][$count])) : '');        
+        //$supplier	= (isset($_POST['supplier'][$count]) && !empty($_POST['supplier'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['supplier'][$count])) : '');        
+        //$details_remarks= (isset($_POST['details_remarks'][$count]) && !empty($_POST['details_remarks'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['details_remarks'][$count])) : '');        
         $dataParam     =   [
             'id'                =>  get_table_next_primary_id('rlp_details'),
             'rlp_info_id'       =>  $rlp_info_id,
@@ -98,8 +100,8 @@ function execute_rlp_details_table($rlp_info_id){
             //'estimated_price'   =>  $estimatedPrice,
             'unit_price'   		=>  $unit_price,
             'amount'   			=>  $amount,
-            'supplier'          =>  $supplier,
-            'details_remarks'   =>  $details_remarks,
+            //'supplier'          =>  $supplier,
+            //'details_remarks'   =>  $details_remarks,
         ];
     
         saveData("rlp_details", $dataParam);
