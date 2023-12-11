@@ -54,6 +54,8 @@
 <script type="text/javascript" src="js/site_js.js?v=2"></script>
 <script src="js/demo/chart-area-demo.js"></script> <!--for handling all general js and ajax operation use the following link-->
 <script src="js/general_operation.js"></script>
+<!--for handling rlp create form operation use the following link-->
+<script src="js/rlp_create_handle.js"></script>
 <script type="text/javascript" type="text/javascript">
   jQuery(document).ready(function($) {
     $('#dataTable').DataTable();

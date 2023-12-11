@@ -5,7 +5,7 @@
     $rlp_info       =   $rlp_details['rlp_info'];
     $rlp_details    =   $rlp_details['rlp_details'];
 ?>
-<link rel='stylesheet prefetch' href='css/summernote.min.css'>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <!-- Main content -->
 <section class="invoice">
     <form action="" method="POST" enctype="multipart/form-data">
@@ -21,20 +21,20 @@
     </div>
     <!-- info row -->
     <div class="row invoice-info">
-        <div class="col-md-4 invoice-col">
+        <div class="col-sm-4 col-md-4">
             From
             <address>
                 <strong>Name:&nbsp;<?php echo $rlp_info->request_person ?></strong><br>
-                Designation:&nbsp;<?php echo getDesignationNameById($rlp_info->designation) ?><br>
+                <!-- Designation:&nbsp;<?php echo getDesignationNameById($rlp_info->designation) ?><br> -->
                 Division:&nbsp;<?php echo getDivisionNameById($rlp_info->request_division) ?><br>
                 Department:&nbsp;<?php echo getDepartmentNameById($rlp_info->request_department) ?><br>
                 Project:&nbsp;<?php echo getProjectNameById($rlp_info->request_project) ?><br>
-                <input type="text" name="request_project" value="<?php echo $rlp_info->request_project; ?>" />
+                <input type="hidden" name="request_project" value="<?php echo $rlp_info->request_project; ?>" />
             </address>
         </div>
         <!-- /.col -->
-        <div class="col-md-8 invoice-col">
-            <div class="pull-right">
+        <div class="col-sm-8 col-md-8">
+            <div style="text-align:right">
 				<?php $notesheetNo    =   get_notesheet_no(); ?>
                 <b>Notesheet NO: &nbsp;<span class="rlpno_style"><?php echo $notesheetNo; ?></span></b><br>
                 <input type="hidden" name="notesheet_no" value="<?php echo $notesheetNo; ?>">
@@ -103,16 +103,17 @@
                             <th width="10%">Unit Price</th>
                             <th width="10%">Total</th>
                             <th>Remarks</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="tbl_posts_body">
                         <?php
                         $sl =   1;
-                            foreach($rlp_details as $data){
+                            foreach($rlp_details as $key => $data){
                         ?>
-                        <tr id="rec-1">
+                        <tr id="row<?php echo $data->id ?>">
                             <td><?php echo $sl++; ?></td>
-                            <td><input type="text" class="form-control" name="item[]" id="" value="<?php echo (isset($data->item_des) && !empty($data->item_des) ? $data->item_des : ""); ?>" readonly ></td>
+                            <td><input type="text" class="form-control" name="item[]" id="" value="<?php echo (isset($data->material_name) && !empty($data->material_name) ? $data->material_name : ""); ?>" readonly ></td>
                             <td><?php echo $data->purpose; ?></td>
                             <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="quantity[]" id="quantity_<?php echo $data->id; ?>" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" required ></td>
                             <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="unit_price[]" id="unit_price_<?php echo $data->id; ?>" value="" required ></td>
@@ -127,10 +128,15 @@
                                     
                                 </div>
                             </td>
+                            <?php if ($key == 0) { ?>
+                            <td></td>
+                    <?php } else { ?>
+                            <td><button type="button" name="remove" id="<?php echo $data->id; ?>" class="btn btn_remove" style="background-color:#f26522;color:#ffffff;">X</button></td>
+                    <?php } ?>
                         </tr>                        
                             <?php } ?>
 							
-                        <?php if(is_super_admin($currentUserId)){ ?>                       
+                        <?php //if(is_super_admin($currentUserId)){ ?>                       
 					   <tr>
                             <td colspan="5" style="text-align:right">Sub Total : </td>
 							<td>
@@ -184,7 +190,7 @@
                             </td>
                             <td></td>
                         </tr>
-                        <?php }?>
+                        <?php //}?>
                     </tbody>
                 </table>
             </div>
@@ -240,6 +246,12 @@ function  caltotal(id){
 	
 	 calculate_total_buy_amount();
 }
+
+$(document).on('click', '.btn_remove', function () {
+            var button_id = $(this).attr("id");
+            $('#row' + button_id + '').remove();
+            calculate_total_buy_amount();
+        });
 
 function calculate_total_buy_amount() {
         let subTotalAmount     =   $(".total_amount");
@@ -329,4 +341,4 @@ calculate();
     $('.code_preview0').summernote({height: 150});
     });
 </script>
-<script src='js/summernote.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>

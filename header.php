@@ -281,6 +281,13 @@ label{
         </a>
 		<?php //} ?>
 		</li>
+      <li class="nav-item dropdown no-arrow">
+        <?php //if(check_permission('material-issue-list')){ ?>
+        <a class="nav-link" href="notesheets_list.php" id="userDropdown">
+          <i class="fa fa-key"></i> Notesheet
+        </a>
+        <?php //} ?>
+        </li>
 	  <li class="nav-item dropdown no-arrow">
         
 		<a class="nav-link" href="reports.php" id="userDropdown">

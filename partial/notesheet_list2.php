@@ -22,7 +22,7 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
                 $delUrl =   "function/rlp_process.php?process_type=rlp_delete";
                 //$approve_url =   "function/rlp_process.php?process_type=rlp_approve";
 				$role       =   get_role_group_short_name();
-				if(is_super_admin($currentUserId)){
+				if(check_permission('user-list')){
 					//include 'rrr_update_view_sa.php';
 					$approve_url =   "function/rlp_process.php?process_type=rlp_dh_common_update_execute";
 				}elseif($role    ==  "member"){
@@ -63,23 +63,23 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
                             </div>
                         </td>
                         <td>
-                            <?php //if (!is_super_admin($user_id_session)) {?>
+                            <?php if (check_permission('user-list')) {?>
 							
-							<?php //if(hasAccessPermission($user_id_session, 'crlp', 'edit_access') && get_status_name($adata->notesheet_status)!='Approve'){ ?>
+							
                             <a title="Edit RLP" class="btn btn-sm btn-info" href="notesheet_update.php?id=<?php echo $adata->id; ?>">
                                 <span class="fa fa-pencil"> Details</span>
                             </a>
-                            <?php //} }?>
+                            <?php  }?>
 							
 							
 							
-							<!--<?php if(check_permission('notesheet-approve') && get_status_name($adata->notesheet_status)!='Approve'){ ?>
+							<?php //if(check_permission('notesheet-approve') && get_status_name($adata->notesheet_status)!='Approve'){ ?>
                             <a title="Delete RLP" class="btn btn-sm btn-success" href="javascript:void(0)" onclick="commonApproveOperation('<?php echo $approve_url ?>', '<?php echo $adata->id ?>', '<?php echo $_SESSION['logged']['user_id'] ?>');">
                                 <span class="fa fa-close"> Approve</span>
                             </a>
-                            <?php } ?> -->
+                            <?php //} ?>
 							
-                            <!---  <?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access')){ ?>
+                            <!---  <?php if(check_permission('notesheet-approve')){ ?>
                             <a title="Delete RLP" class="btn btn-sm btn-danger" href="javascript:void(0)" onclick="commonDeleteOperation('<?php echo $delUrl ?>', '<?php echo $adata->id ?>');">
                                 <span class="fa fa-close"> Delete</span>
                             </a>
@@ -87,19 +87,19 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
 							
 							
 							
-							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
+							<?php if(check_permission('notesheet-approve')){ ?>
                             <a title="Print RLP History" class="btn btn-sm btn-info bg-olive" href="rlp_view.php?rlp_id=<?php echo $adata->id; ?>">
                                 <span class="fa fa-print"> History</span>
                             </a>
                             <?php } ?>    ---> 
 
-							<?php //if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
+							<?php //if(check_permission('notesheet-approve')){ ?>
                             <a title="Print RLP" class="btn btn-sm btn-info bg-blue" href="notesheets_view.php?id=<?php echo $adata->id; ?>">
                                 <span class="fa fa-print"> Print</span>
                             </a>
                             <?php //} ?>	
 
-							<?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access') && get_status_name($adata->notesheet_status)=='Approve' && $adata->is_wo==0){ ?>
+							<?php if(check_permission('notesheet-approve') && get_status_name($adata->notesheet_status)=='Approve' && $adata->is_wo==0){ ?>
                             <a title="Edit RLP" class="btn btn-sm btn-success" href="create_workorder.php?id=<?php echo $adata->id; ?>">
                                 <span class="fa fa-plus"> Work Order</span>
                             </a>

@@ -77,7 +77,7 @@ function execute_rlp_details_table($rlp_info_id){
     /*
      * ***************************** rlp_details table operation ********************
      */
-    for($count 		= 0; $count<count($_POST['description']); $count++){        
+    for($count 		= 0; $count<count($_POST['material_name']); $count++){        
         //$description	= (isset($_POST['description'][$count]) && !empty($_POST['description'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['description'][$count])) : '');
         $material_name	= (isset($_POST['material_name'][$count]) && !empty($_POST['material_name'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['material_name'][$count])) : '');
         $material_id	= (isset($_POST['material_id'][$count]) && !empty($_POST['material_id'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['material_id'][$count])) : '');
@@ -93,7 +93,10 @@ function execute_rlp_details_table($rlp_info_id){
         $dataParam     =   [
             'id'                =>  get_table_next_primary_id('rlp_details'),
             'rlp_info_id'       =>  $rlp_info_id,
-            'item_des'          =>  $description,
+            //'item_des'          =>  $description,
+            'material_id'          =>  $material_id,
+            'material_name'          =>  $material_name,
+            'part_no'          =>  $part_no,
             'purpose'           =>  $purpose,
             'quantity'          =>  $quantity,
             'unit'          	=>  $unit,

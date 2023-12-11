@@ -155,7 +155,7 @@ function generateTreeMenuHtmlCollapse($items) {
     </ol>
      <div class="row">
    
-   <div class="col-md-6">
+   <div class="col-md-6" style="height:450px;overflow-y: scroll;">
      <div class="tree ">
               <ul>
                 <li><span><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#AllCategory" aria-expanded="true" aria-controls="AllCategory"><i class="collapsed"><i class="fas fa-folder"></i></i>
