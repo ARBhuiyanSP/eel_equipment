@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2023 at 10:53 AM
+-- Generation Time: Dec 11, 2023 at 12:52 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -6929,6 +6929,14 @@ CREATE TABLE `inv_issue` (
   `issue_image` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `inv_issue`
+--
+
+INSERT INTO `inv_issue` (`id`, `issue_id`, `issue_date`, `received_by`, `receiver_phone`, `use_in`, `no_of_material`, `total_amount`, `remarks`, `project_id`, `warehouse_id`, `issued_by`, `approval_status`, `approved_by`, `approved_at`, `approval_remarks`, `issue_image`) VALUES
+(4, 'IS-CW-001', '2023-12-05', '', '', 'CH-02', 0, 15000, 'dfgdf', '1', '1', '3378', 0, '', NULL, '', ''),
+(5, 'IS-CW-002', '2023-12-10', '', '', 'CH-02', 0, 3200, 'vhghj', '1', '1', '3378', 0, '', NULL, '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -6953,6 +6961,15 @@ CREATE TABLE `inv_issuedetail` (
   `approval_status` tinyint(1) NOT NULL DEFAULT 0,
   `is_manual_code_edit` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'for checking manual code update'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `inv_issuedetail`
+--
+
+INSERT INTO `inv_issuedetail` (`id`, `issue_id`, `issue_date`, `material_id`, `material_name`, `unit`, `issue_qty`, `issue_price`, `part_no`, `use_in`, `project_id`, `warehouse_id`, `package_id`, `building_id`, `approval_status`, `is_manual_code_edit`) VALUES
+(7, 'IS-CW-001', '2023-12-05', '02-01', '6', '20', 10, 1500, '920871.0163', 'CH-02', '1', '1', '', '', 0, 0),
+(8, 'IS-CW-002', '2023-12-10', '02-01', '6', '20', 2, 1500, '920871.0163', 'CH-02', '1', '1', '', '', 0, 0),
+(9, 'IS-CW-002', '2023-12-10', '01-01', '5', '20', 2, 100, 'LF4054/VG100070005', 'CH-02', '1', '1', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -7048,8 +7065,8 @@ CREATE TABLE `inv_material` (
 --
 
 INSERT INTO `inv_material` (`id`, `material_id_code`, `material_id`, `material_sub_id`, `material_level3_id`, `material_level4_id`, `material_description`, `spec`, `location`, `type`, `material_min_stock`, `avg_con_sump`, `lead_time`, `re_order_level`, `qty_unit`, `op_balance_qty`, `op_balance_val`, `chk_print`, `cur_qty`, `cur_price`, `cur_value`, `last_issue`, `last_receive`, `part_no`, `current_balance`, `is_manual_code_edit`) VALUES
-(5, '01-01', '27', '0', 0, 0, 'Oil Filter', '', '', '', 1, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'LF4054/VG100070005', 1000, 0),
-(6, '02-01', '28', '0', 0, 0, 'Saif battery', '', '', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'SPB-00001', 100, 0);
+(5, '01-01', '27', '0', 0, 0, 'Oil Filter', '', '', '', 1, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'LF4054/VG100070005', 998, 0),
+(6, '02-01', '28', '0', 0, 0, 'Saif battery', '', '', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'SPB-00001', 88, 0);
 
 -- --------------------------------------------------------
 
@@ -7088,7 +7105,10 @@ CREATE TABLE `inv_materialbalance` (
 
 INSERT INTO `inv_materialbalance` (`id`, `mb_ref_id`, `mb_materialid`, `material_category`, `mb_date`, `mbin_qty`, `mbin_val`, `mbout_qty`, `mbout_val`, `mbprice`, `mbtype`, `mbserial`, `mbserial_id`, `mbunit_id`, `jvno`, `part_no`, `project_id`, `warehouse_id`, `package_id`, `building_id`, `approval_status`, `is_manual_code_edit`) VALUES
 (37, 'MRR-CW001', '01-01', 0, '2023-12-04', 1000, 100000, 0, 0, 100, 'Receive', 1.1, '1', '20', 'MRR-CW001', 'LF4054/VG100070005', '1', '1', '', '', 0, 0),
-(38, 'MRR-CW002', '02-01', 0, '2023-12-04', 100, 45000, 0, 0, 450, 'Receive', 1.1, '1', '20', 'MRR-CW002', 'SPB-00001', '1', '1', '', '', 0, 0);
+(38, 'MRR-CW002', '02-01', 0, '2023-12-04', 100, 45000, 0, 0, 450, 'Receive', 1.1, '1', '20', 'MRR-CW002', 'SPB-00001', '1', '1', '', '', 0, 0),
+(39, 'IS-CW-001', '02-01', 0, '2023-12-05', 0, 0, 10, 15000, 1500, 'Issue', 1.1, '1', '20', 'IS-CW-001', '920871.0163', '1', '1', '', '', 0, 0),
+(40, 'IS-CW-002', '02-01', 0, '2023-12-10', 0, 0, 2, 3000, 1500, 'Issue', 1.1, '1', '20', 'IS-CW-002', '920871.0163', '1', '1', '', '', 0, 0),
+(41, 'IS-CW-002', '01-01', 0, '2023-12-10', 0, 0, 2, 200, 100, 'Issue', 1.1, '1', '20', 'IS-CW-002', 'LF4054/VG100070005', '1', '1', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -7127,8 +7147,19 @@ CREATE TABLE `inv_materialcategorysub` (
 --
 
 INSERT INTO `inv_materialcategorysub` (`id`, `category_id`, `parent_id`, `_order`, `category_description`, `stock_acct_id`, `chk_sbalance`, `consumption_ac`, `same_level`, `has_child`) VALUES
-(27, '01-00', 0, 1, 'Filter', NULL, NULL, NULL, 0, 0),
-(28, '02-00', 0, 2, 'Battery', NULL, NULL, NULL, 0, 1);
+(27, '01-00', 0, 1, 'Filter', NULL, NULL, NULL, 0, 1),
+(28, '02-00', 0, 2, 'Battery', NULL, NULL, NULL, 0, 1),
+(29, '03-00', 27, 3, 'Engine Filter', NULL, NULL, NULL, 0, 1),
+(30, '04-00', 27, 4, 'Oil Filter', NULL, NULL, NULL, 0, 0),
+(31, '05-00', 28, 5, 'ISP Battery', NULL, NULL, NULL, 0, 0),
+(32, '06-00', 28, 6, 'Mishuk Battery', NULL, NULL, NULL, 0, 1),
+(33, '07-00', 28, 7, 'Rickshaw Battery', NULL, NULL, NULL, 0, 0),
+(34, '08-00', 29, 8, 'Volvo Filter', NULL, NULL, NULL, 0, 0),
+(35, '09-00', 32, 9, 'Auto Battery', NULL, NULL, NULL, 0, 0),
+(36, '10-00', 32, 10, 'Cycle Battery', NULL, NULL, NULL, 0, 0),
+(37, '11-00', 32, 11, 'Bike Battery', NULL, NULL, NULL, 0, 0),
+(38, '12-00', 29, 12, 'Honda Engine', NULL, NULL, NULL, 0, 0),
+(39, '13-00', 29, 13, 'Suzuki Engine', NULL, NULL, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -7253,8 +7284,8 @@ CREATE TABLE `inv_product_price` (
 INSERT INTO `inv_product_price` (`id`, `mrr_no`, `material_id`, `receive_details_id`, `qty`, `price`, `part_no`, `status`, `created_at`, `cerated_by`, `updated_at`, `updated_by`) VALUES
 (26, 'MRR-CW001', '01-01', 28, 450, 1200, 'xcv', 1, '2023-11-15', '', '0000-00-00', ''),
 (27, 'MRR-CW001', '02-02', 29, 148, 1400, '923829.1401', 1, '2023-11-15', '', '0000-00-00', ''),
-(28, 'MRR-CW001', '02-01', 30, 95, 1500, '920871.0163', 1, '2023-11-15', '', '0000-00-00', ''),
-(29, 'MRR-CW001', '01-01', 31, 1000, 100, 'LF4054/VG100070005', 1, '2023-12-04', '', '0000-00-00', ''),
+(28, 'MRR-CW001', '02-01', 30, 83, 1500, '920871.0163', 1, '2023-11-15', '', '0000-00-00', ''),
+(29, 'MRR-CW001', '01-01', 31, 998, 100, 'LF4054/VG100070005', 1, '2023-12-04', '', '0000-00-00', ''),
 (30, 'MRR-CW002', '02-01', 32, 100, 450, 'SPB-00001', 1, '2023-12-04', '', '0000-00-00', '');
 
 -- --------------------------------------------------------
@@ -7745,6 +7776,89 @@ CREATE TABLE `modules` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notesheets`
+--
+
+CREATE TABLE `notesheets` (
+  `id` int(11) NOT NULL,
+  `notesheet_no` varchar(50) NOT NULL,
+  `notesheet_id` int(11) NOT NULL,
+  `rlp_no` varchar(100) NOT NULL,
+  `subject` longtext NOT NULL,
+  `supplier_name` varchar(200) NOT NULL,
+  `address` varchar(500) NOT NULL,
+  `concern_person` varchar(50) NOT NULL,
+  `cell_number` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `item` varchar(500) NOT NULL,
+  `part_no` varchar(100) NOT NULL,
+  `unit` varchar(15) NOT NULL,
+  `quantity` varchar(20) NOT NULL,
+  `unit_price` varchar(20) NOT NULL,
+  `total` varchar(20) NOT NULL,
+  `remarks` varchar(500) NOT NULL,
+  `status` varchar(15) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `notesheets`
+--
+
+INSERT INTO `notesheets` (`id`, `notesheet_no`, `notesheet_id`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
+(179, 'NS-2023-12-ENG-Sof-001', 52, 'RLP-ENG-CTE-2023-12-001', 'sub', 'sup', '456', 'per', '456', 'fgf@ergt.tff', '6', '', 'Pics', '2', '200', '400.00', '', 'Created', '2023-12-10 09:32:33', 3378),
+(180, 'NS-2023-12-ENG-Sof-001', 52, 'RLP-ENG-CTE-2023-12-001', 'sub', 'sup', '456', 'per', '456', 'fgf@ergt.tff', '5', '', 'Pics', '5', '250', '1250.00', '', 'Created', '2023-12-10 09:32:33', 3378);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notesheets_master`
+--
+
+CREATE TABLE `notesheets_master` (
+  `id` int(11) NOT NULL,
+  `notesheet_no` varchar(100) NOT NULL,
+  `rlp_no` varchar(100) NOT NULL,
+  `request_project` int(11) NOT NULL,
+  `subject` varchar(1000) NOT NULL,
+  `ns_info` longtext NOT NULL,
+  `supplier_name` varchar(100) NOT NULL,
+  `address` varchar(500) NOT NULL,
+  `concern_person` varchar(100) NOT NULL,
+  `cell_number` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `no_of_item` int(11) NOT NULL,
+  `sub_total` float NOT NULL,
+  `ait` float NOT NULL,
+  `vat` float NOT NULL,
+  `discount` float NOT NULL,
+  `total_afterdiscount` float NOT NULL,
+  `grand_total` float NOT NULL,
+  `remarks` longtext NOT NULL,
+  `terms_condition` longtext NOT NULL,
+  `status` varchar(15) NOT NULL,
+  `notesheet_status` tinyint(1) NOT NULL,
+  `is_viewd` tinyint(1) NOT NULL,
+  `is_wo` tinyint(1) NOT NULL DEFAULT 0,
+  `attached_file` varchar(500) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(20) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` datetime NOT NULL,
+  `is_delete` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `notesheets_master`
+--
+
+INSERT INTO `notesheets_master` (`id`, `notesheet_no`, `rlp_no`, `request_project`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `discount`, `total_afterdiscount`, `grand_total`, `remarks`, `terms_condition`, `status`, `notesheet_status`, `is_viewd`, `is_wo`, `attached_file`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_delete`) VALUES
+(52, 'NS-2023-12-ENG-Sof-001', 'RLP-ENG-CTE-2023-12-001', 1, 'sub', 'ref', 'sup', '456', 'per', '456', 'fgf@ergt.tff', 0, 1650, 0, 115.5, 0, 1650, 1765.5, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days after receiving the work order.</li>\r\n\r\n							<li>Mode of payment: After 45 days from the date of bill Submission.</li>\r\n\r\n							<li>The above rate includes VAT, AIT & other Taxes.</li>\r\n\r\n							<li>Transport & Courier costs will be charged by Buyers.</li>\r\n\r\n						</ul>\r\n', 'Created', 0, 0, 0, '', '2023-12-10 09:32:32', 3378, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `notesheet_access_chain`
 --
 
@@ -7769,6 +7883,48 @@ CREATE TABLE `notesheet_access_chain` (
 INSERT INTO `notesheet_access_chain` (`id`, `chain_type`, `division_id`, `department_id`, `project_id`, `notesheet_type`, `users`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
 (24, 'default', 16, 129, 21, 0, '{\"3374\":\"1\",\"3373\":\"2\",\"3372\":\"3\"}', 1, '2023-09-21 07:55:41', 0, '0000-00-00 00:00:00'),
 (25, 'default', 16, 130, 21, 0, '{\"3377\":\"1\",\"3373\":\"2\",\"3372\":\"3\"}', 1, '2023-09-21 08:01:03', 0, '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notesheet_acknowledgement`
+--
+
+CREATE TABLE `notesheet_acknowledgement` (
+  `id` int(11) NOT NULL,
+  `notesheet_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `ack_order` int(11) NOT NULL COMMENT 'acknowledge order to show the RLP',
+  `ack_status` tinyint(4) NOT NULL DEFAULT 0,
+  `ack_request_date` datetime NOT NULL,
+  `ack_updated_date` datetime DEFAULT NULL,
+  `is_visible` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=not visible; 1= visible',
+  `created_by` int(11) NOT NULL,
+  `updated_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `notesheet_acknowledgement`
+--
+
+INSERT INTO `notesheet_acknowledgement` (`id`, `notesheet_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
+(505, 52, 3377, 1, 0, '2023-12-10 09:32:33', NULL, 1, 3378, NULL),
+(506, 52, 3373, 2, 0, '2023-12-10 09:32:33', NULL, 0, 3378, NULL),
+(507, 52, 3372, 3, 0, '2023-12-10 09:32:33', NULL, 0, 3378, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notesheet_remarks_history`
+--
+
+CREATE TABLE `notesheet_remarks_history` (
+  `id` int(11) NOT NULL,
+  `notesheet_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `remarks` longtext NOT NULL,
+  `remarks_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -8350,12 +8506,9 @@ CREATE TABLE `rlp_acknowledgement` (
 --
 
 INSERT INTO `rlp_acknowledgement` (`id`, `rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(1338, 1, 3374, 1, 0, '2023-12-04 10:00:17', NULL, 1, 3378, NULL),
-(1339, 1, 3373, 2, 0, '2023-12-04 10:00:17', NULL, 0, 3378, NULL),
-(1340, 1, 3372, 3, 0, '2023-12-04 10:00:17', NULL, 0, 3378, NULL),
-(1341, 2, 3374, 1, 0, '2023-12-04 10:36:31', NULL, 1, 3378, NULL),
-(1342, 2, 3373, 2, 0, '2023-12-04 10:36:31', NULL, 0, 3378, NULL),
-(1343, 2, 3372, 3, 0, '2023-12-04 10:36:31', NULL, 0, 3378, NULL);
+(1350, 1, 3374, 1, 6, '2023-12-10 08:07:53', '2023-12-10 13:08:49', 1, 3378, 3374),
+(1351, 1, 3373, 2, 6, '2023-12-10 13:08:49', '2023-12-10 13:09:17', 1, 3378, 3373),
+(1352, 1, 3372, 3, 1, '2023-12-10 13:09:17', '2023-12-10 13:10:06', 1, 3378, 3372);
 
 -- --------------------------------------------------------
 
@@ -8379,7 +8532,10 @@ CREATE TABLE `rlp_delete_history` (
 CREATE TABLE `rlp_details` (
   `id` int(11) NOT NULL,
   `rlp_info_id` int(11) NOT NULL,
-  `item_des` longtext DEFAULT NULL,
+  `item_des` varchar(200) DEFAULT NULL,
+  `material_id` varchar(50) NOT NULL,
+  `material_name` varchar(20) NOT NULL,
+  `part_no` varchar(50) NOT NULL,
   `purpose` longtext DEFAULT NULL,
   `quantity` varchar(100) DEFAULT NULL,
   `unit` varchar(11) NOT NULL,
@@ -8394,9 +8550,9 @@ CREATE TABLE `rlp_details` (
 -- Dumping data for table `rlp_details`
 --
 
-INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `purpose`, `quantity`, `unit`, `unit_price`, `amount`, `estimated_price`, `supplier`, `details_remarks`) VALUES
-(1, 1, 'zxcvcx', 'zxcv', '4', 'PCS', 34, 136, NULL, '', ''),
-(2, 1, 'cxcvxv', 'xvx', '5', 'PCS', 5, 25, NULL, '', '');
+INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `material_id`, `material_name`, `part_no`, `purpose`, `quantity`, `unit`, `unit_price`, `amount`, `estimated_price`, `supplier`, `details_remarks`) VALUES
+(1, 1, NULL, '02-01', '6', 'SPB-00001', 'office', '2', '20', 0, 0, NULL, NULL, NULL),
+(2, 1, NULL, '01-01', '5', 'LF4054/VG100070005', 'service', '5', '20', 0, 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -8435,8 +8591,7 @@ CREATE TABLE `rlp_info` (
 --
 
 INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `totalamount`, `rlp_status`, `is_viewd`, `is_ns`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
-(1, 'RLP-ENG-CTE-23-12-001', 3378, 'admin@saifpowertec.com', 3, '2023-12-04 12:00:00', 16, 130, 1, 'Tarafder Md Ruhul Saif', '', '', '', 'cvc', 0, 5, 0, 0, 3378, '2023-12-04 10:00:16', NULL, '0000-00-00 00:00:00', 0),
-(2, 'RLP-ENG-CTE-2023-12-002', 3378, 'admin@saifpowertec.com', 2, '2023-12-04 12:00:00', 16, 130, 1, 'Rubya Chowdhury', '', '', '', 'fghdf', 0, 5, 0, 0, 3378, '2023-12-04 10:36:30', NULL, '0000-00-00 00:00:00', 0);
+(1, 'RLP-ENG-CTE-2023-12-001', 3378, 'admin@saifpowertec.com', 3, '2023-12-10 12:00:00', 16, 130, 1, 'admin@saifpowertec.com', NULL, '', NULL, 'okay', 0, 1, 0, 1, 3378, '2023-12-10 08:07:53', 3372, '2023-10-12 13:10:06', 0);
 
 -- --------------------------------------------------------
 
@@ -8451,6 +8606,15 @@ CREATE TABLE `rlp_remarks_history` (
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `rlp_remarks_history`
+--
+
+INSERT INTO `rlp_remarks_history` (`id`, `rlp_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
+(786, 1, 3374, 'go ahead', '2023-12-10 13:08:49'),
+(787, 1, 3373, 'okay', '2023-12-10 13:09:17'),
+(788, 1, 3372, 'approved', '2023-12-10 13:10:06');
 
 -- --------------------------------------------------------
 
@@ -8624,7 +8788,7 @@ CREATE TABLE `status_details` (
 --
 
 INSERT INTO `status_details` (`id`, `name`, `bg_color`) VALUES
-(1, 'Approved', '#C3FDB8'),
+(1, 'Approve', '#C3FDB8'),
 (2, 'Processing', '#31708f'),
 (3, 'Reject', '#a94442'),
 (4, 'On Held', '#8a6d3b'),
@@ -9105,7 +9269,25 @@ INSERT INTO `userlog` (`id`, `userId`, `username`, `role_id`, `employee_id`, `us
 (286, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-04 08:51:18'),
 (287, 3374, ' ', 3, '', 0x3a3a31, '2023-12-04 09:02:54'),
 (288, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-04 09:05:13'),
-(289, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-04 09:08:25');
+(289, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-04 09:08:25'),
+(290, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-05 03:44:56'),
+(291, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-06 03:48:45'),
+(292, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-07 04:06:52'),
+(293, 3374, ' ', 3, '', 0x3a3a31, '2023-12-07 05:42:40'),
+(294, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-10 03:51:56'),
+(295, 3374, ' ', 3, '', 0x3a3a31, '2023-12-10 04:09:13'),
+(296, 3374, ' ', 3, '', 0x3a3a31, '2023-12-10 04:23:46'),
+(297, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-10 04:35:43'),
+(298, 3372, ' ', 21, '', 0x3a3a31, '2023-12-10 04:39:07'),
+(299, 3373, ' ', 13, '', 0x3a3a31, '2023-12-10 04:39:25'),
+(300, 3372, ' ', 21, '', 0x3a3a31, '2023-12-10 04:39:47'),
+(301, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-10 04:58:22'),
+(302, 3374, ' ', 3, '', 0x3a3a31, '2023-12-10 07:08:34'),
+(303, 3373, ' ', 13, '', 0x3a3a31, '2023-12-10 07:09:03'),
+(304, 3372, ' ', 21, '', 0x3a3a31, '2023-12-10 07:09:55'),
+(305, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-10 07:10:18'),
+(306, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-11 03:58:01'),
+(307, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-11 10:01:37');
 
 -- --------------------------------------------------------
 
@@ -9147,12 +9329,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `branch_id`, `department_id`, `project_id`, `office_id`, `role_id`, `type`, `store_id`, `designation`, `role_name`, `name`, `email`, `contact_number`, `profile_image`, `signature_image`, `password`, `is_password_changed`, `is_status`, `first_name`, `last_name`, `user_type`, `warehouse_id`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(1, 16, 130, 21, 'SA-000001', 14, '6', 1, '10', 'sa', '88 IT Admin', 'admin@admin.com', '', '', '16919031921667818730Nahid-Hasan-Sign1.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, '88i', 'Admin', 'admin', 1, 0, '2020-03-16 15:03:06', 1, '2023-08-13 11:06:32'),
-(3372, 16, 131, 21, 'IEL-000002', 21, '3', 0, '112', 'g20', 'Tarafder Md Ruhul Saif', 's@gmail.com', '', '', '', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '', '', '', 0, 0, '2023-07-30 10:56:08', 0, '0000-00-00 00:00:00'),
-(3373, 16, 131, 21, 'IEL-000005', 13, '2', 0, '15', 'g14', 'Md Jobaer Kabir', 'jk@gmail.com', '', '', '', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '', '', '', 0, 0, '2023-07-30 10:56:41', 0, '0000-00-00 00:00:00'),
-(3374, 16, 129, 21, 'IEL-000020', 3, '2', 0, '2', 'g10', 'Md. Babul Farajee', 'bf@gmail.com', '', '', '16919032131669633451Zakir-Hussain-handwritten-signature-500x340-removebg-preview.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, '', '', '', 0, 0, '2023-07-30 10:57:40', 1, '2023-08-13 11:06:53'),
-(3375, 16, 130, 21, 'IEL-000017', 5, '1', 0, '1', 'g8', 'Atiqur Rahman Bhuiyan', 'a@gmail.com', '01729714503', '', '', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '', '', '', 0, 0, '2023-07-30 11:09:21', 1, '2023-08-01 01:39:06'),
-(3377, 16, 130, 21, 'IEL-000016', 18, '2', 0, '2', 'g11', 'Muhammed Fakhrul Islam', 'fp@gmail.com', '123456', '', '', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '', '', '', 0, 0, '2023-08-01 01:41:37', 0, '0000-00-00 00:00:00'),
+(1, 16, 130, 1, 'SA-000001', 14, '6', 1, '10', 'sa', '88 IT Admin', 'admin@admin.com', '', '', '16919031921667818730Nahid-Hasan-Sign1.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, '88i', 'Admin', 'admin', 1, 0, '2020-03-16 15:03:06', 1, '2023-08-13 11:06:32'),
+(3372, 16, 131, 1, 'IEL-000002', 21, '3', 0, '112', 'g20', 'Tarafder Md Ruhul Saif', 's@gmail.com', '', '', '', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '', '', '', 0, 0, '2023-07-30 10:56:08', 0, '0000-00-00 00:00:00'),
+(3373, 16, 131, 1, 'IEL-000005', 13, '2', 0, '15', 'g14', 'Md Jobaer Kabir', 'jk@gmail.com', '', '', '', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '', '', '', 0, 0, '2023-07-30 10:56:41', 0, '0000-00-00 00:00:00'),
+(3374, 16, 129, 1, 'IEL-000020', 3, '2', 0, '2', 'g10', 'Md. Babul Farajee', 'bf@gmail.com', '', '', '16919032131669633451Zakir-Hussain-handwritten-signature-500x340-removebg-preview.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, '', '', '', 0, 0, '2023-07-30 10:57:40', 1, '2023-08-13 11:06:53'),
+(3375, 16, 130, 1, 'IEL-000017', 5, '1', 0, '1', 'g8', 'Atiqur Rahman Bhuiyan', 'a@gmail.com', '01729714503', '', '', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '', '', '', 0, 0, '2023-07-30 11:09:21', 1, '2023-08-01 01:39:06'),
+(3377, 16, 130, 1, 'IEL-000016', 18, '2', 0, '2', 'g11', 'Muhammed Fakhrul Islam', 'fp@gmail.com', '123456', '', '', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '', '', '', 0, 0, '2023-08-01 01:41:37', 0, '0000-00-00 00:00:00'),
 (3378, 16, 130, 1, 'admin@saifpowertec.com', 14, '6', 1, '10', 'sa', '88 IT Admin', 'admin@saifpowertec.com', '', '', '16919031921667818730Nahid-Hasan-Sign1.png', '77420bb74cf785398911d47854a2bfab', 1, 1, '88i', 'Admin', 'admin', 1, 0, '2020-03-16 15:03:06', 1, '2023-08-13 11:06:32');
 
 -- --------------------------------------------------------
@@ -9476,10 +9658,36 @@ ALTER TABLE `materialbalance`
   ADD KEY `id` (`id`);
 
 --
+-- Indexes for table `notesheets`
+--
+ALTER TABLE `notesheets`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notesheets_master`
+--
+ALTER TABLE `notesheets_master`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `notesheet_access_chain`
 --
 ALTER TABLE `notesheet_access_chain`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notesheet_acknowledgement`
+--
+ALTER TABLE `notesheet_acknowledgement`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rlp_info_id` (`notesheet_id`);
+
+--
+-- Indexes for table `notesheet_remarks_history`
+--
+ALTER TABLE `notesheet_remarks_history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rlp_info_id` (`notesheet_id`);
 
 --
 -- Indexes for table `notesheet_roles_group`
@@ -9515,6 +9723,12 @@ ALTER TABLE `permission_role`
 -- Indexes for table `priority_details`
 --
 ALTER TABLE `priority_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -9734,13 +9948,13 @@ ALTER TABLE `inv_invoice_details`
 -- AUTO_INCREMENT for table `inv_issue`
 --
 ALTER TABLE `inv_issue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `inv_issuedetail`
 --
 ALTER TABLE `inv_issuedetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `inv_item_unit`
@@ -9770,7 +9984,7 @@ ALTER TABLE `inv_material`
 -- AUTO_INCREMENT for table `inv_materialbalance`
 --
 ALTER TABLE `inv_materialbalance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `inv_materialcategory`
@@ -9782,7 +9996,7 @@ ALTER TABLE `inv_materialcategory`
 -- AUTO_INCREMENT for table `inv_materialcategorysub`
 --
 ALTER TABLE `inv_materialcategorysub`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `inv_material_level3`
@@ -9923,10 +10137,34 @@ ALTER TABLE `materialbalance`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `notesheets`
+--
+ALTER TABLE `notesheets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
+
+--
+-- AUTO_INCREMENT for table `notesheets_master`
+--
+ALTER TABLE `notesheets_master`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+
+--
 -- AUTO_INCREMENT for table `notesheet_access_chain`
 --
 ALTER TABLE `notesheet_access_chain`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `notesheet_acknowledgement`
+--
+ALTER TABLE `notesheet_acknowledgement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=508;
+
+--
+-- AUTO_INCREMENT for table `notesheet_remarks_history`
+--
+ALTER TABLE `notesheet_remarks_history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
 
 --
 -- AUTO_INCREMENT for table `notesheet_roles_group`
@@ -9965,6 +10203,12 @@ ALTER TABLE `priority_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
@@ -9980,7 +10224,7 @@ ALTER TABLE `rlp_access_chain`
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
 --
 ALTER TABLE `rlp_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1344;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1353;
 
 --
 -- AUTO_INCREMENT for table `rlp_delete_history`
@@ -10004,7 +10248,7 @@ ALTER TABLE `rlp_info`
 -- AUTO_INCREMENT for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=782;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=789;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -10070,7 +10314,7 @@ ALTER TABLE `tb_ledger`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=290;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=308;
 
 --
 -- AUTO_INCREMENT for table `users`
