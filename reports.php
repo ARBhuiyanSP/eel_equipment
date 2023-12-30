@@ -25,7 +25,12 @@ include 'header.php';
 								</ul>
 								<h5>Equipment Reports</h5>
 								<ul>
-									<a href="equipments-history.php"><li><b>Equips.History Report</b></li></a>
+									<a href="equipment_list_report.php"><li><b>Equipment List</b></li></a>
+									<a href="equipment_history_report.php"><li><b>Equipment Shifting Report</b></li></a>
+									<a href="datewise_logsheet_report.php"><li><b>Equipment Logsheet Report</b></li></a>
+									<a href="datewise_maintenance_report.php"><li><b>Schedule Maintenance Cost Report</b></li></a>
+									<a href="datewise_maintenance_cost_report.php"><li><b>Maintenance Cost Report</b></li></a>
+									<a href="equipments-history.php"><li><b>Equips.Cost History Report</b></li></a>
 								</ul>
 							</div>
 							

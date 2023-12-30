@@ -126,7 +126,7 @@
 									if (isset($projectsData) && !empty($projectsData)) {
 										foreach ($projectsData as $data) {
 											?>
-											<option value="<?php echo $data['id']; ?>"><?php echo $data['name']; ?></option>
+											<option value="<?php echo $data['id']; ?>"><?php echo $data['project_name']; ?></option>
 											<?php
 										}
 									}

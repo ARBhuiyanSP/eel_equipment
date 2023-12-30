@@ -30,14 +30,13 @@
     <!-- /.row -->
     <!-- table row -->
 	<div class="row">
-			<div class="col-xs-12 table-responsive">
+			<div class="col-md-12 table-responsive">
                 <p><?php echo $notesheets_master->ns_info ?></p>
 				<table class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>S/N</th>
                             <th>Item Description</th>
-                            <th>Part No</th>
                             <th width="10%">Quantity</th>
                             <th width="10%">Unit Price</th>
                             <th width="10%">Total</th>
@@ -54,38 +53,40 @@
                         ?>
                         <tr id="rec-1">
                             <td><?php echo $sl++; ?></td>
-                            <td><?php echo $data->item; ?></td>
-                            <td><?php echo $data->part_no; ?></td>
+							
+                            <td><?php $dataresult =   getDataRowByTableAndId('inv_material', $data->item);
+								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : ''); ?></td>
+                            
                             <td><?php echo $data->quantity; ?></td>
                             <td><?php echo $data->unit_price; ?></td>
                             <td><?php echo $data->total; ?></td>
                         </tr>                        
                             <?php } ?>
 						<tr id="rec-1">
-                            <td colspan="5" style="text-align:right">Sub Total: </td>
+                            <td colspan="4" style="text-align:right">Sub Total: </td>
                             <td><?php echo $notesheets_master->sub_total; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="5" style="text-align:right">AIT: </td>
+                            <td colspan="4" style="text-align:right">AIT: </td>
                             <td><?php echo $notesheets_master->ait; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="5" style="text-align:right">VAT: </td>
+                            <td colspan="4" style="text-align:right">VAT: </td>
                             <td><?php echo $notesheets_master->vat; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="5" style="text-align:right">Grand Total: </td>
+                            <td colspan="4" style="text-align:right">Grand Total: </td>
                             <td><?php echo $notesheets_master->grand_total; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="7" style="text-align:left"><b>In word: <?php echo convertNumberToWords($notesheets_master->grand_total); ?> Only</b></td>
+                            <td colspan="6" style="text-align:left"><b>In word: <?php echo convertNumberToWords($notesheets_master->grand_total); ?> Only</b></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <!-- /.col -->
 			<!---- Attachment View----->
-			<div class="col-xs-12">
+			<div class="col-md-12">
 				<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">View Attachment</button>
 				<!-- Modal -->
 				<div class="modal fade" id="myModal" role="dialog">

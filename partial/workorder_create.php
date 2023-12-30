@@ -1,8 +1,5 @@
 <?php
-
-	
-	
-	$currentUserId  	=   $_SESSION['logged']['user_id'];
+    $currentUserId  	=   $_SESSION['logged']['user_id'];
     $notesheet_id  	 	=   $_GET['id'];    
     $notesheets    		=   getNotesheetDetailsData($notesheet_id);   
     $notesheets_master	=   $notesheets['notesheets_master'];
@@ -24,6 +21,10 @@
                 <b>RLP NO: &nbsp;<span class="rlpno_style"><?php echo $notesheets_master->rlp_no ?></span></b><br>
                 <input type="hidden" name="rlp_no" value="<?php echo $notesheets_master->rlp_no; ?>">
                 <b>Request Date:</b> <?php echo human_format_date($notesheets_master->created_at) ?><br>
+				<b>Project:</b>&nbsp;<?php echo getProjectNameById($notesheets_master->request_project) ?><br>
+                <input type="hidden" name="request_project" value="<?php echo $notesheets_master->request_project; ?>" />
+				<b>Warehouse:</b>&nbsp;<?php echo getWarehouseNameById($notesheets_master->request_warehouse) ?><br>
+                <input type="hidden" name="request_warehouse" value="<?php echo $notesheets_master->request_warehouse; ?>" />
             </div>            
         </div>
         <!-- /.col -->
@@ -98,8 +99,10 @@
                         ?>
                         <tr id="rec-1">
                             <td><?php echo $sl++; ?></td>
-                            <td><?php echo (isset($data->item) && !empty($data->item) ? $data->item : ""); ?></td>
-							<input type="hidden" class="form-control" name="item[]" value="<?php echo (isset($data->item) && !empty($data->item) ? $data->item : ""); ?>" >
+                            <td><input type="text" class="form-control" name="" id="" value="<?php $dataresult =   getDataRowByTableAndId('inv_material', $data->item);
+								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : ''); ?>" readonly ></td>
+							
+                            <input type="hidden" class="form-control" name="item[]" id="" value="<?php echo (isset($data->item) && !empty($data->item) ? $data->item : ""); ?>" readonly >
                             <td></td>
                             <td><?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?></td>
 							<input type="hidden" class="form-control" name="quantity[]" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" >
@@ -110,7 +113,7 @@
                         </tr>                        
                             <?php } ?>
 							
-                        <?php if(is_super_admin($currentUserId)){ ?>                       
+                        <?php //if(is_super_admin($currentUserId)){ ?>                       
 					   <tr>
                             <td colspan="5" style="text-align:right">Sub Total : </td>
 							<td><?php echo (isset($notesheets_master->sub_total) && !empty($notesheets_master->sub_total) ? $notesheets_master->sub_total : ""); ?></td>
@@ -136,7 +139,7 @@
 								<input type="submit" class="btn btn-primary btn-block" name="create_workorder" value="Generate Work Order">
                             </td>
                         </tr>
-                        <?php }?>
+                        <?php// }?>
                     </tbody>
                 </table>
             </div>

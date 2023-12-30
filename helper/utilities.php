@@ -87,7 +87,7 @@ function getTableDataByTableNameAndIntId($table, $int_id, $dataType) {
     }
     return $dataContainer;
 }
-/* function getTableDataByTableName($table, $order = 'asc', $column='name', $dataType = 'obj') {
+ function getTableDataByTableName2($table, $order = 'asc', $column='name', $dataType = 'obj') {
     global $conn;
     $dataContainer  =   [];
     $sql = "SELECT * FROM $table order by $column $order";
@@ -106,7 +106,7 @@ function getTableDataByTableNameAndIntId($table, $int_id, $dataType) {
         }
     }
     return $dataContainer;
-} */
+} 
 
 function getTableDataByTableNameById($table, $order = 'asc', $column='id', $dataType = '') {
     global $conn;
@@ -692,10 +692,24 @@ function getProjectNameById($id){
     $name   =   '';
     if ($result->num_rows > 0) {
         //$name   =   $result->fetch_object()->project_name;
+        $name   =   $result->fetch_object()->project_name;
+    }
+    return $name;
+}
+
+function getWarehouseNameById($id){
+    global $conn;
+    $table  =   "inv_warehosueinfo";
+    $sql = "SELECT * FROM $table WHERE id=$id";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        //$name   =   $result->fetch_object()->project_name;
         $name   =   $result->fetch_object()->name;
     }
     return $name;
 }
+
 function get_table_next_primary_id($table){
     global $conn;
     $sql        = "SELECT count('id') as total FROM $table";
@@ -828,14 +842,14 @@ function get_wo_no($prefix="WO", $formater_length=3){
     $total_row  =   $result->fetch_object()->total;
     
     $nextRLP    =   $total_row+1;
-    $finalRLPNo = sprintf('%0' . $formater_length . 'd', $nextRLP);
+    $finalWoNo = sprintf('%0' . $formater_length . 'd', $nextRLP);
     //$divName    = replace_dashes(getDivisionNameById($division_id));
     $divName    = 'ENG';
     //$depName    = replace_dashes(getDepartmentNameById($department_id));
     $dep    = replace_dashes(getDepartmentNameById($department_id));
     $depName    = mb_substr($dep, 0, 3);
     
-    return $year."-".$month."-".$divName.'-'.$prefix.'-'.$finalRLPNo;
+    return $year."-".$month."-".$divName.'-'.$prefix.'-'.$finalWoNo;
 }
 function get_rrr_no($prefix="RRR", $formater_length=4){
     global $conn;
@@ -2041,8 +2055,10 @@ function get_unit_price_by_material_id($param)
 function get_lot_price_by_material_id($code)
 {
     global $conn;
+    $project_id     = $_SESSION['logged']['project_id'];
+    $warehouse_id   = $_SESSION['logged']['warehouse_id'];
 	$sql = "SELECT `id`, `mrr_no`, `material_id`, `receive_details_id`, `qty`, `price`, `status`
-	FROM `inv_product_price` WHERE material_id = '$code' AND `qty` > 0";
+	FROM `inv_product_price` WHERE project_id = $project_id AND warehouse_id = $warehouse_id AND material_id = '$code' AND `qty` > 0";
     $result = $conn->query($sql);
 	$dataContainer ="<option value=''>-Select-</option>";
 	 if ($result->num_rows > 0) {

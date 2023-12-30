@@ -105,11 +105,11 @@
 					</div>
 				</div>
 			
-					<div class="col-sm-6">
+					<div class="col-sm-8">
 						<label for="exampleId">List of Spare Parts Used</label>
 						<?php include('partial/cost_items_table.php'); ?>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-4">
 						<label for="exampleId">Responsible Mechanic</label>
 						<?php include('partial/cost_mechanics_table.php'); ?>
 					</div>

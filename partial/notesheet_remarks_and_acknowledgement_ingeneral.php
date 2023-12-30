@@ -1,5 +1,5 @@
 <div class="col-md-4">
-    <h4>Remarks History<hr></h4>
+    <h5>Remarks History<hr></h5>
     <div id="remarks_history_section">        
         <!-- /.box-comment -->
         <div class="box-footer box-comments">
@@ -7,7 +7,7 @@
         $table = "notesheet_remarks_history WHERE notesheet_id=$notesheet_id";
         $order = 'DESC';
         $column = 'remarks_date';
-        $allRemarksHistory = getTableDataByTableName($table, $order, $column);
+        $allRemarksHistory = getTableDataByTableNameRlp($table, $order, $column);
         if (isset($allRemarksHistory) && !empty($allRemarksHistory)) {
             foreach ($allRemarksHistory as $dat) {
                 ?>
@@ -37,7 +37,7 @@
         $table = "notesheet_acknowledgement WHERE notesheet_id=$notesheet_id";
         $order = 'DESC';
         $column = 'ack_request_date';
-        $allRemarksHistory = getTableDataByTableName($table, $order, $column);
+        $allRemarksHistory = getTableDataByTableName2($table, $order, $column);
         if (isset($allRemarksHistory) && !empty($allRemarksHistory)) {
             foreach ($allRemarksHistory as $dat) {
                 ?>

@@ -6,7 +6,7 @@
         ?>
                 <form id="notesheet_dh_update_form">        
                     <div class="common_individual_section approval_body_section_style">
-                        <h4>Acknowledgement<hr></h4>
+                        <h5>Acknowledgement<hr></h5>
                         <div class="radio">
                             <label><input type="radio" name="acknowledgement" value="6">Recommended</label>
                         </div>

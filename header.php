@@ -21,12 +21,16 @@ include 'includes/suppliers_process.php';
 include 'includes/format_process.php';
 include 'includes/return_process.php';
 include 'includes/payment_process.php';
-include 'includes/equipment_process.php';
+//include 'includes/equipment_process.php';
 include 'function/rlp_process.php';
 include 'function/rlp_chain_process.php';
 include 'function/notesheet_processing.php';
 include 'function/notesheet_chain_process.php';
+include 'function/workorder_processing.php';
 include 'function/user_management.php';
+include 'function/equipment_processing.php';
+include 'function/maintenance_cost_processing.php';
+include 'function/rent_processing.php';
 include 'includes/user_process.php';
 include 'includes/order_process.php';
 ?>
@@ -87,9 +91,15 @@ include 'includes/order_process.php';
 }
 .form-control{
 	border:1px solid #000 !important;
+	font-size:12px;
 }
 label{
 	font-weight:bold;
+	font-size:12px;
+}
+footer.sticky-footer{
+	width: calc(100% - 0px);
+	height:30px;
 }
 </style>
 <body id="page-top">
@@ -151,7 +161,7 @@ label{
             <?php
             
                 if(check_permission('equipment-list')){ ?>
-                    <a class="dropdown-item" href="equipment_entry.php">
+                    <a class="dropdown-item" href="equipment_list.php">
                 <i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
                 <span class="sub_menu_text_design"> Euipments</span>
             </a>
@@ -246,48 +256,66 @@ label{
           <!--<a class="dropdown-item" href="#">Activity Log</a>-->
         </div>
       </li>
-	  <li class="nav-item dropdown no-arrow">
+	  <!-- <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-server"></i> issue
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-               <?php if(check_permission('material-receive-add')){ ?>
+               <?php //if(check_permission('material-receive-add')){ ?>
 			<a class="dropdown-item" href="issue_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">Material issue</span></a>
-			<?php } ?>
+			<?php //} ?>
 			<a class="dropdown-item" href="issue-list.php"><i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">Issue List</span></a>
 		   
-          <!--<a class="dropdown-item" href="#">Settings</a>-->
-          <!--<a class="dropdown-item" href="#">Activity Log</a>-->
+         <a class="dropdown-item" href="#">Settings</a>
+         <a class="dropdown-item" href="#">Activity Log</a>
         </div>
-      </li>
-	  <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-server"></i> Orders
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-               <?php if(check_permission('material-receive-add')){ ?>
-			<a class="dropdown-item" href="order_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">Order Entry</span></a>
-			<?php } ?>
-			<a class="dropdown-item" href="order-list.php"><i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">Order List</span></a>
-		   
-          <!--<a class="dropdown-item" href="#">Settings</a>-->
-          <!--<a class="dropdown-item" href="#">Activity Log</a>-->
-        </div>
-      </li>
+      </li> -->
 	  <li class="nav-item dropdown no-arrow">
         <?php //if(check_permission('material-issue-list')){ ?>
 		<a class="nav-link" href="rlp_list.php" id="userDropdown">
-          <i class="fa fa-key"></i> RLP
+          <i class="fa fa-server"></i> RLP
         </a>
 		<?php //} ?>
 		</li>
       <li class="nav-item dropdown no-arrow">
         <?php //if(check_permission('material-issue-list')){ ?>
         <a class="nav-link" href="notesheets_list.php" id="userDropdown">
-          <i class="fa fa-key"></i> Notesheet
+          <i class="fa fa-server"></i> Notesheet
         </a>
         <?php //} ?>
         </li>
+		 <li class="nav-item dropdown no-arrow">
+        <?php //if(check_permission('material-issue-list')){ ?>
+        <a class="nav-link" href="workorders_list.php" id="userDropdown">
+          <i class="fa fa-server"></i> Workorder
+        </a>
+        <?php //} ?>
+        </li>
+		 <li class="nav-item dropdown no-arrow">
+        <?php //if(check_permission('material-issue-list')){ ?>
+        <a class="nav-link" href="rent.php" id="userDropdown">
+          <i class="fa fa-server"></i> Rent
+        </a>
+        <?php //} ?>
+        </li>
+		
+		
+	  <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-server"></i> Maintenance
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+			<a class="dropdown-item" href="logsheet.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Logsheet</span></a>            
+			<?php //if(check_permission('material-receive-add')){ ?>
+			<a class="dropdown-item" href="schedulemaintenance.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Schedule Maintenance</span></a>
+			<?php //} ?>
+			<a class="dropdown-item" href="maintenance_cost.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Maintenance Cost</span></a>
+		   
+          <!--<a class="dropdown-item" href="#">Settings</a>-->
+          <!--<a class="dropdown-item" href="#">Activity Log</a>-->
+        </div>
+      </li>
+		
 	  <li class="nav-item dropdown no-arrow">
         
 		<a class="nav-link" href="reports.php" id="userDropdown">

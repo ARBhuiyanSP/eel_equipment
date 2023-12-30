@@ -37,14 +37,10 @@ if(!check_permission('material-list')){
                                         <tr>
                                             <th>ID</th>
                                             <th>Action</th>
-                                            <th>Equipment</th>
-                                            <th>Equipt.Brand</th>
                                             <th>Material Code</th>
                                             <th>Material</th>
                                             <th>Part no</th>
                                             <th>Old Part No</th>
-                                            <th>Specification</th>
-                                            <th>Location</th>
                                             <th>Unit</th>
                                         </tr>
                                     </thead>
@@ -71,19 +67,11 @@ if(!check_permission('material-list')){
            <i class="fa fa-plus" aria-hidden="true"></i>
         </button>
 </td>
-<td>
-    <?php 
-    $dataresult =   getDataRowByTableAndId('inv_materialcategorysub', $item['material_id']);
-    echo (isset($dataresult) && !empty($dataresult) ? $dataresult->category_description : '');
-    ?>
-</td>
-<td></td>
+
 <td><?php echo $item['material_id_code']; ?></td>
 <td><?php echo $item['material_description']; ?></td>
 <td><?php echo $item['part_no']; ?></td>
 <td><?php echo $item["old_part_no"];?></td>
-<td><?php echo $item['spec']; ?></td>
-<td><?php echo $item['location']; ?></td>
 <td><?php echo getDataRowByTableAndId('inv_item_unit', $item['qty_unit'])->unit_name; ?></td>
                                                    
                                                 </tr>

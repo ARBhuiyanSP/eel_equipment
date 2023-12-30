@@ -59,10 +59,10 @@ include 'header.php';
 							<table id="dataTable" class="table table-bordered table-striped table-hover">
 								<thead>
 									<tr>
-										<th>Project Code</th>
-										<th>Project Name</th>
+										<th width="10%">Project Code</th>
+										<th width="30%">Project Name</th>
 										<th>Address</th>
-										<th>Action</th>
+										<th width="10%">Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -74,7 +74,7 @@ include 'header.php';
                                             ?>
 									<tr>
 										<td><?php echo $data['code']; ?></td>
-										<td><?php echo $data['name']; ?></td>
+										<td><?php echo $data['project_name']; ?></td>
 										<td><?php echo $data['address']; ?></td>
 										<td>
 											<?php if(check_permission('project-edit')){ ?>

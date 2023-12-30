@@ -63,13 +63,13 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
                             </div>
                         </td>
                         <td>
-                            <?php if (check_permission('user-list')) {?>
+                            <?php //if (check_permission('user-list')) {?>
 							
 							
                             <a title="Edit RLP" class="btn btn-sm btn-info" href="notesheet_update.php?id=<?php echo $adata->id; ?>">
                                 <span class="fa fa-pencil"> Details</span>
                             </a>
-                            <?php  }?>
+                            <?php  //}?>
 							
 							
 							
@@ -99,7 +99,8 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
                             </a>
                             <?php //} ?>	
 
-							<?php if(check_permission('notesheet-approve') && get_status_name($adata->notesheet_status)=='Approve' && $adata->is_wo==0){ ?>
+							<?php //if(check_permission('notesheet-approve') && get_status_name($adata->notesheet_status)=='Approve' && $adata->is_wo==0){ ?>
+							<?php if(get_status_name($adata->notesheet_status)=='Approve' && $adata->is_wo==0){ ?>
                             <a title="Edit RLP" class="btn btn-sm btn-success" href="create_workorder.php?id=<?php echo $adata->id; ?>">
                                 <span class="fa fa-plus"> Work Order</span>
                             </a>

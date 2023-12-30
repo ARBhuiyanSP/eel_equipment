@@ -51,7 +51,7 @@
 				 <?php } ?>
 			</div>
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-2">
 			<div class="form-group">
 				<label for="sel1">Project:</label>
 				<?php if (is_super_admin($currentUserId)) { ?>
@@ -61,7 +61,7 @@
 					$table = "projects";
 					$order = "ASC";
 					$column = "project_name";
-					$datas = getTableDataByTableName($table, $order, $column);
+					$datas = getTableDataByTableName2($table, $order, $column);
 					foreach ($datas as $data) {
 						?>
 						<option value="<?php echo $data->id; ?>"><?php echo $data->project_name; ?></option>
@@ -70,6 +70,29 @@
 				<?php } else{?>
 				 <input type="text" class="form-control" value="<?php echo getProjectNameById($_SESSION['logged']['project_id']); ?>" readonly />
 				 <input name="request_project" type="hidden" value="<?php echo $_SESSION['logged']['project_id']; ?>" />
+				 <?php } ?>
+			</div>
+		</div>
+		
+		<div class="col-sm-2">
+			<div class="form-group">
+				<label for="sel1">Warehouse:</label>
+				<?php if (is_super_admin($currentUserId)) { ?>
+				<select class="form-control" id="project_id" name="request_warehouse">
+					<option value="">Please select</option>
+					<?php
+					$table = "projects";
+					$order = "ASC";
+					$column = "inv_warehosueinfo";
+					$datas = getTableDataByTableName2($table, $order, $column);
+					foreach ($datas as $data) {
+						?>
+						<option value="<?php echo $data->id; ?>"><?php echo $data->name; ?></option>
+					<?php } ?>
+				</select>
+				<?php } else{?>
+				 <input type="text" class="form-control" value="<?php echo getProjectNameById($_SESSION['logged']['warehouse_id']); ?>" readonly />
+				 <input name="request_warehouse" type="hidden" value="<?php echo $_SESSION['logged']['warehouse_id']; ?>" />
 				 <?php } ?>
 			</div>
 		</div>

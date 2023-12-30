@@ -1,8 +1,8 @@
 <?php include 'header.php' ?>
-<?php if(!check_permission('material-stock-report')){ 
+<?php /* if(!check_permission('material-stock-report')){ 
         include("404.php");
         exit();
- } ?>
+ } */ ?>
 <div class="container-fluid">
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">

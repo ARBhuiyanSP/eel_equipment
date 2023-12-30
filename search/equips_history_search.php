@@ -19,16 +19,16 @@
                                     <select class="form-control material_select_2" name="equipments" id="equipments" required >
 										<option value="">Select</option>
 										<?php
-										$projectsData = getTableDataByTableName('equipments', '', 'equipment_no');
+										$projectsData = getTableDataByTableName('equipments', '', 'eel_code');
 										if (isset($projectsData) && !empty($projectsData)) {
 											foreach ($projectsData as $data) {
-												if($_GET['equipments'] == $data['equipment_no']){
+												if($_GET['equipments'] == $data['eel_code']){
 												$selected	= 'selected';
 												}else{
 												$selected	= '';
 												}
 												?>
-												<option value="<?php echo $data['equipment_no']; ?>" <?php echo $selected; ?>><?php echo $data['equipment_no']; ?></option>
+												<option value="<?php echo $data['eel_code']; ?>" <?php echo $selected; ?>><?php echo $data['eel_code']; ?></option>
 												<?php
 											}
 										}
@@ -83,8 +83,8 @@ if(isset($_GET['submit'])){
 					<center>
 						<p>
 							<img src="images/Saif_Engineering_Logo_165X72.png" height="50px;"/><br>
-							<h5>CTED CHATTOGRAM</h5> 
-							<span>Equipments History Report</span></br>
+							<h5>E-Engineering Ltd</h5> 
+							<span>Equipments Cost History Report</span></br>
 							<span style="font-size:18px;font-weight:bold;">Equipment Name : <?php echo $equipments; ?></span></br>
 							From <span class="dtext"><?php echo date("jS F Y", strtotime($from_date));?></span> To  <span class="dtext"><?php echo date("jS F Y", strtotime($to_date));?> </span><br>
 						</p>
@@ -94,11 +94,11 @@ if(isset($_GET['submit'])){
 				<table id="" class="table table-bordered list-table-custom-style">
 					<thead>
 						<tr>
-							<th>Issue Date</th>
-							<th>Issue No</th>
+							<th>Date</th>
+							<th>Ref No</th>
 							<th>Material Name</th>
 							<th>Part No</th>
-							<th>Specs</th>
+							<th>Type</th>
 							<th>Unit</th>
 							<th>QTY</th>
 							<th>Unit Price</th>
@@ -110,32 +110,29 @@ if(isset($_GET['submit'])){
 						<?php
 							$totalQty = 0;
 							$totalAmount = 0;
-							$sqlall	=	"SELECT * FROM `inv_issuedetail` WHERE `use_in` = '$equipments' AND `issue_date` BETWEEN '$from_date' AND '$to_date';;";
+							$sqlall	=	"SELECT * FROM `inv_materialbalance` WHERE `eel_code` = '$equipments' AND `mbtype` in ('maintenance' AND 'mCost') AND `mb_date` BETWEEN '$from_date' AND '$to_date';;";
 							$resultall = mysqli_query($conn, $sqlall);
 							while($rowall=mysqli_fetch_array($resultall))
 							{
-								$totalQty += $rowall['issue_qty'];
-								$totalAmount += $rowall['issue_qty'] * $rowall['issue_price'];
+								$totalQty += $rowall['mbout_qty'];
+								$totalAmount += $rowall['mbout_qty'] * $rowall['mbout_val'];
 								
 						?>
 						<tr>
-							<td><?php echo date("j M y", strtotime($rowall['issue_date']));?></td>
-							<td><a href="issue-view.php?no=<?php echo $rowall['issue_id']; ?>" target="blank"><?php echo $rowall['issue_id']; ?></a></td>
+							<td><?php echo date("j M y", strtotime($rowall['mb_date']));?></td>
+							<td><a href="issue-view.php?no=<?php echo $rowall['mb_ref_id']; ?>" target="blank"><?php echo $rowall['mb_ref_id']; ?></a></td>
 							<td><?php 
 								$dataresult =   getDataRowByTableAndId('inv_material', $rowall['material_name']);
 								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : '');
 							?>
 							</td>
 							<td><?php echo $rowall['part_no']; ?></td>
+							<td><?php echo $rowall['mbtype']; ?></td>
 							
-							<td style="text-align:center"><?php 
-								$dataresult =   getDataRowByTableAndId('inv_material', $rowall['material_name']);
-								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->spec : '');
-							?></td>
-							<td><?php echo getDataRowByTableAndId('inv_item_unit', $rowall['unit'])->unit_name; ?></td>
-							<td style="text-align:right;"><?php echo $rowall['issue_qty']; ?></td>
-							<td style="text-align:right;"><?php echo $rowall['issue_price']; ?></td>
-							<td style="text-align:right;"><?php echo $rowall['issue_qty'] * $rowall['issue_price'];?></td>
+							<td><?php echo getDataRowByTableAndId('inv_item_unit', $rowall['mbunit_id'])->unit_name; ?></td>
+							<td style="text-align:right;"><?php echo $rowall['mbout_qty']; ?></td>
+							<td style="text-align:right;"><?php echo $rowall['mbout_val']; ?></td>
+							<td style="text-align:right;"><?php echo $rowall['mbout_qty'] * $rowall['mbout_val'];?></td>
 						</tr>
 						<?php } ?>
 						<tr style="text-align:right;">

@@ -90,14 +90,10 @@ $(document).ready(function() {
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-comments"></i>
                 </div>
-				<?php
-				$sqlpck	=	"SELECT * FROM `equipments` where `type_id`='47'";
-				$resultpck = mysqli_query($conn, $sqlpck);
-				$totalPackage = mysqli_num_rows($resultpck);
-				?>
-                <div class="mr-5"><?php echo $totalPackage; ?> Total RTG</div>
+				<?php $table    =   "equipments";  ?>
+                <div class="mr-5"><?php echo getDataRowByTable($table); ?> Total Equipments</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="equipment_entry.php">
+              <a class="card-footer text-white clearfix small z-1" href="equipment_list.php">
                 <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -111,14 +107,10 @@ $(document).ready(function() {
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-comments"></i>
                 </div>
-				<?php
-				$sqlpck	=	"SELECT * FROM `equipments` where `type_id`='46'";
-				$resultpck = mysqli_query($conn, $sqlpck);
-				$totalPackage = mysqli_num_rows($resultpck);
-				?>
-                <div class="mr-5"><?php echo $totalPackage; ?> Total QGC</div>
+				<?php $table    =   "rlp_info";  ?>
+                <div class="mr-5"><?php echo getDataRowByTable($table); ?> Total RLP</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="equipment_entry.php">
+              <a class="card-footer text-white clearfix small z-1" href="rlp_list.php">
                 <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -132,14 +124,10 @@ $(document).ready(function() {
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-comments"></i>
                 </div>
-				<?php
-				$sqlpck	=	"SELECT * FROM `equipments` where `type_id`='51'";
-				$resultpck = mysqli_query($conn, $sqlpck);
-				$totalPackage = mysqli_num_rows($resultpck);
-				?>
-                <div class="mr-5"><?php echo $totalPackage; ?> Total TRAILER</div>
+				<?php $table    =   "notesheets_master";  ?>
+                <div class="mr-5"><?php echo getDataRowByTable($table); ?> Total Notesheet</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="equipment_entry.php">
+              <a class="card-footer text-white clearfix small z-1" href="notesheets_list.php">
                 <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -153,14 +141,10 @@ $(document).ready(function() {
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-comments"></i>
                 </div>
-				<?php
-				$sqlpck	=	"SELECT * FROM `equipments` where `type_id`='49'";
-				$resultpck = mysqli_query($conn, $sqlpck);
-				$totalPackage = mysqli_num_rows($resultpck);
-				?>
-                <div class="mr-5"><?php echo $totalPackage; ?> Total FLT</div>
+				<?php $table    =   "workorders_master";  ?>
+                <div class="mr-5"><?php echo getDataRowByTable($table); ?> Total Work Order</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="equipment_entry.php">
+              <a class="card-footer text-white clearfix small z-1" href="workorders_list.php">
                 <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>

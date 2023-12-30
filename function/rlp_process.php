@@ -38,6 +38,7 @@ function execute_rlp_info_table(){
     $request_division		= (isset($_POST['request_division']) && !empty($_POST['request_division']) ? trim(mysqli_real_escape_string($conn,$_POST['request_division'])) : "");
     $request_department		= (isset($_POST['request_department']) && !empty($_POST['request_department']) ? trim(mysqli_real_escape_string($conn,$_POST['request_department'])) : "");
     $request_project		= (isset($_POST['request_project']) && !empty($_POST['request_project']) ? trim(mysqli_real_escape_string($conn,$_POST['request_project'])) : "");
+    $request_warehouse		= (isset($_POST['request_warehouse']) && !empty($_POST['request_warehouse']) ? trim(mysqli_real_escape_string($conn,$_POST['request_warehouse'])) : "");
     $request_person		= 1;
     $rlpNo		= (isset($_POST['rlp_no']) && !empty($_POST['rlp_no']) ? trim(mysqli_real_escape_string($conn,$_POST['rlp_no'])) : "");
     $sub_total_amount		= (isset($_POST['sub_total_amount']) && !empty($_POST['sub_total_amount']) ? trim(mysqli_real_escape_string($conn,$_POST['sub_total_amount'])) : "");
@@ -58,6 +59,7 @@ function execute_rlp_info_table(){
         'request_division'      =>  $request_division,
         'request_department'    =>  $request_department,
         'request_project'   	=>  $request_project,
+        'request_warehouse'   	=>  $request_warehouse,
         'request_person'        =>  $_SESSION['logged']['office_id'],
        /*  'designation'           =>  $_SESSION['logged']['designation'],
         'email'                 =>  $_SESSION['logged']['email'],

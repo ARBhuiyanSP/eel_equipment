@@ -30,6 +30,8 @@
                 Department:&nbsp;<?php echo getDepartmentNameById($rlp_info->request_department) ?><br>
                 Project:&nbsp;<?php echo getProjectNameById($rlp_info->request_project) ?><br>
                 <input type="hidden" name="request_project" value="<?php echo $rlp_info->request_project; ?>" />
+				Warehouse:&nbsp;<?php echo getWarehouseNameById($rlp_info->request_warehouse) ?><br>
+                <input type="hidden" name="request_warehouse" value="<?php echo $rlp_info->request_warehouse; ?>" />
             </address>
         </div>
         <!-- /.col -->
@@ -113,7 +115,13 @@
                         ?>
                         <tr id="row<?php echo $data->id ?>">
                             <td><?php echo $sl++; ?></td>
-                            <td><input type="text" class="form-control" name="item[]" id="" value="<?php echo (isset($data->material_name) && !empty($data->material_name) ? $data->material_name : ""); ?>" readonly ></td>
+							
+							
+                            <td><input type="text" class="form-control" name="" id="" value="<?php $dataresult =   getDataRowByTableAndId('inv_material', $data->material_name);
+								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : ''); ?>" readonly ></td>
+							
+                            <input type="hidden" class="form-control" name="item[]" id="" value="<?php echo (isset($data->material_name) && !empty($data->material_name) ? $data->material_name : ""); ?>" readonly >
+							
                             <td><?php echo $data->purpose; ?></td>
                             <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="quantity[]" id="quantity_<?php echo $data->id; ?>" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" required ></td>
                             <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="unit_price[]" id="unit_price_<?php echo $data->id; ?>" value="" required ></td>

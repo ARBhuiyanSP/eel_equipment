@@ -57,7 +57,7 @@
 					<center>
 						<p>
 							<img src="images/Saif_Engineering_Logo_165X72.png" height="50px;"/><br>
-							<h5>CTED CHATTOGRAM</h5>
+							<h4>E-Engineering Ltd</h4>
 							<span>Material Stock Report</span><br>
 							Till  <span class="dtext"><?php echo date("jS F Y", strtotime($to_date));?> </span><br>
 						</p>
@@ -66,47 +66,44 @@
 			</div>
 			<?php
 					
-			$sql = "SELECT t1.id,t1.id as category_id,t1.parent_id,t1.category_description
-				FROM  `inv_materialcategorysub` as t1 ";
-$result = mysqli_query($conn, $sql);	
-$category_resize_data =[]; 
- while ($row = $result->fetch_assoc()) {
-        $category_resize_data[] = $row;
-    }
-$data =  buildTreeCateogy($category_resize_data);
+			$sql = "SELECT t1.id,t1.id as category_id,t1.parent_id,t1.category_description FROM `inv_materialcategorysub` as t1 ";
+			$result = mysqli_query($conn, $sql);	
+			$category_resize_data =[]; 
+			while ($row = $result->fetch_assoc()) 
+				{
+					$category_resize_data[] = $row;
+				}
+			$data =  buildTreeCateogy($category_resize_data);
 
-
-function fetch_category_wise_data($cateory_id,$to_date){
- 	global $conn;
- 	$sql2=" SELECT t1.mb_date,t2.material_id,t1.mb_materialid,t2.material_description,t2.spec,t2.part_no,t2.qty_unit, t3.unit_name,SUM(t1.mbin_qty-t1.mbout_qty) as qty_balance,t1.mb_materialid FROM `inv_materialbalance` AS t1
+			function fetch_category_wise_data($cateory_id,$to_date){
+			global $conn;
+			$sql2=" SELECT t1.mb_date,t2.material_id,t1.mb_materialid,t2.material_description,t2.spec,t2.part_no,t2.qty_unit, t3.unit_name,SUM(t1.mbin_qty-t1.mbout_qty) as qty_balance,t1.mb_materialid FROM `inv_materialbalance` AS t1
 			INNER JOIN inv_material AS t2 ON t1.mb_materialid=t2.material_id_code
 			INNER JOIN inv_item_unit AS t3 ON t3.id=t2.qty_unit
-			WHERE 1=1 AND t2.material_id=$cateory_id AND t1.mb_date <= '$to_date'   GROUP BY t1.mb_materialid ";
-	$result = mysqli_query($conn, $sql2);
-	$group_sub_total=0;
-	while ($val = $result->fetch_assoc()) {
-		$group_sub_total +=$val['qty_balance'];
-		$GLOBALS["grand_total"]+=$val['qty_balance'];
-		echo  "<tr>
-				<td colspan='2'>".$val['material_description']."</td>
-				<td>".$val['part_no']."</td>
-				<td>".$val['spec']."</td>
-				<td>".$val['unit_name']."</td>
-				<td>".$val['qty_balance']."</td>
-			</tr>";
-		}
-		$rowcount=mysqli_num_rows($result);
-		if($rowcount < 1) { 
-			echo "<tr><td colspan='6'><center>No Data Found</center></td></tr>";
-			} 
+			WHERE 1=1 AND t2.material_id=$cateory_id AND t1.mb_date <= '$to_date' GROUP BY t1.mb_materialid ";
+			$result = mysqli_query($conn, $sql2);
+			$group_sub_total=0;
+			while ($val = $result->fetch_assoc()) {
+				$group_sub_total +=$val['qty_balance'];
+				$GLOBALS["grand_total"]+=$val['qty_balance'];
+				echo "<tr>
+						<td colspan='2'>".$val['material_description']."</td>
+						<td>".$val['part_no']."</td>
+						<td>".$val['spec']."</td>
+						<td>".$val['unit_name']."</td>
+						<td>".$val['qty_balance']."</td>
+					</tr>";
+				}
+			$rowcount=mysqli_num_rows($result);
+			if($rowcount < 1) { 
+					echo "<tr><td colspan='6'><center>No Data Found</center></td></tr>";
+				} 
 
-		if($group_sub_total > 0){
-		echo  "<tr><td colspan='5'><b style='float:right'>Sub Total</b></td>
+			if($group_sub_total > 0){
+				echo  "<tr><td colspan='5'><b style='float:right'>Sub Total</b></td>
 					<td><b>".$group_sub_total."</b></td></tr>";
-		}
- 	}			
-					  
-
+				}
+		}			
 ?>
 				<table id="" class="table table-bordered table-striped ">
 					<thead>
@@ -121,25 +118,25 @@ function fetch_category_wise_data($cateory_id,$to_date){
 					<tbody>
 					 
 					 <?php
-                                    $html = '';
-                                    function generateOptions($data, $indent = 0,$to_date='') {
-                                        foreach ($data as $key => $value) {?>
-                                           <tr>
-                                           	<td colspan="6"><b><?php echo str_repeat('-', $indent * 1) .$value['category_description']; ?></b></td>
-                                           </tr>
-                                          
-                                           <?php
-                                            //Fetch Root Level Data By Category Id
-                                            fetch_category_wise_data($value['category_id'],$to_date);
-                                            ?>
-                                          <?php   if (isset($value['children']) && is_array($value['children']) && !empty($value['children'])) {
-                                                generateOptions($value['children'], $indent + 1,$to_date);
-                                            }
-                                        }
-                                    }
-                                    
-                                    generateOptions($data,$indent = 0,$to_date);
-                                    ?>
+						$html = '';
+						function generateOptions($data, $indent = 0,$to_date='') {
+							foreach ($data as $key => $value) {?>
+							   <tr>
+								<td colspan="6"><b><?php echo str_repeat('-', $indent * 1) .$value['category_description']; ?></b></td>
+							   </tr>
+							  
+							   <?php
+								//Fetch Root Level Data By Category Id
+								fetch_category_wise_data($value['category_id'],$to_date);
+								?>
+							  <?php   if (isset($value['children']) && is_array($value['children']) && !empty($value['children'])) {
+									generateOptions($value['children'], $indent + 1,$to_date);
+								}
+							}
+						}
+						
+						generateOptions($data,$indent = 0,$to_date);
+						?>
 					</tbody>
 					<tfoot>
 						<tr>

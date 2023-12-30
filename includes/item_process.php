@@ -212,7 +212,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'item'){
         if(isset($_POST['material_update_id']) && !empty($_POST['material_update_id'])){
             $edit_id     =   $_POST['material_update_id'];
             /* $sql         = "UPDATE inv_material SET material_id_code='$item_code',material_id='$parent_id',material_sub_id='$sub_item_id',material_level3_id='$material_level3_id',material_level4_id='$material_level4_id',material_description='$name',spec='$spec',material_min_stock='$material_min_stock',qty_unit='$qty_unit',part_no='$part_no' WHERE id=$edit_id"; */
-             $sql         = "UPDATE inv_material SET material_description='$name',spec='$spec',location='$location',material_min_stock='$material_min_stock',qty_unit='$qty_unit',part_no='$part_no' WHERE id=$edit_id";
+             $sql         = "UPDATE inv_material SET material_description='$name',spec='$spec',location='$location',material_min_stock='$material_min_stock',qty_unit='$qty_unit' WHERE id=$edit_id";
             $status      = 'success';
             $message     = 'Data have been successfully updated!';
            // $feedback = item_table_json_response('inv_material');            
@@ -724,19 +724,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'material_edit'){
                     <input type="text" class="form-control" id="edit_item_name" placeholder="brand name" name="spec" value="<?php if(isset($editData->spec)){ echo $editData->spec; } ?>">
                 </div>
             </div> </br>
-            <!-- <div class="form-group">
-                <label class="control-label col-sm-5" for="name">Type:</label>
-                <div class="col-sm-7">
-                    <select class="form-control" id="type" name="type">
-                        <option value="<?php if(isset($editData->type)){ echo $editData->type; } ?>"><?php if(isset($editData->type)){ echo $editData->type; } ?></option>
-                        <option value="CIVIL">CIVIL</option>
-                        <option value="ELECTRICAL">ELECTRICAL</option>
-                        <option value="MACHANICAL">MACHANICAL</option>
-                        <option value="SANITARY">SANITARY</option>
-                        <option value="HARDWARE">HARDWARE</option>
-                    </select>
-                </div>
-            </div> -->
+           
             <div class="form-group">
                 <label class="control-label col-sm-5" for="parent_code">Unit:</label>
                 <div class="col-sm-7">

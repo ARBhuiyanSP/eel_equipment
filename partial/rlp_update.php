@@ -64,7 +64,10 @@
                         ?>
                         <tr id="rec-1">
                             <td><?php echo $sl++; ?></td>
-                            <td><?php echo $data->item_des; ?></td>
+                            <td><?php 
+									$dataresult =   getDataRowByTableAndId('inv_material', $data->material_name);
+									echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : '');
+										?></td>
                             <td><?php echo $data->purpose; ?></td>
                             <td><?php echo $data->quantity; ?></td>
                             <td><?php echo $data->unit_price; ?></td>

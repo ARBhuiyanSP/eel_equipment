@@ -36,12 +36,11 @@
 		
 		<?php    
 			if(isset($_POST['submit'])){ 
-				$eel_code = $_POST['eel_code'];
-				$sql	=	"select * from `equipments` where `eel_code`='$eel_code'";
-				$result = mysqli_query($conn, $sql);
-				$row=mysqli_fetch_array($result);
-				
-				$id			= $row['eel_code'];
+				$eel_code 	= 	$_POST['eel_code'];
+				$sql		=	"select * from `equipments` where `eel_code`='$eel_code'";
+				$result 	= 	mysqli_query($conn, $sql);
+				$row		=	mysqli_fetch_array($result);
+				$id			= 	$row['eel_code'];
 				$sm_details    =   getSMDetailsData($id);   
 				$sm_info       =   $sm_details['maintenance'];
 				$sm_details    =   $sm_details['maintenance'];
@@ -49,102 +48,132 @@
 		
 		<form action="" method="post">
 			<div class="" id="printableArea" style="display:block;">
-				<div class="col-sm-2">
-					<div class="form-group">
-						<label for="exampleId">Project</label>
-						<input name="" type="text" class="form-control" id="" value="<?php $dataresult =   getDataRowByTableAndId('projects', $row['project_id']); echo (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : ''); ?>" autocomplete="off" readonly />
-					</div>
-					<input name="project_id" type="hidden" class="form-control" id="project_id" value="<?php echo $row['project_id']; ?>" autocomplete="off" />
-				</div>
-				<div class="col-sm-2">
-					<div class="form-group">
-						<label for="exampleId">EEL Code</label>
-						<input name="equipment_id" type="text" class="form-control" id="equipment_id" value="<?php echo $row['eel_code']; ?>" autocomplete="off" readonly />
-					</div>
-				</div>
 				
-				 <div class="col-sm-2">
-					<div class="form-group">
-						<label for="exampleId">Equipment Name</label>
-						<input name="equipment_Name" type="text" class="form-control" id="equipment_Name" value="<?php echo $row['name']; ?>" autocomplete="off" readonly />
-					</div>
-				</div>
-				 <div class="col-sm-2">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label for="exampleId">Project</label>
+									<input name="" type="text" class="form-control" id="" value="<?php $dataresult =   getDataRowByTableAndId('projects', $row['project_id']); echo (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : ''); ?>" autocomplete="off" readonly />
+								</div>
+								<input name="project_id" type="hidden" class="form-control" id="project_id" value="<?php echo $row['project_id']; ?>" autocomplete="off" />
+							</div>
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label for="exampleId">EEL Code</label>
+									<input name="equipment_id" type="text" class="form-control" id="equipment_id" value="<?php echo $row['eel_code']; ?>" autocomplete="off" readonly />
+								</div>
+							</div>
+				
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label for="exampleId">Equipment Name</label>
+									<input name="equipment_Name" type="text" class="form-control" id="equipment_Name" value="<?php echo $row['name']; ?>" autocomplete="off" readonly />
+								</div>
+							</div>
+				<div class="col-sm-3">
 					<div class="form-group">
 						<label for="exampleId">Brand/Make By</label>
 						<input name="makeby" type="text" class="form-control" id="makeby" value="<?php echo $row['makeby']; ?>" autocomplete="off" readonly />
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-4">
 					<div class="form-group">
 						<label for="exampleId">Model</label>
 						<input name="model" type="text" class="form-control" id="model" value="<?php echo $row['model']; ?>" autocomplete="off" readonly />
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-4">
 					<div class="form-group">
 						<label for="exampleId">Date of service</label>
 						<input name="lastseervice_date" type="text" class="form-control" id="rlpdate" value="<?php echo date("Y-m-d"); ?>" size="30" autocomplete="off" required />
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-4">
 					<div class="form-group">
 						<label for="exampleId">Previous Service (HR/KM)</label>
 						<input name="lastservice_hrkm" type="text" class="form-control" id="lastservice_hrkm" value="<?php if(isset($sm_info->present_hrkm)){echo $sm_info->present_hrkm;} ?>" autocomplete="off" required />
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-4">
 					<div class="form-group">
 						<label for="exampleId">Scheduled At (HR/KM)</label>
 						<input name="schedule_hrkm" type="text" class="form-control" id="scheduled" value="<?php if(isset($sm_info->nextservice_hrkm)){echo $sm_info->nextservice_hrkm;} ?>" autocomplete="off" required />
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 					<div class="form-group">
 						<label for="exampleId">Present(HR/KM)</label>
 						<input name="present_hrkm" type="text" class="form-control" id="presenthrkm" value="" autocomplete="off" onkeyup="cal()" required />
 					</div>
 				</div>
-				<div class="col-sm-1">
+				<div class="col-sm-2">
 					<div class="form-group">
 						<label for="exampleId"> Due</label>
 						<input name="dueforservice_hrkm" type="text" class="form-control" id="dueforservicehrkm" value="" autocomplete="off" readonly />
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 					<div class="form-group">
 						<label for="exampleId"> Service Type</label>
 						<input name="typeofservice_hrkm" type="text" class="form-control" id="" value="" autocomplete="off" />
 					</div>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-sm-5">
 					<div class="form-group">
 						<label for="exampleId"> Added (HR/KM) for Next Service</label>
 						<input name="" type="text" class="form-control" id="typeofservicehrkm" value="" autocomplete="off" onkeyup="cal()" required />
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-4">
 					<div class="form-group">
 						<label for="exampleId">Next Service(HR/KM)</label>
 						<input name="nextservice_hrkm" type="text" class="form-control" id="nextservicehrkm" value="" autocomplete="off" readonly />
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-3">
 					<div class="form-group">
 						<label for="exampleId">Next service Date</label>
 						<input name="nextservice_date" type="text" class="form-control" id="fromdate" value="" size="30" autocomplete="off" />
 					</div>
 				</div>
-				<div class="col-md-5">
+				</div>
+				<div class="row">
+							<div class="col-xs-2">
+								<div class="form-group">
+									<label>Your Project</label>
+									<?php $project_id = $_SESSION['logged']['project_id']; ?>
+									<input name="" type="text" class="form-control" id="" value="<?php $dataresult =   getDataRowByTableAndId('projects', $project_id); echo (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : ''); ?>" autocomplete="off" readonly />
+								
+									<input name="project_id" type="hidden" class="form-control" id="project_id" value="<?php echo $project_id; ?>" autocomplete="off" />
+								</div>
+							</div>
+							<div class="col-xs-3">
+								<div class="form-group">
+									<label>Your Warehouse</label>
+									<?php $warehouse_id = $_SESSION['logged']['warehouse_id']; ?>
+									<input name="" type="text" class="form-control" id="" value="<?php $dataresult =   getDataRowByTableAndId('inv_warehosueinfo', $warehouse_id); echo (isset($dataresult) && !empty($dataresult) ? $dataresult->name : ''); ?>" autocomplete="off" readonly />
+								
+									<input name="warehouse_id" type="hidden" class="form-control" id="warehouse_id" value="<?php echo $warehouse_id; ?>" autocomplete="off" />
+								</div>
+							</div>
+						</div>
+				</div>
+				<div class="col-md-6">
 					<div class="form-group">
 						<label for="exampleId">Details of Maintenance Carried out:</label>
-						<textarea class="form-control" id="" name="detailsofmaintenance" rows="1"></textarea>
+						<?php include('partial/cost_items_table2.php'); ?>
 					</div>
 				</div>
-				<div class="col-md-5">
+				</div>
+				
+				
+				
+				<div class="col-md-12">
 					<div class="form-group">
 						<label for="exampleId">Remarks:</label>
-						<textarea class="form-control" id="" name="remarks" rows="1"></textarea>
+						<textarea class="form-control" id="" name="remarks" rows="2"></textarea>
 					</div>
 				</div>
 				<div class="col-sm-12">
