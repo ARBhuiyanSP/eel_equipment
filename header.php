@@ -158,14 +158,7 @@ footer.sticky-footer{
              <?php    } ?>
            
         
-            <?php
-            
-                if(check_permission('equipment-list')){ ?>
-                    <a class="dropdown-item" href="equipment_list.php">
-                <i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
-                <span class="sub_menu_text_design"> Euipments</span>
-            </a>
-             <?php    } ?>
+         
 			 
 			 
 			   <?php
@@ -288,6 +281,13 @@ footer.sticky-footer{
         <?php //if(check_permission('material-issue-list')){ ?>
         <a class="nav-link" href="workorders_list.php" id="userDropdown">
           <i class="fa fa-server"></i> Workorder
+        </a>
+        <?php //} ?>
+        </li>
+		 <li class="nav-item dropdown no-arrow">
+        <?php //if(check_permission('material-issue-list')){ ?>
+        <a class="nav-link" href="equipments-list.php" id="userDropdown">
+          <i class="fa fa-server"></i> Equipments
         </a>
         <?php //} ?>
         </li>
