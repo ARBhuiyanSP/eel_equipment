@@ -5,7 +5,7 @@ if (isset($_POST['rent_entry']) && !empty($_POST['rent_entry'])){
      */    
     $rent_info_response  =   execute_rent_details_table();
     $rent_info_response  =   execute_rent_master_table();
-    //$rent_info_response  =   update_equipments_table();
+    $rent_info_response  =   update_equipments_table();
     if(isset($rent_info_response) && $rent_info_response['status'] == "success"){
         
         $_SESSION['success']    =   "Your request have been successfully procced.";
@@ -33,7 +33,7 @@ function execute_rent_master_table(){
             //'id'                =>  get_table_next_primary_id('rlp_details'),
             'date'				=>  $date,
             'client_name'		=>  $client_name,
-            'ref_name'       		=>  $ref_name,
+            'ref_no'       		=>  $ref_name,
             'challan_no'			=>  $challan_no,
             'total_rent_amount' 	 	=>  $sub_total_amount,
             'discount' 	 	=>  $discount,
@@ -51,24 +51,31 @@ function execute_rent_master_table(){
     $response   =   saveData("rents", $dataParam);
     return $response;
 }
-/* function update_equipments_table(){
+function update_equipments_table(){
 		global $conn;
 		
-		$equipments		= (isset($_POST['equipments']) && !empty($_POST['equipments']) ? trim(mysqli_real_escape_string($conn,$_POST['equipments'])) : "");
-		          
-        $dataParam     =   [
-            'status'		=>  'rented'
-        ];
+		for($count 		= 0; $count<count($_POST['equipments']); $count++){
+        
+        $equipments		= (isset($_POST['equipments'][$count]) && !empty($_POST['equipments'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['equipments'][$count])) : "");
 		
+        $dataParam     =   [
+            //'id'                =>  get_table_next_primary_id('rents'),
+            'status'	=>  'Rented'
+        ];
 		$where      =   [
 			'eel_code'	=>  $equipments
 		];
     
-    $response   =   updateData('equipments', $dataParam, $where);
-    return $response;
+        updateData('equipments', $dataParam, $where);
+    }
+		          
+        
+    
+    /* $response   =   updateData('equipments', $dataParam, $where);
+    return $response; */
 	
     
-} */
+} 
 function execute_rent_details_table(){
     global $conn;
     /*
@@ -89,6 +96,7 @@ function execute_rent_details_table(){
             'eel_code'	=>  $equipments,
             'rent_date'       	=>  $rent_date,
             'return_date'	=>  $return_date,
+            'extended_date'	=>  $return_date,
             'total_days'	=>  $totaldays,
             'amount'	=>  $totalamount
         ];

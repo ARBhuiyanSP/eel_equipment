@@ -18,7 +18,7 @@ include 'header.php';
     <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i> Maintenance Cost Entry Form
-            <a href="rlp_create.php" style="float:right"><i class="fas fa-plus"></i> Create New<a>
+            
         </div>
         <div class="card-body">
                        <div class="row">
@@ -64,15 +64,15 @@ include 'header.php';
 							?>
 							
 							<form action="" method="post">
-								<div class="" id="printableArea" style="display:block;">
-									<div class="col-sm-2">
+								<div class="row" id="printableArea" style="display:block;">
+									<div class="col-md-2">
 										<div class="form-group">
 											<label for="exampleId">Date</label>
 											<input name="d_date" type="text" class="form-control" id="rlpdate" value="<?php echo date("Y-m-d"); ?>" size="30" autocomplete="off" required />
 										</div>
 									</div>
 									
-									 <div class="col-sm-2">
+									 <div class="col-md-2">
 										<div class="form-group">
 											<label for="exampleId">EEL Code</label>
 											<input name="equipment_code" type="text" class="form-control" id="equipment_code" value="<?php echo $row['eel_code']; ?>" autocomplete="off" readonly />
@@ -80,14 +80,14 @@ include 'header.php';
 									</div>
 									
 									
-									 <div class="col-sm-2">
+									 <div class="col-md-2">
 										<div class="form-group">
 											<label for="exampleId">Equipment Name</label>
 											<input name="equipment_Name" type="text" class="form-control" id="equipment_Name" value="<?php echo $row['name']; ?>" autocomplete="off" readonly />
 										</div>
 									</div>
 									
-									<div class="col-sm-2">
+									<div class="col-md-2">
 										<div class="form-group">
 											<label for="exampleId">Project</label>
 											<input name="" type="text" class="form-control" id="" value="<?php $dataresult =   getDataRowByTableAndId('projects', $row['project_id']); echo (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : ''); ?>" autocomplete="off" readonly />
@@ -96,32 +96,27 @@ include 'header.php';
 									<input name="project_id" type="hidden" class="form-control" id="project_id" value="<?php echo $row['project_id']; ?>" autocomplete="off" />
 									
 									
-								   <div class="col-md-4">
-										<div class="form-group">
-											<label for="exampleId">Work Narration</label>
-											<textarea class="form-control" id="" name="workdetails" rows="1"></textarea>
-										</div>
-									</div>
+								   
 									
-									<div class="col-sm-2">
+									<div class="col-md-2">
 										<div class="form-group">
 											<label for="exampleId">Running (Hr/KM)</label>
 											<input name="runninghrkm" type="text" class="form-control" id="runninghrkm" value="<?php if(isset($log_info->closehrkm)){echo $log_info->closehrkm;} ?>" onkeyup="sum()" required />
 										</div>
 									</div>
-									<div class="col-sm-2">
+									<div class="col-md-2">
 										<div class="form-group">
 											<label for="exampleId">Close (Hr/KM)</label>
 											<input name="closehrkm" type="number" class="form-control" id="closehrkm" onkeyup="sum()" autocomplete="off" min="<?php if(isset($log_info->closehrkm)){echo $log_info->closehrkm;} ?>" required />
 										</div>
 									</div>
-									<div class="col-sm-2">
+									<div class="col-md-2">
 										<div class="form-group">
 											<label for="exampleId">Total hour(Hr/KM)</label>
 											<input name="totalhrkm" type="text" class="form-control" id="sumhrkm" value="" autocomplete="off" readonly />
 										</div>
 									</div>
-									<div class="col-sm-2">
+									<div class="col-md-2">
 										<div class="form-group">
 											<label for="exampleId">Status</label>
 											
@@ -155,10 +150,17 @@ include 'header.php';
 									
 									
 									
-											 <div class="col-sm-2">
+									<div class="col-sm-2">
 										<div class="form-group">
 											<label for="exampleId">Greasing Hour Servicing</label>
 											<input name="greasing" type="text" class="form-control" id="greasing" value="" autocomplete="off"  />
+										</div>
+									</div>
+									
+									<div class="col-md-12">
+										<div class="form-group">
+											<label for="exampleId">Work Narration</label>
+											<textarea class="form-control" id="" name="workdetails" rows="1"></textarea>
 										</div>
 									</div>
 									

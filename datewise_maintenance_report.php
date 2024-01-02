@@ -140,7 +140,39 @@ include 'header.php';
 												<td><?php echo $rowh['dueforservice_hrkm'] ?></td>
 												<td><?php echo $rowh['nextservice_hrkm'] ?></td>
 												<td><?php echo $rowh['typeofservice_hrkm'] ?></td>
-												<td><?php echo $rowh['detailsofmaintenance'] ?></td>
+												
+												
+												<td>
+													<table class="table">
+														<tr>
+															<td><b>Used Spare Parts</b></td>
+															<td><b>QTY</b></td>
+															<td><b>Unit</b></td>
+															<td><b>Rate</b></td>
+															<td><b>Amount</b></td>
+														</tr>
+														<?php 
+															$maintenance_id = $rowh['id'];
+															$sqlparts	=	"select * from `maintenance_details` where `maintenance_id`='$maintenance_id'";
+															$resultparts = mysqli_query($conn, $sqlparts);
+															while ($rowparts = mysqli_fetch_array($resultparts)) {
+																//$totalpartsQty += $rowparts['qty'];
+																//$totalAmount += $rowparts['amount'];
+														?>
+														<tr>
+															<td><?php //echo $rowparts['spare_parts_name'];
+																$dataresult =   getDataRowByTableAndId('inv_material', $rowparts['material_name']);
+																echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : '');
+															?></td>
+															<td><?php echo $rowparts['qty']; ?></td>
+															<td><?php echo $rowparts['unit']; ?></td>
+															<td><?php echo $rowparts['price']; ?></td>
+															<td><?php echo $rowparts['price'] * $rowparts['qty']; ?></td>
+														</tr>
+														<?php } ?>
+													</table>
+												</td>
+												
 												<td><?php echo $rowh['remarks'] ?></td>
 											</tr>
 											<?php } ?>

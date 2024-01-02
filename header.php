@@ -291,13 +291,6 @@ footer.sticky-footer{
         </a>
         <?php //} ?>
         </li>
-		 <li class="nav-item dropdown no-arrow">
-        <?php //if(check_permission('material-issue-list')){ ?>
-        <a class="nav-link" href="rent.php" id="userDropdown">
-          <i class="fa fa-server"></i> Rent
-        </a>
-        <?php //} ?>
-        </li>
 		
 		
 	  <li class="nav-item dropdown no-arrow">
@@ -316,6 +309,13 @@ footer.sticky-footer{
         </div>
       </li>
 		
+		 <li class="nav-item dropdown no-arrow">
+        <?php //if(check_permission('material-issue-list')){ ?>
+        <a class="nav-link" href="rent_list.php" id="userDropdown">
+          <i class="fa fa-server"></i> Rent
+        </a>
+        <?php //} ?>
+        </li>
 	  <li class="nav-item dropdown no-arrow">
         
 		<a class="nav-link" href="reports.php" id="userDropdown">

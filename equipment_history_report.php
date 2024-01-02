@@ -65,7 +65,7 @@ include 'header.php';
 								<div class="col-md-10">
 									<center>
 									<h1 align="center"><img src="images/spl.png" height="50"></h1>
-									<h2>SAIF POWERTEC LIMITED</h2>
+									<h2>E-Engineering Ltd</h2>
 									<p>72,Mohakhali C/A, (8th Floor),Rupayan Center,Dhaka-1212,bangladesh</p>
 									<h3>Equipment Shifting Report</h3>
 									<table class="table" style="width:80%">

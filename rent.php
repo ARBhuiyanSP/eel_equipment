@@ -18,7 +18,7 @@ include 'header.php';
     <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i> Equipment Rent Form
-            <a href="rlp_create.php" style="float:right"><i class="fas fa-plus"></i> Create New<a>
+            <a href="rent_list.php" style="float:right"><i class="fas fa-plus"></i> Rent List<a>
         </div>
         <div class="card-body">
                        <?php include 'partial/rent_form.php'; ?>

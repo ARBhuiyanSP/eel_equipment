@@ -1,6 +1,6 @@
 <table class="table table-bordered" id="dynamic_field">
 	<thead>
-		<th width="50%">Equipment<span class="reqfield"> *</span></th>
+		<th width="65%">Equipment<span class="reqfield"> *</span></th>
 		<th width="15%">Rate<span class="reqfield"> *</span></th>
 		<th width="15%">Amount</th>
 		<th></th>

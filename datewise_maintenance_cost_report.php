@@ -165,7 +165,10 @@ include 'header.php';
 																$totalAmount += $rowparts['amount'];
 														?>
 														<tr>
-															<td><?php echo $rowparts['spare_parts_name']; ?></td>
+															<td><?php //echo $rowparts['spare_parts_name'];
+																$dataresult =   getDataRowByTableAndId('inv_material', $rowparts['spare_parts_name']);
+																echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : '');
+															?></td>
 															<td><?php echo $rowparts['qty']; ?></td>
 															<td><?php echo $rowparts['unit']; ?></td>
 															<td><?php echo $rowparts['rate']; ?></td>

@@ -583,4 +583,107 @@ function get_ins_list_action_data($data){
     return $action;
 
 }
+
+
+
+
+/////////////////////
+if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableRentList'){
+	
+//getDataTablelogsheetList call from  footer.php var url getDataTablePatientList
+    include "../connection/connect.php";
+    include "../helper/utilities.php";
+  
+    
+    $request    =   $_REQUEST;
+    $col        =   array(
+            0   =>  'challan_no',
+            1   =>  'name',
+            2   =>  'ref_no',
+            3   =>  'grandtotal'
+        );  
+		//create column like table in database
+        //rlp_utilities.php
+    $totalData= getDataRowByTable('rents');
+    
+    $totalFilter=$totalData;
+    //Search
+    //$sql ="SELECT * FROM rents WHERE 1=1";
+    $sql ="SELECT rents.challan_no,rents.client_name,rents.ref_no,rents.grandtotal,clients.id,clients.name FROM rents INNER JOIN clients ON rents.client_name=clients.id WHERE 1=1";
+    if(!empty($request['search']['value'])){
+        $sql.=" AND challan_no Like '%".$request['search']['value']."%' ";
+        $sql.=" AND name Like '%".$request['search']['value']."%' ";
+        $sql.=" OR ref_no Like '%".$request['search']['value']."%' ";
+        $sql.=" OR grandtotal Like '%".$request['search']['value']."%' ";
+  
+    }
+
+    $totalData=getTotalRowBySQL($sql);
+    //Order
+    $sql.=" ORDER BY ".$col[$request['order'][0]['column']]."   ".$request['order'][0]['dir']."  LIMIT ".
+        $request['start']."  ,".$request['length']."  ";
+    
+    $userData   = getDataRowIdAndTableBySQL($sql);
+    
+    $data=[];
+    
+    
+    $slno   =   1;
+    if (isset($userData) && !empty($userData)) {
+        foreach ($userData as $adata) {
+            $actionData     =   get_rent_list_action_data($adata);
+
+           
+            $subdata = array();
+            $subdata[] = $adata->id; //id
+			
+            $subdata[] = (isset($adata->challan_no) && !empty($adata->challan_no) ? $adata->challan_no : 'No data');
+            $subdata[] = (isset($adata->name) && !empty($adata->name) ? $adata->name : 'No data');
+            $subdata[] = (isset($adata->ref_no) && !empty($adata->ref_no) ? $adata->ref_no : 'No data');
+            $subdata[] = (isset($adata->grandtotal) && !empty($adata->grandtotal) ? $adata->grandtotal : 'No data');
+
+            //$subdata[] = (isset($adata->project_id) && !empty($adata->project_id) ? $adata->project_id : 'No data');
+
+            $subdata[] = $actionData;
+            $data[] = $subdata;
+        }
+    }
+    $json_data=array(
+        "draw"              =>  intval($request['draw']),
+        "recordsTotal"      =>  intval($totalData),
+        "recordsFiltered"   =>  intval($totalFilter),
+        "data"              =>  $data
+    );
+    
+    echo json_encode($json_data);
+
+
+}
+function get_rent_list_action_data($data){
+    $view_url = 'rent_view.php?id='.$data->challan_no;
+    $extend_url = 'extend_date.php?id='.$data->challan_no;
+    //$approve_url = 'workorders_approve.php?id='.$data->challan_no;
+    //$receive_url = 'receive_from_wo.php?id='.$data->challan_no;
+    $action = "";
+	/* $action.='<span><a title="Details View" class="btn btn-sm btn-success" href="'.$view_url.'">
+                                <span class="fa fa-eye"> <b> Details</b></span>
+                            </a></span>'; */
+							
+	$action.='<span><a title="Details View" class="btn btn-sm btn-success" href="#">
+                                <span class="fa fa-eye"> <b> Details</b></span>
+                            </a></span>';
+							
+	$action.='<span><a title="Details View" class="btn btn-sm btn-danger" href="#">
+                                <span class="fa fa-calendar"> <b> Extend Date</b></span>
+                            </a></span>';
+							
+
+	
+
+											
+    //$action.='<a href="#"><i class="fa fa-trash text-danger"></i></a>';
+
+    return $action;
+
+}
 ?>

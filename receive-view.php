@@ -49,7 +49,7 @@ $mrr_no=$_GET['no']; ?>
 							<div class="col-sm-6">	
 								<p>
 								<img src="images/Saif_Engineering_Logo_165X72.png" height="50px;"/>
-								<h5>Container Terminal Engineering Department<br>Chattogram Port</h5></p></div>
+								<h5>E-Engineering Ltd</h5></p></div>
 							<div class="col-sm-6">
 								<table class="table table-bordered">
 									<tr>
@@ -66,7 +66,7 @@ $mrr_no=$_GET['no']; ?>
 										<td>
 											<?php 
 											$dataresult =   getDataRowByTableAndId('projects', $rowd['project_id']);
-											echo (isset($dataresult) && !empty($dataresult) ? $dataresult->name : '');
+											echo (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : '');
 											?>
 										</td>
 									</tr>
@@ -149,7 +149,7 @@ $mrr_no=$_GET['no']; ?>
 									<td></td>
 									<td>
 									<?php 
-										$sql2			= "SELECT sum(total_receive) FROM  `inv_receivedetail` where `mrr_no`='$mrr_no'";
+										$sql2			= "SELECT sum(total_receive) FROM `inv_receivedetail` where `mrr_no`='$mrr_no'";
 										$result2		= mysqli_query($conn, $sql2);
 										for($i=0; $row2 = mysqli_fetch_array($result2); $i++){
 										$totalAmount	= number_format((float)$row2['sum(total_receive)'], 2, '.', '');

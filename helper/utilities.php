@@ -1867,7 +1867,8 @@ function getDefaultCategoryCodeByWarehouseT($table, $fieldName, $modifier, $defa
 {
     global $conn;
     $warehouse_id    =    $_SESSION['logged']['warehouse_id'];
-    $sql        = "SELECT count($fieldName) as total_row FROM $table WHERE from_warehouse=$warehouse_id";
+    //$sql        = "SELECT count($fieldName) as total_row FROM $table WHERE from_warehouse=$warehouse_id";
+    $sql        = "SELECT count($fieldName) as total_row FROM $table";
     $result     = $conn->query($sql);
     $name       =   '';
     $lastRows   = $result->fetch_object();
