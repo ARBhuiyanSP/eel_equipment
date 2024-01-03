@@ -17,9 +17,9 @@
 				<table id="equipments_data_list" class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th width="20%">Name</th>
+							<th width="15%">Name</th>
 							<th width="10%">EEL Code</th>
-							<th width="35%">
+							<th width="20%">
 								<select name="present_location" id="present_location" class="form-control material_select_2">
 									<option value="">Present Location Search</option>
 									<?php 
@@ -32,10 +32,10 @@
 									?>
 								</select>
 							</th>
-							<th width="10%">makeby</th>
+							<th width="10%">Brand/MakeBy</th>
 							<th width="10%">Model</th>
 							<th width="10%">capacity</th>
-							<th width="15%">Action</th>
+							<th width="25%">Action</th>
 						</tr>
 					</thead>
 				</table>

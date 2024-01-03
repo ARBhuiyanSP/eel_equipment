@@ -64,21 +64,27 @@ while($row = mysqli_fetch_array($result))
 function get_equipments_list_action_data($row){
 	//$edit_url = 'receive_edit.php?edit_id='.$row["name"];
     
-		  $edit_url = 'receive_edit.php?edit_id='.$row["voucher_id"];
+		  $edit_url = 'equipment_edit.php?id='.$row["voucher_id"];
 	   
-    $view_url = 'receive-view.php?no='.$row["name"];
+    $view_url = 'equipment_view.php?id='.$row["voucher_id"];
+    $shifting_url = 'equipment_shifting.php?id='.$row["voucher_id"];
+    $history_url = 'history.php?id='.$row["eel_code"];
     $approve_url = 'receive_approve.php?no='.$row["name"];
     $action = "";
 	
 if(check_permission('material-receive-edit')){
-    $action.='<span><a class="action-icons c-delete" href="'.$edit_url.'" title="edit"><i class="fa fa-edit text-info mborder"></i></a></span>';
+    $action.='<span><a class="action-icons c-delete" href="'.$edit_url.'" title="edit"><i class="fa fa-edit bg-info text-white mborder"> Edit</i></a></span>';
 }
 
 						
-	$action.='<span><a class="action-icons c-approve" href="'.$view_url.'" title="View"><i class="fas fa-eye text-success mborder"></i></a></span>';
+	$action.='<span><a class="action-icons c-approve" href="'.$view_url.'" title="View"><i class="fas fa-eye bg-success text-white mborder"> Details</i></a></span>';
+	
+	$action.='<span><a class="action-icons c-approve" href="'.$shifting_url.'" title="View"><i class="fas fa-edit bg-danger text-white mborder"> Shifting</i></a></span>';
+	
+	$action.='<span><a class="action-icons c-approve" href="'.$history_url.'" title="View"><i class="fas fa-edit bg-success text-white mborder"> History</i></a></span>';
 
 if(check_permission('material-receive-approve')){
-    $action.='<span><a class="action-icons c-delete" href="'.$approve_url.'" title="edit"><i class="fa fa-check text-info mborder"></i></a></span>';
+    $action.='<span><a class="action-icons c-delete" href="'.$approve_url.'" title="edit"><i class="fa fa-check bg-info text-white mborder"></i></a></span>';
 }
 							
 							

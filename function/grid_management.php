@@ -609,8 +609,9 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableRentLis
     $totalFilter=$totalData;
     //Search
     //$sql ="SELECT * FROM rents WHERE 1=1";
-    $sql ="SELECT rents.challan_no,rents.client_name,rents.ref_no,rents.grandtotal,clients.id,clients.name FROM rents INNER JOIN clients ON rents.client_name=clients.id WHERE 1=1";
+    $sql ="SELECT rents.id,rents.challan_no,rents.client_name,rents.ref_no,rents.grandtotal,clients.id,clients.name FROM rents INNER JOIN clients ON rents.client_name=clients.id WHERE 1=1";
     if(!empty($request['search']['value'])){
+        $sql.=" AND id Like '%".$request['search']['value']."%' ";
         $sql.=" AND challan_no Like '%".$request['search']['value']."%' ";
         $sql.=" AND name Like '%".$request['search']['value']."%' ";
         $sql.=" OR ref_no Like '%".$request['search']['value']."%' ";
@@ -660,26 +661,16 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableRentLis
 
 }
 function get_rent_list_action_data($data){
-    $view_url = 'rent_view.php?id='.$data->challan_no;
-    $extend_url = 'extend_date.php?id='.$data->challan_no;
+    $view_url = 'rent_view.php?id='.$data->id;
+    //$extend_url = 'extend_date.php?id='.$data->challan_no;
     //$approve_url = 'workorders_approve.php?id='.$data->challan_no;
     //$receive_url = 'receive_from_wo.php?id='.$data->challan_no;
     $action = "";
-	/* $action.='<span><a title="Details View" class="btn btn-sm btn-success" href="'.$view_url.'">
-                                <span class="fa fa-eye"> <b> Details</b></span>
-                            </a></span>'; */
 							
-	$action.='<span><a title="Details View" class="btn btn-sm btn-success" href="#">
+	$action.='<span><a title="Details View" class="btn btn-sm btn-success" href="'.$view_url.'">
                                 <span class="fa fa-eye"> <b> Details</b></span>
                             </a></span>';
 							
-	$action.='<span><a title="Details View" class="btn btn-sm btn-danger" href="#">
-                                <span class="fa fa-calendar"> <b> Extend Date</b></span>
-                            </a></span>';
-							
-
-	
-
 											
     //$action.='<a href="#"><i class="fa fa-trash text-danger"></i></a>';
 

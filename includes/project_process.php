@@ -11,10 +11,11 @@ if (isset($_POST['project_submit']) && !empty($_POST['project_submit'])) {
         */ 
         $code		= $_POST['code'];
         $name		= $_POST['name'];
-        $incharge	= $_POST['incharge'];
         $address	= $_POST['address'];     
+        $type		= $_POST['type'];     
+        $client_id	= $_POST['client_id'];     
                
-        $query = "INSERT INTO `projects` (`code`,`name`,`incharge`,`address`) VALUES ('$code','$name','$incharge','$address')";
+        $query = "INSERT INTO `projects` (`code`,`project_name`,`address`,`type`,`client_id`) VALUES ('$code','$name','$address','$type','$client_id')";
         $conn->query($query);
         
 		$_SESSION['success']    =   "Project Entry process have been successfully completed.";

@@ -24,28 +24,44 @@ include 'header.php';
             <div class="form-group">
                 <form action="" method="post" name="add_name" id="add_name">
                     <div class="row" id="div1" style="">
-                        <div class="col-xs-2">
+                        <div class="col-sm-2 col-md-2">
                             <div class="form-group">
                                 <label>Project Code</label>
                                 <input type="text" name="code" id="code" class="form-control" readonly="readonly" value="<?php echo getDefaultCategoryCode('projects', 'code', '03d', '001', 'PR-') ?>">
                             </div>
                         </div>
-						<div class="col-xs-3">
+						<div class="col-sm-3 col-md-3">
                             <div class="form-group">
                                 <label>Project Name</label>
                                 <input type="text" name="name" id="name" class="form-control">
                             </div>
                         </div>
-						<div class="col-xs-3">
-                            <div class="form-group">
-                                <label>Project Incharge</label>
-                                <input type="text" name="incharge" id="incharge" class="form-control">
-                            </div>
-                        </div>
-						<div class="col-xs-4">
+						<div class="col-sm-3 col-md-3">
                             <div class="form-group">
                                 <label>Address</label>
                                 <input type="text" name="address" id="address" class="form-control">
+                            </div>
+                        </div>
+						<div class="col-sm-2 col-md-2">
+                            <div class="form-group">
+                                <label>Type</label>
+                                <select class="form-control" id="type" name="type">
+									<option value="Own">Own</option>
+									<option value="Rental">Rental</option>
+								</select>
+                            </div>
+                        </div>
+						<div class="col-sm-2 col-md-2">
+                            <div class="form-group">
+                                <label>Owner/Client</label>
+                                <select class="form-control material_select_2" id="client_id" name="client_id" required >
+										<option value="">Select</option>
+										<?php $results = mysqli_query($conn, "SELECT * FROM `clients`"); 
+										while ($row = mysqli_fetch_array($results)) {
+											?>
+										<option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+										<?php } ?>
+								</select>
                             </div>
                         </div>
 						<div class="col-xs-12">
@@ -60,8 +76,10 @@ include 'header.php';
 								<thead>
 									<tr>
 										<th width="10%">Project Code</th>
-										<th width="30%">Project Name</th>
-										<th>Address</th>
+										<th width="20%">Project Name</th>
+										<th width="30%">Address</th>
+										<th>Type</th>
+										<th>Client</th>
 										<th width="10%">Action</th>
 									</tr>
 								</thead>
@@ -76,6 +94,8 @@ include 'header.php';
 										<td><?php echo $data['code']; ?></td>
 										<td><?php echo $data['project_name']; ?></td>
 										<td><?php echo $data['address']; ?></td>
+										<td><?php echo $data['type']; ?></td>
+										<td><?php echo getNameByIdAndTable("clients",$data['client_id']) ?></td>
 										<td>
 											<?php if(check_permission('project-edit')){ ?>
                                             <a href="#"><i class="fas fa-edit text-success"></i></a>

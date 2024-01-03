@@ -1776,10 +1776,10 @@ function getMaterialNameByIdAndTable($table)
     return $name;
 }
 
-function getNameByIdAndTable($table)
+function getNameByIdAndTable($table,$id)
 {
     global $conn;
-    $sql = "SELECT * FROM $table";
+    $sql = "SELECT * FROM $table WHERE id='$id'";
     $result = $conn->query($sql);
     $name   =   '';
     if ($result->num_rows > 0) {

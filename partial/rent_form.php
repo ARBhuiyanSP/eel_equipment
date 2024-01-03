@@ -24,7 +24,7 @@
 				<div class="col-xs-2">
 					<div class="form-group">
 						<label for="id">Client name</label>
-						<select id="ac" name="client_name" class="form-control material_select_2">
+						<select name="client_name" id="client" class="form-control material_select_2">
 							<option>Select Client</option>
 							<?php 
 							$sql	= "select * from `clients` ORDER BY `id` ASC";
@@ -37,6 +37,18 @@
 						</select>
 					</div>
 				</div>
+				
+				
+				<div class="col-xs-2">
+					<div class="form-group">
+						<label for="id">Project name</label>
+						<select class="form-control material_select_2" name="project_name" id="project">
+							<option value="">select project</option>
+
+						</select>
+					</div>
+				</div>
+				
 				<div class="col-xs-2">
 					<div class="form-group">
 						<label for="id">Ref. Name</label>
@@ -91,6 +103,9 @@
 						<textarea class="form-control" id="" name="remarks" rows="1"></textarea>
 					</div>
 				</div>
+				
+	
+	
 				<div class="col-sm-12">
 					<input type="submit" name="rent_entry" id="submit" class="btn btn-block btn-primary" value="Save Data" />
 				</div>
@@ -111,5 +126,26 @@
 				  }
 				  $('#result').val(diff);
 			}
+			
+			
+			
+			
+			$(document).ready(function() {
+			$("#client").on('change', function() {
+				var clientid = $(this).val();
+
+				$.ajax({
+					method: "POST",
+					url: "response.php",
+					data: {
+						id: clientid
+					},
+					datatype: "html",
+					success: function(data) {
+						$("#project").html(data);
+					}
+				});
+			});
+		});
 		 
 		</script>

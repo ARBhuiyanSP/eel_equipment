@@ -20,6 +20,7 @@ function execute_rent_master_table(){
 		global $conn;
 		$date		= (isset($_POST['date']) && !empty($_POST['date']) ? trim(mysqli_real_escape_string($conn,$_POST['date'])) : "");
 		$client_name		= (isset($_POST['client_name']) && !empty($_POST['client_name']) ? trim(mysqli_real_escape_string($conn,$_POST['client_name'])) : "");
+		$project_name		= (isset($_POST['project_name']) && !empty($_POST['project_name']) ? trim(mysqli_real_escape_string($conn,$_POST['project_name'])) : "");
 		$ref_name		= (isset($_POST['ref_name']) && !empty($_POST['ref_name']) ? trim(mysqli_real_escape_string($conn,$_POST['ref_name'])) : "");
 		$challan_no		= (isset($_POST['challan_no']) && !empty($_POST['challan_no']) ? trim(mysqli_real_escape_string($conn,$_POST['challan_no'])) : "");
 		
@@ -33,6 +34,7 @@ function execute_rent_master_table(){
             //'id'                =>  get_table_next_primary_id('rlp_details'),
             'date'				=>  $date,
             'client_name'		=>  $client_name,
+            'project_name'		=>  $project_name,
             'ref_no'       		=>  $ref_name,
             'challan_no'			=>  $challan_no,
             'total_rent_amount' 	 	=>  $sub_total_amount,
@@ -56,11 +58,14 @@ function update_equipments_table(){
 		
 		for($count 		= 0; $count<count($_POST['equipments']); $count++){
         
+		$project_name		= (isset($_POST['project_name']) && !empty($_POST['project_name']) ? trim(mysqli_real_escape_string($conn,$_POST['project_name'])) : "");
+		
         $equipments		= (isset($_POST['equipments'][$count]) && !empty($_POST['equipments'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['equipments'][$count])) : "");
 		
         $dataParam     =   [
             //'id'                =>  get_table_next_primary_id('rents'),
-            'status'	=>  'Rented'
+            'present_location'	=>  $project_name,
+            'rent_status'		=>  'Rented'
         ];
 		$where      =   [
 			'eel_code'	=>  $equipments
