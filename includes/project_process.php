@@ -106,4 +106,30 @@ if(isset($_POST['receive_update_submit']) && !empty($_POST['receive_update_submi
     exit();
 }
 
+
+
+
+/*******************************************************************************
+ * The following code will
+ * Insert Project Info at projects table
+ */
+if (isset($_POST['client_submit']) && !empty($_POST['client_submit'])) {
+
+        
+        /*
+         *  Insert Data Into inv_receivedetail Table:
+        */ 
+        $name		= $_POST['name'];
+        $address	= $_POST['address'];     
+        $phone		= $_POST['phone'];     
+        $email	= $_POST['email'];     
+               
+        $query = "INSERT INTO `clients` (`name`,`address`,`phone`,`email`) VALUES ('$name','$address','$phone','$email')";
+        $conn->query($query);
+        
+		$_SESSION['success']    =   "Clients Entry process have been successfully completed.";
+		header("location: clients.php");
+		exit();
+}
+
 ?>
