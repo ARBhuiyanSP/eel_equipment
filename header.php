@@ -138,7 +138,14 @@ footer.sticky-footer{
                 <span class="sub_menu_text_design"> UOM</span>
             </a>
              <?php    } ?>
-			
+			    <?php
+            
+                if(check_permission('project-list')){ ?>
+                    <a class="dropdown-item" href="clients.php">
+                <i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
+                <span class="sub_menu_text_design"> Clients</span>
+            </a>
+             <?php    } ?>
         <?php
             
                 if(check_permission('project-list')){ ?>
