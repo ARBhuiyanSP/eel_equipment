@@ -28,14 +28,7 @@
 					<div class="col-sm-10">
 						<div class="row">
 							<div class="col-sm-6">	
-								<img src="images/login-logo.png" height="80px;"/>
-							</div>
-							<div class="col-sm-6">
-								<img src="images/hotline.png" height="50px;"/ style="float:right;">
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">	
+								<img src="images/spl.png" height="60px;"/>
 								<p>
 								<span>Plot #52, Road #301, Sector # 11,Purbachol New Town</br> Purbachol Express Highway,Dhaka</br>Email : billing@igniteautoworkshop.com</span></p></div>
 							<div class="col-sm-6">

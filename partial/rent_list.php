@@ -21,6 +21,7 @@ table.list-table-custom-style tr td{
                     <th>Client Name</th>
                     <th>Ref No</th>
                     <th>Total  Amount</th>
+                    <th>Due  Amount</th>
                     <th style="background-color: #3C8DBC;color: #fff;" width="25%">Action</th>
                 </tr>
             </thead>

@@ -600,7 +600,8 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableRentLis
             0   =>  'challan_no',
             1   =>  'name',
             2   =>  'ref_no',
-            3   =>  'grandtotal'
+            3   =>  'grandtotal',
+            4   =>  'due_amount'
         );  
 		//create column like table in database
         //rlp_utilities.php
@@ -609,13 +610,14 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableRentLis
     $totalFilter=$totalData;
     //Search
     //$sql ="SELECT * FROM rents WHERE 1=1";
-    $sql ="SELECT rents.id,rents.challan_no,rents.client_name,rents.ref_no,rents.grandtotal,clients.id,clients.name FROM rents INNER JOIN clients ON rents.client_name=clients.id WHERE 1=1";
+    $sql ="SELECT rents.id as voucher_id,rents.challan_no,rents.client_name,rents.ref_no,rents.grandtotal,rents.due_amount,clients.id,clients.name FROM rents INNER JOIN clients ON rents.client_name=clients.id WHERE 1=1";
     if(!empty($request['search']['value'])){
-        $sql.=" AND id Like '%".$request['search']['value']."%' ";
-        $sql.=" AND challan_no Like '%".$request['search']['value']."%' ";
-        $sql.=" AND name Like '%".$request['search']['value']."%' ";
-        $sql.=" OR ref_no Like '%".$request['search']['value']."%' ";
-        $sql.=" OR grandtotal Like '%".$request['search']['value']."%' ";
+        $sql.=" AND rents.id Like '%".$request['search']['value']."%' ";
+        $sql.=" AND rents.challan_no Like '%".$request['search']['value']."%' ";
+        $sql.=" AND clients.name Like '%".$request['search']['value']."%' ";
+        $sql.=" OR rents.ref_no Like '%".$request['search']['value']."%' ";
+        $sql.=" OR rents.grandtotal Like '%".$request['search']['value']."%' ";
+        $sql.=" OR rents.due_amount Like '%".$request['search']['value']."%' ";
   
     }
 
@@ -642,6 +644,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableRentLis
             $subdata[] = (isset($adata->name) && !empty($adata->name) ? $adata->name : 'No data');
             $subdata[] = (isset($adata->ref_no) && !empty($adata->ref_no) ? $adata->ref_no : 'No data');
             $subdata[] = (isset($adata->grandtotal) && !empty($adata->grandtotal) ? $adata->grandtotal : 'No data');
+            $subdata[] = (isset($adata->due_amount) && !empty($adata->due_amount) ? $adata->due_amount : 'No data');
 
             //$subdata[] = (isset($adata->project_id) && !empty($adata->project_id) ? $adata->project_id : 'No data');
 
@@ -661,15 +664,25 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableRentLis
 
 }
 function get_rent_list_action_data($data){
-    $view_url = 'rent_view.php?id='.$data->id;
+    $view_url = 'rent_view.php?id='.$data->voucher_id;
+    $collection_url = 'mr_create.php?id='.$data->voucher_id;
+    $details_url = 'rent_details.php?id='.$data->voucher_id;
     //$extend_url = 'extend_date.php?id='.$data->challan_no;
     //$approve_url = 'workorders_approve.php?id='.$data->challan_no;
     //$receive_url = 'receive_from_wo.php?id='.$data->challan_no;
     $action = "";
 							
 	$action.='<span><a title="Details View" class="btn btn-sm btn-success" href="'.$view_url.'">
-                                <span class="fa fa-eye"> <b> Details</b></span>
-                            </a></span>';
+                                <span class="fa fa-eye"> <b> Invoice</b></span>
+       
+                     </a></span>';
+	$action.='<a title="Collection" class="btn btn-sm btn-danger" href="'.$details_url.'">
+                                <i class="fa fa-money"> Return/Extend</i>
+                            </a>';
+							
+	$action.='<a title="Collection" class="btn btn-sm btn-warning" href="'.$collection_url.'">
+                                <i class="fa fa-money"> Collection</i>
+                            </a>';
 							
 											
     //$action.='<a href="#"><i class="fa fa-trash text-danger"></i></a>';

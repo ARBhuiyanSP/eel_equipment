@@ -5,6 +5,7 @@ if (isset($_POST['rent_entry']) && !empty($_POST['rent_entry'])){
      */    
     $rent_info_response  =   execute_rent_details_table();
     $rent_info_response  =   execute_rent_master_table();
+    $rent_info_response  =   execute_client_balance_table();
     $rent_info_response  =   update_equipments_table();
     if(isset($rent_info_response) && $rent_info_response['status'] == "success"){
         
@@ -43,14 +44,42 @@ function execute_rent_master_table(){
             'deposit_amount' 	 	=>  $paid_amount,
             'due_amount' 	 	=>  $due_amount,
 			
-			
-			
             'status'			=>  '0',
 			'created_at'		=>  date('Y-m-d h:i:s'),
 			'created_by'		=>  $_SESSION['logged']['user_id']
         ];
     
     $response   =   saveData("rents", $dataParam);
+    return $response;
+}
+function execute_client_balance_table(){
+		global $conn;
+		$challan_no		= (isset($_POST['challan_no']) && !empty($_POST['challan_no']) ? trim(mysqli_real_escape_string($conn,$_POST['challan_no'])) : "");
+		$date		= (isset($_POST['date']) && !empty($_POST['date']) ? trim(mysqli_real_escape_string($conn,$_POST['date'])) : "");
+		$client_name		= (isset($_POST['client_name']) && !empty($_POST['client_name']) ? trim(mysqli_real_escape_string($conn,$_POST['client_name'])) : "");
+		$project_name		= (isset($_POST['project_name']) && !empty($_POST['project_name']) ? trim(mysqli_real_escape_string($conn,$_POST['project_name'])) : "");
+		$grandtotal		= (isset($_POST['grandtotal']) && !empty($_POST['grandtotal']) ? trim(mysqli_real_escape_string($conn,$_POST['grandtotal'])) : "");
+		$paid_amount		= (isset($_POST['paid_amount']) && !empty($_POST['paid_amount']) ? trim(mysqli_real_escape_string($conn,$_POST['paid_amount'])) : "");
+                       
+        $dataParam     =   [
+            //'id'                =>  get_table_next_primary_id('rlp_details'),
+            'ref_id'			=>  $challan_no,
+            'cb_date'			=>  $date,
+            'client_id'			=>  $client_name,
+            'project_id'			=>  $project_name,
+            'cb_dr_amount'		=>  $paid_amount,
+            'cb_cr_amount'		=>  $grandtotal,
+            'cb_method'			=>  '',
+            'bank_name'			=>  '',
+            'bank_branch'		=>  '',
+            'bank_cheque_no'	=>  '',
+            'cb_remarks'		=>  '',
+			
+			'created_at'		=>  date('Y-m-d h:i:s'),
+			'created_by'		=>  $_SESSION['logged']['user_id']
+        ];
+    
+    $response   =   saveData("client_balance", $dataParam);
     return $response;
 }
 function update_equipments_table(){
@@ -153,6 +182,55 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == "wo_update_execute")
     ];
     
     echo json_encode($feedback);
+}
+
+
+
+if (isset($_POST['mr_create']) && !empty($_POST['mr_create'])) {
+	
+        /*********************************************************************** 
+		 *	Insert Data Into inv_challan Table:
+        */ 
+        $id				= $_POST['id'];
+        $mr_no			= $_POST['mr_no'];
+        $cb_date		= $_POST['mr_date'];
+        $client_id		= $_POST['client_id'];
+        $project_id		= $_POST['project_id'];
+        $invoice_no		= $_POST['invoice_no'];
+        $amount        	= $_POST['amount'];
+        $deposit_amount        	= $_POST['deposit_amount'];
+        $due_amount        	= $_POST['due_amount'];
+        $cb_method		= $_POST['cb_method'];
+			$bank_name			= $_POST['bank_name'];
+			$bank_branch		= $_POST['bank_branch'];
+			$bank_cheque_no		= $_POST['bank_cheque_no'];
+			$bank_cheque_date	= $_POST['bank_cheque_date'];
+        $cb_remarks        = $_POST['remarks'];
+			
+
+			
+			$newDeposit_amount	=	$deposit_amount + $amount;
+			$newDue_amount		=	$due_amount - $amount;
+			if($newDue_amount > 0){
+				$newStatus			=	'Pending';
+			}else{
+				$newStatus			=	'Paid';
+			}	
+			$updated_at			=	date("Y-d-m");;
+			$updated_by			=	$_SESSION['logged']['user_id'];
+		
+			$query3 = "UPDATE `rents` SET `deposit_amount`='$newDeposit_amount',`due_amount`='$newDue_amount',`status`='$newStatus',`updated_at`='$updated_at',`updated_by`='$updated_by' WHERE `id`='$id'";
+			$conn->query($query3); 
+			
+		$created_at			=	date("Y-d-m");
+		$created_by			=	$_SESSION['logged']['user_id'];
+		
+		$query2 = "INSERT INTO `client_balance` (`ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`,`created_at`,`created_by`) VALUES ('$mr_no', '$cb_date', '$client_id', '$project_id', '$amount', '0', '$cb_method', '$bank_name', '$bank_branch', '$bank_cheque_no', '$bank_cheque_date', '$cb_remarks','$created_at','$created_by')";
+        $conn->query($query2);
+		
+		header("location: mr_list.php");
+		exit();
+    
 }
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2024 at 12:05 PM
+-- Generation Time: Jan 11, 2024 at 08:14 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -107,8 +107,49 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `name`, `address`, `phone`, `email`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(1, 'Tradfly International', 'Lalmatia, Dhaka', 1515672889, '', 1, '2024-01-02', '', NULL, ''),
-(2, 'Saif Power Group', 'Mohakhali, Dhaka', 1515672889, '', 1, '2024-01-02', '', NULL, '');
+(2, 'Saif Power Group', 'Mohakhali, Dhaka', 1515672889, '', 1, '2024-01-02', '', NULL, ''),
+(3, 'sdfsd', 'sdf', 0, '', 1, '2024-01-08', '', NULL, ''),
+(4, 'dfgdfg', 'dfgdfg', 0, '', 1, '2024-01-08', '', NULL, ''),
+(5, 'dgf', 'dfgf', 0, 'dfgdf', 1, '2024-01-08', '', NULL, ''),
+(6, 'dfgdf', 'dfgdf', 456464, 'dfgdfg', 1, '2024-01-08', '', NULL, ''),
+(7, 'trafly Internationl', 'sfsdfds', 234342, 'xvxfv@dgd.ss', 1, '2024-01-10', '', NULL, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client_balance`
+--
+
+CREATE TABLE `client_balance` (
+  `id` int(11) NOT NULL,
+  `ref_id` varchar(20) NOT NULL,
+  `cb_date` date NOT NULL,
+  `client_id` varchar(20) NOT NULL,
+  `project_id` varchar(20) NOT NULL,
+  `cb_dr_amount` float NOT NULL,
+  `cb_cr_amount` float NOT NULL,
+  `cb_method` varchar(20) NOT NULL,
+  `bank_name` varchar(50) NOT NULL,
+  `bank_branch` varchar(50) NOT NULL,
+  `bank_cheque_no` varchar(50) NOT NULL,
+  `bank_cheque_date` date NOT NULL,
+  `cb_remarks` varchar(1000) NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `created_by` varchar(30) NOT NULL,
+  `updated_at` date DEFAULT NULL,
+  `updated_by` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `client_balance`
+--
+
+INSERT INTO `client_balance` (`id`, `ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(1, 'RCH-CW-001', '2024-01-10', '2', '25', 4500, 34500, '', '', '', '', '0000-00-00', '', '2024-01-10', '3378', NULL, ''),
+(2, 'RCH-CW-001', '2024-01-10', '2', '25', 5000, 0, 'cash', '', '', '', '0000-00-00', 'cash', '2024-10-01', '3378', NULL, ''),
+(3, 'RCH-CW-001', '2024-01-10', '2', '25', 10000, 0, 'check', 'Dhaka Bank', 'Gulshan', '123456789', '0000-00-00', 'bank', '2024-10-01', '3378', NULL, ''),
+(4, 'RCH-CW-002', '2024-01-10', '7', '28', 0, 25000, '', '', '', '', '0000-00-00', '', '2024-01-10', '3378', NULL, ''),
+(5, 'RCH-CW-002', '2024-01-10', '7', '28', 5000, 0, 'cash', '', '', '', '0000-00-00', 'jmbj', '2024-10-01', '3378', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -608,10 +649,10 @@ CREATE TABLE `equipments` (
 --
 
 INSERT INTO `equipments` (`id`, `project_id`, `project_name`, `sub_project_id`, `equipment_type`, `category`, `date_from`, `date_to`, `name`, `eel_code`, `origin`, `capacity`, `makeby`, `model`, `year_manufacture`, `inventory_sl_no`, `engine_model`, `engine_sl_no`, `present_location`, `present_condition`, `price`, `qr_image`, `assign_status`, `inspaction_date`, `incharge`, `superintend`, `coo_admin`, `remarks`, `status`, `rent_status`, `created_at`, `updated_at`) VALUES
-(1162, '15', 'Gohira', ' ', '1', 'AC-01', ' ', ' ', 'Air Compressor', 'AC-01', 'China', '7 bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021439', '48T-C80', '78941393', '27', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
-(1163, '3', 'PCT', ' ', '1', 'AC-02', ' ', ' ', 'Air Compressor', 'AC-02', 'China', '7 Bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021440', '4BT.9-C80', '78941394', '27', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
-(1164, '12', 'CWLP', ' ', '1', 'AC-03', ' ', ' ', 'Air Compressor', 'AC-03', 'China', ' ', 'LOCAL', 'YL100L12', '2020', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1165, '3', 'CWLP', ' ', '1', 'AC-04', ' ', ' ', 'Air Compressor', 'AC-04', 'China', ' ', 'LOCAL', ' ', '2020', ' ', ' ', ' ', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
+(1162, '15', 'Gohira', ' ', '1', 'AC-01', ' ', ' ', 'Air Compressor', 'AC-01', 'China', '7 bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021439', '48T-C80', '78941393', '28', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
+(1163, '3', 'PCT', ' ', '1', 'AC-02', ' ', ' ', 'Air Compressor', 'AC-02', 'China', '7 Bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021440', '4BT.9-C80', '78941394', '24', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
+(1164, '12', 'CWLP', ' ', '1', 'AC-03', ' ', ' ', 'Air Compressor', 'AC-03', 'China', ' ', 'LOCAL', 'YL100L12', '2020', ' ', ' ', ' ', '28', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
+(1165, '3', 'CWLP', ' ', '1', 'AC-04', ' ', ' ', 'Air Compressor', 'AC-04', 'China', ' ', 'LOCAL', ' ', '2020', ' ', ' ', ' ', '25', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
 (1166, '5', 'Bhashanchar', ' ', '1', 'AC-05', ' ', ' ', 'Air Compressor', 'AC-05', 'China', ' ', 'LOCAL', ' ', '2021', ' ', ' ', ' ', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
 (1167, '11', 'Mongla', ' ', '1', 'AC-06', ' ', ' ', 'Air Compressor', 'AC-06', 'China', ' ', 'LOCAL', ' ', '2021', ' ', ' ', ' ', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
 (1168, '3', 'PCT', ' ', '1', 'Ex. Am-01', ' ', ' ', 'Amphibious Hy. Excavator ', 'Ex. Am-01', 'Malaysia', '0.33 m3 ,9M', 'Ultratex', 'TAKEUCHI TB285CH', '2019', '1058003818', 'ATNV98-APTB', 'T1695', 'PCT', 'Break Down', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
@@ -7355,8 +7396,9 @@ CREATE TABLE `inv_material` (
 INSERT INTO `inv_material` (`id`, `material_id_code`, `material_id`, `material_sub_id`, `material_level3_id`, `material_level4_id`, `material_description`, `spec`, `location`, `type`, `material_min_stock`, `avg_con_sump`, `lead_time`, `re_order_level`, `qty_unit`, `op_balance_qty`, `op_balance_val`, `chk_print`, `cur_qty`, `cur_price`, `cur_value`, `last_issue`, `last_receive`, `part_no`, `current_balance`, `is_manual_code_edit`) VALUES
 (11, '01-01', '41', '0', 0, 0, 'Engine Filter', '', 'KT', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '8965', 0, 0),
 (12, '01-02', '41', '0', 0, 0, 'Oil Filter', '', 'KT', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '234', 0, 0),
-(13, '04-01', '44', '0', 0, 0, 'Engine Oil', '', 'KT', '', 20, NULL, NULL, 0, '21', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '345', 147, 0),
-(14, '04-02', '44', '0', 0, 0, 'Disel', '', 'KT', '', 20, NULL, NULL, 0, '21', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '456', 95, 0);
+(13, '04-01', '44', '0', 0, 0, 'Engine Oil', '', 'KT', '', 20, NULL, NULL, 0, '21', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '345', 594, 0),
+(14, '04-02', '44', '0', 0, 0, 'Disel', '', 'KT', '', 20, NULL, NULL, 0, '21', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '456', 295, 0),
+(15, '04-01', '48', '0', 0, 0, 'Radiator', '', 'kt', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '5564654', 594, 0);
 
 -- --------------------------------------------------------
 
@@ -7447,7 +7489,9 @@ CREATE TABLE `inv_materialcategorysub` (
 INSERT INTO `inv_materialcategorysub` (`id`, `category_id`, `parent_id`, `_order`, `category_description`, `stock_acct_id`, `chk_sbalance`, `consumption_ac`, `same_level`, `has_child`) VALUES
 (41, '01-00', 0, 1, 'Filter', NULL, NULL, NULL, 0, 1),
 (44, '04-00', 0, 4, 'Oil', NULL, NULL, NULL, 0, 1),
-(47, '03-00', 41, 3, 'Oil Filter', NULL, NULL, NULL, 0, 0);
+(47, '03-00', 41, 3, 'Oil Filter', NULL, NULL, NULL, 0, 0),
+(48, '04-00', 0, 8, 'Spare Parts', NULL, NULL, NULL, 0, 1),
+(49, '05-00', 48, 9, 'Radiator', NULL, NULL, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -7555,7 +7599,8 @@ INSERT INTO `inv_material_partno_detail` (`id`, `inv_material_id`, `material_id_
 (60, 12, '01-02', '234', 1, 1, 1, '2023-12-29 00:00:00', '2023-12-29 00:00:00'),
 (61, 13, '04-01', '345', 1, 1, 1, '2023-12-29 00:00:00', '2023-12-29 00:00:00'),
 (62, 14, '04-02', '456', 1, 1, 1, '2023-12-29 00:00:00', '2023-12-29 00:00:00'),
-(63, 11, '01-01', '8965', 1, 1, 1, '2023-12-31 00:00:00', '2023-12-31 00:00:00');
+(63, 11, '01-01', '8965', 1, 1, 1, '2023-12-31 00:00:00', '2023-12-31 00:00:00'),
+(64, 15, '04-01', '5564654', 1, 1, 1, '2024-01-10 00:00:00', '2024-01-10 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -7586,7 +7631,9 @@ CREATE TABLE `inv_product_price` (
 
 INSERT INTO `inv_product_price` (`id`, `mrr_no`, `material_id`, `receive_details_id`, `qty`, `price`, `part_no`, `project_id`, `warehouse_id`, `status`, `created_at`, `cerated_by`, `updated_at`, `updated_by`) VALUES
 (19, 'MRR-CW001', '04-02', 19, 95, 110, '456', 21, 3, 1, '2023-12-31', '', '0000-00-00', ''),
-(20, 'MRR-CW001', '04-01', 20, 147, 125, '345', 21, 3, 1, '2023-12-31', '', '0000-00-00', '');
+(20, 'MRR-CW001', '04-01', 20, 147, 125, '345', 21, 3, 1, '2023-12-31', '', '0000-00-00', ''),
+(21, 'MRR-CW001', '04-01', 20, 594, 125, '345', 0, 0, 1, '2024-01-11', '', '0000-00-00', ''),
+(22, 'MRR-CW001', '04-02', 19, 295, 110, '456', 0, 0, 1, '2024-01-11', '', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -8829,7 +8876,7 @@ INSERT INTO `projects` (`id`, `code`, `project_name`, `address`, `type`, `client
 (24, 'PR-001', 'Payra Project', '72, Mohakhali C/A, (8th Floor), Rupayan Center, Dhaka-1212, Bangladesh', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
 (25, 'PR-002', 'PCT,Ctg', '72, Mohakhali C/A, (8th Floor), Rupayan Center, Dhaka-1212, Bangladesh', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
 (26, 'PR-003', 'Head Office', 'Dhaka', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(27, 'PR-004', 'Tradfly International', 'Dhaka', 'Rental', 1, NULL, NULL, NULL, NULL, NULL);
+(28, 'PR-004', 'qrqwrqr', 'qrq', 'Rental', 7, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -8898,7 +8945,8 @@ CREATE TABLE `rents` (
 --
 
 INSERT INTO `rents` (`id`, `date`, `client_name`, `project_name`, `ref_no`, `challan_no`, `total_rent_amount`, `discount`, `grandtotal`, `deposit_amount`, `due_amount`, `from_project`, `from_warehouse`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(8, '2024-01-03', '1', '27', 'Atiqur', 'RCH-CW-001', 9500, 0, 9500, 0, 9500, 0, 0, '0', '2024-01-03', '3378', NULL, '');
+(11, '2024-01-10', '2', '25', 'Atiqur Rahman', 'RCH-CW-001', 35000, 500, 34500, 19500, 15000, 0, 0, 'Pending', '2024-01-10', '3378', '2024-10-01', '3378'),
+(12, '2024-01-10', '7', '28', 'qerqrqwrq', 'RCH-CW-002', 25000, 0, 25000, 5000, 20000, 0, 0, 'Pending', '2024-01-10', '3378', '2024-10-01', '3378');
 
 -- --------------------------------------------------------
 
@@ -8924,8 +8972,10 @@ CREATE TABLE `rent_details` (
 --
 
 INSERT INTO `rent_details` (`id`, `rent_id`, `challan_no`, `eel_code`, `rent_date`, `return_date`, `extended_date`, `total_days`, `amount`, `status`) VALUES
-(22, 0, 'RCH-CW-001', 'AC-01', '2024-01-03', '2024-01-10', '2024-01-10', 7, 4500, ''),
-(23, 0, 'RCH-CW-001', 'AC-02', '2024-01-03', '2024-01-10', '2024-01-10', 7, 5000, '');
+(28, 0, 'RCH-CW-001', 'AC-03', '2024-01-10', '2024-01-20', '2024-01-20', 10, 15000, ''),
+(29, 0, 'RCH-CW-001', 'AC-04', '2024-01-10', '2024-01-20', '2024-01-20', 10, 20000, ''),
+(30, 0, 'RCH-CW-002', 'AC-01', '2024-01-10', '2024-01-31', '2024-01-31', 21, 10000, ''),
+(31, 0, 'RCH-CW-002', 'AC-03', '2024-01-10', '2024-01-31', '2024-01-31', 21, 15000, '');
 
 -- --------------------------------------------------------
 
@@ -9960,7 +10010,17 @@ INSERT INTO `userlog` (`id`, `userId`, `username`, `role_id`, `employee_id`, `us
 (382, 3378, '88i Admin', 14, '', 0x3a3a31, '2023-12-31 10:55:13'),
 (383, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-01 03:31:48'),
 (384, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-02 03:55:28'),
-(385, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-03 04:11:32');
+(385, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-03 04:11:32'),
+(386, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-04 03:31:42'),
+(387, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-05 06:42:54'),
+(388, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-08 04:14:22'),
+(389, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-08 09:26:24'),
+(390, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-09 03:57:52'),
+(391, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-09 08:50:48'),
+(392, 3378, '88i Admin', 14, '', 0x3132372e302e302e31, '2024-01-09 10:46:09'),
+(393, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-10 04:14:30'),
+(394, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-10 07:20:24'),
+(395, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-11 04:02:08');
 
 -- --------------------------------------------------------
 
@@ -10146,6 +10206,12 @@ ALTER TABLE `buildings`
 -- Indexes for table `clients`
 --
 ALTER TABLE `clients`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `client_balance`
+--
+ALTER TABLE `client_balance`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -10674,7 +10740,13 @@ ALTER TABLE `buildings`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `client_balance`
+--
+ALTER TABLE `client_balance`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `companies`
@@ -10758,7 +10830,7 @@ ALTER TABLE `inv_item_unit`
 -- AUTO_INCREMENT for table `inv_material`
 --
 ALTER TABLE `inv_material`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `inv_materialbalance`
@@ -10776,7 +10848,7 @@ ALTER TABLE `inv_materialcategory`
 -- AUTO_INCREMENT for table `inv_materialcategorysub`
 --
 ALTER TABLE `inv_materialcategorysub`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `inv_material_level3`
@@ -10794,13 +10866,13 @@ ALTER TABLE `inv_material_level4`
 -- AUTO_INCREMENT for table `inv_material_partno_detail`
 --
 ALTER TABLE `inv_material_partno_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `inv_product_price`
 --
 ALTER TABLE `inv_product_price`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `inv_receive`
@@ -11004,7 +11076,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `rental_project`
@@ -11016,13 +11088,13 @@ ALTER TABLE `rental_project`
 -- AUTO_INCREMENT for table `rents`
 --
 ALTER TABLE `rents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `rent_details`
 --
 ALTER TABLE `rent_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `rent_extend`
@@ -11148,7 +11220,7 @@ ALTER TABLE `tb_logsheet`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=386;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=396;
 
 --
 -- AUTO_INCREMENT for table `users`

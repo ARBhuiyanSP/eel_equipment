@@ -39,6 +39,10 @@ include 'header.php';
 								<ul>
 									<a href="material-history.php"><li><b>Material History Report</b></li></a>
 								</ul>
+								<h5>Rent Reports</h5>
+								<ul>
+									<a href="client-history.php"><li><b>Client Ledger Report</b></li></a>
+								</ul>
 							</div>
 						</div>
             <!--here your code will go-->
