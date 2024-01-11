@@ -672,11 +672,11 @@ function get_rent_list_action_data($data){
     //$receive_url = 'receive_from_wo.php?id='.$data->challan_no;
     $action = "";
 							
-	$action.='<span><a title="Details View" class="btn btn-sm btn-success" href="'.$view_url.'">
+	$action.='<span><a title="Details View" class="btn btn-sm btn-success" href="#">
                                 <span class="fa fa-eye"> <b> Invoice</b></span>
        
                      </a></span>';
-	$action.='<a title="Collection" class="btn btn-sm btn-danger" href="'.$details_url.'">
+	$action.='<a title="Collection" class="btn btn-sm btn-danger" href="#">
                                 <i class="fa fa-money"> Return/Extend</i>
                             </a>';
 							
