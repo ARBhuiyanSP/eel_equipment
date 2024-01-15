@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2024 at 08:14 AM
+-- Generation Time: Jan 15, 2024 at 08:29 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -7394,7 +7394,7 @@ CREATE TABLE `inv_material` (
 --
 
 INSERT INTO `inv_material` (`id`, `material_id_code`, `material_id`, `material_sub_id`, `material_level3_id`, `material_level4_id`, `material_description`, `spec`, `location`, `type`, `material_min_stock`, `avg_con_sump`, `lead_time`, `re_order_level`, `qty_unit`, `op_balance_qty`, `op_balance_val`, `chk_print`, `cur_qty`, `cur_price`, `cur_value`, `last_issue`, `last_receive`, `part_no`, `current_balance`, `is_manual_code_edit`) VALUES
-(11, '01-01', '41', '0', 0, 0, 'Engine Filter', '', 'KT', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '8965', 0, 0),
+(11, '01-01', '41', '0', 0, 0, 'Engine Filter', '', '', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '8965', 0, 0),
 (12, '01-02', '41', '0', 0, 0, 'Oil Filter', '', 'KT', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '234', 0, 0),
 (13, '04-01', '44', '0', 0, 0, 'Engine Oil', '', 'KT', '', 20, NULL, NULL, 0, '21', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '345', 594, 0),
 (14, '04-02', '44', '0', 0, 0, 'Disel', '', 'KT', '', 20, NULL, NULL, 0, '21', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '456', 295, 0),
@@ -7600,7 +7600,8 @@ INSERT INTO `inv_material_partno_detail` (`id`, `inv_material_id`, `material_id_
 (61, 13, '04-01', '345', 1, 1, 1, '2023-12-29 00:00:00', '2023-12-29 00:00:00'),
 (62, 14, '04-02', '456', 1, 1, 1, '2023-12-29 00:00:00', '2023-12-29 00:00:00'),
 (63, 11, '01-01', '8965', 1, 1, 1, '2023-12-31 00:00:00', '2023-12-31 00:00:00'),
-(64, 15, '04-01', '5564654', 1, 1, 1, '2024-01-10 00:00:00', '2024-01-10 00:00:00');
+(64, 15, '04-01', '5564654', 1, 1, 1, '2024-01-10 00:00:00', '2024-01-10 00:00:00'),
+(65, 0, '01-01', '8965', 1, 1, 1, '2024-01-15 00:00:00', '2024-01-15 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -8975,7 +8976,9 @@ INSERT INTO `rent_details` (`id`, `rent_id`, `challan_no`, `eel_code`, `rent_dat
 (28, 0, 'RCH-CW-001', 'AC-03', '2024-01-10', '2024-01-20', '2024-01-20', 10, 15000, ''),
 (29, 0, 'RCH-CW-001', 'AC-04', '2024-01-10', '2024-01-20', '2024-01-20', 10, 20000, ''),
 (30, 0, 'RCH-CW-002', 'AC-01', '2024-01-10', '2024-01-31', '2024-01-31', 21, 10000, ''),
-(31, 0, 'RCH-CW-002', 'AC-03', '2024-01-10', '2024-01-31', '2024-01-31', 21, 15000, '');
+(31, 0, 'RCH-CW-002', 'AC-03', '2024-01-10', '2024-01-31', '2024-01-31', 21, 15000, ''),
+(32, 0, '', '', '0000-00-00', '2012-03-21', '0000-00-00', 0, 0, ''),
+(33, 0, '', '', '0000-00-00', '0000-00-00', '0000-00-00', 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -10020,7 +10023,9 @@ INSERT INTO `userlog` (`id`, `userId`, `username`, `role_id`, `employee_id`, `us
 (392, 3378, '88i Admin', 14, '', 0x3132372e302e302e31, '2024-01-09 10:46:09'),
 (393, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-10 04:14:30'),
 (394, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-10 07:20:24'),
-(395, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-11 04:02:08');
+(395, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-11 04:02:08'),
+(396, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-14 06:05:05'),
+(397, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-15 03:53:24');
 
 -- --------------------------------------------------------
 
@@ -10866,7 +10871,7 @@ ALTER TABLE `inv_material_level4`
 -- AUTO_INCREMENT for table `inv_material_partno_detail`
 --
 ALTER TABLE `inv_material_partno_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `inv_product_price`
@@ -11094,7 +11099,7 @@ ALTER TABLE `rents`
 -- AUTO_INCREMENT for table `rent_details`
 --
 ALTER TABLE `rent_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `rent_extend`
@@ -11220,7 +11225,7 @@ ALTER TABLE `tb_logsheet`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=396;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=398;
 
 --
 -- AUTO_INCREMENT for table `users`

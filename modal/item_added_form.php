@@ -40,7 +40,7 @@ $category_resize_data = category_tree();
                         <div class="form-group">
                             <label class="control-label col-sm-5" for="parent_code">Material Code:</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="item_code" placeholder="Enter item code" name="item_code">
+                                <input type="text" class="form-control" id="item_code" placeholder="Enter item code" name="item_code" readonly >
                             </div>
                         </div> </br>
                         <div class="form-group">

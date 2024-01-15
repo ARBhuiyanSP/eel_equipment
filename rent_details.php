@@ -23,7 +23,7 @@
 								  </tr>
 								  <tr>
 										<th>Date:</th>
-										<td>1st August 2020										</td>
+										<td>1st August 2020</td>
 									</tr>
 								</table>
 							</div>
@@ -56,6 +56,10 @@
 												<a title="Details View" class="btn btn-sm btn-success" href="#">
 													<span class="fa fa-undo"><b> Return</b></span>
 												</a>
+												
+												
+												
+												
 											</td>
 										</tr>
 									</tbody>

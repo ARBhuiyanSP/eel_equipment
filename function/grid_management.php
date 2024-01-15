@@ -676,7 +676,7 @@ function get_rent_list_action_data($data){
                                 <span class="fa fa-eye"> <b> Invoice</b></span>
        
                      </a></span>';
-	$action.='<a title="Collection" class="btn btn-sm btn-danger" href="#">
+	$action.='<a title="Collection" class="btn btn-sm btn-danger" href="'.$details_url.'">
                                 <i class="fa fa-money"> Return/Extend</i>
                             </a>';
 							
