@@ -16,6 +16,19 @@ include 'header.php';
         <div class="card-body">
             <!--here your code will go-->
            <div class="row">
+		                   <div class="col-sm-4">
+								<h5>Material Receive Reports</h5>
+								<ul>
+									<a href="receive_report.php"><li><b>Material Receive List</b></li></a>
+									<a href="receive_report_by_category.php"><li><b>Material Receive Report by Category</b></li></a>
+									<a href="supplier_ledger.php"><li><b>Supplier Ledger Report</b></li></a>
+									
+								</ul>
+								
+							</div>
+
+							
+
 							<div class="col-sm-4">
 								<h5>Material Reports</h5>
 								<ul>
@@ -42,6 +55,13 @@ include 'header.php';
 								<h5>Rent Reports</h5>
 								<ul>
 									<a href="client-history.php"><li><b>Client Ledger Report</b></li></a>
+								</ul>
+
+								<h5>Consumption Reports</h5>
+								<ul>
+									<a href="consumption_report.php"><li><b>Consumption Report</b></li></a>
+									
+									
 								</ul>
 							</div>
 						</div>
