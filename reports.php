@@ -24,6 +24,13 @@ include 'header.php';
 									<a href="supplier_ledger.php"><li><b>Supplier Ledger Report</b></li></a>
 									
 								</ul>
+
+								<h5>Transfer Reports</h5>
+								<ul>
+									<a href="transfer_report.php"><li><b>Material Transfer List</b></li></a>
+									
+									
+								</ul>
 								
 							</div>
 
