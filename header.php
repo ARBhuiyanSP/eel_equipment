@@ -272,6 +272,13 @@ footer.sticky-footer{
       </li> -->
 	  <li class="nav-item dropdown no-arrow">
         <?php //if(check_permission('material-issue-list')){ ?>
+		<a class="nav-link" href="transfer_list.php" id="userDropdown">
+          <i class="fa fa-server"></i> Transfer
+        </a>
+		<?php //} ?>
+		</li>
+	  <li class="nav-item dropdown no-arrow">
+        <?php //if(check_permission('material-issue-list')){ ?>
 		<a class="nav-link" href="rlp_list.php" id="userDropdown">
           <i class="fa fa-server"></i> RLP
         </a>

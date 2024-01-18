@@ -46,7 +46,7 @@
 			</div>
             <div class="col-xs-6">
 				<div class="form-group">
-					<label for="exampleId">Ref. Text/ NS Info</label>
+					<label for="exampleId">Quotation ref</label>
 					<textarea name="ns_info" class="form-control"></textarea>
 				</div>
 			</div>

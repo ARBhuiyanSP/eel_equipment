@@ -30,7 +30,7 @@ $transfer_id=$_GET['no']; ?>
 							<div class="col-sm-6">	
 								<p>
 								<img src="images/Saif_Engineering_Logo_165X72.png" height="100px;"/>
-								<h5>E-engineering Ltd</h5><span>Payra Project</span></br></p></div>
+								<h5>E-engineering Ltd</h5><span></span></br></p></div>
 							<div class="col-sm-6">
 								<table class="table table-bordered">
 									<tr>
@@ -73,7 +73,10 @@ $transfer_id=$_GET['no']; ?>
 									<th>SL #</th>
 									<th>Material ID</th>
 									<th>material_name</th>
+									<th>Part No</th>
 									<th>Qty</th>
+									<th>Unit Price</th>
+									<th>Amount</th>
 								</tr>
 							</thead>
 							<tbody id="material_receive_list_body">
@@ -81,7 +84,11 @@ $transfer_id=$_GET['no']; ?>
 								$transfer_id=$_GET['no'];
 								$sql = "select * from `inv_tranferdetail` where `transfer_id`='$transfer_id'";
 								$result = mysqli_query($conn, $sql);
-									for($i=1; $row = mysqli_fetch_array($result); $i++){
+								$transfer_qty = 0;
+								$totalamount = 0;
+								for($i=1; $row = mysqli_fetch_array($result); $i++){
+									$transfer_qty += $row['transfer_qty'];
+									$totalamount += $row['unit_price'];
 								?>
 								<tr>
 									<td>
@@ -97,25 +104,27 @@ $transfer_id=$_GET['no']; ?>
 										?>
 									</td>
 									<td>
+										<?php echo $row['part_no']; ?>
+									</td>
+									<td>
 										<?php echo $row['transfer_qty'] ?>
+									</td>
+									<td>
+										<?php echo $row['unit_price'] ?>
+									</td>
+									<td>
+										<?php echo $row['transfer_qty'] * $row['unit_price'] ?>
 									</td>
 								</tr>
 								
 								<?php } ?>
 								<tr>
-									<td colspan="3" class="grand_total">
-										Grand Total:
+									<td colspan="4" class="grand_total" style="text-align:right">
+										<b>Grand Total:</b>
 									</td>
-									<td>
-										<?php 
-										$sql2 = "SELECT sum(transfer_qty) FROM  `inv_tranferdetail` where `transfer_id`='$transfer_id'";
-										$result2 = mysqli_query($conn, $sql2);
-										for($i=0; $row2 = mysqli_fetch_array($result2); $i++){
-										$fgfg2=$row2['sum(transfer_qty)'];
-										echo $fgfg2 ;
-										}
-										?>
-									</td>
+									<td> <b><?php echo $transfer_qty; ?> </b></td>
+									<td> </td>
+									<td> <b><?php echo $totalamount; ?></b> </td>
 								</tr>
 							</tbody>
 						</table>

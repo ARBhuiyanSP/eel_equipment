@@ -44,11 +44,11 @@
                                         <?php
                                         $table = "projects";
                                         $order = "ASC";
-                                        $column = "name";
+                                        $column = "project_name";
                                         $datas = getTableDataByTableNameRlp($table, $order, $column);
                                         foreach ($datas as $data) {
                                             ?>
-                                            <option value="<?php echo $data->id; ?>"><?php echo $data->name; ?></option>
+                                            <option value="<?php echo $data->id; ?>"><?php echo $data->project_name; ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -105,11 +105,11 @@
                                         <?php
                                         $table = "projects";
                                         $order = "ASC";
-                                        $column = "name";
+                                        $column = "project_name";
                                         $datas = getTableDataByTableNameRlp($table, $order, $column);
                                         foreach ($datas as $data) {
                                             ?>
-                                            <option value="<?php echo $data->id; ?>"><?php echo $data->name; ?></option>
+                                            <option value="<?php echo $data->id; ?>"><?php echo $data->project_name; ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>                        
