@@ -254,33 +254,29 @@ if(isset($_POST['transfer_receive_submit']) && !empty($_POST['transfer_receive_s
 				*/
 				$queryBal = "UPDATE `inv_material` SET `current_balance`=current_balance + $quantity WHERE `material_id_code` = '$material_id'";
 				$conn->query($queryBal); 
-				}
-				
-				
-				
-				
-				
-				$query = "INSERT INTO `inv_issuedetail` (`issue_id`,`issue_date`,`material_id`,`material_name`,`unit`,`issue_qty`,`issue_price`,`part_no`,`use_in`,`project_id`,`warehouse_id`,`approval_status`) VALUES ('$issue_id','$issue_date','$material_id','$material_name','$unit','$quantity','$unit_price','$part_no','$use_in','$project_id','$warehouse_id','0')";
-				$conn->query($query);
 				
 				/*
 				 *  Insert Data Into inv_materialbalance Table:
 				*/
-				$mb_ref_id      = $issue_id;
+				$mb_ref_id      = $transfer_id;
 				$mb_materialid  = $material_id;
-				$mb_date        = (isset($issue_date) && !empty($issue_date) ? date('Y-m-d h:i:s', strtotime($issue_date)) : date('Y-m-d h:i:s'));
-				$mbin_qty       = 0;
-				$mbin_val       = 0;
-				$mbout_qty      = $quantity;
-				$mbout_val      = $mbout_qty * $unit_price;
-				$mbprice        = $unit_price;
-				$mbtype         = 'Issue';
+				$mb_date        = (isset($transfer_date) && !empty($transfer_date) ? date('Y-m-d h:i:s', strtotime($transfer_date)) : date('Y-m-d h:i:s'));
+				$mbfrom_in_qty       = 0;
+				$mbfrom_out_qty      = $quantity;
+				$mbfrom_type         = 'Transfer Out';
 				$mbserial       = '1.1';
 				$mbunit_id      = $project_id;
 				$mbserial_id    = 0;
-				$jvno           = $issue_id;             
+				$jvno           = $transfer_id;       
 				
-				$query_inmb = "INSERT INTO `inv_materialbalance` (`mb_ref_id`,`mb_materialid`,`mb_date`,`mbin_qty`,`mbin_val`,`mbout_qty`,`mbout_val`,`mbprice`,`mbtype`,`mbserial`,`mbserial_id`,`mbunit_id`,`jvno`,`part_no`,`project_id`,`warehouse_id`) VALUES ('$mb_ref_id','$mb_materialid','$mb_date','$mbin_qty','$mbin_val','$mbout_qty','$mbout_val','$mbprice','$mbtype','$mbserial','$mbunit_id','$unit','$jvno','$part_no','$project_id','$warehouse_id')";
+				$query_outmb = "INSERT INTO `inv_materialbalance` (`mb_ref_id`,`mb_materialid`,`mb_date`,`mbin_qty`,`mbin_val`,`mbout_qty`,`mbout_val`,`mbprice`,`mbtype`,`mbserial`,`mbserial_id`,`mbunit_id`,`project_id`, `warehouse_id`) VALUES ('$mb_ref_id','$mb_materialid','$mb_date','$mbfrom_in_qty','$mbin_val','$mbfrom_out_qty','$mbout_val','$mbprice','$mbfrom_type','$mbserial','$mbunit_id','$mbserial_id','$from_project','$from_warehouse')";
+				$conn->query($query_outmb);
+				
+				
+				$mbin_in_qty       	= $quantity;
+				$mbin_out_qty      	= 0;
+				$mbfrom_type		= 'Transfer In';
+				$query_inmb = "INSERT INTO `inv_materialbalance` (`mb_ref_id`,`mb_materialid`,`mb_date`,`mbin_qty`,`mbin_val`,`mbout_qty`,`mbout_val`,`mbprice`,`mbtype`,`mbserial`,`mbserial_id`,`mbunit_id`,`project_id`, `warehouse_id`) VALUES ('$mb_ref_id','$mb_materialid','$mb_date','$mbin_in_qty','$mbin_val','$mbin_out_qty','$mbout_val','$mbprice','$mbfrom_type','$mbserial','$mbunit_id','$mbserial_id','$to_project','$to_warehouse')";
 				$conn->query($query_inmb);
     }
     /*
@@ -288,11 +284,13 @@ if(isset($_POST['transfer_receive_submit']) && !empty($_POST['transfer_receive_s
     */
 			
 
-    $query2    = "UPDATE inv_issue SET issue_id='$issue_id',issue_date='$issue_date',use_in='$use_in',total_amount='$total_amount',remarks='$remarks',project_id='$project_id',warehouse_id='$warehouse_id',issue_image='$issue_image' WHERE id=$edit_id";
-    $result2 = $conn->query($query2);
+    $query2 = "UPDATE `inv_transfermaster` SET `status`='Approved' WHERE `id` = '$edit_id'";
+	
     
-    $_SESSION['success']    =   "Issue process have been successfully updated.";
-    header("location: issue_edit.php?edit_id=".$edit_id);
+    $result2 = $conn->query($query2); 
+    
+    $_SESSION['success']    =   "Transfer process have been successfully updated.";
+    header("location: transfer_list.php");
     exit();
 }
 
