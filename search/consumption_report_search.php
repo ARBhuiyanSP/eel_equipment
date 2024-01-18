@@ -11,9 +11,9 @@
 <div class="card mb-3">
     <div class="card-header">
 		<button class="btn btn-success linktext"> Individual Consumption Report</button>
-		<button class="btn btn-info linktext" onclick="window.location.href='consumption_type_report.php';"> Type Wise Consumption Report</button>
-		<button class="btn btn-info linktext" onclick="window.location.href='consumption_group_report.php';"> Material Groupwise Consumption Report</button>
-		<button class="btn btn-info linktext" onclick="window.location.href='consumption_pakg_build_report.php';"> Package and Bulding Wise Consumption Report</button>
+		<!-- <button class="btn btn-info linktext" onclick="window.location.href='consumption_type_report.php';"> Type Wise Consumption Report</button> -->
+		<!-- <button class="btn btn-info linktext" onclick="window.location.href='consumption_group_report.php';"> Material Groupwise Consumption Report</button> -->
+		<!-- <button class="btn btn-info linktext" onclick="window.location.href='consumption_pakg_build_report.php';"> Package and Bulding Wise Consumption Report</button> -->
 	</div>
 		
     <div class="card-body">

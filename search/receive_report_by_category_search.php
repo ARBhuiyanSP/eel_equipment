@@ -17,18 +17,18 @@
                                 <div class="form-group">
 									<label for="sel1">Material Category:</label>
 									<select class="form-control material_select_2" id="material_id" name="material_id">
-										<option value="">Select</option>
+										<option value="0">Select</option>
 										<?php
 										$parentCats = getTableDataByTableName('inv_materialcategorysub', '', 'category_description');
 										if (isset($parentCats) && !empty($parentCats)) {
 											foreach ($parentCats as $pcat) {
-												if($_GET['material_id'] == $pcat['category_id']){
+												if($_GET['material_id'] == $pcat['id']){
 													$selected	= 'selected';
 													}else{
 													$selected	= '';
 													}
 												?>
-												<option value="<?php echo $pcat['category_id'] ?>" <?php echo $selected; ?>><?php echo $pcat['category_description'] ?></option>
+												<option value="<?php echo $pcat['id'] ?>" <?php echo $selected; ?>><?php echo $pcat['category_description'] ?></option>
 											<?php }
 										} ?>
 									</select>
@@ -66,7 +66,8 @@ if(isset($_GET['submit'])){
 	$from_date		=	$_GET['from_date'];
 	$to_date		=	$_GET['to_date'];
 	$warehouse_id	=	$_SESSION['logged']['warehouse_id'];
-	
+	$grand_total_qty=0;
+    $grand_total_amount=0;
 
 ?>
 <center>
@@ -79,7 +80,7 @@ if(isset($_GET['submit'])){
 					<center>
 						<p>
 							<img src="images/Saif_Engineering_Logo_165X72.png" height="50px;"/><br>
-							<h5>CTED CHATTOGRAM</h5> 
+							<h5>E-Engineering Ltd</h5> 
 							<span>Material Received Report</span></br>
 							From <span class="dtext"><?php echo date("jS F Y", strtotime($from_date));?></span> To  <span class="dtext"><?php echo date("jS F Y", strtotime($to_date));?> </span><br>
 						</p>
@@ -108,76 +109,112 @@ if(isset($_GET['submit'])){
 							$totalQty = 0;
 							$totalAmount = 0;
 							//$mrr_no = $row['mrr_no'];
-							$sqlall	=	"SELECT * FROM `inv_materialbalance` WHERE `mb_materialid` ='$material_id' AND `mbtype`='Receive' AND `mb_date` BETWEEN '$from_date' AND '$to_date';";
+							$sqlall	=	"SELECT a1.mrr_no,a1.mrr_date,a4.category_description,a3.material_id_code,a3.material_description,a5.unit_name,a3.part_no,a3.spec
+							,a2.receive_qty,a2.unit_price,a2.total_receive,a1.remarks 
+							FROM `inv_receive` a1 
+							INNER JOIN `inv_receivedetail` a2 ON a1.mrr_no=a2.mrr_no
+							INNER JOIN  `inv_material` a3 ON a2.material_name=a3.id
+							INNER JOIN `inv_materialcategorysub` a4 ON a3.material_id=a4.id
+							INNER JOIN `inv_item_unit` a5 ON a2.unit_id=a5.id WHERE 1=1 ";
+							  if($material_id !=0){
+								$sqlall	.=	"  AND a3.material_id ='$material_id' ";
+							  } 
+							$sqlall	.=	"	AND `receive_type`='Credit' AND a1.mrr_date BETWEEN '$from_date' AND '$to_date';";
+
 							$resultall = mysqli_query($conn, $sqlall);
+
+							$resize_data =[];
 							while($rowall=mysqli_fetch_array($resultall))
 							{
-								$totalQty += $rowall['mbin_qty'];
-								$totalAmount += $rowall['mbin_val'];
+								$resize_data[$rowall["category_description"]][]=$rowall;
+							}
+
+							
+
+							foreach($resize_data as $key=>$detail)
+							{
+								
+								$group_totalQty = 0;
+								$group_totalAmount = 0;
+								
 						?>
 						<tr>
-							<td style="text-align:center"><?php echo date("j M y", strtotime($rowall['mb_date']));?></td>
-							<td style="text-align:center"><?php echo $rowall['mb_ref_id']; ?></td>
-							<td style="text-align:center"><?php 
-								$mb_materialid = $rowall['mb_materialid'];
-								$sqlname	=	"SELECT * FROM `inv_material` WHERE `material_id_code` ='$material_id'";
-								$resultname = mysqli_query($conn, $sqlname);
-								$rowname=mysqli_fetch_array($resultname);
-								echo $rowname['material_description'];
-							?>
-							</td>
+							<td colspan="10"><b><?php echo $key; ?></b></td>
+						</tr>
+						<?php
+						foreach($detail as $key=>$rowall){
 							
-							
-							<td style="text-align:center"><?php echo $rowall['part_no']; ?></td>
-							
-							
-							<?php 
-								$sqlspec	=	"SELECT * FROM `inv_material` WHERE `material_id_code` ='$material_id' ";
-								$resultspec = mysqli_query($conn, $sqlspec);
-								$rowspec=mysqli_fetch_array($resultspec);
+								$totalQty += $rowall['receive_qty'];
+								$totalAmount += $rowall['total_receive'];
+								$GLOBALS["grand_total_qty"]+=$rowall['receive_qty'];
+                                $GLOBALS["grand_total_amount"]+=$rowall['total_receive'];
+
+								$group_totalQty += $rowall['receive_qty'];
+								$group_totalAmount += $rowall['total_receive'];
 								
+							
+							
 							?>
-							<td style="text-align:center"><?php echo $rowspec['spec']; ?></td>
-							
-							
-							<td style="text-align:center"><?php echo getDataRowByTableAndId('inv_item_unit', $rowall['mbunit_id'])->unit_name; ?></td>
-							<td style="text-align:center"><?php echo $rowall['mbin_qty']; ?></td>
-									<td><?php echo $rowall['mbprice'] ?></td>
-									<td style="text-align:right"><?php echo $rowall['mbin_val'] ?></td>
+						<tr>
+							<td style="text-align:center"><?php echo date("j M y", strtotime($rowall['mrr_date']));?></td>
+							<td style="text-align:center"><?php echo $rowall['mrr_no']; ?></td>
+							<td style="text-align:center"><?php echo $rowall['material_description']; ?> </td>
+							<td style="text-align:center"><?php echo $rowall['part_no']; ?></td>
+							<td style="text-align:center"><?php echo $rowall['spec']; ?></td>
+							<td style="text-align:center"><?php echo $rowall['unit_name']; ?></td>
+							<td style="text-align:center"><?php echo $rowall['receive_qty']; ?></td>
+						    <td style="text-align:center"><?php echo $rowall['unit_price'] ?></td>
+							<td style="text-align:right"><?php echo $rowall['total_receive'] ?></td>
 							<td></td>
 						</tr>
-						
+
 						<?php } ?>
-						
+
 						<tr>
-									<td colspan="6" class="grand_total" style="text-align:right">Grand Total:</td>
+						<tr>
+									<td colspan="6" class="grand_total" style="text-align:right">Sub Total:</td>
 									<td style="text-align:center">
 										<?php 
-										$sql2 			= "SELECT sum(`mbin_qty`) FROM `inv_materialbalance` WHERE `mb_materialid` ='$material_id' AND `mbtype`='Receive' AND `mb_date` BETWEEN '$from_date' AND '$to_date'";
-										$result2 		= mysqli_query($conn, $sql2);
-										for($i=0; $row2 = mysqli_fetch_array($result2); $i++){
-										$totalReceived	=$row2['sum(`mbin_qty`)'];
-										echo $totalReceived ;
-										}
+										
+										echo $group_totalQty ;
+										
+
 										?>
 									</td>
 									<td></td>
 									<td style="text-align:right">
 									<?php 
-										$sql2			= "SELECT sum(`mbin_val`) FROM `inv_materialbalance` WHERE `mb_materialid` ='$material_id' AND `mbtype`='Receive' AND `mb_date` BETWEEN '$from_date' AND '$to_date'";
-										$result2		= mysqli_query($conn, $sql2);
-										for($i=0; $row2 = mysqli_fetch_array($result2); $i++){
-										$totalAmount	= number_format((float)$row2['sum(`mbin_val`)'], 2, '.', '');
+										echo $group_totalAmount ;
+										?>
+									</td>
+									<td></td>
+								</tr>
+						</tr>
+						
+						<?php } ?>
+						
+						     <tr>
+									<td colspan="6" class="grand_total" style="text-align:right">Grand Total:</td>
+									<td style="text-align:center">
+										<?php 
+										
+										echo $totalQty ;
+										
+
+										?>
+									</td>
+									<td></td>
+									<td style="text-align:right">
+									<?php 
 										echo $totalAmount ;
-										}
 										?>
 									</td>
 									<td></td>
 								</tr>
 								
-						
-						
-					</tbody>
+					       </tbody>
+						   
+						   
 				</table>
 				<center><div class="row">
 					<div class="col-sm-6"></br></br>--------------------</br>Receiver Signature</div>

@@ -45,7 +45,8 @@ if(isset($_GET['submit'])){
 	$from_date		=	$_GET['from_date'];
 	$to_date		=	$_GET['to_date'];
 	$warehouse_id	=	$_SESSION['logged']['warehouse_id'];
-	
+	$grand_total_qty=0;
+    $grand_total_amount=0;
 	
 ?>
 <center>
@@ -65,33 +66,38 @@ if(isset($_GET['submit'])){
 					</center>
 				</div>
 			</div>
-				<table id="" class="table table-bordered">
+            <table id="" class="table table-bordered">
 					<thead>
 						<tr>
-							<th style="text-align:center">Voucher Date</th>
-							<th style="text-align:center">Voucher No</th>
-							<th style="text-align:center">Material Name</th>
-							<th style="text-align:center">Part No</th>
-							<th style="text-align:center">Specs</th>
-							<th style="text-align:center">Unit</th>
-							<th style="text-align:center">QTY</th>
-							<th style="text-align:center">Unit Price</th>
-							<th style="text-align:center">Amount</th>
-							<th style="text-align:center">Remarks</th>
+							<th>Material ID</th>
+							<th>Material Name</th>
+							<th>Unit</th>
+							<th>Receive QTY</th>
+							<th>Unit Price</th>
+							<th>Total Amount</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php
-							if($_SESSION['logged']['user_type'] !== 'whm'){
-								$sql	=	"SELECT * FROM `inv_receive` where `mrr_date` BETWEEN '$from_date' AND '$to_date';";
-							}else{
-								$sql	=	"SELECT * FROM `inv_receive` where `warehouse_id` = '$warehouse_id' AND `mrr_date` BETWEEN '$from_date' AND '$to_date';";
-							}
-							
+							$sql	=	"SELECT * FROM `inv_receive` where `mrr_date` BETWEEN '$from_date' AND '$to_date';";
 							$result = mysqli_query($conn, $sql);
 							while($row=mysqli_fetch_array($result))
 							{
 						?>
+						<tr style="background-color:#E9ECEF;">
+							<td>MRR No : <?php echo $row['mrr_no']; ?></td>
+							<td>Date : <?php echo date("jS F Y", strtotime($row['mrr_date']));?></td>
+							<!-- <td>PO No : <?php echo $row['purchase_id']; ?></td>
+							<td>Challan No : <?php echo $row['challanno']; ?></td> -->
+							<td colspan="2">Supplier : <?php 
+								$supplier_id = $row['supplier_id'];
+								$sqlunit	=	"SELECT * FROM `suppliers` WHERE `code` = '$supplier_id'  ";
+								$resultunit = mysqli_query($conn, $sqlunit);
+								$rowunit=mysqli_fetch_array($resultunit);
+								echo $rowunit['name'];
+								?>
+							</td>
+						</tr>
 						<?php
 							$totalQty = 0;
 							$totalAmount = 0;
@@ -102,11 +108,13 @@ if(isset($_GET['submit'])){
 							{
 								$totalQty += $rowall['receive_qty'];
 								$totalAmount += $rowall['total_receive'];
+                                $GLOBALS["grand_total_qty"]+=$rowall['receive_qty'];
+                                $GLOBALS["grand_total_amount"]+=$rowall['total_receive'];
+                                
 						?>
 						<tr>
-							<td style="text-align:center"><?php echo date("j M y", strtotime($row['mrr_date']));?></td>
-							<td style="text-align:center"><?php echo $rowall['mrr_no']; ?></td>
-							<td style="text-align:center"><?php 
+							<td><?php echo $rowall['material_id']; ?></td>
+							<td><?php 
 								$mb_materialid = $rowall['material_id'];
 								$sqlname	=	"SELECT * FROM `inv_material` WHERE `material_id_code` = '$mb_materialid' ";
 								$resultname = mysqli_query($conn, $sqlname);
@@ -114,56 +122,28 @@ if(isset($_GET['submit'])){
 								echo $rowname['material_description'];
 							?>
 							</td>
-							
-							
-							<td style="text-align:center"><?php echo $rowall['part_no']; ?></td>
-							
-							
-							<?php 
-								$sqlspec	=	"SELECT * FROM `inv_material` WHERE `material_id_code` = '$mb_materialid' ";
-								$resultspec = mysqli_query($conn, $sqlspec);
-								$rowspec=mysqli_fetch_array($resultspec);
-								
-							?>
-							<td style="text-align:center"><?php echo $rowspec['spec']; ?></td>
-							
-							
-							<td style="text-align:center"><?php echo getDataRowByTableAndId('inv_item_unit', $rowall['unit_id'])->unit_name; ?></td>
-							<td style="text-align:center"><?php echo $rowall['receive_qty']; ?></td>
-									<td><?php echo $rowall['unit_price'] ?></td>
-									<td style="text-align:right"><?php echo $rowall['total_receive'] ?></td>
-							<td></td>
+							<td><?php echo getDataRowByTableAndId('inv_item_unit', $rowall['unit_id'])->unit_name; ?></td>
+							<td><?php echo $rowall['receive_qty']; ?></td>
+							<td><?php echo $rowall['unit_price']; ?></td>
+							<td><?php echo $rowall['total_receive']; ?></td>
 						</tr>
-						
-						<?php } ?>
 						<?php } ?>
 						<tr>
-									<td colspan="6" class="grand_total" style="text-align:right">Grand Total:</td>
-									<td style="text-align:center">
-										<?php 
-										$sql2 			= "SELECT sum(`no_of_material`) FROM `inv_receive` where `mrr_date` BETWEEN '$from_date' AND '$to_date'";
-										$result2 		= mysqli_query($conn, $sql2);
-										for($i=0; $row2 = mysqli_fetch_array($result2); $i++){
-										$totalReceived	=$row2['sum(`no_of_material`)'];
-										echo $totalReceived ;
-										}
-										?>
-									</td>
-									<td></td>
-									<td style="text-align:right">
-									<?php 
-										$sql2			= "SELECT sum(`receive_total`) FROM `inv_receive` where `mrr_date` BETWEEN '$from_date' AND '$to_date'";
-										$result2		= mysqli_query($conn, $sql2);
-										for($i=0; $row2 = mysqli_fetch_array($result2); $i++){
-										$totalAmount	= number_format((float)$row2['sum(`receive_total`)'], 2, '.', '');
-										echo $totalAmount ;
-										}
-										?>
-									</td>
-									<td></td>
-								</tr>
-						
+							<td colspan="3" class="grand_total" style="text-align:right">Sub Total:</td>
+							<td><?php echo $totalQty; ?></td>
+							<td></td>
+							<td><?php echo $totalAmount; ?></td>
+						</tr>
+						<?php } ?>
 					</tbody>
+                    <tfoot>
+						<tr>
+							<th colspan="3"><b style='float:right'>GRAND TOTAL</b></th>
+							<th><?php echo $grand_total_qty; ?></th>
+                            <td></td>
+                            <th><?php echo $grand_total_amount; ?></th>
+						</tr>
+					</tfoot>
 				</table>
 				<center><div class="row">
 					<div class="col-sm-6"></br></br>--------------------</br>Receiver Signature</div>
