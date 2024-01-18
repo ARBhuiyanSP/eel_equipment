@@ -110,6 +110,9 @@
 						<?php include('partial/cost_items_table.php'); ?>
 					</div>
 					<div class="col-sm-4">
+						<label for="exampleId">Other Cost</label>
+						<?php include('partial/other_cost.php'); ?>
+						
 						<label for="exampleId">Responsible Mechanic</label>
 						<?php include('partial/cost_mechanics_table.php'); ?>
 					</div>
