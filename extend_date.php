@@ -37,31 +37,30 @@ $id = $_GET['id'];
 	</div>
 	<center><h5>Rented Equipment List</h5></center>
     <div id="employee_table">  
-		<table class="table table-bordered">  
-		   <tr>  
-				<th>EEL Code</th>  
-				<th style="width:10%;">Rent Date</th>  
-				<th style="width:10%;">Return Date</th>  
-				<th style="width:20%;text-align:right;">Action</th>  
-		   </tr>  
-		   <?php  
-		   while($row = mysqli_fetch_array($result))  
-		   {  
-		   ?>  
-		   <tr>  
-				<td><?php echo $row["eel_code"]; ?></td>  
-				<td><?php echo $row["rent_date"]; ?></td>  
-				<td><?php echo $row["return_date"]; ?></td>  
-				<td style="text-align:right;">
-					<input type="button" name="edit" value="Extend date" id="<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm edit_data" />
-					<input type="button" name="view" value="Return" id="<?php echo $row["id"]; ?>" class="btn btn-success btn-sm view_data" />
-				</td>  
-		   </tr>  
-		   <?php  
-		   }  
-		   ?>  
-	  </table>  
- </div>
+                          <table class="table table-bordered">  
+                               <tr>  
+                                    <th>EEL Code</th>  
+                                    <th>Rent Date</th>  
+                                    <th>Return Date</th>  
+                                    <th>Edit</th>  
+                                    <th>View</th>  
+                               </tr>  
+                               <?php  
+                               while($row = mysqli_fetch_array($result))  
+                               {  
+                               ?>  
+                               <tr>  
+                                    <td><?php echo $row["eel_code"]; ?></td>  
+                                    <td><?php echo $row["rent_date"]; ?></td>  
+                                    <td><?php echo $row["return_date"]; ?></td>  
+                                    <td><input type="button" name="edit" value="Edit" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs edit_data" /></td>  
+                                    <td><input type="button" name="view" value="view" id="<?php echo $row["id"]; ?>" class="btn btn-info btn-xs view_data" /></td>  
+                               </tr>  
+                               <?php  
+                               }  
+                               ?>  
+                          </table>  
+                     </div>
     <!-- end receive search -->
 
 
@@ -163,16 +162,5 @@ $id = $_GET['id'];
       });  
  });  
  </script>
- <script>
-    $(function () {
-        $("#return_date").datepicker({
-            inline: true,
-            dateFormat: "yy-mm-dd",
-            yearRange: "-50:+10",
-            changeYear: true,
-            changeMonth: true
-        });
-    });
-</script>
 <!-- /.container-fluid -->
 <?php include 'footer.php' ?>

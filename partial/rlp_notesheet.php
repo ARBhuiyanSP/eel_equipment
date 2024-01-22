@@ -58,40 +58,35 @@
 					<input name="subject" type="text" class="form-control" id="subject" value="" autocomplete="off" />
 				</div>
 			</div>
-            <div class="col-xs-12">
+            <div class="col-xs-6">
 				<div class="form-group">
 					<label for="exampleId">Ref. Text/ NS Info</label>
 					<input name="ns_info" type="text" class="form-control" id="subject" value="" autocomplete="off" />
 				</div>
 			</div>
-            <div class="col-xs-6">
+			<div class="col-xs-3">
 				<div class="form-group">
-					<label for="exampleId">Supplier Name</label>
-					<input name="supplier_name" type="text" class="form-control" id="supplier_name" value="" autocomplete="off" />
+					<label for="id">Supplier</label><span class="reqfield"> ***required</span>
+					<select class="form-control material_select_2" id="supplier_name" name="supplier_name" required onchange="getItemCodeByParam(this.value, 'suppliers', 'code', 'supplier_id');">
+						<option value="">Select</option>
+						<?php
+						$projectsData = getTableDataByTableName('suppliers');
+
+						if (isset($projectsData) && !empty($projectsData)) {
+							foreach ($projectsData as $data) {
+								?>
+								<option value="<?php echo $data['id']; ?>"><?php echo $data['name']; ?></option>
+								<?php
+							}
+						}
+						?>
+					</select>
 				</div>
 			</div>
-            <div class="col-xs-6">
+			<div class="col-xs-3">
 				<div class="form-group">
-					<label for="exampleId">Address</label>
-					<input name="address" type="text" class="form-control" id="address" value="" autocomplete="off" />
-				</div>
-			</div>
-            <div class="col-xs-4">
-				<div class="form-group">
-					<label for="exampleId">Concern Person</label>
-					<input name="concern_person" type="text" class="form-control" id="concern_person" value="" autocomplete="off" />
-				</div>
-			</div>
-            <div class="col-xs-4">
-				<div class="form-group">
-					<label for="exampleId">Cell Number</label>
-					<input name="cell_number" type="text" class="form-control" id="cell_number" value="" autocomplete="off" />
-				</div>
-			</div>
-            <div class="col-xs-4">
-				<div class="form-group">
-					<label for="exampleId">Email</label>
-					<input name="email" type="text" class="form-control" id="email" value="" autocomplete="off" />
+					<label for="id">Supplier ID</label>
+					<input type="text" name="supplier_id" id="supplier_id" class="form-control" readonly required>
 				</div>
 			</div>
 			<div class="col-xs-12 table-responsive">

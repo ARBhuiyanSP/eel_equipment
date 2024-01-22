@@ -10,21 +10,26 @@
     <form action="" method="POST">
     <!-- info row -->
     <div class="row invoice-info">
-        <div class="col-md-12">
+		<div class="col-md-12 col-sm-12">
 			<center>
 				<h5 align="center"><img src="images/spl.png" height="50"></h5>
 				<p>Khawaja Tower[13th Floor], 95 Bir Uttam A.K Khandokar Road, Mohakhali C/A, Dhaka-1212, Bangladesh</p>
 				<h5><b>Work Order</b></h5>
 			</center>
-			<h5><b>Ref : <?php echo $wo_info->wo_no ?></b></h5>
-			<h5><b>Date : <?php echo human_format_date($wo_info->created_at) ?></b></h5>
-			<h5>
-				<b>To,</br><?php echo $wo_info->supplier_name ?></b></br>
+		</div>
+        <div class="col-md-6 col-sm-6">
+			
+				<b style="font-size:18px;">To,</br><?php echo $wo_info->supplier_name ?></b></br>
 				Address : <?php echo $wo_info->address ?></br>
 				Concern person : <?php echo $wo_info->concern_person ?></br>
 				Call : <?php echo $wo_info->cell_number ?>, E-Mail:  <?php echo $wo_info->email ?></br>
-			</h5>
-			<h5><b>Subject : <?php echo $wo_info->subject ?></b></h5>
+			
+			<h5 style=""><b>Subject : <?php echo $wo_info->subject ?></b></h5>
+		</div>
+		<div class="col-md-6 col-sm-6" style="text-align:right;font-size:18px;">
+			<b>Workorder No : <?php echo $wo_info->wo_no ?></b></br>
+			<b>Date : <?php echo human_format_date($wo_info->created_at) ?></b></br>
+			<b>Quotation Ref : <?php echo $wo_info->ns_info ?></b>
 		</div>
         <!-- /.col -->
     </div>
@@ -33,11 +38,10 @@
     <!-- Table row -->
         <div class="row">
 			<div class="col-xs-12 table-responsive">
-                <p><?php echo $wo_info->ns_info ?></p>
 				<table class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>S/N</th>
+                            <th width="5%">S/N</th>
                             <th>Item Description</th>
                             <th>Part No</th>
                             <th width="10%">Quantity</th>
@@ -56,8 +60,13 @@
                         ?>
                         <tr id="rec-1">
                             <td><?php echo $sl++; ?></td>
-                            <td><?php echo $data->item; ?></td>
-                            <td><?php echo $data->part_no; ?></td>
+							
+							<td><?php $dataresult =   getDataRowByTableAndId('inv_material', $data->item);
+								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : ''); ?></td>
+								
+							<td><?php $dataresult =   getDataRowByTableAndId('inv_material', $data->item);
+								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->part_no : ''); ?></td>
+                            
                             <td><?php echo $data->quantity; ?></td>
                             <td><?php echo $data->unit_price; ?></td>
                             <td><?php echo $data->total; ?></td>
@@ -80,7 +89,7 @@
                             <td><?php echo $wo_info->grand_total; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="7" style="text-align:left"><b>In word: <?php echo convertNumberToWords($wo_info->grand_total); ?> Only</b></td>
+                            <td colspan="6" style="text-align:left"><b>In word: <?php echo convertNumberToWords($wo_info->grand_total); ?> Only</b></td>
                         </tr>
                     </tbody>
                 </table>
@@ -91,6 +100,11 @@
 				<div class="row">
 				<div class="col-sm-4 col-xs-4">
 					Thanking You,</br>
+					
+					
+					<?php if($wo_info->status == '1'){ ?><img src="images/signatures/<?php echo getSignatureByUserId($wo_info->updated_by); ?>" height="70px"/><?php } ?>
+					
+					
 					<p style="padding-top:30px;">Alauddin Ahmed</br>Executive Director(Mechanical)</br>E-Engineering Ltd.</br>Cell:01324263969</br>Email: alauddin.ahmed@e-enggltd.com</p>
 				</div>
 			</div>
@@ -101,7 +115,7 @@
 						<li>BOD, EEL</li>
 						<li>ED, Mechanical, EEL</li>
 						<li>ACC DEPT.EEL</li>
-						<li>PM, CWLP Project</li>
+						<li>PM, <?php echo getProjectNameById($wo_info->request_project) ?> Project</li>
 						<li>Office Copy</li>
 					</ul>
 				</div>

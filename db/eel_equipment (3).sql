@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2024 at 06:08 AM
+-- Generation Time: Jan 22, 2024 at 12:59 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -136,6 +136,13 @@ CREATE TABLE `client_balance` (
   `updated_by` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `client_balance`
+--
+
+INSERT INTO `client_balance` (`id`, `ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(6, 'RCH-CW-001', '2024-01-18', '2', '24', 0, 52000, '', '', '', '', '0000-00-00', '', '2024-01-18', '3378', NULL, '');
+
 -- --------------------------------------------------------
 
 --
@@ -218,121 +225,7 @@ INSERT INTO `department` (`id`, `company_id`, `branch_id`, `branch_name`, `name`
 (11, 0, 1, 'E-Engineering', 'Mechanical', ''),
 (12, 0, 1, 'E-Engineering', 'Civil', ''),
 (13, 0, 1, 'E-Engineering', 'Commercial', ''),
-(14, 0, 1, 'E-Engineering', 'Store', ''),
-(15, 0, 2, 'PEAM', 'Engineering', ''),
-(16, 0, 2, 'PEAM', 'Civil', ''),
-(17, 0, 3, 'Maxon Power', 'Management', ''),
-(18, 0, 3, 'Maxon Power', 'Administration', ''),
-(19, 0, 3, 'Maxon Power', 'Project', ''),
-(20, 0, 3, 'Maxon Power', 'Finance And Accounts', ''),
-(21, 0, 4, 'Generator Sales', 'Sales And Marketing', ''),
-(22, 0, 4, 'Generator Sales', 'Service', ''),
-(23, 0, 4, 'Generator Sales', 'Project', ''),
-(24, 0, 4, 'Generator Sales', 'Administration', ''),
-(25, 0, 4, 'Generator Sales', 'Finance And Accounts', ''),
-(26, 0, 5, 'Corporate', 'Management', ''),
-(27, 0, 5, 'Corporate', 'Finance And Accounts', ''),
-(28, 0, 5, 'Corporate', 'QMS', ''),
-(29, 0, 5, 'Corporate', 'Human Resource Management', ''),
-(30, 0, 5, 'Corporate', 'Purchase And Procurement', ''),
-(31, 0, 5, 'Corporate', 'Legal', ''),
-(32, 0, 5, 'Corporate', 'Administration', ''),
-(33, 0, 5, 'Corporate', 'IT', ''),
-(34, 0, 5, 'Corporate', 'Commercial', ''),
-(35, 0, 5, 'Corporate', 'Project', ''),
-(36, 0, 5, 'Corporate', 'Business Development', ''),
-(37, 0, 5, 'Corporate', 'Brand Communication', ''),
-(38, 0, 5, 'Corporate', 'Share Market', ''),
-(39, 0, 5, 'Corporate', 'Enterprise Resource Planning', ''),
-(40, 0, 5, 'Corporate', 'Operation', ''),
-(41, 0, 5, 'Corporate', 'Service And WSS', ''),
-(42, 0, 6, 'Battery', 'Management', ''),
-(43, 0, 6, 'Battery', 'Commercial', ''),
-(44, 0, 6, 'Battery', 'Project Development And Implemantaion', ''),
-(45, 0, 6, 'Battery', 'RAndD', ''),
-(46, 0, 6, 'Battery', 'Factory Operation', ''),
-(47, 0, 6, 'Battery', 'Administration', ''),
-(48, 0, 6, 'Battery', 'Finance And Accounts', ''),
-(49, 0, 6, 'Battery', 'Plate Preparation', ''),
-(50, 0, 6, 'Battery', 'Charging', ''),
-(51, 0, 6, 'Battery', 'Quality Assurance', ''),
-(52, 0, 6, 'Battery', 'Maintenance', ''),
-(53, 0, 6, 'Battery', 'Warehouse And Logistics', ''),
-(54, 0, 6, 'Battery', 'Assembly', ''),
-(55, 0, 6, 'Battery', 'CMP', ''),
-(56, 0, 6, 'Battery', 'Service And WSS', ''),
-(57, 0, 6, 'Battery', 'QMS', ''),
-(58, 0, 6, 'Battery', 'Sales And Marketing', ''),
-(59, 0, 6, 'Battery', 'IT', ''),
-(60, 0, 6, 'Battery', 'Marketing And Sales- Export And Corporate', ''),
-(61, 0, 6, 'Battery', 'MC', ''),
-(62, 0, 6, 'Battery', 'Sales Operation', ''),
-(63, 0, 6, 'Battery', 'Planning And Coordination', ''),
-(64, 0, 6, 'Battery', 'Store', ''),
-(65, 0, 6, 'Battery', 'Gel And VRLA', ''),
-(66, 0, 6, 'Battery', 'Purchase And Procurement', ''),
-(67, 0, 7, 'Renewable Energy', 'Management', ''),
-(68, 0, 7, 'Renewable Energy', 'Operation', ''),
-(69, 0, 7, 'Renewable Energy', 'Finance And Accounts', ''),
-(70, 0, 7, 'Renewable Energy', 'Administration', ''),
-(71, 0, 7, 'Renewable Energy', 'Service And Maintanance', ''),
-(72, 0, 7, 'Renewable Energy', 'Sales And Marketing', ''),
-(73, 0, 7, 'Renewable Energy', 'Store', ''),
-(74, 0, 8, 'Sub Station', 'Project', ''),
-(75, 0, 8, 'Sub Station', 'Switch Gear', ''),
-(76, 0, 8, 'Sub Station', 'Operation', ''),
-(77, 0, 8, 'Sub Station', 'Administration', ''),
-(78, 0, 9, 'Equipment', 'Sales And Marketing', ''),
-(79, 0, 10, 'Spare Parts', 'Service', ''),
-(80, 0, 11, 'Service And Energy Business', 'Finance And Accounts', ''),
-(81, 0, 11, 'Service And Energy Business', 'Service', ''),
-(82, 0, 11, 'Service And Energy Business', 'Operation', ''),
-(83, 0, 11, 'Service And Energy Business', 'Sales And Marketing', ''),
-(84, 0, 11, 'Service And Energy Business', 'Administration', ''),
-(85, 0, 11, 'Service And Energy Business', 'Pre Sales', ''),
-(86, 0, 11, 'Service And Energy Business', 'Maintenance', ''),
-(87, 0, 11, 'Service And Energy Business', 'Group Customer Care', ''),
-(88, 0, 11, 'Service And Energy Business', 'Marine', ''),
-(89, 0, 12, 'SPOT', 'Documentation', ''),
-(90, 0, 12, 'SPOT', 'Billing', ''),
-(91, 0, 12, 'SPOT', 'Operation', ''),
-(92, 0, 12, 'SPOT', 'Administration', ''),
-(93, 0, 12, 'SPOT', 'Store', ''),
-(94, 0, 12, 'SPOT', 'Finance And Accounts', ''),
-(95, 0, 12, 'SPOT', 'Purchase And Procurement', ''),
-(96, 0, 12, 'SPOT', 'CTMS', ''),
-(97, 0, 12, 'SPOT', 'SC', ''),
-(98, 0, 12, 'SPOT', 'Ship Planning', ''),
-(99, 0, 12, 'SPOT', 'Terminal Operation', ''),
-(100, 0, 12, 'SPOT', 'RMG', ''),
-(101, 0, 12, 'SPOT', 'RTG', ''),
-(102, 0, 12, 'SPOT', 'Winch', ''),
-(103, 0, 12, 'SPOT', 'CCT Yard', ''),
-(104, 0, 12, 'SPOT', 'Strategic Planning And Terminal Operation', ''),
-(105, 0, 12, 'SPOT', 'NCT Yard', ''),
-(106, 0, 12, 'SPOT', 'CFS', ''),
-(107, 0, 12, 'SPOT', 'FLT', ''),
-(108, 0, 12, 'SPOT', 'Yard Planning And Documentation', ''),
-(109, 0, 12, 'SPOT', 'CCT Lasher', ''),
-(110, 0, 12, 'SPOT', 'ITV', ''),
-(111, 0, 12, 'SPOT', 'QGC', ''),
-(112, 0, 12, 'SPOT', 'Quay Yard Supervisor', ''),
-(113, 0, 12, 'SPOT', 'Delivery', ''),
-(114, 0, 12, 'SPOT', 'NCT Lasher', ''),
-(115, 0, 13, 'CTED-Dhaka', 'Operation', ''),
-(116, 0, 13, 'CTED-Dhaka', 'Service', ''),
-(117, 0, 13, 'CTED-Dhaka', 'Maintenance', ''),
-(118, 0, 13, 'CTED-Dhaka', 'Administration', ''),
-(119, 0, 14, 'CTED-CTG', 'Maintenance', ''),
-(120, 0, 14, 'CTED-CTG', 'QGC and RTG', ''),
-(121, 0, 14, 'CTED-CTG', 'PM and FLT', ''),
-(122, 0, 14, 'CTED-CTG', 'Purchase And Procurement', ''),
-(123, 0, 14, 'CTED-CTG', 'Store', ''),
-(124, 0, 14, 'CTED-CTG', 'Administration', ''),
-(125, 0, 14, 'CTED-CTG', 'QGC Maintanence', ''),
-(129, 19, 16, '', 'Hardware', 'HARD'),
-(130, 19, 16, '', 'Software', ''),
-(131, 19, 16, '', 'Management', '');
+(14, 0, 1, 'E-Engineering', 'Store', '');
 
 -- --------------------------------------------------------
 
@@ -596,13 +489,6 @@ INSERT INTO `designations` (`id`, `name`) VALUES
 
 CREATE TABLE `equipments` (
   `id` int(11) NOT NULL,
-  `project_id` varchar(100) NOT NULL,
-  `project_name` varchar(200) NOT NULL,
-  `sub_project_id` varchar(100) NOT NULL,
-  `equipment_type` varchar(100) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `date_from` varchar(100) NOT NULL,
-  `date_to` varchar(100) NOT NULL,
   `name` varchar(500) NOT NULL,
   `eel_code` varchar(100) NOT NULL,
   `origin` varchar(100) NOT NULL,
@@ -624,7 +510,6 @@ CREATE TABLE `equipments` (
   `coo_admin` varchar(100) NOT NULL,
   `remarks` varchar(5000) NOT NULL,
   `status` varchar(100) NOT NULL,
-  `rent_status` varchar(30) NOT NULL,
   `created_at` varchar(100) NOT NULL,
   `updated_at` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -633,280 +518,291 @@ CREATE TABLE `equipments` (
 -- Dumping data for table `equipments`
 --
 
-INSERT INTO `equipments` (`id`, `project_id`, `project_name`, `sub_project_id`, `equipment_type`, `category`, `date_from`, `date_to`, `name`, `eel_code`, `origin`, `capacity`, `makeby`, `model`, `year_manufacture`, `inventory_sl_no`, `engine_model`, `engine_sl_no`, `present_location`, `present_condition`, `price`, `qr_image`, `assign_status`, `inspaction_date`, `incharge`, `superintend`, `coo_admin`, `remarks`, `status`, `rent_status`, `created_at`, `updated_at`) VALUES
-(1162, '15', 'Gohira', ' ', '1', 'AC-01', ' ', ' ', 'Air Compressor', 'AC-01', 'China', '7 bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021439', '48T-C80', '78941393', '28', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
-(1163, '3', 'PCT', ' ', '1', 'AC-02', ' ', ' ', 'Air Compressor', 'AC-02', 'China', '7 Bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021440', '4BT.9-C80', '78941394', '24', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
-(1164, '12', 'CWLP', ' ', '1', 'AC-03', ' ', ' ', 'Air Compressor', 'AC-03', 'China', ' ', 'LOCAL', 'YL100L12', '2020', ' ', ' ', ' ', '28', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
-(1165, '3', 'CWLP', ' ', '1', 'AC-04', ' ', ' ', 'Air Compressor', 'AC-04', 'China', ' ', 'LOCAL', ' ', '2020', ' ', ' ', ' ', '25', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
-(1166, '5', 'Bhashanchar', ' ', '1', 'AC-05', ' ', ' ', 'Air Compressor', 'AC-05', 'China', ' ', 'LOCAL', ' ', '2021', ' ', ' ', ' ', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1167, '11', 'Mongla', ' ', '1', 'AC-06', ' ', ' ', 'Air Compressor', 'AC-06', 'China', ' ', 'LOCAL', ' ', '2021', ' ', ' ', ' ', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1168, '3', 'PCT', ' ', '1', 'Ex. Am-01', ' ', ' ', 'Amphibious Hy. Excavator ', 'Ex. Am-01', 'Malaysia', '0.33 m3 ,9M', 'Ultratex', 'TAKEUCHI TB285CH', '2019', '1058003818', 'ATNV98-APTB', 'T1695', 'PCT', 'Break Down', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1169, '23', 'Rental Site', ' ', '1', 'Ex. Am-02', ' ', ' ', 'Amphibious Hy. Excavator ', 'Ex. Am-02', 'Malaysia', '0.33 m3 ,9M', 'Ultratex', 'TAKEUCHI TB285CH', '2019', ' ', 'ATNV98-APTB', ' ', 'Rental Site', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Chottogram city', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1170, '15', 'Gohira', ' ', '1', 'ASP-01', ' ', ' ', 'Asphalt Plant', 'ASP-01', 'China', '120t/h', 'TTM', 'LB1500', '2019', ' ', ' ', ' ', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1171, '16', 'MCC', ' ', '1', 'BL-01', ' ', ' ', 'Backhoe Loader', 'BL-01', 'Indian', '0.25m3', 'CASE', '770EXMAGNUM', '2018', 'NKJ770EMJJKH01332', ' ', '8045.45.735-249601', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1172, '15', 'Gohira', ' ', '1', 'BL-02', ' ', ' ', 'Backhoe Loader', 'BL-02', 'Indian', '0.25m3', 'CASE', '770EXMAGNUM', '2018', 'NKJ770EMJJKH01333', ' ', '8045.45.735-248258', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1173, '7', 'Payra', ' ', '1', 'BD-01', ' ', ' ', 'Bull Dozer', 'BD-01', 'USA', '20000 KG', 'POWER PLUS', 'D65EX-15', '2018', 'CCND65EX118101218', 'SC11CB184G2B1REACAT3306B(L)', 'C9186000891', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1174, '20', 'Netrokonah', ' ', '1', 'BD-02', ' ', ' ', 'Bull Dozer', 'BD-02', 'China', '4.50M3', 'ZOOMLION', 'ZD160-3', '2018', '02WP9SL0973012', 'WD109178', 'N/A', 'Netrokonah', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1175, '11', 'Mongla', ' ', '1', 'BD-03', ' ', ' ', 'Bull Dozer', 'BD-03', 'China', '4.50M3', 'LIUGONG', 'CLGB160C', '2019', 'LGCB160CPKC006577', 'WD10G178E25', '1219D002221', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1176, '3', 'PCT', ' ', '1', 'BD-04', ' ', ' ', 'Bull Dozer', 'BD-04', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041CL0003198', 'WD10G178E25', '1220E003771', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Idle', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1177, '5', 'Bhashanchar', ' ', '1', 'BD-05', ' ', ' ', 'Bull Dozer', 'BD-05', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041EL0003197', 'WD10G178E25', '1220G004116', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1178, '5', 'Bhashanchar', ' ', '1', 'BD-06', ' ', ' ', 'Bull Dozer', 'BD-06', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041TL0003199', 'WD10G178E25', '1220G003768', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1179, '5', 'Bhashanchar', ' ', '1', 'BD-07', ' ', ' ', 'Bull Dozer', 'BD-07', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041HL0003179', 'WD10G178E25', '1220D003260', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1180, '5', 'Bhashanchar', ' ', '1', 'BD-08', ' ', ' ', 'Bull Dozer', 'BD-08', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041EL0003202', 'WD10G178E25', '1220D004584', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1181, '5', 'Bhashanchar', ' ', '1', 'BD-09', ' ', ' ', 'Bull Dozer', 'BD-09', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041HL0003201', 'WD10G178E25', '1220G001745', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1182, '23', 'Rental Site', ' ', '1', 'BD-10', ' ', ' ', 'Bull Dozer', 'BD-10', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041TL0003204', 'WD10G178E25', '1220G004560', 'Rental Site', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Maresha', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1183, '23', 'Rental Site', ' ', '1', 'BD-11', ' ', ' ', 'Bull Dozer', 'BD-11', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041AL0003180', 'WD10G178E25', '1220D003268', 'Rental Site', 'Running', ' ', ' ', 'assigned', '2023-11-01', ' ', ' ', ' ', 'Maresha', 'breakdown', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1184, '7', 'Payra', ' ', '1', 'BD-12', ' ', ' ', 'Bull Dozer', 'BD-12', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041CL0003203', 'WD10G178E25', '1220G004731', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1185, '23', 'Rental', ' ', '1', 'BD-13', ' ', ' ', 'Bull Dozer', 'BD-13', 'China', '4.50M3', 'ZOOMLION', 'ZD160-3', '2020', 'ZMTZD040KL0003407', 'WD10G178E25', '1220D003290', 'Rental', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Ramor', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1186, '5', 'Bhashanchar', ' ', '1', 'BD-14', ' ', ' ', 'Bull Dozer', 'BD-14', 'China', '4.50M3', 'ZOOMLION', 'ZD160-3', '2020', 'ZMTZD040CL0003409', 'WD10G178E25', '1220D003280', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1187, '5', 'Bhashanchar', ' ', '1', 'BD-15', ' ', ' ', 'Bull Dozer', 'BD-15', 'China', '4.50M3', 'ZOOMLION', 'ZD160-3', '2020', 'ZMTZD040JL0003408', 'WD10G178E25', '1220D003287', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1188, '15', 'Gohira', ' ', '1', 'BT. D -01', ' ', ' ', 'Bitumin Distributor', 'BT. D -01', 'China', '6 Ton', 'SINO', 'H3W47', '2019', 'LEZADIEC2KF006582', 'ZZ1168G47150', '2019A010', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1189, '23', 'Rental', ' ', '1', 'CC-01', ' ', ' ', 'Crawler Crane', 'CC-01', 'China', '350 Ton', 'ZOOMLION', 'ZCC3800', '2018', 'ZCC-350-A0010', ' WP12G430E300', 'JCC350A-0010', 'Rental', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Matarbari', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1190, '11', 'Mongla', ' ', '1', 'CC-02', ' ', ' ', 'Crawler Crane', 'CC-02', 'China', '180 Ton', 'ZOOMLION', 'QUY180', '2018', 'ZCC-180-0110', '             QSL9-C305', 'JCC180-0110', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1191, '20', 'Netrokonah', ' ', '1', 'CC-03', ' ', ' ', 'Crawler Crane', 'CC-03', 'China', '85 Ton', 'XCMG', 'XGC85', '2018', 'XUG0085KTJFC00325', 'SC9DK270G3', 'D9185008348', 'Netrokonah', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1192, '11', 'Mongla', ' ', '1', 'CC-04', ' ', ' ', 'Crawler Crane', 'CC-04', 'China', '85 Ton', 'XCMG', 'XGC85', '2018', 'XUG0085KVJFC00326', 'SC9DK270G3', 'TS2410F28-2022', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1193, '11', 'Mongla', ' ', '1', 'CC-05', ' ', ' ', 'Crawler Crane', 'CC-05', 'China', '85 Ton', 'ZOOMLION', 'ZCC850H', '2020', 'ZCC85-0086', 'WP7G270E301', '1019K035255', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1194, '3', 'PCT', ' ', '1', 'CBP-01', ' ', ' ', 'Concrete Batching Plant', 'CBP-01', 'China', '30 m3/HR', 'POWER PLUS', 'PBP350S', '2018', 'CL-18E0323F6-1', 'P-JS750', 'N/A', 'PCT', 'Running', ' ', ' ', 'assigned', '2023-02-01', ' ', ' ', ' ', ' ', 'breakdown', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1195, '3', 'PCT', ' ', '1', 'CBP-02', ' ', ' ', 'Concrete Batching Plant', 'CBP-02', 'China', '60m3/HR', 'ZOOMLION', 'HZS60', '2018', '014101E1180065', 'HZS60P', 'N/A', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1196, '11', 'Mongla', ' ', '1', 'CBP-03', ' ', ' ', 'Concrete Batching Plant', 'CBP-03', 'China', '35m3/hr', 'NICOL', 'HZS-35', '2019', ' ', ' ', ' ', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1197, '11', 'Mongla', ' ', '1', 'CBP-04', ' ', ' ', 'Concrete Batchig Plant', 'CBP-04', 'China', '35m3/hr', 'NICOL', 'HZS-35', '2019', ' ', ' ', ' ', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1198, '11', 'Mongla', ' ', '1', 'CBM-01', '2023-11-29 12:00:00', ' ', 'Block Making Machine', 'CBM-01', 'Afghané.', '350 Pcs/Hour', 'ZENITH', 'QT10', '201912121', 'QF1019006', 'N/A', 'N/A', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2023-11-29 10:55:27', '2022-12-14 05:38:01'),
-(1199, '11', 'Mongla', ' ', '1', 'DT-01', ' ', ' ', 'Dump Truck (Ten Wheel)', 'DT-01', 'China', '16m3', 'SINO', 'ZZ3168G3615', '2018', 'LZZ5ELND8JD476463', '(SINO)WD615.69', 'E 181107029977', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1200, '11', 'Mongla', ' ', '1', 'DT-02', ' ', ' ', 'Dump Truck (Ten Wheel)', 'DT-02', 'China', '16m3', 'SINO', 'ZZ3168G3615', '2018', 'LZZ5ELND6JD476462', '(SINO)WD615.69', 'E 181107029967', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1201, '15', 'Gohira', ' ', '1', 'DT-03', ' ', ' ', 'Dump Truck (Six wheel)', 'DT-03', 'China', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC5JF006912', 'YC4E160-34', 'E3714JY0007', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1202, '15', 'Gohira', ' ', '1', 'DT-04', ' ', ' ', 'Dump Truck (Six wheel)', 'DT-04', 'China', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC5JF006911', 'YC4E160-33', 'E3714JY0006', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:01'),
-(1203, '16', 'MCC', ' ', '1', 'DT-05', ' ', ' ', 'Dump Truck (Six Wheel)', 'DT-05', 'China', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC5JF006913', 'YC4E160-33', 'E3714JY0008', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1204, '15', 'Gohira', ' ', '1', 'DT-06', ' ', ' ', 'Dump Truck (Six wheel)', 'DT-06', 'China', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC5JF006915', 'YC4E160-37', 'E3714JY0009', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1205, '3', 'PCT', ' ', '1', 'DT-07', ' ', ' ', 'Dump Truck (Six wheel)', 'DT-07', 'China', '10m3', 'SINO', 'ZZ257N33647', '2018', 'LEZAD1EC6JF006910', '(SINO) YC4E 160-33', 'E 3714JY0005', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1206, '12', 'CWLP', ' ', '1', 'DT-08', ' ', ' ', 'Dump Truck (Six Wheel)', 'DT-08', 'China', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC6JF006910', 'YC4E160-33', 'E3714JY0005', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1207, '11', 'Mongla', ' ', '1', 'DT-09', ' ', ' ', 'Dump Truck (Six wheel)', 'DT-09', 'India', '10m3', 'EICHER', 'VE Terra-16XP', '2018', 'MC2K8ERC0JM064110', 'Terra 16 xp', 'E613CDJM253067', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1208, '3', 'PCT', ' ', '1', 'DT-10', ' ', ' ', 'Dump Truck (Six wheel)', 'DT-10', 'India', '10m3', 'EICHER', 'VE Terra-16XP', '2018', 'MC2K8ERCOJM064219', 'Terra 16 xp', 'E613CDJM254774', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1209, '12', 'CWLP', ' ', '1', 'DT-11', ' ', ' ', 'Dump Truck (Six wheel)', 'DT-11', 'India', '10m3', 'EICHER', 'VE Terra-16XP', '2019', 'MC2K8ERC0JM064217', 'Terra 16 xp', 'E613CDJM254762', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1210, '15', 'Gohira', ' ', '1', 'DT-12', ' ', ' ', 'Dump Truck (Six wheel)', 'DT-12', 'Indian', '10m3', 'EICHER', 'VE Terra-16XP', '2019', 'MC2K8ERCOKEO65292', 'Terra 16 xp', 'E613CDKE286184', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1211, '16', 'MCC', ' ', '1', 'DT-13', ' ', ' ', 'Mini Dump Truck ', 'DT-13', 'India', '3.5m3', 'TATA', 'TATA 909Ex2', '2019', 'NAT382402K800565', ' ', 'E 497TC93APY800761', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1212, '12', 'CWLP', ' ', '1', 'DT-14', ' ', ' ', 'Mini Dump Truck ', 'DT-14', 'India', '3.5m3', 'TATA', 'LPK909', '2019', 'MAT382402K8R00565', ' ', '497TC93APY800761', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1213, '12', 'CWLP', ' ', '1', 'DT-15', ' ', ' ', 'Mini Dump Truck ', 'DT-15', 'India', '3.5m3', 'TATA', 'LPK909', '2019', 'MAT38240218R32883', ' ', '497TC93PRY843998', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1214, '15', 'Gohira', ' ', '1', 'DT-16', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-16', 'India', '16m3', 'EICHER', 'PRO5025', '2020', 'MC2U2GRC0LA019624', 'Cummins B5.9-Bsiii', '91M84519506', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1215, '15', 'Gohira', ' ', '1', 'DT-17', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-17', 'India', '16m3', 'EICHER', 'PRO5025', '2020', 'MC2U2GRC0LA019786', 'Cummins B5.9-Bsiii', '91M84519049', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1216, '12', 'CWLP', ' ', '1', 'DT-18', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-18', 'India', '16m3', 'EICHER', 'PRO5025', '2020', 'MC2U2GRC0LA019867', 'Cummins B5.9-Bsiii', '02B84519506', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1217, '11', 'Mongla', ' ', '1', 'DT-19', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-19', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759445', 'WD615.69', '201207011457', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1218, '12', 'CWLP', ' ', '1', 'DT-20', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-20', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759446', 'WD615.69', '201107046357', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1219, '11', 'Mongla', ' ', '1', 'DT-21', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-21', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759447', 'WD615.69', '201107046327', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1220, '12', 'CWLP', ' ', '1', 'DT-22', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-22', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759448', 'WD615.69', '201107046407', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1221, '5', 'Bhashanchar', ' ', '1', 'DT-23', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-23', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759449', 'WD615.69', '201107046247', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1222, '5', 'Bhashanchar', ' ', '1', 'DT-24', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-24', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759450', 'WD615.69', '201107046287', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1223, '5', 'Bhashanchar', ' ', '1', 'DT-25', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-25', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759451', 'WD615.69', '201107046307', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1224, '5', 'Bhashanchar', ' ', '1', 'DT-26', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-26', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759452', 'WD615.69', '201107046317', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1225, '5', 'Bhashanchar', ' ', '1', 'DT-27', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-27', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759453', 'WD615.69', '201107046397', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1226, '5', 'Bhashanchar', ' ', '1', 'DT-28', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-28', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759454', 'WD615.69', '201107046267', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1227, '5', 'Bhashanchar', ' ', '1', 'DT-29', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-29', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759455', 'WD615.69', '201107046347', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1228, '5', 'Bhashanchar', ' ', '1', 'DT-30', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-30', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759456', 'WD615.69', '201107046297', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1229, '5', 'Bhashanchar', ' ', '1', 'DT-31', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-31', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759457', 'WD615.69', '201107046417', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1230, '5', 'Bhashanchar', ' ', '1', 'DT-32', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-32', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759458', 'WD615.69', '201107046387', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1231, '5', 'Bhashanchar', ' ', '1', 'DT-33', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-33', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759459', 'WD615.69', '201107046337', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1232, '5', 'Bhashanchar', ' ', '1', 'DT-34', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-34', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759460', 'WD615.69', '201107046237', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1233, '5', 'Bhashanchar', ' ', '1', 'DT-35', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-35', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759461', 'WD615.69', '201107046257', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1234, '5', 'Bhashanchar', ' ', '1', 'DT-36', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-36', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759462', 'WD615.69', '201107046277', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1235, '5', 'Bhashanchar', ' ', '1', 'DT-37', ' ', ' ', 'Dump Truck (Ten wheel)', 'DT-37', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759463', 'WD615.69', '201107046377', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1236, '16', 'MCC', ' ', '1', 'DDVC-01', ' ', ' ', 'Double Drum V.C ', 'DDVC-01', 'China', '3Ton', 'Longking', 'CDM5033DD', '2019', '19050005', 'ZN390B', 'C91702368A', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1237, '7', 'Payra', ' ', '1', 'DDVC-02', ' ', ' ', 'Double Drum V.C ', 'DDVC-02', 'China', '3Ton', 'Longking', 'CDM5033DD', '2019', '19060008', 'ZN390B', 'C91702368A', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1238, '11', 'Mongla', ' ', '1', 'DH-01', ' ', ' ', 'Diesel Hammer ', 'DH-01', 'China', '6.2 Ton', 'STARKE', 'HD62', '2019', '0757-23832488', '62', 'ZC20180902A', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1239, '20', 'Netrokonah', ' ', '1', 'DH-02', ' ', ' ', 'Diesel Hammer', 'DH-02', 'China', '6.2 Ton', 'STARKE', 'HD62', '2018', ' ', ' ', ' ', 'Netrokonah', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1240, '12', 'CWLP', ' ', '1', 'D Gn-01', ' ', ' ', 'Diesel Generator', 'D Gn-01', 'Japan', '25 KVA', 'DAWEOO', ' ', '2018', ' ', 'DB33', '0.000228', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1241, '5', 'Bhashanchar', ' ', '1', 'D Gn-02', ' ', ' ', 'Diesel Generator', 'D Gn-02', 'China', '28 HP', 'SIFANG', 'SIFANG-1125', '2018', '1804049', 'N/A', 'N/A', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1242, '5', 'Bhashanchar', ' ', '1', 'D Gn-03', ' ', ' ', 'Diesel Generator', 'D Gn-03', 'China', '32HP', 'CHANGCHAI', 'L-32', '2018', 'N/A', 'N/A', '78523382', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1243, '20', 'Netrokonah ', ' ', '1', 'D Gn-04', ' ', ' ', 'Diesel Generator', 'D Gn-04', 'China', '12KVA', 'FUJIAN', 'GFS-12KW', '2018', '17100912', '2100ABD', 'N/A', 'Netrokonah ', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1244, '7', 'Payra', ' ', '1', 'D Gn-05', ' ', ' ', 'Diesel Generator', 'D Gn-05', 'China ', '15 KW', 'MINDONG', 'JBT8982011', '2016', 'N/A', 'ZH1125D', '11208170788', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1245, '7', 'Payra', ' ', '1', 'D Gn-06', ' ', ' ', 'Diesel Generator', 'D Gn-06', 'China ', '15 KW', 'MINDONG', 'JBT8982011', '2016', 'N/A', 'ZH1125D', '21809280582', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1246, '7', 'Payra', ' ', '1', 'D Gn-07', ' ', ' ', 'Diesel Generator', 'D Gn-07', 'China ', '15 KW', 'MINDONG', 'JBT8982011', '2016', 'N/A', 'ZH1125D', '11810080770', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1247, '7', 'Payra', ' ', '1', 'D Gn-08', ' ', ' ', 'Diesel Generator', 'D Gn-08', 'China ', '15 KW', 'MINDONG', 'JBT8982011', '2016', 'N/A', 'ZH1125D', '11709847310', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1248, '7', 'Payra', ' ', '1', 'D Gn-09', ' ', ' ', 'Diesel Generator', 'D Gn-09', 'China ', '15 KW', 'MINDONG', 'JBT8982011', '2017', 'N/A', 'ZH1125D', '21879306205', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1249, '7', 'Payra', ' ', '1', 'D Gn-10', ' ', ' ', 'Diesel Generator', 'D Gn-10', 'China ', '15 KW', 'MINDONG', 'JBT8982011', '2017', 'N/A', 'ZH1125D', '29630085670', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1250, '11', 'Mongla', ' ', '1', 'D Gn-11', ' ', ' ', 'Diesel Generator', 'D Gn-11', 'Turkey', '329KVA', 'TEKSAN', 'TJ329DW5L', '2018', ' ', 'P126T1-11', 'ED10C867523', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1251, '3', 'PCT', ' ', '1', 'D Gn-12', ' ', ' ', 'Diesel Generator', 'D Gn-12', 'Turkey', '329KVA', 'TEKSAN', 'TJ329DW5L', '2018', ' ', 'P126T1-11', 'ED10C867424', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1252, '3', 'PCT', ' ', '1', 'D Gn-13', ' ', ' ', 'Diesel Generator', 'D Gn-13', 'Turkey', '180KVA', 'TEKSAN', 'TJ180DW5A', '2018', ' ', 'P086T1', 'EBP0A864459', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1253, '12', 'CWLP', ' ', '1', 'D Gn-14,', ' ', ' ', 'Diesel Generator', 'D Gn-14,', 'Spain', '65KVA', 'PRAMAC', 'GSW65', '2016', ' ', '1103A-33T', 'DK83399S004478B', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1254, '12', 'CWLP', ' ', '1', 'D Gn-15', ' ', ' ', 'Diesel Generator', 'D Gn-15', 'Turkey', '21KVA', 'TEKSAN', 'TJ21MS5A', '2018', ' ', 'S4Q261SD', 'E 113815', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:38:38'),
-(1255, '7', 'Payra', ' ', '1', 'D Gn-16', ' ', ' ', 'Diesel Generator', 'D Gn-16', 'TURKEY', '21 KVA', 'TEKSAN', 'TJ21MS5A', '2018', 'N/A', 'S4Q261SD', '113814', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1256, '15', 'Gohira', ' ', '1', 'D Gn-17', ' ', ' ', 'Diesel Generator', 'D Gn-17', 'Local', '10KVA', 'LOCAL', 'ZS1110', '2019', ' ', 'ZS1110', 'ZS1110', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1257, '18', 'Maxon Power', ' ', '1', 'D Gn-18', ' ', ' ', 'Diesel Generator', 'D Gn-18', 'China', '15 KW', 'JIANGHUAI', 'ZH1130D', '2018', ' ', '21809300036', ' ', 'Maxon Power', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1258, '11', 'Mongla', ' ', '1', 'D Gn-19', ' ', ' ', 'Diesel Generator', 'D Gn-19', 'Turkey', '232 KVA', 'TEKSAN', 'TJ232DW5A', '2018', 'CMM3320', 'P086TI', '864486', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1259, '11', 'Mongla', ' ', '1', 'D Gn-20', ' ', ' ', 'Diesel Generator', 'D Gn-20', 'Turkey', '232 KVA', 'TEKSAN', 'TJ232DW5A', '2018', 'CMM3321', 'P086TI', '864481', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1260, '7', 'Payra', ' ', '1', 'D Gn-21', ' ', ' ', 'Diesel Generator', 'D Gn-21', 'TURKEY', '10 KVA', 'TEKSAN', 'TJ10PE5L', '2019', 'N/A', '403A-116', 'GT51789U191914E', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1261, '15', 'Gohira', ' ', '1', 'D Gn-22', ' ', ' ', 'Diesel Generator', 'D Gn-22', 'Turky', '660KVA', 'TEKSAN', 'TJ30DW5L', '2019', ' ', 'DP222LB', 'DU22-00G14916220', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1262, '11', 'Mongla', ' ', '1', 'D Gn-23', ' ', ' ', 'Diesel Generator', 'D Gn-23', 'Spain', '100KVA', 'PRAMAC', 'GSW110P', '2019', 'RJ51175R025917B', '2634/1500', 'R025917B', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1263, '15', 'Gohira', ' ', '1', 'D Gn-24', ' ', ' ', 'Diesel Generator', 'D Gn-24', 'Spain', '65KVA', 'PRAMAC', 'GSW65', '2017', ' ', 'DK833995', 'DK83399S004481B', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1264, '15', 'Gohira', ' ', '1', 'D Gn-25', ' ', ' ', 'Diesel Generator', 'D Gn-25', 'Turky', '22KVA', 'TEKSAN', 'TJ22PE5L', '2019', ' ', '404A-22G', 'GV51790U906218C', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1265, '11', 'Mongla', ' ', '1', 'D Gn-26', ' ', ' ', 'Diesel Generator', 'D Gn-26', 'Turkey', '150KVA', 'TEKSAN', 'TJ150PE5L', '2019', 'PP82576U069427E', '4408/1500', 'U069427E', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1266, '12', 'CWLP', ' ', '1', 'D Gn-27', ' ', ' ', 'Diesel Generator', 'D Gn-27', 'China', '15 KW', 'JIANG DNG', 'N/A', '2019', ' ', 'ZH1110NLD', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1267, '5', 'Bhashanchar', ' ', '1', 'D Gn-28', ' ', ' ', 'Diesel Generator', 'D Gn-28', 'China', '10KVA', 'JIANG DNG', 'N/A', '2011', ' ', 'ZH1110NLD', '21101180794', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1268, '12', 'CWLP', ' ', '1', 'D Gn-29', ' ', ' ', 'Diesel Generator', 'D Gn-29', 'China', '10KW', 'JIANG DNG', 'N/A', '2019', ' ', 'ZH1110NLD', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1269, '7', 'Payra', ' ', '1', 'D Gn-30', ' ', ' ', 'Diesel Generator', 'D Gn-30', 'TURKEY', '10 KVA', 'TEKSAN', 'TJ10PE5L', '2019', 'N/A', '403A-116', 'GT51705U191175E', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1270, '11', 'Mongla', ' ', '1', 'D Gn-31', ' ', ' ', 'Diesel Generator', 'D Gn-31', ' ', '217KVA', 'TEKSAN', 'TJ217PE5L', '2019', ' ', '1106A-70TAG4', 'PR83518U068430E', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1271, '7', 'Payra', ' ', '1', 'D Gn-32', ' ', ' ', 'Diesel Generator', 'D Gn-32', 'China ', '7.5 KW', 'Jiang Dong', 'N/A', '2018', 'N/A', 'S1100B2', '11712281404', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1272, '7', 'Payra', ' ', '1', 'D Gn-33', ' ', ' ', 'Diesel Generator', 'D Gn-33', 'China ', '7.5 KW', 'Jiang Dong', 'N/A', '2018', 'N/A', 'S1100B2', '11758673509', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1273, '7', 'Payra', ' ', '1', 'D Gn-34', ' ', ' ', 'Diesel Generator', 'D Gn-34', 'China ', '7.5 KW', 'Jiang Dong', 'N/A', '2018', 'N/A', 'S1100B2', '11734589053', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1274, '7', 'Payra', ' ', '1', 'D Gn-35', ' ', ' ', 'Diesel Generator', 'D Gn-35', 'China ', '15 KW', 'Jiang Dong', 'N/A', '2018', 'N/A', 'ZL1130D', '78564378920', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1275, '7', 'Payra', ' ', '1', 'D Gn-36', ' ', ' ', 'Diesel Generator', 'D Gn-36', 'China ', '15 KW', 'Jiang Dong', 'N/A', '2018', 'N/A', 'ZL1130D', '88756239025', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1276, '7', 'Payra', ' ', '1', 'D Gn-37', ' ', ' ', 'Diesel Generator', 'D Gn-37', 'China ', '15 KW', 'Jiang Dong', 'N/A', '2018', 'N/A', 'ZL1125D', '10097407263', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1277, '5', 'Bhashanchar', ' ', '1', 'D Gn-38', ' ', ' ', 'Diesel Generator', 'D Gn-38', 'Turkey', '21KVA', 'TEKSAN', 'TJ33PE5L', '2020', ' ', '1103A-33G', ' ', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1278, '5', 'Bhashanchar', ' ', '1', 'D Gn-39', ' ', ' ', 'Diesel Generator', 'D Gn-39', 'Turkey', '21KVA', 'TEKSAN', 'TJ33PE5L', '2020', ' ', '1103A-33G', ' ', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1279, '12', 'CWLP', ' ', '1', 'D Gn-40', ' ', ' ', 'Diesel Generator', 'D Gn-40', 'China', '15KW', 'Chanchai', ' ', '2020', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1280, '12', 'CWLP', ' ', '1', 'D Gn-41', ' ', ' ', 'Diesel Generator', 'D Gn-41', 'China', '15KW', 'Chanchai', ' ', '2020', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1281, '15', 'Gohira', ' ', '1', 'D Gn-42', ' ', ' ', 'Diesel Generator', 'D Gn-42', 'China', '20KW', 'DADI Mingdong', 'L-32', '2021', ' ', ' ', ' ', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1282, '16', 'MCC', ' ', '1', 'D Gn-43', ' ', ' ', 'Diesel Generator', 'D Gn-43', ' ', '10 KVA', 'Local ', ' ', '2021', ' ', ' ', ' ', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1283, '6', 'Karnofully River', ' ', '1', 'DRG-01', ' ', ' ', 'Dredger', 'DRG-01', ' ', ' ', 'IHC-BEAVER', 'IHC-BEAVER50', ' ', ' ', ' ', ' ', 'Karnofully River', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1284, '6', 'Karnofully River', ' ', '1', 'DRG-02', ' ', ' ', 'Dredger', 'DRG-02', ' ', ' ', 'IHC-BEAVER', 'IHC-BEAVER50', ' ', ' ', ' ', ' ', 'Karnofully River', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1285, '6', 'Karnofully River', ' ', '1', 'DRG-03', ' ', ' ', 'Dredger', 'DRG-03', ' ', ' ', 'JULONG', ' ', ' ', ' ', ' ', ' ', 'Karnofully River', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1286, '12', 'CWLP', ' ', '1', 'Ex- 01', ' ', ' ', 'Excavator (STD)', 'Ex- 01', 'Korea', '0.7m3', 'DOOSAN', 'DX225LCA', '2018', 'DHKCEBACTJ0020665', ' ', 'DB58TIS', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1287, '9', 'Sirajgonj', ' ', '1', 'Ex- 02', ' ', ' ', 'Excavator (STD)', 'Ex- 02', 'Korea', '0.7cum', 'DOOSAN', 'DX225LCA', '2018', 'DHKC6DACCJ0020694', 'DB58TI8', 'ECOEN', 'Sirajgonj', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:39:37'),
-(1288, '12', 'CWLP', ' ', '1', 'Ex-03', ' ', ' ', 'Excavator (With Breaker)', 'Ex-03', 'China', '0.7m3', 'ZOOMLION', 'ZE210E', '2018', 'CCN938T1281010233', 'B5.9-C', '22290058', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1289, '12', 'CWLP', ' ', '1', 'Ex-04', ' ', ' ', 'Excavator (With Breaker)', 'Ex-04', 'China', '0.7m3', 'ZOOMLION', 'ZE210E', '2018', 'ZL300210E00000572', 'B5.9-C', '22302600', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1290, '12', 'CWLP', ' ', '1', 'Ex-05', ' ', ' ', 'Excavator (Pile Driver)', 'Ex-05', 'China', '1.6m3', 'XCMG', 'XE-370PA', '2018', 'XUG03703CJKA01994', '6HK1', '906008', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1291, '12', 'CWLP', ' ', '1', 'Ex-06', ' ', ' ', 'Excavator (Pile Driver)', 'Ex-06', 'China', '1.6m', 'XCMG', 'XE-370PA', '2018', 'XUG03703CJKA01993', '6HK1', '908140', 'CWLP', 'Running', ' ', ' ', 'assigned', '', ' ', ' ', ' ', ' ', 'breakdown', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1292, '12', 'CWLP', ' ', '1', 'Ex-07', ' ', ' ', 'Excavator (LB-01)', 'Ex-07', 'China', '0.5 m3,18m', 'ZOOMLION', 'ZE360E', '2018', '7MTZE093LK0000805', '6C8.3', '73472958', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1293, '19', 'Dredging', ' ', '1', 'Ex-08', ' ', ' ', 'Excavator (LB-02)', 'Ex-08', 'China', '0.5m3,18m', 'ZOOMLION', 'ZE360E', '2018', 'ZMTZE093Yk0000803', 'Cummins6C8.3', '73435508', 'Dredging', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1294, '12', 'CWLP', ' ', '1', 'Ex-09', ' ', ' ', 'Excavator (LB-03)', 'Ex-09', 'China', '0.4m3', 'LIUGONG', 'CLG925E', '2019', 'CLG925EZLKE067379', 'B5.9-C', '22275768', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1295, '11', 'Mongla', ' ', '1', 'Ex-10', ' ', ' ', 'Excavator (LB-04)', 'Ex-10', 'China', '0.4m3', 'LIUGONG', 'CLG925E', '2019', 'CLG925EZVKE067380', 'B5.9-C', '22275757', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1296, '11', 'Mongla', ' ', '1', 'Ex-11', ' ', ' ', 'Excavator ', 'Ex-11', 'Korea', '0.92', 'DOOSAN', 'DX225LCA', '2020', 'DHKCEBDXAL0001728', 'DB58TI8', '39584', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1297, '12', 'CWLP', ' ', '1', 'Ex-12', ' ', ' ', 'Excavator (LB-05)', 'Ex-12', 'Korea', '0.64', 'DOOSAN', 'DX300LCA-SLR', '2020', 'DHKCECAOVL0008576', 'DE08TI8', '75169', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1298, '16', 'MCC', ' ', '1', 'Ex-13', ' ', ' ', 'Excavator ', 'Ex-13', 'China', '0.3m3', 'DOOSAN', 'DX75-5B', '2020', 'DXCCEABCKL0028201', '4TNV98-EXSDB10', '61158A', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1299, '16', 'MCC', ' ', '1', 'Ex-14', ' ', ' ', 'Excavator ', 'Ex-14', 'China', '0.3m3', 'DOOSAN', 'DX75-5B', '2020', 'DXCCEABCJL0028202', '4TNV98-EXSDB10', '61159A', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1300, '5', 'Bhashanchar', ' ', '1', 'Ex-15', ' ', ' ', 'Excavator (LB-06)', 'Ex-15', 'Korea', '0.51m3', 'DOOSAN', 'DX225LCA', '2020', 'CEBDX002175', 'DB58TI8', '40559', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1301, '5', 'Bhashanchar', ' ', '1', 'Ex-16', ' ', ' ', 'Excavator (LB-07)', 'Ex-16', 'Korea', '0.51m3', 'DOOSAN', 'DX225LCA', '2020', 'CEBDX002164', 'DB58TI8', '40613', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1302, '5', 'Bhashanchar', ' ', '1', 'Ex-17', ' ', ' ', 'Excavator (LB-08)', 'Ex-17', 'Korea', '0.51m3', 'DOOSAN', 'DX225LCA', '2020', 'CEBDX002190', 'DB58TI8', '40688', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1303, '12', 'CWLP', ' ', '1', 'Ex-18', ' ', ' ', 'Excavator (LB-09)', 'Ex-18', 'Korea', '0.51m3', 'DOOSAN', 'DX225LCA', '2020', 'DHKCEBDXAL0002197', 'DB58TI8', '40700', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1304, '5', 'Bhashanchar', ' ', '1', 'Ex-19', ' ', ' ', 'Excavator ', 'Ex-19', 'Korea', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGHL0020405', 'DB58TI8', '40456', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1305, '5', 'Bhashanchar', ' ', '1', 'Ex-20', ' ', ' ', 'Excavator ', 'Ex-20', 'Korea', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGHL0020406', 'DB58TI8', '40514', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1306, '5', 'Bhashanchar', ' ', '1', 'Ex-21', ' ', ' ', 'Excavator ', 'Ex-21', 'Korea', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGHL0020407', 'DB58TI8', '40515', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1307, '5', 'Bhashanchar', ' ', '1', 'Ex-22', ' ', ' ', 'Excavator ', 'Ex-22', 'Korea', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGHL0020408', 'DB58TI8', '40506', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1308, '5', 'Bhashanchar', ' ', '1', 'Ex-23', ' ', ' ', 'Excavator ', 'Ex-23', 'Korea', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGHL0020409', 'DB58TI8', '40505', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1309, '5', 'Bhashanchar', ' ', '1', 'Ex-24', ' ', ' ', 'Excavator ', 'Ex-24', 'Korea', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGHL0020410', 'DB58TI8', '40508', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1310, '5', 'Bhashanchar', ' ', '1', 'Ex-25', ' ', ' ', 'Excavator ', 'Ex-25', 'Korea', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGTL0020411', 'DB58TI8', '40512', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1311, '12', 'CWLP', ' ', '1', 'Ex-26', ' ', ' ', 'Excavator (Pile Driver)', 'Ex-26', 'China', '1.08m3', 'ZOOMLION', 'ZE485E-10', '2020', 'ZMTZE172AL0005213', 'QSM11', '35365617', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1312, '11', 'Mongla', ' ', '1', 'Ex-27', ' ', ' ', 'Excavator ', 'Ex-27', 'China', '1.08m3', 'DOOSAN', 'DX220LCA-2', '2022', 'DXCCEBDGLN0021135', 'DB58TI8', '244698', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1313, '18', 'Maxon Power', ' ', '1', 'FL-01', ' ', ' ', 'Fork Lift', 'FL-01', 'Korea', '2000 KG', 'DOOSAN', 'D20G', '2017', 'FDAOB-2620-10302', '4TNE98-BQDFC', 'C0506', 'Maxon Power', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1314, '17', 'Pubail', ' ', '1', 'FL- 02', ' ', ' ', 'Fork Lift', 'FL- 02', 'Korea', '3000 KG', 'DOOSAN', 'D30GP', '2017', 'FDAOD-2020-11481', '4TNE98-BQDFC', 'C0496', 'Pubail', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1315, '11', 'Mongla', ' ', '1', 'FL-03', ' ', ' ', 'Fork Lift', 'FL-03', 'China', '3000 KG', 'ZOOMLION', 'FD30', '2019', '6010937820', 'C240-NBKEG-01-C3', 'C240-275627CNC403', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1316, '17', 'Pubail', ' ', '1', 'FL-04', ' ', ' ', 'Fork Lift', 'FL-04', 'China', '3000 KG', 'ZOOMLION', 'FD30', '2019', '6010937822', 'C240-NBKEG-01-C3', 'C240-275632CNC403', 'Pubail', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1317, '15', 'Gohira', ' ', '1', 'Hy. B-01', ' ', ' ', 'Hydraulic Breaker', 'Hy. B-01', 'China', ' ', 'SOOSAN', ' ', ' ', ' ', ' ', ' ', 'Gohira', ' ', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1318, '12', 'CWLP', ' ', '1', 'Hy. B-02', ' ', ' ', 'Hydraulic Breaker', 'Hy. B-02', 'China', ' ', 'SOOSAN', ' ', ' ', ' ', ' ', ' ', 'CWLP', ' ', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1319, '15', 'Gohira', ' ', '1', 'M. Gr-01', ' ', ' ', 'Motor Grader', 'M. Gr-01', 'Indian', '15Ton', 'ACE', 'AG-176', '2018', '100637', 'B5.9173C31', '7IJ84416162', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1320, '11', 'Mongla', ' ', '1', 'M.GR-02', ' ', ' ', 'Motor Grader', 'M.GR-02', 'China', '3960mm', 'LIUGONG', 'CLG4180', '2019', 'CLG4180ZCKL008029', '6BTAA5.9-C190', '78888368', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1321, '5', 'Bhashanchar', ' ', '1', 'M. GR-03', ' ', ' ', 'Motor Grader', 'M. GR-03', 'China', '3960mm', 'LIUGONG', 'CLG4180', '2020', 'CLG4180ZLLL008822', '6BTAA5.9-C190', '82294056', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1322, '15', 'Gohira', ' ', '1', 'Asp F-01', ' ', ' ', 'Asphalt Finisher', 'Asp F-01', 'Germany', '18.9T', 'VOGLEE', 'Super1603-3', '2019', 'QSB4.5', '22298398', '29AB0295', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1323, '3', 'PCT', ' ', '1', 'LB-01', ' ', ' ', 'Prime Mover With Low Bed', 'LB-01', 'China', '80 Ton', 'SINO', 'SINO- ZZ425N341W   TAZ9950TDP', '2018', 'LZZ5CLVB7JD476443 LA9940Z30J0AYC113', 'SINO  D12.42-20', ' E 181117020197', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:09'),
-(1324, '11', 'Mongla', ' ', '1', 'LB-02', ' ', ' ', 'Prime Mover With Low Bed', 'LB-02', 'China', '80 Ton', 'SINO', 'SINO- ZZ425N341W  TAZ9950TDP', '2018', 'LZZ5CLVB9JD476444  LA9940Z32JOAYC114', 'SINO  D12.42-20', 'E 181117020177', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1325, '7', 'PayraPort', ' ', '1', 'PL-01-14', ' ', ' ', 'Plate Compactor', 'PL-01-14', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'PayraPort', ' ', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1326, '3', 'PCT', ' ', '1', 'PL-15', ' ', ' ', 'Plate Compactor', 'PL-15', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'PCT', ' ', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1327, '5', 'Bhashanchar', ' ', '1', 'PL-16-18', ' ', ' ', 'Plate Compactor', 'PL-16-18', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Bhashanchar', ' ', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1328, '15', 'Gohira', ' ', '1', 'PL-19-20', ' ', ' ', 'Plate Compactor', 'PL-19-20', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Gohira', ' ', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1329, '11', 'Mongla', ' ', '1', 'PG-01', ' ', ' ', 'Piling Rig with Fixed Ladder', 'PG-01', ' ', '50 M', 'LIEBHERR', 'LRH600/HS895(Crane)', ' ', ' ', ' ', ' ', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1330, '3', 'PCT', ' ', '1', 'RTC-01', ' ', ' ', 'Rough Terrin Crane', 'RTC-01', 'China', '75 Ton', 'ZOOMLION', 'ZRT-75', '2018', 'RTT75-0084', 'Cummins QSB6.7', '22280945', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1331, '23', 'Rental', ' ', '1', 'RTC-02', ' ', ' ', 'Rough Terrin Crane ', 'RTC-02', 'China', '35 Ton', 'ZOOMLION', 'ZRT-35', '2018', 'RTT35-0182', 'Cummins QSB6.7', ' ', 'Rental', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Dhaka Airport', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1332, '11', 'Mongla', ' ', '1', 'RTC-03', ' ', ' ', 'Rough Terrin Crane', 'RTC-03', 'China', '30 Ton', 'ZOOMLION', 'ZRT-300', '2018', 'ZRT300-0003', 'WP6G210E330', ' ', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51');
-INSERT INTO `equipments` (`id`, `project_id`, `project_name`, `sub_project_id`, `equipment_type`, `category`, `date_from`, `date_to`, `name`, `eel_code`, `origin`, `capacity`, `makeby`, `model`, `year_manufacture`, `inventory_sl_no`, `engine_model`, `engine_sl_no`, `present_location`, `present_condition`, `price`, `qr_image`, `assign_status`, `inspaction_date`, `incharge`, `superintend`, `coo_admin`, `remarks`, `status`, `rent_status`, `created_at`, `updated_at`) VALUES
-(1333, '12', 'CWLP', ' ', '1', 'SCP-01', ' ', ' ', 'Stationary Concrete Pump', 'SCP-01', 'China', '78/47m3/Hr', 'ZOOMLION', 'HBT60.174RSU', '2018', 'C  001123A118H005', '(DEUTZ)BF6M1013-24T3R/2', 'N/A', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1334, '3', 'PCT', ' ', '1', 'SCP-02', ' ', ' ', 'Stationary Concrete Pump', 'SCP-02', 'China', '78/47m3/Hr', 'ZOOMLION', 'HBT60.174RSU', '2018', 'C  001123A118H004', '(DEUTZ)BF6M1013-24T3R/2', 'N/A', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1335, '11', 'Mongla', ' ', '1', 'SCP-03', ' ', ' ', 'Stationary Concrete Pump', 'SCP-03', 'China', '78/47m3/hr', 'ZOOMLION', 'HBT60.174RSU', '2019', '013118-02', 'BF4M1013-16T3R/3', '001141A019H003', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1336, '12', 'CWLP', ' ', '1', 'SCP-04', ' ', ' ', 'Stationary Concrete Pump', 'SCP-04', 'India', ' ', 'Putzmeister', 'BSA1405D', '2020', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1337, '3', 'PCT', ' ', '1', 'TMT-01', ' ', ' ', 'Transit Mixer Truck', 'TMT-01', 'China', '9m3', 'ZOOMLION', '9JBH-R', '2018', 'LZZ5BLND0JD475039', '(SINO)WD615.69', 'E 181107017117', 'PCT', 'Break Down', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1338, '3', 'PCT', ' ', '1', 'TMT-02', ' ', ' ', 'Transit Mixer Truck', 'TMT-02', 'China', '9m3', 'ZOOMLION', '9JBH-R', '2018', 'LZZ5BLND9JD475038', '(SINO)WD615.69', 'E 181107017107', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1339, '3', 'PCT', ' ', '1', 'TMT-03', ' ', ' ', 'Transit Mixer Truck', 'TMT-03', 'China', '9m3', 'ZOOMLION', '9JBH-R', '2018', 'LZZ5BLND7JD475040', '(SINO)WD615.69', 'E 181107017097', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1340, '3', 'PCT', ' ', '1', 'TMT-04', ' ', ' ', 'Transit Mixer Truck', 'TMT-04', 'China', '9m3', 'ZOOMLION', '9JBH-R', '2018', 'LZZ5BLND9JD475041', '(SINO)WD615.69', 'E 181107017087', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1341, '11', 'Mongla', ' ', '1', 'TMT-05', ' ', ' ', 'Transit Mixer Truck', 'TMT-05', 'China', '9m3', 'ZOOMLION', '9JBH-R', '2019', 'LZZ5BLND0KW577334', 'WD61569', '190707017077', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1342, '11', 'Mongla', ' ', '1', 'TMT-06', ' ', ' ', 'Transit Mixer Truck', 'TMT-06', 'China', '9m3', 'ZOOMLION', '9JBH-R', '2019', 'LZZ5BLH02KW577335', 'WD61569', '190707017067', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1343, '12', 'CWLP', ' ', '1', 'TMT-07', ' ', ' ', 'Transit Mixer Truck', 'TMT-07', 'India', '7m3', 'TATA+Putzmeister', 'LPK2518,P7', '2020', 'MAT448072L3R02641', '5.9 BSIII', 'B5.91803202A63829141', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1344, '12', 'CWLP', ' ', '1', 'TMT-08', ' ', ' ', 'Transit Mixer Truck', 'TMT-08', 'India', '7m3', 'TATA+Putzmeister', 'LPK2518,P7', '2020', 'MAT448072L3R02785', '5.9 BSIII', 'B5.91803202A63828189', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1345, '15', 'Gohira', ' ', '1', 'TR-01', ' ', ' ', 'Tandem Roller', 'TR-01', 'China', '9Ton', 'HAMM', 'HD 90', '2019', 'WPGHOH1816HAA03913', 'TCD2012L042V', '12237518', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1346, '15', 'Gohira', ' ', '1', 'TWSR-01', ' ', ' ', 'Three Wheel Static Roller', 'TWSR-01', 'China', '12Ton', 'JUMNA', '3YJ10/12', '2019', ' ', ' ', ' ', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1347, '16', 'MCC', ' ', '1', 'TWSR-02', ' ', ' ', 'Three Wheel Static Roller', 'TWSR-02', 'China', '12Ton', 'JUMNA', '3YJ10/12', '2019', ' ', 'C9150473A', '190908', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1348, '15', 'Gohira', ' ', '1', 'Ty. R-01 ', ' ', ' ', 'Tyre Roller ', 'Ty. R-01 ', 'Germany', '10T', 'HAMM', 'GRW18', '2018', 'WGHOH190JHAA03244', 'TCD2012L042V', '12388046', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1349, '11', 'Mongla', ' ', '1', 'CBP-01', ' ', ' ', ' Concrete Boom Pump', 'CBP-01', 'China', '170/120m3/Hr', 'ZOOMLION', '49X-6RZ', '2018', 'LZZ1BMVF2JW351185', '(SINO) MC11.39-30', 'E 181117218857', 'Mongla', 'Running', ' ', ' ', 'assigned', '2023-02-01', ' ', ' ', ' ', ' ', 'breakdown', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1350, '12', 'CWLP', ' ', '1', 'TC-01', ' ', ' ', 'Truck Crane', 'TC-01', 'China', ' ', 'DONGFENG, XCMG', 'HWE, SQS68', ' ', 'USED', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1351, '3', 'PCT', ' ', '1', 'TC-02', ' ', ' ', 'Truck Crane', 'TC-02', 'China', '20 Ton', ' XCMG', 'QY20', '2001', '2001061', ' ', 'A0115285', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'From Grihayan', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1352, '3', 'PCT', ' ', '1', 'TC-03', ' ', ' ', 'Truck Crane', 'TC-03', 'China', '20 Ton', ' XCMG', 'QY20', '2001', '2001061', ' ', 'A0115285', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'From Grihayan', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1353, '7', 'Payra', ' ', '1', 'TT-01', ' ', ' ', 'Tractor', 'TT-01', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'JZGDG76307453', '3102IL', '3102IL83G750545F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1354, '7', 'Payra', ' ', '1', 'TT-02', ' ', ' ', 'Tractor', 'TT-02', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'KZGDG78861953', '3102IL', '3102IL83J780053F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1355, '7', 'Payra', ' ', '1', 'TT-03', ' ', ' ', 'Tractor', 'TT-03', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'EZGDG75821053', '3102IL', '3102IL83F743659F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1356, '7', 'Payra', ' ', '1', 'TT-04', ' ', ' ', 'Tractor', 'TT-04', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'EZGDG75812553', '3102IL', '3102IL83F750751F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1357, '7', 'Payra', ' ', '1', 'TT-05', ' ', ' ', 'Tractor', 'TT-05', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'EZGDG75812153', '3102IL', '3102IL83G70756F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1358, '7', 'Payra', ' ', '1', 'TT-06', ' ', ' ', 'Tractor', 'TT-06', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'EZGDG75812354', '3102IL', '3102IL83F', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1359, '7', 'Payra', ' ', '1', 'TT-07', ' ', ' ', 'Tractor', 'TT-07', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'EZGDG75812454', '3102IL', '3102IL82G750751F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1360, '7', 'Payra', ' ', '1', 'TT-08', ' ', ' ', 'Tractor', 'TT-08', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'EZGDG75812553', '3102IL', '3102IL83C750751F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1361, '16', 'MCC', ' ', '1', 'TT-09', ' ', ' ', 'Tractor', 'TT-09', 'INDIA ', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA212C5YK1227918', 'S325J', 'SJ327EA58014', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1362, '16', 'MCC', ' ', '1', 'TT-10', ' ', ' ', 'Tractor', 'TT-10', 'INDIA ', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA212C5YK1228365', 'S325J', 'SJ327EA58027', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1363, '7', 'Payra', ' ', '1', 'TT-11', ' ', ' ', 'Tractor', 'TT-11', 'INDIA ', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA212C5YK1227957', 'S325J', 'SJ327EA58004', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1364, '7', 'Payra', ' ', '1', 'TT-12', ' ', ' ', 'Tractor', 'TT-12', 'INDIA ', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA66EA7YJ1212970', 'S325J', 'S325J87701', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:40:51'),
-(1365, '16', 'MCC', ' ', '1', 'TT-13', ' ', ' ', 'Tractor', 'TT-13', 'INDIA ', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA66EA7YJ1204009', 'S325J', 'S325J74859', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1366, '7', 'Payra', ' ', '1', 'TT-14', ' ', ' ', 'Tractor', 'TT-14', 'INDIA ', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA66EA7YJ1212974', 'S325J', 'S325J87702', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1367, '7', 'Payra', ' ', '1', 'TT-15', ' ', ' ', 'Tractor', 'TT-15', 'INDIA ', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA66EA7YJ1212962', 'S325J', 'S325J87700', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1368, '16', 'MCC', ' ', '1', 'TT-16', ' ', ' ', 'Tractor', 'TT-16', 'INDIA ', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA66EA7YJ1202596', 'S325J', 'S325J67643', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1369, '16', 'MCC', ' ', '1', 'TT-17', ' ', ' ', 'Tractor', 'TT-17', 'INDIA ', '1700kgf', 'TAFE', 'TAFE-5450DI', '2018', 'MEA212C5YK1204022', 'SJ327E', 'S325J74856', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1370, '16', 'MCC', ' ', '1', 'TT-18', ' ', ' ', 'Tractor', 'TT-18', 'INDIA ', '1700kgf', 'TAFE', 'TAFE-5450DI', '2018', 'MEA212C5YK1202488', 'SJ327E', 'S325J67642', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1371, '16', 'MCC', ' ', '1', 'TT-19', ' ', ' ', 'Tractor', 'TT-19', 'INDIA ', '1700kgf', 'TAFE', 'TAFE-5450DI', '2018', 'MEA66EA74J1197363', 'SJ327E', 'S325J45064', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1372, '5', 'Bhashanchar', ' ', '1', 'TT-20', ' ', ' ', 'Tractor', 'TT-20', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'JZGDT674512S3', '3102IL', '310 2IL73H668138F5', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1373, '15', 'Gohira', ' ', '1', 'TT-21', ' ', ' ', 'Tractor', 'TT-21', 'Indian', '100CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YJ1198166', ' ', 'S325J63687', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1374, '16', 'MCC', ' ', '1', 'TT-22', ' ', ' ', 'Tractor', 'TT-22', 'Indian', '100CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5EOE7YJ1198168', ' ', 'S325J63078', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1375, '16', 'MCC', ' ', '1', 'TT-23', ' ', ' ', 'Tractor', 'TT-23', 'Indian', '100CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5EOE7YJ1198182', ' ', 'S325J63076', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1376, '15', 'Gohira', ' ', '1', 'TT-24', ' ', ' ', 'Tractor', 'TT-24', 'Indian', '100CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YJ1179351', ' ', 'S325J34362', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1377, '15', 'Gohira', ' ', '1', 'TT-25', ' ', ' ', 'Tractor', 'TT-25', 'Indian', '100CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA66EA7YJ1197262', ' ', 'S325J41664', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1378, '16', 'MCC', ' ', '1', 'TT-26', ' ', ' ', 'Tractor', 'TT-26', 'India', '100 CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YJ1217959', 'S 325', 'S325J95448', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1379, '16', 'MCC', ' ', '1', 'TT-27', ' ', ' ', 'Tractor', 'TT-27', 'India', '100 CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YJ1202372', 'S 325', 'S325J70994', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1380, '11', 'Mongla', ' ', '1', 'TT-28', ' ', ' ', 'Tractor', 'TT-28', 'India', '10 Ton', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YK1227893', 'simpsons S325', 'S325K17491', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1381, '11', 'Mongla', ' ', '1', 'TT-29', ' ', ' ', 'Tractor', 'TT-29', 'India', '10 Ton', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YK1231527', 'simpsons S325', 'S325K16559', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'm', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1382, '12', 'CWLP', ' ', '1', 'TT-30', ' ', ' ', 'Tractor', 'TT-30', 'India', '2 Ton', 'TAFE', 'TAFE-45DI', '2018', 'MEA66EA7YJ1202590', 'S325', 'S325J67645', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'm', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1383, '12', 'CWLP', ' ', '1', 'TT-31', ' ', ' ', 'Tractor', 'TT-31', 'India', '2 Ton', 'TAFE', 'TAFE-5900DI', '2019', 'MEA35D85YK1247946', 'S433', 'S433B13855', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1384, '12', 'CWLP', ' ', '1', 'TT-32', ' ', ' ', 'Tractor', 'TT-32', 'India', '2 Ton', 'TAFE', 'TAFE-9500DI', '2019', 'MEA8A163YK1253276', 'TSJ327', 'TSJ327A72299', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1385, '12', 'CWLP', ' ', '1', 'TT-33', ' ', ' ', 'Tractor', 'TT-33', 'India', '2 Ton', 'TAFE', 'TAFE-9500DI', '2019', 'MEA8A163YK1253240', 'TSJ327', 'TSJ327A72301', 'CWLP', 'Break Down', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1386, '7', 'Payra', ' ', '1', 'TT-34', ' ', ' ', 'Tractor', 'TT-34', 'INDIA ', '2100kgf', 'TAFE', 'TAFE-5900DI', '2019', 'MEA35D85YK1238738', 'S433B', 'S433B12170', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1387, '7', 'Payra', ' ', '1', 'TT-35', ' ', ' ', 'Tractor', 'TT-35', 'INDIA ', '2100kgf', 'TAFE', 'TAFE-5900DI', '2019', 'MEA35D85YK1249527', 'S433B', 'S433B14081', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1388, '7', 'Payra', ' ', '1', 'TT-36', ' ', ' ', 'Tractor', 'TT-36', 'INDIA ', '2100kgf', 'TAFE', 'TAFE-5900DI', '2019', 'MEA35D85YK1249545', 'S433B', 'S433B14080', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1389, '7', 'Payra', ' ', '1', 'TT-37', ' ', ' ', 'Tractor', 'TT-37', 'INDIA ', '2100kgf', 'TAFE', 'TAFE-5900DI', '2019', 'MEA35D85YK1249521', 'S433B', 'S433B14072', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1390, '15', 'Gohira', ' ', '1', 'TT-38', ' ', ' ', 'Tractor', 'TT-38', 'Indian', '100CFT', 'TAFE', 'TAFE5450DI', '2019', 'MEA212C5YK1253369', 'SG327', 'SJ327E A72159', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1391, '15', 'Gohira', ' ', '1', 'TT-39', ' ', ' ', 'Tractor', 'TT-39', 'Indian', '100CFT', 'TAFE', 'TAFE5450DI', '2019', 'MEA212C5YL1255680', 'SG327', 'SJ327EA7484', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1392, '12', 'CWLP', ' ', '1', 'TT-40', ' ', ' ', 'Tractor', 'TT-40', 'Indian', '100CFT', 'TAFE', 'TAFE5450DI', '2019', 'MEA212C5YK1253373', 'SG327', 'SJ327E A71986', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1393, '15', 'Gohira', ' ', '1', 'TT-41', ' ', ' ', 'Tractor', 'TT-41', 'Indian', '100CFT', 'TAFE', 'TAFE5450DI', '2019', 'MEA212C5YK1254775', 'SG327', 'SJ327EA73752', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1394, '5', 'Bhashanchar', ' ', '1', 'TT-42', ' ', ' ', 'Tractor', 'TT-42', 'Indian', '200CFT', 'TAFE', 'TAFE7515(2WD)', '2021', ' ', ' ', ' ', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1395, '5', 'Bhashanchar', ' ', '1', 'TT-43', ' ', ' ', 'Tractor', 'TT-43', 'Indian', '200CFT', 'TAFE', 'TAFE7515(2WD)', '2021', ' ', ' ', ' ', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1396, '12', 'CWLP', ' ', '1', 'TL-01', ' ', ' ', 'Tower Light', 'TL-01', ' ', ' ', 'PRAMAC', 'LPW8T-KUBOTAZ482', ' ', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1397, '12', 'CWLP', ' ', '1', 'TL-02', ' ', ' ', 'Tower Light', 'TL-02', ' ', ' ', 'PRAMAC', 'LPW8T-KUBOTAZ482', ' ', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1398, ' ', ' ', ' ', '1', 'TL-03', ' ', ' ', 'Tower Light', 'TL-03', 'China', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', ' ', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1399, '12', 'CWLP', ' ', '1', 'TL-04', ' ', ' ', 'Tower Light', 'TL-04', 'China', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1400, '12', 'CWLP', ' ', '1', 'TL-05', ' ', ' ', 'Tower Light', 'TL-05', 'China', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1401, '12', 'CWLP', ' ', '1', 'TL-06', ' ', ' ', 'Tower Light', 'TL-06', 'China', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1402, '12', 'CWLP', ' ', '1', 'TL-07', ' ', ' ', 'Tower Light', 'TL-07', 'China', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'CWLP', 'Break Down', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1403, ' ', ' ', ' ', '1', 'TL-08', ' ', ' ', 'Tower Light', 'TL-08', 'China', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', ' ', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1404, '12', 'CWLP', ' ', '1', 'TL-09', ' ', ' ', 'Tower Light', 'TL-09', 'China', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1405, ' ', ' ', ' ', '1', 'TL-10', ' ', ' ', 'Tower Light', 'TL-10', 'China', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', ' ', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1406, ' ', ' ', ' ', '1', 'TL-11', ' ', ' ', 'Tower Light', 'TL-11', 'China', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', ' ', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1407, '11', 'Mongla', ' ', '1', 'TL-12', ' ', ' ', 'Tower Light', 'TL-12', 'China', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1408, '15', 'Gohira', ' ', '1', 'VR-01', ' ', ' ', 'Vibratory Roller', 'VR-01', 'Indian', '10Ton', 'ACE', 'ASD-115', '2018', '100641', '4R1040TA', '4H3303/1720048', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1409, '12', 'CWLP', ' ', '1', 'VR-02', ' ', ' ', 'Vibratory Roller', 'VR-02', 'India', '10Ton', 'ACE', 'ASD-115', '2018', '100642', 'ACEAS-115KJO100642', '4H.3303/1720051', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1410, '16', 'MCC', ' ', '1', 'VR-03', ' ', ' ', 'Vibratory Roller', 'VR-03', 'China', '12 Ton', 'Changling', '8108L', '2017', 'LCL8108L 34080036', '6BT5.9-C130', '78449120', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:41:19'),
-(1411, '12', 'CWLP', ' ', '1', 'VR-04', ' ', ' ', 'Vibratory Roller', 'VR-04', 'China', '12 Ton', 'Changling', '8108L', '2017', ' ', '6BT5.9-C130', '78449117', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1412, '11', 'Mongla', ' ', '1', 'VR-05', ' ', ' ', 'Vibratory Roller', 'VR-05', 'India', '11 Ton', 'JCB', 'JCB 116DD ', '2020', '2894777', 'JCB Diesel Max TCA-85', 'H00273976', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1413, '5', 'Bhashanchar', ' ', '1', 'VR-06', ' ', ' ', 'Vibratory Roller', 'VR-06', 'India', '11 Ton', 'JCB', 'JCB 116DD ', '2020', '2894776', 'JCB Diesel Max TCA-85', 'H00277598', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1414, '3', 'PCT', ' ', '1', 'VR-07', ' ', ' ', 'Vibratory Roller', 'VR-07', 'India', '11 Ton', 'JCB', 'JCB 116DD ', '2020', '2894764', 'JCB Diesel Max TCA-85', 'H00273975', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Idle', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1415, '5', 'Bhashanchar', ' ', '1', 'VR-08', ' ', ' ', 'Vibratory Roller', 'VR-08', 'India', '12 Ton', 'JCB', 'JCB 116DD ', '2020', '2894763', 'JCB Diesel Max TCA-85', 'H00273978', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1416, '5', 'Bhashanchar', ' ', '1', 'VR-09', ' ', ' ', 'Vibratory Roller', 'VR-09', 'India', '12 Ton', 'JCB', 'JCB 116DD ', '2020', '2894762', 'JCB Diesel Max TCA-85', 'H00273977', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1417, '15', 'Gohira', ' ', '1', 'WT-01', ' ', ' ', 'Water Tanker', 'WT-01', 'China', '6Ton', 'SINO', 'H5B', '2019', 'LEZADIEC4KF006518', 'YC6J190-33', 'JID15K30027', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1418, '5', 'Bhashanchor', ' ', '1', 'WT-02', ' ', ' ', 'Water Tanker', 'WT-02', 'India', '5000 LTR', 'TAFE', ' ', '2021', ' ', ' ', ' ', 'Bhashanchor', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1419, '3', 'PCT', ' ', '1', 'WS-01', ' ', ' ', 'Weigh Bridge', 'WS-01', 'China', '60 Ton', 'NICOL', ' ', '2018', ' ', ' ', ' ', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1420, '12', 'CWLP', ' ', '1', 'WL-01', ' ', ' ', 'Wheel Loader', 'WL-01', ' ', ' ', 'POWER PLUS', 'PP-938-V', ' ', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1421, '12', 'CWLP', ' ', '1', 'WL-02', ' ', ' ', 'Wheel Loader', 'WL-02', 'China', '3 Ton', 'POWER PLUS', 'PP-938-V', '2018', ' ', 'EBT5.9-G130-II', '78661061', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1422, '15', 'Gohira', ' ', '1', 'WL-03', ' ', ' ', 'Wheel Loader', 'WL-03', 'China', '3Ton', 'LONG KING', 'LG833N', '2018', 'LSH0833NTJAC130321', 'WP6G125E22', 'DHB06G023501', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1423, '3', 'PCT', ' ', '1', 'WL-04', ' ', ' ', 'Wheel Loader', 'WL-04', 'China', '5 Ton', 'LONG KING', 'LG833N', '2018', 'LSH050NCVJAC12977', 'WD10G220E21', 'E WD10G220E21', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1424, '15', 'Gohira', ' ', '1', 'WL-05', ' ', ' ', 'Wheel Loader', 'WL-05', 'China', '5 Ton', 'LONG KING', 'ZL50C', '2018', 'LSH050NCCJACA12976', 'WD10G220E21', '1218J008096', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1425, '16', 'MCC', ' ', '1', 'WL-06', ' ', ' ', 'Wheel Loader', 'WL-06', 'China', '3Ton', 'LONG KING', 'G833N', '2018', 'LSH0833NCJAC13020', 'WP6G125E22', ' ', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1426, '11', 'Mongla', ' ', '1', 'WL-07', ' ', ' ', 'Wheel Loader', 'WL-07', 'China', '3 Ton', 'LONG KING', 'LG833N', '2019', 'LSH0833NHKA707433', 'WP6G125E22', 'S0619070840', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1427, '16', 'MCC', ' ', '1', 'WL-08', ' ', ' ', 'Wheel Loader', 'WL-08', 'China', '3 Ton', 'LONG KING', 'LG833N', '2019', 'LSH0833NEKA707434', ' ', ' ', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1428, '12', 'CWLP', ' ', '1', 'WL-09', ' ', ' ', 'Wheel Loader', 'WL-09', 'Korea', '5 Ton', 'DOOSAN', 'SD300N', '2020', 'CWLCD-020370', 'WD10G220E23', '1220K008511', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1429, '5', 'Bhashanchor', ' ', '1', 'WL-10', ' ', ' ', 'Wheel Loader', 'WL-10', 'Korea', '5 Ton', 'DOOSAN', 'SD300N', '2020', 'CWLCD-020371', 'WD10G220E23', '1220K008511', 'Bhashanchor', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1430, '11', 'Mongla', ' ', '1', 'WL-11', ' ', ' ', 'Wheel Loader', 'WL-11', 'Korea', '5 Ton', 'DOOSAN', 'SD300N', '2020', 'CWLCD-020372', 'WD10G220E23', '1220K007942', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1431, '11', 'Mongla', ' ', '1', 'WL-12', ' ', ' ', 'Wheel Loader', 'WL-12', 'China', '5 Ton', 'DOOSAN', 'SD300N', '2022', 'DXCCWLLCDHN0020806', 'WD10G220E23', '1221K014001', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1432, '3', 'PCT', ' ', '1', 'WL-13', ' ', ' ', 'Wheel Loader', 'WL-13', 'China', '3 Ton', 'LONG KING', 'LG833B', '2011', 'F11010695', 'WP6G125E22', '6B11A000383', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'From Grihayan', ' ', 'Own', '2022-12-14', '2022-12-14 05:43:27'),
-(1434, '5', '', '2', '2', '', '2023-12-26 12:00:00', '', 'sdfdsd', 'kjbjb', '', '87', 'mbmb', 'mm', '2121', '', '', '', '7', '1', '21212', '', 'assigned', '', '', '', '', 'jhjkhjk', '', 'Own', '2023-12-26 03:14:09', '');
+INSERT INTO `equipments` (`id`, `name`, `eel_code`, `origin`, `capacity`, `makeby`, `model`, `year_manufacture`, `inventory_sl_no`, `engine_model`, `engine_sl_no`, `present_location`, `present_condition`, `price`, `qr_image`, `assign_status`, `inspaction_date`, `incharge`, `superintend`, `coo_admin`, `remarks`, `status`, `created_at`, `updated_at`) VALUES
+(1162, 'Air Compressor', 'AC-01', 'CHINA', '7 bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021439', '48T-C80', '78941393', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 12:51:05', '2022-12-14 05:38:01'),
+(1163, 'Air Compressor', 'AC-02', 'CHINA', '7 Bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021440', '4BT.9-C80', '78941394', 'PCT,Ctg', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 12:51:50', '2022-12-14 05:38:01'),
+(1164, 'Air Compressor', 'AC-03', 'China', ' ', 'LOCAL', 'YL100L12', '2020', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1165, 'Air Compressor', 'AC-04', 'China', ' ', 'LOCAL', ' ', '2020', ' ', ' ', ' ', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1166, 'Air Compressor', 'AC-05', 'China', ' ', 'LOCAL', ' ', '2021', ' ', ' ', ' ', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1167, 'Air Compressor', 'AC-06', 'China', ' ', 'LOCAL', ' ', '2021', ' ', ' ', ' ', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1168, 'Amphibious Hy. Excavator', 'Ex. Am-01', 'MALAYSIA', '0.33 m3 ,9M', 'Ultratex', 'TAKEUCHI TB285CH', '2019', '1058003818', 'ATNV98-APTB', 'T1695', 'PCT,Ctg', 'Breakdown', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Maintenance, chain Drive ,Drive motor needed.', ' ', '2023-12-20 12:32:56', '2022-12-14 05:38:01'),
+(1169, 'Amphibious Hy. Excavator', 'Ex. Am-02', 'MALAYSIA', '0.33 m3 ,9M', 'Ultratex', 'TAKEUCHI TB285CH', '2019', ' ', 'ATNV98-APTB', ' ', 'PCT,Ctg', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Chottogram city', ' ', '2023-11-29 02:50:24', '2022-12-14 05:38:01'),
+(1170, 'Asphalt Plant', 'ASP-01', 'China', '120t/h', 'TTM', 'LB1500', '2019', ' ', ' ', ' ', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1171, 'Backhoe Loader', 'BL-01', 'Indian', '0.25m3', 'CASE', '770EXMAGNUM', '2018', 'NKJ770EMJJKH01332', ' ', '8045.45.735-249601', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1172, 'Backhoe Loader', 'BL-02', 'INDIA', '0.25m3', 'CASE', '770EXMAGNUM', '2018', 'NKJ770EMJJKH01333', ' ', '8045.45.735-248258', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 03:16:43', '2022-12-14 05:38:01'),
+(1173, 'Bull Dozer', 'BD-01', 'USA', '20000 KG', 'POWER PLUS', 'D65EX-15', '2018', 'CCND65EX118101218', 'SC11CB184G2B1REACAT3306B(L)', 'C9186000891', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1174, 'Bull Dozer', 'BD-02', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160-3', '2018', '02WP9SL0973012', 'WD109178', 'N/A', 'Khagrachori,Udoypur', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:30:55', '2022-12-14 05:38:01'),
+(1175, 'Bull Dozer', 'BD-03', 'CHINA', '4.50M3', 'LIUGONG', 'CLGB160C', '2019', 'LGCB160CPKC006577', 'WD10G178E25', '1219D002221', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:27:10', '2022-12-14 05:38:01'),
+(1176, 'Bull Dozer', 'BD-04', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041CL0003198', 'WD10G178E25', '1220E003771', 'Khagrachori,Udoypur', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'CUTTING EDGE NEED', ' ', '2023-12-20 01:39:14', '2022-12-14 05:38:01'),
+(1177, 'Bull Dozer', 'BD-05', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041EL0003197', 'WD10G178E25', '1220G004116', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1178, 'Bull Dozer', 'BD-06', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041TL0003199', 'WD10G178E25', '1220G003768', 'Khagrachori,Marisha', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:37:58', '2022-12-14 05:38:01'),
+(1179, 'Bull Dozer', 'BD-07', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041HL0003179', 'WD10G178E25', '1220D003260', 'Khagrachori,Marisha', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:38:25', '2022-12-14 05:38:01'),
+(1180, 'Bull Dozer', 'BD-08', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041EL0003202', 'WD10G178E25', '1220D004584', 'Khagrachori,Marisha', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'NEED TRACK LINK,BUSH,PIN,CUTTING EDGE', ' ', '2023-12-20 01:38:49', '2022-12-14 05:38:01'),
+(1181, 'Bull Dozer', 'BD-09', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041HL0003201', 'WD10G178E25', '1220G001745', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1182, 'Bull Dozer', 'BD-10', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041TL0003204', 'WD10G178E25', '1220G004560', 'Khagrachori,Marisha', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Maresha', ' ', '2023-12-20 01:39:43', '2022-12-14 05:38:01'),
+(1183, 'Bull Dozer', 'BD-11', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041AL0003180', 'WD10G178E25', '1220D003268', 'kishorganj', 'Running', ' ', ' ', 'assigned', '2023-11-01', ' ', ' ', ' ', 'ENGINE OVERHAULING NEED', 'breakdown', '2023-12-28 12:56:23', '2022-12-14 05:38:01'),
+(1184, 'Bull Dozer', 'BD-12', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041CL0003203', 'WD10G178E25', '1220G004731', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1185, 'Bull Dozer', 'BD-13', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160-3', '2020', 'ZMTZD040KL0003407', 'WD10G178E25', '1220D003290', 'Bandarban, Naikhoanchori', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Ramor', ' ', '2023-12-20 01:40:27', '2022-12-14 05:38:01'),
+(1186, 'Bull Dozer', 'BD-14', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160-3', '2020', 'ZMTZD040CL0003409', 'WD10G178E25', '1220D003280', 'Khagrachori,Udoypur', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'NEED  HYDRAULIC COOLER,TRACK LINK,BUSH PIN', ' ', '2023-12-20 01:41:00', '2022-12-14 05:38:01'),
+(1187, 'Bull Dozer', 'BD-15', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160-3', '2020', 'ZMTZD040JL0003408', 'WD10G178E25', '1220D003287', 'Khagrachori,Udoypur', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'NEED DRIVE SEAL LINKAGE', ' ', '2023-12-20 01:41:33', '2022-12-14 05:38:01'),
+(1188, 'Bitumin Distributor', 'BT. D -01', 'CHINA', '6 Ton', 'SINO', 'H3W47', '2019', 'LEZADIEC2KF006582', 'ZZ1168G47150', '2019A010', 'PCT,Ctg', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:13:03', '2022-12-14 05:38:01'),
+(1189, 'Crawler Crane', 'CC-01', 'CHINA', '380 Ton', 'ZOOMLION', 'ZCC3800', '2018', 'ZCC-350-A0010', ' WP12G430E300', 'JCC350A-0010', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'monglapost jetrty project', ' ', '2023-12-28 11:54:30', '2022-12-14 05:38:01'),
+(1190, 'Crawler Crane', 'CC-02', 'CHINA', '180 Ton', 'ZOOMLION', 'QUY180', '2020', 'ZCC-180-0110', '             QSL9-C305', 'JCC180-0110', 'Mongla jetty project', 'Breakdown', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'hook and boom problem', ' ', '2023-12-28 11:54:42', '2022-12-14 05:38:01'),
+(1191, 'Crawler Crane', 'CC-03', 'China', '85 Ton', 'XCMG', 'XGC85', '2018', 'XUG0085KTJFC00325', 'SC9DK270G3', 'D9185008348', 'Netrokonah', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1192, 'Crawler Crane', 'CC-04', 'CHINA', '85 Ton', 'XCMG', 'XGC85', '2018', 'XUG0085KVJFC00326', 'SC9DK270G3', 'TS2410F28-2022', 'Netrokonah', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 02:41:42', '2022-12-14 05:38:01'),
+(1193, 'Crawler Crane', 'CC-05', 'CHINA', '85 Ton', 'ZOOMLION', 'ZCC850H', '2020', 'ZCC85-0086', 'WP7G270E301', '1019K035255', 'Mongla BNS Project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:52:55', '2022-12-14 05:38:01'),
+(1194, 'Concrete Batching Plant', 'CBP-01', 'China', '30 m3/HR', 'POWER PLUS', 'PBP350S', '2018', 'CL-18E0323F6-1', 'P-JS750', 'N/A', 'PCT', 'Running', ' ', ' ', 'assigned', '2023-02-01', ' ', ' ', ' ', ' ', 'breakdown', '2022-12-14', '2022-12-14 05:38:01'),
+(1195, 'Concrete Batching Plant', 'CBP-02', 'China', '60m3/HR', 'ZOOMLION', 'HZS60', '2018', '014101E1180065', 'HZS60P', 'N/A', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1196, 'Concrete Batching Plant', 'CBP-03', 'CHINA', '35m3/hr', 'NICOL', 'HZS-35', '2019', ' ', ' ', ' ', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:22:55', '2022-12-14 05:38:01'),
+(1197, 'Concrete Batchig Plant', 'CBP-04', 'CHINA', '35m3/hr', 'NICOL', 'HZS-35', '2019', ' ', ' ', ' ', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:23:21', '2022-12-14 05:38:01'),
+(1198, 'Block Making Machine', 'CBM-01', 'CHINA', '350 Pcs/Hour', 'ZENITH', 'QT10', '2019', 'QF1019006', 'N/A', 'N/A', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:31:15', '2022-12-14 05:38:01'),
+(1199, 'Dump Truck (Ten Wheel)', 'DT-01', 'CHINA', 'LA-39000KG', 'SINO', 'ZZ3257N3647A', '2018', 'LZZ5ELND8JD476463', '(SINO)WD615.69', 'E 181107029977', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:01:55', '2022-12-14 05:38:01'),
+(1200, 'Dump Truck (Ten Wheel)', 'DT-02', 'CHINA', '16m3', 'SINO', 'ZZ3168G3615', '2018', 'LZZ5ELND6JD476462', '(SINO)WD615.69', 'E 181107029967', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:03:11', '2022-12-14 05:38:01'),
+(1201, 'Dump Truck (Six wheel)', 'DT-03', 'China', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC5JF006912', 'YC4E160-34', 'E3714JY0007', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1202, 'Dump Truck (Six wheel)', 'DT-04', 'CHINA', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC5JF006911', 'YC4E160-33', 'E3714JY0006', 'PCT,Ctg', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Tyre needed', ' ', '2023-11-29 12:42:45', '2022-12-14 05:38:01'),
+(1203, 'Dump Truck (Six Wheel)', 'DT-05', 'China', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC5JF006913', 'YC4E160-33', 'E3714JY0008', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1204, 'Dump Truck (Six wheel)', 'DT-06', 'CHINA', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC5JF006915', 'YC4E160-37', 'E3714JY0009', 'PCT,Ctg', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Tyre needed', ' ', '2023-12-20 12:29:06', '2022-12-14 05:38:38'),
+(1205, 'Dump Truck (Six wheel)', 'DT-07', 'CHINA', '10m3', 'SINO', 'ZZ257N33647', '2018', 'LEZAD1EC6JF006910', '(SINO) YC4E 160-33', 'E 3714JY0005', 'Mongla Port Project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 12:45:26', '2022-12-14 05:38:38'),
+(1206, 'Dump Truck (Six Wheel)', 'DT-08', 'CHINA', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC6JF006910', 'YC4E160-33', 'E3714JY0005', 'PCT,Ctg', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Tyre needed', ' ', '2023-12-20 12:29:50', '2022-12-14 05:38:38'),
+(1207, 'Dump Truck (Six wheel)', 'DT-09', 'INDIA', '10m3', 'EICHER', 'VE Terra-16XP', '2018', 'MC2K8ERC0JM064110', 'Terra 16 xp', 'E613CDJM253067', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:06:30', '2022-12-14 05:38:38'),
+(1208, 'Dump Truck (Six wheel)', 'DT-10', 'INDIA', '10m3', 'EICHER', 'VE Terra-16XP', '2018', 'MC2K8ERCOJM064219', 'Terra 16 xp', 'E613CDJM254774', 'PCT,Ctg', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Need Maintenance', ' ', '2023-11-29 12:59:40', '2022-12-14 05:38:38'),
+(1209, 'Dump Truck (Six wheel)', 'DT-11', 'India', '10m3', 'EICHER', 'VE Terra-16XP', '2019', 'MC2K8ERC0JM064217', 'Terra 16 xp', 'E613CDJM254762', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1210, 'Dump Truck (Six wheel)', 'DT-12', 'Indian', '10m3', 'EICHER', 'VE Terra-16XP', '2019', 'MC2K8ERCOKEO65292', 'Terra 16 xp', 'E613CDKE286184', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1211, 'Mini Dump Truck ', 'DT-13', 'India', '3.5m3', 'TATA', 'TATA 909Ex2', '2019', 'NAT382402K800565', ' ', 'E 497TC93APY800761', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1212, 'Mini Dump Truck ', 'DT-14', 'India', '3.5m3', 'TATA', 'LPK909', '2019', 'MAT382402K8R00565', ' ', '497TC93APY800761', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1213, 'Mini Dump Truck ', 'DT-15', 'India', '3.5m3', 'TATA', 'LPK909', '2019', 'MAT38240218R32883', ' ', '497TC93PRY843998', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1214, 'Dump Truck (Ten wheel)', 'DT-16', 'INDIA', '16m3', 'EICHER', 'PRO5025', '2020', 'MC2U2GRC0LA019624', 'Cummins B5.9-Bsiii', '91M84519506', 'PCT,Ctg', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 01:00:19', '2022-12-14 05:38:38'),
+(1215, 'Dump Truck (Ten wheel)', 'DT-17', 'INDIA', '16m3', 'EICHER', 'PRO5025', '2020', 'MC2U2GRC0LA019786', 'Cummins B5.9-Bsiii', '91M84519049', 'Afcons infras, Ashuganj', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Tyre needed', ' ', '2023-12-20 12:31:00', '2022-12-14 05:38:38'),
+(1216, 'Dump Truck (Ten wheel)', 'DT-18', 'INDIA', '16m3', 'EICHER', 'PRO5025', '2020', 'MC2U2GRC0LA019867', 'Cummins B5.9-Bsiii', '02B84519506', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:21:51', '2022-12-14 05:38:38'),
+(1217, 'Dump Truck (Ten wheel)', 'DT-19', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759445', 'WD615.69', '201207011457', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:04:03', '2022-12-14 05:38:38'),
+(1218, 'Dump Truck (Ten wheel)', 'DT-20', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759446', 'WD615.69', '201107046357', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:22:41', '2022-12-14 05:38:38'),
+(1219, 'Dump Truck (Ten wheel)', 'DT-21', 'CHINA', '10m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759447', 'WD615.69', '201107046327', 'Jessore Coal Project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:05:07', '2022-12-14 05:38:38'),
+(1220, 'Dump Truck (Ten wheel)', 'DT-22', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759448', 'WD615.69', '201107046407', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:23:19', '2022-12-14 05:38:38'),
+(1221, 'Dump Truck (Ten wheel)', 'DT-23', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759449', 'WD615.69', '201107046247', 'PCT,Ctg', 'Breakdown', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Maintenance, Fuel Pump Problem', ' ', '2023-12-20 12:22:49', '2022-12-14 05:38:38'),
+(1222, 'Dump Truck (Ten wheel)', 'DT-24', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759450', 'WD615.69', '201107046287', 'Dhaka Air Port', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Rental Site', ' ', '2023-12-20 01:32:57', '2022-12-14 05:38:38'),
+(1223, 'Dump Truck (Ten wheel)', 'DT-25', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759451', 'WD615.69', '201107046307', 'Dhaka Air Port', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:33:52', '2022-12-14 05:38:38'),
+(1224, 'Dump Truck (Ten wheel)', 'DT-26', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759452', 'WD615.69', '201107046317', 'Dhaka Air Port', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Rental Site', ' ', '2023-12-20 01:34:14', '2022-12-14 05:38:38'),
+(1225, 'Dump Truck (Ten wheel)', 'DT-27', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759453', 'WD615.69', '201107046397', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1226, 'Dump Truck (Ten wheel)', 'DT-28', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759454', 'WD615.69', '201107046267', 'Dhaka Air Port', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:34:35', '2022-12-14 05:38:38'),
+(1227, 'Dump Truck (Ten wheel)', 'DT-29', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759455', 'WD615.69', '201107046347', 'PCT,Ctg', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 12:25:50', '2022-12-14 05:38:38'),
+(1228, 'Dump Truck (Ten wheel)', 'DT-30', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759456', 'WD615.69', '201107046297', 'Dhaka Air Port', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Rental Site', ' ', '2023-12-20 01:34:54', '2022-12-14 05:38:38'),
+(1229, 'Dump Truck (Ten wheel)', 'DT-31', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759457', 'WD615.69', '201107046417', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 12:10:20', '2022-12-14 05:38:38'),
+(1230, 'Dump Truck (Ten wheel)', 'DT-32', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759458', 'WD615.69', '201107046387', 'Afcons infras, Ashuganj', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 12:26:56', '2022-12-14 05:38:38'),
+(1231, 'Dump Truck (Ten wheel)', 'DT-33', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759459', 'WD615.69', '201107046337', 'Dhaka Air Port', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Rental Site', ' ', '2023-12-20 01:35:21', '2022-12-14 05:38:38'),
+(1232, 'Dump Truck (Ten wheel)', 'DT-34', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759460', 'WD615.69', '201107046237', 'Dhaka Air Port', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Rental Site', ' ', '2023-12-20 12:27:38', '2022-12-14 05:38:38'),
+(1233, 'Dump Truck (Ten wheel)', 'DT-35', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759461', 'WD615.69', '201107046257', 'Afcons infras, Ashuganj', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 12:28:01', '2022-12-14 05:38:38'),
+(1234, 'Dump Truck (Ten wheel)', 'DT-36', 'CHINA', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759462', 'WD615.69', '201107046277', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:18:55', '2022-12-14 05:38:38'),
+(1235, 'Dump Truck (Ten wheel)', 'DT-37', 'China', '16m3', 'SINO', 'ZZ3257N3647A', '2020', 'LZZ5ELND1LN759463', 'WD615.69', '201107046377', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1236, 'Double Drum V.C ', 'DDVC-01', 'China', '3Ton', 'Longking', 'CDM5033DD', '2019', '19050005', 'ZN390B', 'C91702368A', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1237, 'Double Drum V.C ', 'DDVC-02', 'China', '3Ton', 'Longking', 'CDM5033DD', '2019', '19060008', 'ZN390B', 'C91702368A', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1238, 'Diesel Hammer', 'DH-01', 'CHINA', '6.2 Ton', 'STARKE', 'HD62', '2019', '0757-23832488', '62', 'ZC20180902A', 'Netrokonah', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 02:43:58', '2022-12-14 05:38:38'),
+(1239, 'Diesel Hammer', 'DH-02', 'China', '6.2 Ton', 'STARKE', 'HD62', '2018', ' ', ' ', ' ', 'Netrokonah', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1240, 'Diesel Generator', 'D Gn-01', 'JAPAN', '25 KVA', 'DAWEOO', ' ', '2018', ' ', 'DB33', '0.000228', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:38:55', '2022-12-14 05:38:38'),
+(1241, 'Diesel Generator', 'D Gn-02', 'China', '28 HP', 'SIFANG', 'SIFANG-1125', '2018', '1804049', 'N/A', 'N/A', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1242, 'Diesel Generator', 'D Gn-03', 'GERMANY', '32HP', 'CHANGCHAI', 'L-32', '2018', 'N/A', 'N/A', '78523382', 'Netrokonah', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 02:46:35', '2022-12-14 05:38:38'),
+(1243, 'Diesel Generator', 'D Gn-04', 'China', '12KVA', 'FUJIAN', 'GFS-12KW', '2018', '17100912', '2100ABD', 'N/A', 'Netrokonah ', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1244, 'Diesel Generator', 'D Gn-05', 'China ', '15 KW', 'MINDONG', 'JBT8982011', '2016', 'N/A', 'ZH1125D', '11208170788', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1245, 'Diesel Generator', 'D Gn-06', 'China ', '15 KW', 'MINDONG', 'JBT8982011', '2016', 'N/A', 'ZH1125D', '21809280582', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1246, 'Diesel Generator', 'D Gn-07', 'China ', '15 KW', 'MINDONG', 'JBT8982011', '2016', 'N/A', 'ZH1125D', '11810080770', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1247, 'Diesel Generator', 'D Gn-08', 'China ', '15 KW', 'MINDONG', 'JBT8982011', '2016', 'N/A', 'ZH1125D', '11709847310', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1248, 'Diesel Generator', 'D Gn-09', 'China ', '15 KW', 'MINDONG', 'JBT8982011', '2017', 'N/A', 'ZH1125D', '21879306205', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1249, 'Diesel Generator', 'D Gn-10', 'China ', '15 KW', 'MINDONG', 'JBT8982011', '2017', 'N/A', 'ZH1125D', '29630085670', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1250, 'Diesel Generator', 'D Gn-11', 'TURKEY', '329KVA', 'TEKSAN', 'LO14MOM', '2018', ' ', 'P126T1-11', 'ED10C867523', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:14:14', '2022-12-14 05:38:38'),
+(1251, 'Diesel Generator', 'D Gn-12', 'Turkey', '329KVA', 'TEKSAN', 'TJ329DW5L', '2018', ' ', 'P126T1-11', 'ED10C867424', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1252, 'Diesel Generator', 'D Gn-13', 'Turkey', '180KVA', 'TEKSAN', 'TJ180DW5A', '2018', ' ', 'P086T1', 'EBP0A864459', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1253, 'Diesel Generator', 'D Gn-14,', 'SPAIN', '65KVA', 'PRAMAC', 'GSW65', '2016', ' ', '1103A-33T', 'DK83399S004478B', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:39:51', '2022-12-14 05:38:38'),
+(1254, 'Diesel Generator', 'D Gn-15', 'Turkey', '21KVA', 'TEKSAN', 'TJ21MS5A', '2018', ' ', 'S4Q261SD', 'E 113815', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1255, 'Diesel Generator', 'D Gn-16', 'TURKEY', '21 KVA', 'TEKSAN', 'TJ21MS5A', '2018', 'N/A', 'S4Q261SD', '113814', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1256, 'Diesel Generator', 'D Gn-17', 'Local', '10KVA', 'LOCAL', 'ZS1110', '2019', ' ', 'ZS1110', 'ZS1110', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1257, 'Diesel Generator', 'D Gn-18', 'TURKEY', '232 KVA', 'TEKSAN', 'TJ217P5EL', '2018', ' ', '21809300036', ' ', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:12:24', '2022-12-14 05:39:37'),
+(1258, 'Diesel Generator', 'D Gn-19', 'TURKEY', '232 KVA', 'TEKSAN', 'TJ232DW5A', '2018', 'CMM3320', 'P086TI', '864486', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:13:14', '2022-12-14 05:39:37'),
+(1259, 'Diesel Generator', 'D Gn-20', 'Turkey', '232 KVA', 'TEKSAN', 'TJ232DW5A', '2018', 'CMM3321', 'P086TI', '864481', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1260, 'Diesel Generator', 'D Gn-21', 'TURKEY', '10 KVA', 'TEKSAN', 'TJ10PE5L', '2019', 'N/A', '403A-116', 'GT51789U191914E', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1261, 'Diesel Generator', 'D Gn-22', 'SPAIN', '100KVA', 'PRAMAC', 'DS W11OP', '2019', ' ', 'DP222LB', 'DU22-00G14916220', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:08:08', '2022-12-14 05:39:37'),
+(1262, 'Diesel Generator', 'D Gn-23', 'Spain', '100KVA', 'PRAMAC', 'GSW110P', '2019', 'RJ51175R025917B', '2634/1500', 'R025917B', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1263, 'Diesel Generator', 'D Gn-24', 'Spain', '65KVA', 'PRAMAC', 'GSW65', '2017', ' ', 'DK833995', 'DK83399S004481B', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1264, 'Diesel Generator', 'D Gn-25', 'Turky', '22KVA', 'TEKSAN', 'TJ22PE5L', '2019', ' ', '404A-22G', 'GV51790U906218C', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1265, 'Diesel Generator', 'D Gn-26', 'TURKEY', '150KVA', 'TEKSAN', 'TJ150PE5L', '2019', 'PP82576U069427E', '4408/1500', 'U069427E', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:09:14', '2022-12-14 05:39:37'),
+(1266, 'Diesel Generator', 'D Gn-27', 'CHINA', '15 KW', 'JIANG DNG', 'N/A', '2019', ' ', 'ZH1110NLD', ' ', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:40:35', '2022-12-14 05:39:37'),
+(1267, 'Diesel Generator', 'D Gn-28', 'China', '10KVA', 'JIANG DNG', 'N/A', '2011', ' ', 'ZH1110NLD', '21101180794', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1268, 'Diesel Generator', 'D Gn-29', 'CHINA', '10KW', 'JIANG DNG', 'N/A', '2019', ' ', 'ZH1110NLD', ' ', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:41:01', '2022-12-14 05:39:37'),
+(1269, 'Diesel Generator', 'D Gn-30', 'TURKEY', '10 KVA', 'TEKSAN', 'TJ10PE5L', '2019', 'N/A', '403A-116', 'GT51705U191175E', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1270, 'Diesel Generator', 'D Gn-31', 'TURKEY', '217KVA', 'TEKSAN', 'TJ217PE5L', '2019', ' ', '1106A-70TAG4', 'PR83518U068430E', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:09:52', '2022-12-14 05:39:37'),
+(1271, 'Diesel Generator', 'D Gn-32', 'China ', '7.5 KW', 'Jiang Dong', 'N/A', '2018', 'N/A', 'S1100B2', '11712281404', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1272, 'Diesel Generator', 'D Gn-33', 'China ', '7.5 KW', 'Jiang Dong', 'N/A', '2018', 'N/A', 'S1100B2', '11758673509', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1273, 'Diesel Generator', 'D Gn-34', 'China ', '7.5 KW', 'Jiang Dong', 'N/A', '2018', 'N/A', 'S1100B2', '11734589053', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1274, 'Diesel Generator', 'D Gn-35', 'China ', '15 KW', 'Jiang Dong', 'N/A', '2018', 'N/A', 'ZL1130D', '78564378920', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1275, 'Diesel Generator', 'D Gn-36', 'China ', '15 KW', 'Jiang Dong', 'N/A', '2018', 'N/A', 'ZL1130D', '88756239025', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1276, 'Diesel Generator', 'D Gn-37', 'China ', '15 KW', 'Jiang Dong', 'N/A', '2018', 'N/A', 'ZL1125D', '10097407263', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1277, 'Diesel Generator', 'D Gn-38', 'Turkey', '21KVA', 'TEKSAN', 'TJ33PE5L', '2020', ' ', '1103A-33G', ' ', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1278, 'Diesel Generator', 'D Gn-39', 'Turkey', '21KVA', 'TEKSAN', 'TJ33PE5L', '2020', ' ', '1103A-33G', ' ', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1279, 'Diesel Generator', 'D Gn-40', 'China', '15KW', 'Chanchai', ' ', '2020', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1280, 'Diesel Generator', 'D Gn-41', 'CHINA', '15KW', 'Chanchai', ' ', '2020', ' ', ' ', ' ', 'CWLP', 'Breakdown', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:41:36', '2022-12-14 05:39:37'),
+(1281, 'Diesel Generator', 'D Gn-42', 'China', '20KW', 'DADI Mingdong', 'L-32', '2021', ' ', ' ', ' ', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1282, 'Diesel Generator', 'D Gn-43', ' ', '10 KVA', 'Local ', ' ', '2021', ' ', ' ', ' ', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1283, 'Dredger', 'DRG-01', ' ', ' ', 'IHC-BEAVER', 'IHC-BEAVER50', ' ', ' ', ' ', ' ', 'Karnofully River', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1284, 'Dredger', 'DRG-02', ' ', ' ', 'IHC-BEAVER', 'IHC-BEAVER50', ' ', ' ', ' ', ' ', 'Karnofully River', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1285, 'Dredger', 'DRG-03', ' ', ' ', 'JULONG', ' ', ' ', ' ', ' ', ' ', 'Karnofully River', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1286, 'Excavator (STD)', 'Ex- 01', 'KOREA', '0.7m3', 'DOOSAN', 'DX225LCA', '2018', 'DHKCEBACTJ0020665', ' ', 'DB58TIS', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 03:13:51', '2022-12-14 05:39:37'),
+(1287, 'Excavator (STD)', 'Ex- 02', 'Korea', '0.7cum', 'DOOSAN', 'DX225LCA', '2018', 'DHKC6DACCJ0020694', 'DB58TI8', 'ECOEN', 'Sirajgonj', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:39:37'),
+(1288, 'Excavator (With Breaker)', 'Ex-03', 'CHINA', '0.7m3', 'ZOOMLION', 'ZE210E', '2018', 'CCN938T1281010233', 'B5.9-C', '22290058', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:25:25', '2022-12-14 05:40:09'),
+(1289, 'Excavator (With Breaker)', 'Ex-04', 'CHINA', '0.7m3', 'ZOOMLION', 'ZE210E', '2018', 'ZL300210E00000572', 'B5.9-C', '22302600', 'Bandarban, Naikhoanchori', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:43:19', '2022-12-14 05:40:09'),
+(1290, 'Excavator (Pile Driver)', 'Ex-05', 'CHINA', '1.6m3', 'XCMG', 'XE-370PA', '2018', 'XUG03703CJKA01994', '6HK1', '906008', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:26:38', '2022-12-14 05:40:09'),
+(1291, 'Excavator (Pile Driver)', 'Ex-06', 'CHINA', '1.6m', 'XCMG', 'XE-370PA', '2018', 'XUG03703CJKA01993', '6HK1', '908140', 'Rental Site', 'Running', ' ', ' ', 'assigned', '', ' ', ' ', ' ', ' ', 'breakdown', '2023-11-29 03:22:03', '2022-12-14 05:40:09'),
+(1292, 'Excavator (LB-01)', 'Ex-07', 'CHINA', '0.5 m3,18m', 'ZOOMLION', 'ZE360E', '2018', '7MTZE093LK0000805', '6C8.3', '73472958', 'Rental Site', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:27:52', '2022-12-14 05:40:09'),
+(1293, 'Excavator (LB-02)', 'Ex-08', 'CHINA', '.3 M^3', 'ZOOMLION', 'ZZ4257V3241WTAZ9950TDP', '2018', 'ZMTZE093Yk0000803', 'Cummins6C8.3', '73435508', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Need Fabrication work ,looking glass', ' ', '2023-12-28 12:19:54', '2022-12-14 05:40:09'),
+(1294, 'Excavator (LB-03)', 'Ex-09', 'CHINA', '0.4m3', 'LIUGONG', 'CLG925E', '2019', 'CLG925EZLKE067379', 'B5.9-C', '22275768', 'Narayanganj,Fatulla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:29:32', '2022-12-14 05:40:09'),
+(1295, 'Excavator (LB-04)', 'Ex-10', 'CHINA', '0.4m3', 'LIUGONG', 'CLG925E', '2019', 'CLG925EZVKE067380', 'B5.9-C', '22275757', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:18:52', '2022-12-14 05:40:09'),
+(1296, 'Excavator', 'Ex-11', 'KOREA', '0.92', 'DOOSAN', 'DX225LCA', '2020', 'DHKCEBDXAL0001728', 'DB58TI8', '39584', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:17:48', '2022-12-14 05:40:09'),
+(1297, 'Excavator (LB-05)', 'Ex-12', 'KOREA', '0.64', 'DOOSAN', 'DX300LCA-SLR', '2020', 'DHKCECAOVL0008576', 'DE08TI8', '75169', 'Narayanganj,Fatulla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:55:34', '2022-12-14 05:40:09'),
+(1298, 'Excavator ', 'Ex-13', 'China', '0.3m3', 'DOOSAN', 'DX75-5B', '2020', 'DXCCEABCKL0028201', '4TNV98-EXSDB10', '61158A', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:09'),
+(1299, 'Excavator ', 'Ex-14', 'China', '0.3m3', 'DOOSAN', 'DX75-5B', '2020', 'DXCCEABCJL0028202', '4TNV98-EXSDB10', '61159A', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:09'),
+(1300, 'Excavator (LB-06)', 'Ex-15', 'KOREA', '0.51m3', 'DOOSAN', 'DX225LCA', '2020', 'CEBDX002175', 'DB58TI8', '40559', 'PCT,Ctg', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'NEED  LOOKING GLASS,BATTERY', ' ', '2023-12-28 11:38:39', '2022-12-14 05:40:09'),
+(1301, 'Excavator (LB-07)', 'Ex-16', 'KOREA', '0.51m3', 'DOOSAN', 'DX225LCA', '2020', 'CEBDX002164', 'DB58TI8', '40613', 'Netrokonah', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 02:44:57', '2022-12-14 05:40:09'),
+(1302, 'Excavator (LB-08)', 'Ex-17', 'Korea', '0.51m3', 'DOOSAN', 'DX225LCA', '2020', 'CEBDX002190', 'DB58TI8', '40688', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:09'),
+(1303, 'Excavator (LB-09)', 'Ex-18', 'Korea', '0.51m3', 'DOOSAN', 'DX225LCA', '2020', 'DHKCEBDXAL0002197', 'DB58TI8', '40700', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:09'),
+(1304, 'Excavator ', 'Ex-19', 'Korea', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGHL0020405', 'DB58TI8', '40456', 'Jamuna Rail Bridge', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:09'),
+(1305, 'Excavator', 'Ex-20', 'KOREA', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGHL0020406', 'DB58TI8', '40514', 'Bandarban, Naikhoanchori', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:42:56', '2022-12-14 05:40:09'),
+(1306, 'Excavator', 'Ex-21', 'KOREA', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGHL0020407', 'DB58TI8', '40515', 'Payra Project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 03:53:46', '2022-12-14 05:40:09'),
+(1307, 'Excavator', 'Ex-22', 'KOREA', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGHL0020408', 'DB58TI8', '40506', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 12:20:05', '2022-12-14 05:40:09'),
+(1308, 'Excavator ', 'Ex-23', 'Korea', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGHL0020409', 'DB58TI8', '40505', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:09'),
+(1309, 'Excavator', 'Ex-24', 'KOREA', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGHL0020410', 'DB58TI8', '40508', 'Bandarban, Chimbuk', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:43:44', '2022-12-14 05:40:09'),
+(1310, 'Excavator', 'Ex-25', 'KOREA', '1.08m3', 'DOOSAN', 'DX220LCA', '2020', 'DXCCEBDGTL0020411', 'DB58TI8', '40512', 'Afcons infras, Ashuganj', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2024-01-10 01:26:44', '2022-12-14 05:40:09'),
+(1311, 'Excavator (Pile Driver)', 'Ex-26', 'CHINA', '1.08m3', 'ZOOMLION', 'ZE485E-10', '2020', 'ZMTZE172AL0005213', 'QSM11', '35365617', 'Solar land, Sirajgonj', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:57:04', '2022-12-14 05:40:09'),
+(1312, 'Excavator ', 'Ex-27', 'China', '1.08m3', 'DOOSAN', 'DX220LCA-2', '2022', 'DXCCEBDGLN0021135', 'DB58TI8', '244698', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:09'),
+(1313, 'Fork Lift', 'FL-01', 'KOREA', '2000 KG', 'DOOSAN', 'D20G', '2017', 'FDAOB-2620-10302', '4TNE98-BQDFC', 'C0506', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'HYDRAULIC CYLINDER LEAKAGE', ' ', '2023-12-28 12:32:22', '2022-12-14 05:40:09'),
+(1314, 'Fork Lift', 'FL- 02', 'KOREA', '3000 KG', 'DOOSAN', 'D30GP', '2017', 'FDAOD-2020-11481', '4TNE98-BQDFC', 'C0496', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:32:33', '2022-12-14 05:40:09'),
+(1315, 'Fork Lift', 'FL-03', 'CHINA', '3000 KG', 'ZOOMLION', 'FD30', '2019', '6010937820', 'C240-NBKEG-01-C3', 'C240-275627CNC403', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:33:06', '2022-12-14 05:40:09'),
+(1316, 'Fork Lift', 'FL-04', 'KOREA', '3000 KG', 'ZOOMLION', 'FD31', '2019', '6010937822', 'C240-NBKEG-01-C3', 'C240-275632CNC403', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:33:34', '2022-12-14 05:40:09'),
+(1317, 'Hydraulic Breaker', 'Hy. B-01', 'China', ' ', 'SOOSAN', ' ', ' ', ' ', ' ', ' ', 'Gohira', ' ', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:09'),
+(1318, 'Hydraulic Breaker', 'Hy. B-02', 'China', ' ', 'SOOSAN', ' ', ' ', ' ', ' ', ' ', 'CWLP', ' ', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:09'),
+(1319, 'Motor Grader', 'M. Gr-01', 'INDIA', '15Ton', 'ACE', 'AG-176', '2018', '100637', 'B5.9173C31', '7IJ84416162', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:35:51', '2022-12-14 05:40:09'),
+(1320, 'Motor Grader', 'M.GR-02', 'CHINA', '3960mm', 'LIUGONG', 'CLG4180', '2019', 'CLG4180ZCKL008029', '6BTAA5.9-C190', '78888368', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:28:00', '2022-12-14 05:40:09'),
+(1321, 'Motor Grader', 'M. GR-03', 'China', '3960mm', 'LIUGONG', 'CLG4180', '2020', 'CLG4180ZLLL008822', '6BTAA5.9-C190', '82294056', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:09'),
+(1322, 'Asphalt Finisher', 'Asp F-01', 'GERMANY', '18.9T', 'VOGLEE', 'Super1603-3', '2019', 'QSB4.5', '22298398', '29AB0295', 'PCT,Ctg', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:09:13', '2022-12-14 05:40:09'),
+(1323, 'Prime Mover With Low Bed', 'LB-01', 'China', '80 Ton', 'SINO', 'SINO- ZZ425N341W   TAZ9950TDP', '2018', 'LZZ5CLVB7JD476443 LA9940Z30J0AYC113', 'SINO  D12.42-20', ' E 181117020197', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:09'),
+(1324, 'Prime Mover With Low Bed', 'LB-02', 'CHINA', '80 Ton', 'SINO', 'SINO- ZZ425N341W  TAZ9950TDP', '2018', 'LZZ5CLVB9JD476444  LA9940Z32JOAYC114', 'SINO  D12.42-20', 'E 181117020177', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Looking glass and fabrication word needed.', ' ', '2023-12-28 12:34:35', '2022-12-14 05:40:51'),
+(1325, 'Plate Compactor', 'PL-01-14', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'PayraPort', ' ', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1326, 'Plate Compactor', 'PL-15', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'PCT', ' ', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1327, 'Plate Compactor', 'PL-16-18', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Bhashanchar', ' ', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1328, 'Plate Compactor', 'PL-19-20', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Gohira', ' ', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1329, 'Piling Rig with Fixed Ladder', 'PG-01', ' ', '50 M', 'LIEBHERR', 'LRH600/HS895(Crane)', ' ', ' ', ' ', ' ', 'Mongla', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1330, 'Rough Terrin Crane', 'RTC-01', 'CHINA', '75 Ton', 'ZOOMLION', 'ZRT-75', '2018', 'RTT75-0084', 'Cummins QSB6.7', '22280945', 'Mongla jetty project', 'Breakdown', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:54:01', '2022-12-14 05:40:51'),
+(1331, 'Rough Terrin Crane', 'RTC-02', 'CHINA', '35 Ton', 'ZOOMLION', 'ZRT-35', '2018', 'RTT35-0182', 'Cummins QSB6.7', ' ', 'Netrokonah', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Dhaka Airport', ' ', '2023-12-28 12:56:58', '2022-12-14 05:40:51'),
+(1332, 'Rough Terrin Crane', 'RTC-03', 'CHINA', '30 Ton', 'ZOOMLION', 'ZRT-300', '2018', 'ZRT300-0003', 'WP6G210E330', ' ', 'Mongla BNS Project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:58:14', '2022-12-14 05:40:51'),
+(1333, 'Stationary Concrete Pump', 'SCP-01', 'CHINA', '78/47m3/Hr', 'ZOOMLION', 'HBT60.174RSU', '2018', 'C  001123A118H005', '(DEUTZ)BF6M1013-24T3R/2', 'N/A', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:36:32', '2022-12-14 05:40:51'),
+(1334, 'Stationary Concrete Pump', 'SCP-02', 'CHINA', '78/47m3/Hr', 'ZOOMLION', 'HBT60.174RSU', '2018', 'C  001123A118H004', '(DEUTZ)BF6M1013-24T3R/2', 'N/A', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:36:56', '2022-12-14 05:40:51'),
+(1335, 'Stationary Concrete Pump', 'SCP-03', 'CHINA', '78/47m3/hr', 'ZOOMLION', 'HBT60.174RSU', '2019', '013118-02', 'BF4M1013-16T3R/3', '001141A019H003', 'Mongla BNS Project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:28:34', '2022-12-14 05:40:51'),
+(1336, 'Stationary Concrete Pump', 'SCP-04', 'CHINA', ' ', 'Putzmeister', 'BSA1405D', '2020', ' ', ' ', ' ', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:38:00', '2022-12-14 05:40:51'),
+(1337, 'Transit Mixer Truck', 'TMT-01', 'CHINA', '9m3', 'ZOOMLION', '9JBH-R', '2018', 'LZZ5BLND0JD475039', '(SINO)WD615.69', 'E 181107017117', 'PCT,Ctg', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 12:43:08', '2022-12-14 05:40:51'),
+(1338, 'Transit Mixer Truck', 'TMT-02', 'CHINA', '9m3', 'ZOOMLION', '9JBH-R', '2018', 'LZZ5BLND9JD475038', '(SINO)WD615.69', 'E 181107017107', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:20:43', '2022-12-14 05:40:51'),
+(1339, 'Transit Mixer Truck', 'TMT-03', 'CHINA', '9m3', 'ZOOMLION', '9JBH-R', '2018', 'LZZ5BLND7JD475040', '(SINO)WD615.69', 'E 181107017097', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:22:02', '2022-12-14 05:40:51'),
+(1340, 'Transit Mixer Truck', 'TMT-04', 'China', '9m3', 'ZOOMLION', '9JBH-R', '2018', 'LZZ5BLND9JD475041', '(SINO)WD615.69', 'E 181107017087', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1341, 'Transit Mixer Truck', 'TMT-05', 'CHINA', '9m3', 'ZOOMLION', '9JBH-R', '2019', 'LZZ5BLND0KW577334', 'WD61569', '190707017077', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'TYRE NEED', ' ', '2023-12-28 12:21:12', '2022-12-14 05:40:51'),
+(1342, 'Transit Mixer Truck', 'TMT-06', 'CHINA', '9m3', 'ZOOMLION', '9JBH-R', '2019', 'LZZ5BLH02KW577335', 'WD61569', '190707017067', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:21:39', '2022-12-14 05:40:51'),
+(1343, 'Transit Mixer Truck', 'TMT-07', 'INDIA', '7m3', 'TATA+Putzmeister', 'LPK2518,P7', '2020', 'MAT448072L3R02641', '5.9 BSIII', 'B5.91803202A63829141', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:24:20', '2022-12-14 05:40:51'),
+(1344, 'Transit Mixer Truck', 'TMT-08', 'INDIA', '7m3', 'TATA+Putzmeister', 'LPK2518,P7', '2020', 'MAT448072L3R02785', '5.9 BSIII', 'B5.91803202A63828189', 'CWLP', 'Breakdown', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:24:52', '2022-12-14 05:40:51'),
+(1345, 'Tandem Roller', 'TR-01', 'JAPAN', '9Ton', 'HAMM', 'HD 90', '2019', 'WPGHOH1816HAA03913', 'TCD2012L042V', '12237518', 'PCT,Ctg', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:07:19', '2022-12-14 05:40:51'),
+(1346, 'Three Wheel Static Roller', 'TWSR-01', 'CHINA', '12Ton', 'JUMNA', '3YJ10/12', '2019', ' ', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:06:19', '2022-12-14 05:40:51'),
+(1347, 'Three Wheel Static Roller', 'TWSR-02', 'China', '12Ton', 'JUMNA', '3YJ10/12', '2019', ' ', 'C9150473A', '190908', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1348, 'Tyre Roller', 'Ty. R-01', 'GERMANY', '10T', 'HAMM', 'GRW18', '2018', 'WGHOH190JHAA03244', 'TCD2012L042V', '12388046', 'PCT,Ctg', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:08:02', '2022-12-14 05:40:51'),
+(1349, 'Concrete Boom Pump', 'CBP-01', 'CHINA', '120M^3/Hr', 'ZOOMLION', '49X 6RZ', '2020', 'LZZ1BMVF2JW351185', '(SINO) MC11.39-30', 'E 181117218857', 'Mongla jetty project', 'Breakdown', ' ', ' ', 'assigned', '2023-02-01', ' ', ' ', ' ', 'LOTS OF PROBLEM', 'breakdown', '2023-12-28 12:30:31', '2022-12-14 05:40:51'),
+(1350, 'Truck Crane', 'TC-01', 'China', ' ', 'DONGFENG, XCMG', 'HWE, SQS68', ' ', 'USED', ' ', ' ', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1351, 'Truck Crane', 'TC-02', 'China', '20 Ton', ' XCMG', 'QY20', '2001', '2001061', ' ', 'A0115285', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'From Grihayan', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1352, 'Truck Crane', 'TC-03', 'China', '20 Ton', ' XCMG', 'QY20', '2001', '2001061', ' ', 'A0115285', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'From Grihayan', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1353, 'Tractor', 'TT-01', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'JZGDG76307453', '3102IL', '3102IL83G750545F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1354, 'Tractor', 'TT-02', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'KZGDG78861953', '3102IL', '3102IL83J780053F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1355, 'Tractor', 'TT-03', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'EZGDG75821053', '3102IL', '3102IL83F743659F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1356, 'Tractor', 'TT-04', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'EZGDG75812553', '3102IL', '3102IL83F750751F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1357, 'Tractor', 'TT-05', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'EZGDG75812153', '3102IL', '3102IL83G70756F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1358, 'Tractor', 'TT-06', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'EZGDG75812354', '3102IL', '3102IL83F', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1359, 'Tractor', 'TT-07', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'EZGDG75812454', '3102IL', '3102IL82G750751F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1360, 'Tractor', 'TT-08', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'EZGDG75812553', '3102IL', '3102IL83C750751F5', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1361, 'Tractor', 'TT-09', 'INDIA', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA212C5YK1227918', 'S325J', 'SJ327EA58014', 'Netrokonah', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 02:45:38', '2022-12-14 05:40:51'),
+(1362, 'Tractor', 'TT-10', 'INDIA ', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA212C5YK1228365', 'S325J', 'SJ327EA58027', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51');
+INSERT INTO `equipments` (`id`, `name`, `eel_code`, `origin`, `capacity`, `makeby`, `model`, `year_manufacture`, `inventory_sl_no`, `engine_model`, `engine_sl_no`, `present_location`, `present_condition`, `price`, `qr_image`, `assign_status`, `inspaction_date`, `incharge`, `superintend`, `coo_admin`, `remarks`, `status`, `created_at`, `updated_at`) VALUES
+(1363, 'Tractor', 'TT-11', 'INDIA ', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA212C5YK1227957', 'S325J', 'SJ327EA58004', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1364, 'Tractor', 'TT-12', 'INDIA ', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA66EA7YJ1212970', 'S325J', 'S325J87701', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:51'),
+(1365, 'Tractor', 'TT-13', 'INDIA ', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA66EA7YJ1204009', 'S325J', 'S325J74859', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1366, 'Tractor', 'TT-14', 'INDIA', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA66EA7YJ1212974', 'S325J', 'S325J87702', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 03:17:26', '2022-12-14 05:41:19'),
+(1367, 'Tractor', 'TT-15', 'INDIA', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA66EA7YJ1212962', 'S325J', 'S325J87700', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 03:17:55', '2022-12-14 05:41:19'),
+(1368, 'Tractor', 'TT-16', 'INDIA ', '1450kgf', 'TAFE', 'TAFE-45DI', '2018', 'MEA66EA7YJ1202596', 'S325J', 'S325J67643', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1369, 'Tractor', 'TT-17', 'INDIA ', '1700kgf', 'TAFE', 'TAFE-5450DI', '2018', 'MEA212C5YK1204022', 'SJ327E', 'S325J74856', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1370, 'Tractor', 'TT-18', 'INDIA ', '1700kgf', 'TAFE', 'TAFE-5450DI', '2018', 'MEA212C5YK1202488', 'SJ327E', 'S325J67642', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1371, 'Tractor', 'TT-19', 'INDIA ', '1700kgf', 'TAFE', 'TAFE-5450DI', '2018', 'MEA66EA74J1197363', 'SJ327E', 'S325J45064', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1372, 'Tractor', 'TT-20', 'INDIA ', '1800kgf', 'SONALIKA', 'DI-50RX', '2017', 'JZGDT674512S3', '3102IL', '310 2IL73H668138F5', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1373, 'Tractor', 'TT-21', 'Indian', '100CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YJ1198166', ' ', 'S325J63687', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1374, 'Tractor', 'TT-22', 'Indian', '100CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5EOE7YJ1198168', ' ', 'S325J63078', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1375, 'Tractor', 'TT-23', 'Indian', '100CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5EOE7YJ1198182', ' ', 'S325J63076', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1376, 'Tractor', 'TT-24', 'Indian', '100CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YJ1179351', ' ', 'S325J34362', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1377, 'Tractor', 'TT-25', 'Indian', '100CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA66EA7YJ1197262', ' ', 'S325J41664', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1378, 'Tractor', 'TT-26', 'INDIA', '100 CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YJ1217959', 'S 325', 'S325J95448', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:53:52', '2022-12-14 05:41:19'),
+(1379, 'Tractor', 'TT-27', 'India', '100 CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YJ1202372', 'S 325', 'S325J70994', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1380, 'Tractor', 'TT-28', 'CHINA', '10 Ton', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YK1227893', 'simpsons S325', 'S325K17491', 'Jolshiri', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:44:45', '2022-12-14 05:41:19'),
+(1381, 'Tractor', 'TT-29', 'INDIA', '100 CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YK1231527', 'simpsons S325', 'S325K16559', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'm', ' ', '2023-12-28 12:24:16', '2022-12-14 05:41:19'),
+(1382, 'Tractor', 'TT-30', 'INDIA', '100 CFT', 'TAFE', 'TAFE-45DI', '2018', 'MEA66EA7YJ1202590', 'S325', 'S325J67645', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'FABRICATION WORK NEED', ' ', '2023-12-28 12:25:10', '2022-12-14 05:41:19'),
+(1383, 'Tractor', 'TT-31', 'India', '2 Ton', 'TAFE', 'TAFE-5900DI', '2019', 'MEA35D85YK1247946', 'S433', 'S433B13855', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1384, 'Tractor', 'TT-32', 'INDIA', '2 Ton', 'TAFE', 'TAFE-9500DI', '2019', 'MEA8A163YK1253276', 'TSJ327', 'TSJ327A72299', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:33:41', '2022-12-14 05:41:19'),
+(1385, 'Tractor', 'TT-33', 'INDIA', '2 Ton', 'TAFE', 'TAFE-9500DI', '2019', 'MEA8A163YK1253240', 'TSJ327', 'TSJ327A72301', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:34:14', '2022-12-14 05:41:19'),
+(1386, 'Tractor', 'TT-34', 'INDIA ', '2100kgf', 'TAFE', 'TAFE-5900DI', '2019', 'MEA35D85YK1238738', 'S433B', 'S433B12170', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1387, 'Tractor', 'TT-35', 'INDIA', '2100kgf', 'TAFE', 'TAFE-5900DI', '2019', 'MEA35D85YK1249527', 'S433B', 'S433B14081', 'Jolshiri', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:45:06', '2022-12-14 05:41:19'),
+(1388, 'Tractor', 'TT-36', 'INDIA ', '2100kgf', 'TAFE', 'TAFE-5900DI', '2019', 'MEA35D85YK1249545', 'S433B', 'S433B14080', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1389, 'Tractor', 'TT-37', 'INDIA ', '2100kgf', 'TAFE', 'TAFE-5900DI', '2019', 'MEA35D85YK1249521', 'S433B', 'S433B14072', 'Payra', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1390, 'Tractor', 'TT-38', 'INDIA', '100CFT', 'TAFE', 'TAFE5450DI', '2019', 'MEA212C5YK1253369', 'SG327', 'SJ327E A72159', 'Jolshiri', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:45:24', '2022-12-14 05:41:19'),
+(1391, 'Tractor', 'TT-39', 'Indian', '100CFT', 'TAFE', 'TAFE5450DI', '2019', 'MEA212C5YL1255680', 'SG327', 'SJ327EA7484', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1392, 'Tractor', 'TT-40', 'INDIA', '100CFT', 'TAFE', 'TAFE5450DI', '2019', 'MEA212C5YK1253373', 'SG327', 'SJ327E A71986', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:34:38', '2022-12-14 05:41:19'),
+(1393, 'Tractor', 'TT-41', 'Indian', '100CFT', 'TAFE', 'TAFE5450DI', '2019', 'MEA212C5YK1254775', 'SG327', 'SJ327EA73752', 'Gohira', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1394, 'Tractor', 'TT-42', 'Indian', '200CFT', 'TAFE', 'TAFE7515(2WD)', '2021', ' ', ' ', ' ', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1395, 'Tractor', 'TT-43', 'Indian', '200CFT', 'TAFE', 'TAFE7515(2WD)', '2021', ' ', ' ', ' ', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1396, 'Tower Light', 'TL-01', 'CHINA', ' ', 'PRAMAC', 'LPW8T-KUBOTAZ482', ' ', ' ', ' ', ' ', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:45:56', '2022-12-14 05:41:19'),
+(1397, 'Tower Light', 'TL-02', 'CHINA', ' ', 'PRAMAC', 'LPW8T-KUBOTAZ482', ' ', ' ', ' ', ' ', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:46:26', '2022-12-14 05:41:19'),
+(1398, 'Tower Light', 'TL-03', 'CHINA', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'Mongla BNS Project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:44:02', '2022-12-14 05:41:19'),
+(1399, 'Tower Light', 'TL-04', 'CHINA', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'CWLP', 'Breakdown', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:46:55', '2022-12-14 05:41:19'),
+(1400, 'Tower Light', 'TL-05', 'CHINA', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:47:19', '2022-12-14 05:41:19'),
+(1401, 'Tower Light', 'TL-06', 'CHINA', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'CWLP', 'Breakdown', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:47:44', '2022-12-14 05:41:19'),
+(1402, 'Tower Light', 'TL-07', 'China', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'CWLP', 'Break Down', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1403, 'Tower Light', 'TL-08', 'CHINA', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'Mongla BNS Project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:44:19', '2022-12-14 05:41:19'),
+(1404, 'Tower Light', 'TL-09', 'CHINA', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'CWLP', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:48:20', '2022-12-14 05:41:19'),
+(1405, 'Tower Light', 'TL-10', 'CHINA', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:44:41', '2022-12-14 05:41:19'),
+(1406, 'Tower Light', 'TL-11', 'China', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', ' ', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1407, 'Tower Light', 'TL-12', 'CHINA', '5KW', 'AMYTECH', 'GLT-5000S', '2019', ' ', ' ', ' ', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:45:08', '2022-12-14 05:41:19'),
+(1408, 'Vibratory Roller', 'VR-01', 'INDIA', '10Ton', 'ACE', 'ASD-115', '2018', '100641', '4R1040TA', '4H3303/1720048', 'Jolshiri', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:42:03', '2022-12-14 05:41:19'),
+(1409, 'Vibratory Roller', 'VR-02', 'INDIA', '10Ton', 'ACE', 'ASD-115', '2018', '100642', 'ACEAS-115KJO100642', '4H.3303/1720051', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:50:37', '2022-12-14 05:41:19'),
+(1410, 'Vibratory Roller', 'VR-03', 'China', '12 Ton', 'Changling', '8108L', '2017', 'LCL8108L 34080036', '6BT5.9-C130', '78449120', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1411, 'Vibratory Roller', 'VR-04', 'China', '12 Ton', 'Changling', '8108L', '2017', ' ', '6BT5.9-C130', '78449117', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:43:27'),
+(1412, 'Vibratory Roller', 'VR-05', 'CHINA', '11 Ton', 'JCB', 'JCB 116DD', '2020', '2894777', 'JCB Diesel Max TCA-85', 'H00273976', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:26:21', '2022-12-14 05:43:27'),
+(1413, 'Vibratory Roller', 'VR-06', 'India', '11 Ton', 'JCB', 'JCB 116DD ', '2020', '2894776', 'JCB Diesel Max TCA-85', 'H00277598', 'Bhashanchar', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:43:27'),
+(1414, 'Vibratory Roller', 'VR-07', 'INDIA', '11 Ton', 'JCB', 'JCB 116DD', '2020', '2894764', 'JCB Diesel Max TCA-85', 'H00273975', 'Payra Project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Idle', ' ', '2023-12-28 03:51:39', '2022-12-14 05:43:27'),
+(1415, 'Vibratory Roller', 'VR-08', 'INDIA', '12 Ton', 'JCB', 'JCB 116DD', '2020', '2894763', 'JCB Diesel Max TCA-85', 'H00273978', 'Jolshiri', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-27 04:46:37', '2022-12-14 05:43:27'),
+(1416, 'Vibratory Roller', 'VR-09', 'INDIA', '12 Ton', 'JCB', 'JCB 116DD', '2020', '2894762', 'JCB Diesel Max TCA-85', 'H00273977', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 12:23:28', '2022-12-14 05:43:27'),
+(1417, 'Water Tanker', 'WT-01', 'CHINA', '6Ton', 'SINO', 'H5B', '2019', 'LEZADIEC4KF006518', 'YC6J190-33', 'JID15K30027', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:25:34', '2022-12-14 05:43:27'),
+(1418, 'Water Tanker', 'WT-02', 'India', '5000 LTR', 'TAFE', ' ', '2021', ' ', ' ', ' ', 'Bhashanchor', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:43:27'),
+(1419, 'Weigh Bridge', 'WS-01', 'China', '60 Ton', 'NICOL', ' ', '2018', ' ', ' ', ' ', 'PCT', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:43:27'),
+(1420, 'Wheel Loader', 'WL-01', 'CHINA', '3M^3', 'POWER PLUS', 'PP-938T-V', ' ', ' ', ' ', ' ', 'PCT,Ctg', 'Breakdown', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'NEED GEAR,SOLENOID VALVE', ' ', '2023-12-28 11:14:08', '2022-12-14 05:43:27'),
+(1421, 'Wheel Loader', 'WL-02', 'CHINA', '3 Ton', 'POWER PLUS', 'PP-938-V', '2018', ' ', 'EBT5.9-G130-II', '78661061', 'CWLP', 'Breakdown', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 11:31:46', '2022-12-14 05:43:27'),
+(1422, 'Wheel Loader', 'WL-03', 'CHINA', '3Ton', 'LONG KING', 'LG833N', '2018', 'LSH0833NTJAC130321', 'WP6G125E22', 'DHB06G023501', 'Jamuna Rail Bridge', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 12:34:00', '2022-12-14 05:43:27'),
+(1423, 'Wheel Loader', 'WL-04', 'CHINA', '5 Ton', 'LONG KING', 'LG833N', '2018', 'LSH050NCVJAC12977', 'WD10G220E21', 'E WD10G220E21', 'Jamuna Rail Bridge', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:36:42', '2022-12-14 05:43:27'),
+(1424, 'Wheel Loader', 'WL-05', 'CHINA', '5 Ton', 'LONG KING', 'ZL50C', '2018', 'LSH050NCCJACA12976', 'WD10G220E21', '1218J008096', 'Jamuna Rail Bridge', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 03:52:34', '2022-12-14 05:43:27'),
+(1425, 'Wheel Loader', 'WL-06', 'China', '3Ton', 'LONG KING', 'G833N', '2018', 'LSH0833NCJAC13020', 'WP6G125E22', ' ', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:43:27'),
+(1426, 'Wheel Loader', 'WL-07', 'CHINA', '3 Ton', 'LONG KING', 'LG833N', '2019', 'LSH0833NHKA707433', 'WP6G125E22', 'S0619070840', 'Mongla jetty project', 'Breakdown', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'bucket pin bush problem', ' ', '2023-12-28 12:15:22', '2022-12-14 05:43:27'),
+(1427, 'Wheel Loader', 'WL-08', 'China', '3 Ton', 'LONG KING', 'LG833N', '2019', 'LSH0833NEKA707434', ' ', ' ', 'MCC', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:43:27'),
+(1428, 'Wheel Loader', 'WL-09', 'Korea', '5 Ton', 'DOOSAN', 'SD300N', '2020', 'CWLCD-020370', 'WD10G220E23', '1220K008511', 'CWLP', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:43:27'),
+(1429, 'Wheel Loader', 'WL-10', 'CHINA', '5 Ton', 'DOOSAN', 'SD300N', '2020', 'CWLCD-020371', 'WD10G220E23', '1220K008511', 'Jolshiri', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Rental Site', ' ', '2023-12-20 01:37:01', '2022-12-14 05:43:27'),
+(1430, 'Wheel Loader', 'WL-11', 'CHINA', '5 Ton', 'DOOSAN', 'SD300N', '2020', 'CWLCD-020372', 'WD10G220E23', '1220K007942', 'Jessore Coal Project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:16:12', '2022-12-14 05:43:27'),
+(1431, 'Wheel Loader', 'WL-12', 'CHINA', '5 Ton', 'DOOSAN', 'SD300N', '2022', 'DXCCWLLCDHN0020806', 'WD10G220E23', '1221K014001', 'Mongla jetty project', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:16:38', '2022-12-14 05:43:27'),
+(1432, 'Wheel Loader', 'WL-13', 'CHINA', '3 Ton', 'LONG KING', 'LG833B', '2011', 'F11010695', 'WP6G125E22', '6B11A000383', 'PCT,Ctg', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'Tyre and battery needed.', ' ', '2023-11-29 02:55:42', '2022-12-14 05:43:27'),
+(1433, 'Mobile crane', 'MC-02', '240', '20 T', 'XCMG', 'XCMG', '2018', '', '', '', '3', '1', 'not known', '', 'assigned', '', '', '', '', 'LOTS OF PROBLEM', '', '2023-12-28 11:22:20', ''),
+(1434, 'Mobile crane', 'MC-03', '240', '20T', 'XCMG', 'XCMG', 'NOT KNOWN', '', '', '', '3', '2', 'NOT KNOWN', '', 'assigned', '', '', '', '', 'NEED LEVERSENSOR, BATTERY&TYRE', '', '2023-12-28 11:24:29', ''),
+(1435, 'Fuel Dispensing', 'FD-01', '240', 'NOT KNOWN', 'NOT KNOWN', 'CS32J1110G', 'NOT KNOWN', '', '', '', '3', '3', 'NOT KNOWN', '', 'assigned', '', '', '', '', '', '', '2023-12-28 11:29:16', ''),
+(1436, 'Engine with Pump', 'not set yet', '241', '8 Cyllinder', 'HINO', 'NOT KNOWN', 'NOT KNOWN', '', '', '', '3', '2', 'NOT KNOWN', '', 'assigned', '', '', '', '', '', '', '2023-12-28 11:36:08', ''),
+(1437, 'Double cabin pick-up', 'DHAKA METRO THA-13 6397', '249', 'not known', 'MAHINDRA', 'not known', 'not known', '', '', '', '3', '2', 'not known', '', 'assigned', '', '', '', '', '', '', '2023-12-28 11:42:53', ''),
+(1438, 'Crawler crane (hydraulic hammer driver)', 'not set yet', '244', 'not known', 'LIEBHERR', 'HS 895 HD', '2021', '', '', '', '37', '2', 'not known', '', 'assigned', '', '', '', '', '', '', '2023-12-28 11:57:22', ''),
+(1439, 'Double cabin pick-up', '13-6470', '241', '2930 KG', 'Dyna', 'N/A', '2014', '', '', '', '37', '2', 'NA', '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:37:36', ''),
+(1440, 'Double cabin pick-up', '13-6668', '241', '2915 kg', 'Dyna', 'NA', '2011', '', '', '', '37', '2', 'NA', '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:39:14', ''),
+(1441, 'Double cabin pickup', 'not known', '241', 'NA', 'HILAX', 'NA', 'NA', '', '', '', '37', '2', 'NA', '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:40:44', ''),
+(1442, 'Double cabin pick-up', '13-6296', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '37', '2', 'NA', '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:42:04', ''),
+(1443, 'Double cabin pick up', '13-9034', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '37', '2', 'NA', '', 'assigned', '', '', '', '', 'Steering box motor problem', '', '2023-12-28 12:43:35', ''),
+(1444, 'Barge', 'B-01', '240', '99 X 30X 7 FEET', 'NA', 'NA', 'NA', '', '', '', '37', '2', 'NA', '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:46:37', '');
 
 -- --------------------------------------------------------
 
@@ -7394,8 +7290,8 @@ CREATE TABLE `inv_material` (
 --
 
 INSERT INTO `inv_material` (`id`, `material_id_code`, `material_id`, `material_sub_id`, `material_level3_id`, `material_level4_id`, `material_description`, `spec`, `location`, `type`, `material_min_stock`, `avg_con_sump`, `lead_time`, `re_order_level`, `qty_unit`, `op_balance_qty`, `op_balance_val`, `chk_print`, `cur_qty`, `cur_price`, `cur_value`, `last_issue`, `last_receive`, `part_no`, `current_balance`, `is_manual_code_edit`) VALUES
-(16, '01-01', '50', '0', 0, 0, 'Air Filter', '-', '-', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '123', 101, 0),
-(17, '01-02', '50', '0', 0, 0, 'Fuel Filter', '-', '-', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '234', 58, 0);
+(18, '01-01', '50', '0', 0, 0, 'Air Filter', '-', 'KT', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '123', 5, 0),
+(19, '01-02', '50', '0', 0, 0, 'Oil Filter', '-', 'KT', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '234', 6, 0);
 
 -- --------------------------------------------------------
 
@@ -7435,13 +7331,16 @@ CREATE TABLE `inv_materialbalance` (
 --
 
 INSERT INTO `inv_materialbalance` (`id`, `mb_ref_id`, `mb_materialid`, `material_name`, `material_category`, `eel_code`, `mb_date`, `mbin_qty`, `mbin_val`, `mbout_qty`, `mbout_val`, `mbprice`, `mbtype`, `mbserial`, `mbserial_id`, `mbunit_id`, `jvno`, `part_no`, `project_id`, `warehouse_id`, `package_id`, `building_id`, `approval_status`, `is_manual_code_edit`) VALUES
-(44, 'MRR-CW001', '01-01', 16, 0, '', '2024-01-15', 10, 1500, 0, 0, 150, 'Receive', 1.1, '26', '20', 'MRR-CW001', '123', '26', '3', '', '', 0, 0),
-(45, 'MRR-CW002', '01-01', 16, 0, '', '2024-01-16', 100, 150000, 0, 0, 1500, 'Receive', 1.1, '', '20', 'MRR-CW002', '123', '26', '3', '', '', 0, 0),
-(46, 'MRR-CW002', '01-02', 17, 0, '', '2024-01-16', 50, 85000, 0, 0, 1700, 'Receive', 1.1, '', '20', 'MRR-CW002', '234', '26', '3', '', '', 0, 0),
-(47, 'MRR-CW003', '01-01', 16, 0, '', '2024-01-16', 10, 15000, 0, 0, 1500, 'Receive', 1.1, '26', '20', 'MRR-CW003', '123', '26', '3', '', '', 0, 0),
-(48, 'MRR-CW003', '01-02', 17, 0, '', '2024-01-16', 20, 33000, 0, 0, 1650, 'Receive', 1.1, '26', '20', 'MRR-CW003', '234', '26', '3', '', '', 0, 0),
-(49, '', '01-01', 0, 0, '', '2024-01-16', 0, 0, 15, 22500, 1500, 'Issue', 1.1, '', '20', '', '123', '', '', '', '', 0, 0),
-(50, '', '01-02', 0, 0, '', '2024-01-16', 0, 0, 5, 8500, 1700, 'Issue', 1.1, '', '20', '', '234', '', '', '', '', 0, 0);
+(57, 'MRR-CW001', '01-01', 18, 0, '', '2024-01-22', 2, 3000, 0, 0, 1500, 'Receive', 1.1, '21', '20', 'MRR-CW001', '123', '21', '3', '', '', 0, 0),
+(58, 'MRR-CW001', '01-02', 19, 0, '', '2024-01-22', 3, 4200, 0, 0, 1400, 'Receive', 1.1, '21', '20', 'MRR-CW001', '234', '21', '3', '', '', 0, 0),
+(59, '406', '01-01', 18, 0, 'AC-01', '2024-01-22', 0, 0, 1, 1500, 1500, 'mCost', 1.1, '', '20', '406', '123', '', '', '', '', 0, 0),
+(60, '406', '01-02', 19, 0, 'AC-01', '2024-01-22', 0, 0, 1, 1400, 1400, 'mCost', 1.1, '', '20', '406', '234', '', '', '', '', 0, 0),
+(61, 'MRR-CW002', '01-01', 18, 0, '', '2024-01-22', 7, 10500, 0, 0, 1500, 'Receive', 1.1, '21', '20', 'MRR-CW002', '123', '21', '3', '', '', 0, 0),
+(62, 'MRR-CW002', '01-02', 19, 0, '', '2024-01-22', 10, 14000, 0, 0, 1400, 'Receive', 1.1, '21', '20', 'MRR-CW002', '234', '21', '3', '', '', 0, 0),
+(63, '407', '01-01', 18, 0, 'AC-01', '2024-01-22', 0, 0, 2, 3000, 1500, 'mCost', 1.1, '', '20', '407', '123', '', '', '', '', 0, 0),
+(64, '407', '01-02', 19, 0, 'AC-01', '2024-01-22', 0, 0, 5, 7000, 1400, 'mCost', 1.1, '', '20', '407', '234', '', '', '', '', 0, 0),
+(65, '16', '01-01', 18, 0, 'AC-01', '2024-01-22', 0, 0, 1, 1500, 1500, 'maintenance', 1.1, '21', '20', '16', '123', '21', '3', '', '', 0, 0),
+(66, '17', '01-02', 19, 0, 'AC-01', '2024-01-22', 0, 0, 1, 1400, 1400, 'maintenance', 1.1, '21', '20', '17', '234', '21', '3', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -7535,7 +7434,9 @@ CREATE TABLE `inv_material_partno_detail` (
 
 INSERT INTO `inv_material_partno_detail` (`id`, `inv_material_id`, `material_id_code`, `part_no`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (66, 16, '01-01', '123', 1, 1, 1, '2024-01-15 00:00:00', '2024-01-15 00:00:00'),
-(67, 17, '01-02', '234', 1, 1, 1, '2024-01-16 00:00:00', '2024-01-16 00:00:00');
+(67, 17, '01-02', '234', 1, 1, 1, '2024-01-16 00:00:00', '2024-01-16 00:00:00'),
+(68, 18, '01-01', '123', 1, 1, 1, '2024-01-22 00:00:00', '2024-01-22 00:00:00'),
+(69, 19, '01-02', '234', 1, 1, 1, '2024-01-22 00:00:00', '2024-01-22 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -7566,11 +7467,10 @@ CREATE TABLE `inv_product_price` (
 --
 
 INSERT INTO `inv_product_price` (`id`, `from_table_name`, `mrr_no`, `material_id`, `receive_details_id`, `qty`, `price`, `part_no`, `project_id`, `warehouse_id`, `status`, `created_at`, `cerated_by`, `updated_at`, `updated_by`) VALUES
-(23, '', 'MRR-CW001', '01-01', 21, 8, 150, '123', 26, 3, 1, '2024-01-15', '', '0000-00-00', ''),
-(24, '', 'MRR-CW002', '01-01', 22, 83, 1500, '123', 26, 3, 1, '2024-01-16', '', '0000-00-00', ''),
-(25, '', 'MRR-CW002', '01-02', 23, 38, 1700, '234', 26, 3, 1, '2024-01-16', '', '0000-00-00', ''),
-(26, '', 'MRR-CW003', '01-01', 24, 10, 1500, '123', 26, 3, 1, '2024-01-16', '', '0000-00-00', ''),
-(27, '', 'MRR-CW003', '01-02', 25, 20, 1650, '234', 26, 3, 1, '2024-01-16', '', '0000-00-00', '');
+(30, '', 'MRR-CW001', '01-01', 26, 1, 1500, '123', 21, 3, 1, '2024-01-22', '', '0000-00-00', ''),
+(31, '', 'MRR-CW001', '01-02', 27, 2, 1400, '234', 21, 3, 1, '2024-01-22', '', '0000-00-00', ''),
+(32, '', 'MRR-CW002', '01-01', 28, 4, 1500, '123', 21, 3, 1, '2024-01-22', '', '0000-00-00', ''),
+(33, '', 'MRR-CW002', '01-02', 29, 4, 1400, '234', 21, 3, 1, '2024-01-22', '', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -7614,9 +7514,8 @@ CREATE TABLE `inv_receive` (
 --
 
 INSERT INTO `inv_receive` (`id`, `mrr_no`, `mrr_date`, `purchase_id`, `receive_acct_id`, `supplier_id`, `postedtogl`, `vat_challan_no`, `remarks`, `receive_type`, `project_id`, `warehouse_id`, `receive_unit_id`, `chk_year_end`, `receive_total`, `no_of_material`, `challanno`, `challan_date`, `jv_no`, `part_no`, `requisitionno`, `requisition_date`, `received_by`, `approval_status`, `approved_by`, `approved_at`, `approval_remarks`, `mrr_image`) VALUES
-(8, 'MRR-CW001', '2024-01-15', '2024-01-ENG-WO-', '6-14-010', 'SID-001', 0, '', 'ok', 'Credit', '26', '3', '1', NULL, 1500, 10, 'sc', '2024-01-15', NULL, '123', 'RLP-ENG-HEA-2024-01-001', NULL, '3378', 0, '', '0000-00-00 00:00:00', '', ''),
-(9, 'MRR-CW002', '2024-01-16', '', '6-14-010', 'SID-001', 0, '', 'ok', 'Credit', '26', '3', '1', NULL, 235000, 150, 'sc-0102', '2024-01-16', NULL, '234', 'rlp-2541', NULL, '3378', 0, '', '0000-00-00 00:00:00', '', ''),
-(10, 'MRR-CW003', '2024-01-16', '', '6-14-010', 'SID-001', 0, '', 'ok', 'Credit', '26', '3', '1', NULL, 48000, 30, '-dfgdfgdfgdfgdfg', '2024-01-16', NULL, '234', '-dfgdf', NULL, '3378', 0, '', '0000-00-00 00:00:00', '', '');
+(11, 'MRR-CW001', '2024-01-22', '2024-01-ENG-WO-', '6-14-010', 'SID-002', 0, '', 'ok', 'Credit', '21', '3', '1', NULL, 7200, 5, 'SC-001', '2024-01-22', NULL, '234', 'RLP-ENG-HEA-2024-01-001', NULL, '3368', 0, '', '0000-00-00 00:00:00', '', ''),
+(12, 'MRR-CW002', '2024-01-22', '2024-01-ENG-WO-', '6-14-010', 'SID-002', 0, '', 'ok', 'Credit', '21', '3', '1', NULL, 24500, 17, 'sc-5421', '2024-01-22', NULL, '234', 'RLP-ENG-HEA-2024-01-002', NULL, '3368', 0, '', '0000-00-00 00:00:00', '', '');
 
 -- --------------------------------------------------------
 
@@ -7648,11 +7547,10 @@ CREATE TABLE `inv_receivedetail` (
 --
 
 INSERT INTO `inv_receivedetail` (`id`, `mrr_no`, `material_id`, `material_name`, `material_category`, `unit_id`, `receive_qty`, `unit_price`, `sl_no`, `total_receive`, `rd_serial_id`, `part_no`, `project_id`, `warehouse_id`, `approval_status`, `is_manual_code_edit`) VALUES
-(21, 'MRR-CW001', '01-01', '16', 0, 20, 10, 150, 1, 1500, '', '123', '26', '3', 0, 0),
-(22, 'MRR-CW002', '01-01', '16', 0, 20, 100, 1500, 1, 150000, '', '123', '26', '3', 0, 0),
-(23, 'MRR-CW002', '01-02', '17', 0, 20, 50, 1700, 1, 85000, '', '234', '26', '3', 0, 0),
-(24, 'MRR-CW003', '01-01', '16', 0, 20, 10, 1500, 1, 15000, '', '123', '26', '3', 0, 0),
-(25, 'MRR-CW003', '01-02', '17', 0, 20, 20, 1650, 1, 33000, '', '234', '26', '3', 0, 0);
+(26, 'MRR-CW001', '01-01', '18', 0, 20, 2, 1500, 1, 3000, '', '123', '21', '3', 0, 0),
+(27, 'MRR-CW001', '01-02', '19', 0, 20, 3, 1400, 1, 4200, '', '234', '21', '3', 0, 0),
+(28, 'MRR-CW002', '01-01', '18', 0, 20, 7, 1500, 1, 10500, '', '123', '21', '3', 0, 0),
+(29, 'MRR-CW002', '01-02', '19', 0, 20, 10, 1400, 1, 14000, '', '234', '21', '3', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -7752,9 +7650,8 @@ CREATE TABLE `inv_supplierbalance` (
 --
 
 INSERT INTO `inv_supplierbalance` (`id`, `sb_ref_id`, `warehouse_id`, `sb_date`, `sb_supplier_id`, `sb_dr_amount`, `sb_cr_amount`, `sb_remark`, `sb_partac_id`, `approval_status`) VALUES
-(8, 'MRR-CW001', '3', '2024-01-15', 'SID-001', 0, 1500, 'ok', 'MRR-CW001', 0),
-(9, 'MRR-CW002', '', '2024-01-16', 'SID-001', 0, 235000, 'ok', 'MRR-CW002', 0),
-(10, 'MRR-CW003', '3', '2024-01-16', 'SID-001', 0, 48000, 'ok', 'MRR-CW003', 0);
+(12, 'MRR-CW001', '3', '2024-01-22', 'SID-002', 0, 7200, 'ok', 'MRR-CW001', 0),
+(13, 'MRR-CW002', '3', '2024-01-22', 'SID-002', 0, 24500, 'ok', 'MRR-CW002', 0);
 
 -- --------------------------------------------------------
 
@@ -7801,17 +7698,6 @@ CREATE TABLE `inv_tranferdetail` (
   `outproject` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `inv_tranferdetail`
---
-
-INSERT INTO `inv_tranferdetail` (`id`, `transfer_id`, `material_id`, `material_name`, `part_no`, `transfer_qty`, `unit`, `unit_price`, `type`, `inwarehouse`, `outwarehouse`, `inproject`, `outproject`) VALUES
-(1, 'TR-CW-001', '01-01', '16', '123', '1', 20, 150, '1', '4', '3', '0', ''),
-(2, 'TR-CW-002', '01-01', '16', '123', '2', 20, 1500, '1', '1', '3', '0', ''),
-(3, 'TR-CW-002', '01-02', '17', '234', '5', 20, 1700, '1', '1', '3', '0', ''),
-(4, 'TR-CW-003', '01-01', '16', '123', '1', 20, 150, '1', '4', '3', '24', '26'),
-(5, 'TR-CW-003', '01-02', '17', '234', '2', 20, 1700, '1', '4', '3', '24', '26');
-
 -- --------------------------------------------------------
 
 --
@@ -7853,15 +7739,6 @@ CREATE TABLE `inv_transfermaster` (
   `updated_at` date NOT NULL,
   `updated_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `inv_transfermaster`
---
-
-INSERT INTO `inv_transfermaster` (`id`, `transfer_id`, `transfer_date`, `no_of_material`, `transfer_total`, `from_warehouse`, `to_warehouse`, `from_project`, `to_project`, `remarks`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(1, 'TR-CW-001', '2024-01-16', 1, 150, '3', '4', '', '', 'ok', 'Pending', '2024-01-16', '3378', '0000-00-00', ''),
-(2, 'TR-CW-002', '2024-01-17', 7, 3200, '3', '1', '', '', 'oik', 'Pending', '2024-01-17', '3378', '0000-00-00', ''),
-(3, 'TR-CW-003', '2024-01-18', 3, 1850, '3', '4', '26', '24', 'ok', 'Pending', '2024-01-18', '3378', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -7942,9 +7819,7 @@ CREATE TABLE `inv_warehosueinfo` (
 --
 
 INSERT INTO `inv_warehosueinfo` (`id`, `warehouse_id`, `name`, `short_name`, `project_id`, `address`, `created_by`, `updated_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'WH-001', 'Port Warehouse', 'CTW', '4', 'Chattogram Port, Chattogram', 0, 0, '2020-12-14 10:49:26', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'WH-002', 'Head Office', 'HO', '21', 'Khaowaja Tower', NULL, 0, '2023-12-19 06:08:04', NULL, NULL),
-(4, 'WH-003', 'Payra Project', 'Payra', '24', 'Payra', NULL, 0, '2024-01-16 04:54:08', NULL, NULL);
+(3, 'WH-001', 'Head Office', 'HO', '3', 'Khaowaja Tower', NULL, 0, '2023-12-19 06:08:04', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -8007,6 +7882,14 @@ CREATE TABLE `maintenance` (
   `updated_by` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `maintenance`
+--
+
+INSERT INTO `maintenance` (`id`, `maintenance_id`, `project_id`, `equipment_id`, `lastseervice_date`, `lastservice_hrkm`, `schedule_hrkm`, `present_hrkm`, `nextservice_date`, `nextservice_hrkm`, `dueforservice_hrkm`, `typeofservice_hrkm`, `detailsofmaintenance`, `remarks`, `warehouse_id`, `created_date`, `updated_date`, `created_by`, `updated_by`) VALUES
+(16, '', '21', 'AC-01', '2024-01-22', 100, 250, 240, '2024-01-30', 490, 10, 250, '', 'ok', 3, '2024-01-22 09:30:41', '2024-01-22 09:30:41', '', ''),
+(17, '', '21', 'AC-01', '2024-01-22', 240, 490, 500, '2024-01-31', 750, -10, 250, '', '', 3, '2024-01-22 09:31:19', '2024-01-22 09:31:19', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -8029,6 +7912,14 @@ CREATE TABLE `maintenance_cost` (
   `updated_by` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `maintenance_cost`
+--
+
+INSERT INTO `maintenance_cost` (`id`, `m_cost_id`, `eel_code`, `in_time`, `out_time`, `problem_details`, `remarks`, `status`, `certified_by`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(406, '2024-01-EEL-MCSL-001', 'AC-01', '2024-01-20 00:00:00', '2024-01-22 00:00:00', 'solved', 'ok', 'Created', '', '2024-01-22 08:45:22', '3368', '0000-00-00 00:00:00', ''),
+(407, '2024-01-EEL-MCSL-002', 'AC-01', '2024-01-16 00:00:00', '2024-01-22 00:00:00', 'ok', 'ok', 'Created', '', '2024-01-22 10:25:57', '3368', '0000-00-00 00:00:00', '');
+
 -- --------------------------------------------------------
 
 --
@@ -8048,6 +7939,14 @@ CREATE TABLE `maintenance_details` (
   `warehouse_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `maintenance_details`
+--
+
+INSERT INTO `maintenance_details` (`id`, `maintenance_id`, `material_id`, `material_name`, `unit`, `qty`, `price`, `part_no`, `project_id`, `warehouse_id`) VALUES
+(28, '16', '01-01', '18', '20', 1, 1500, '123', 21, 3),
+(29, '17', '01-02', '19', '20', 1, 1400, '234', 21, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -8061,6 +7960,41 @@ CREATE TABLE `maintenance_mechanic` (
   `created_at` datetime NOT NULL,
   `created_by` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `maintenance_mechanic`
+--
+
+INSERT INTO `maintenance_mechanic` (`id`, `m_cost_id`, `mechanic_name`, `created_at`, `created_by`) VALUES
+(470, '2024-01-EEL-MCSL-001', 'Rahim', '2024-01-22 08:45:22', '3368'),
+(471, '2024-01-EEL-MCSL-001', 'Karim', '2024-01-22 08:45:22', '3368'),
+(472, '2024-01-EEL-MCSL-002', 'mizan', '2024-01-22 10:25:57', '3368'),
+(473, '2024-01-EEL-MCSL-002', 'rahim', '2024-01-22 10:25:57', '3368');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `maintenance_other_cost`
+--
+
+CREATE TABLE `maintenance_other_cost` (
+  `id` int(11) NOT NULL,
+  `m_cost_id` varchar(50) NOT NULL,
+  `oc_name` varchar(100) NOT NULL,
+  `oc_qty` int(11) NOT NULL,
+  `oc_unit_price` float NOT NULL,
+  `oc_amount` float NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `created_by` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `maintenance_other_cost`
+--
+
+INSERT INTO `maintenance_other_cost` (`id`, `m_cost_id`, `oc_name`, `oc_qty`, `oc_unit_price`, `oc_amount`, `created_at`, `created_by`) VALUES
+(3, '2024-01-EEL-MCSL-001', 'Transport', 1, 550, 550, '2024-01-22', '3368'),
+(4, '2024-01-EEL-MCSL-002', 'labour Cost', 1, 500, 500, '2024-01-22', '3368');
 
 -- --------------------------------------------------------
 
@@ -8081,6 +8015,16 @@ CREATE TABLE `maintenance_spare_parts` (
   `created_at` datetime NOT NULL,
   `created_by` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `maintenance_spare_parts`
+--
+
+INSERT INTO `maintenance_spare_parts` (`id`, `m_cost_id`, `spare_parts_name`, `material_id`, `part_no`, `qty`, `unit`, `rate`, `amount`, `created_at`, `created_by`) VALUES
+(914, '2024-01-EEL-MCSL-001', '18', '01-01', '123', 1, '20', '1500', '1500', '2024-01-22 08:45:22', '3368'),
+(915, '2024-01-EEL-MCSL-001', '19', '01-02', '234', 1, '20', '1400', '1400', '2024-01-22 08:45:22', '3368'),
+(916, '2024-01-EEL-MCSL-002', '18', '01-01', '123', 2, '20', '1500', '3000', '2024-01-22 10:25:57', '3368'),
+(917, '2024-01-EEL-MCSL-002', '19', '01-02', '234', 5, '20', '1400', '7000', '2024-01-22 10:25:58', '3368');
 
 -- --------------------------------------------------------
 
@@ -8187,7 +8131,10 @@ CREATE TABLE `notesheets` (
 --
 
 INSERT INTO `notesheets` (`id`, `notesheet_no`, `notesheet_id`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
-(193, 'NS-2024-01-ENG-Sof-001', 58, 'RLP-ENG-HEA-2024-01-001', 'sub', 'ok', 'ok', 'ok', 'ok', 'ok', '16', '', 'Pics', '10', '100', '1000.00', '', 'Created', '2024-01-15 09:52:24', 3378);
+(197, 'NS-2024-01-ENG-Mec-001', 62, 'RLP-ENG-HEA-2024-01-001', 'Test Notesheet', '', '', '', '', '', '18', '', 'Pics', '2', '1500', '3000.00', '-', 'Created', '2024-01-22 08:34:38', 3368),
+(198, 'NS-2024-01-ENG-Mec-001', 62, 'RLP-ENG-HEA-2024-01-001', 'Test Notesheet', '', '', '', '', '', '19', '', 'Pics', '3', '1400', '4200.00', '-', 'Created', '2024-01-22 08:34:38', 3368),
+(199, 'NS-2024-01-ENG-Mec-002', 63, 'RLP-ENG-HEA-2024-01-002', 'Test Notesheet gen arate', '', '', '', '', '', '18', '', 'Pics', '7', '1500', '10500.00', '', 'Created', '2024-01-22 10:12:42', 3368),
+(200, 'NS-2024-01-ENG-Mec-002', 63, 'RLP-ENG-HEA-2024-01-002', 'Test Notesheet gen arate', '', '', '', '', '', '19', '', 'Pics', '10', '1400', '14000.00', '', 'Created', '2024-01-22 10:12:43', 3368);
 
 -- --------------------------------------------------------
 
@@ -8204,6 +8151,7 @@ CREATE TABLE `notesheets_master` (
   `subject` varchar(1000) NOT NULL,
   `ns_info` longtext NOT NULL,
   `supplier_name` varchar(100) NOT NULL,
+  `supplier_id` varchar(20) NOT NULL,
   `address` varchar(500) NOT NULL,
   `concern_person` varchar(100) NOT NULL,
   `cell_number` varchar(50) NOT NULL,
@@ -8233,8 +8181,9 @@ CREATE TABLE `notesheets_master` (
 -- Dumping data for table `notesheets_master`
 --
 
-INSERT INTO `notesheets_master` (`id`, `notesheet_no`, `rlp_no`, `request_project`, `request_warehouse`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `discount`, `total_afterdiscount`, `grand_total`, `remarks`, `terms_condition`, `status`, `notesheet_status`, `is_viewd`, `is_wo`, `attached_file`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_delete`) VALUES
-(58, 'NS-2024-01-ENG-Sof-001', 'RLP-ENG-HEA-2024-01-001', 26, 3, 'sub', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 0, 1000, 0, 0, 0, 1000, 1000, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days after receiving the work order.</li>\r\n\r\n							<li>Mode of payment: After 45 days from the date of bill Submission.</li>\r\n\r\n							<li>The above rate includes VAT, AIT & other Taxes.</li>\r\n\r\n							<li>Transport & Courier costs will be charged by Buyers.</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 1, '', '2024-01-15 09:52:24', 3378, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0);
+INSERT INTO `notesheets_master` (`id`, `notesheet_no`, `rlp_no`, `request_project`, `request_warehouse`, `subject`, `ns_info`, `supplier_name`, `supplier_id`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `discount`, `total_afterdiscount`, `grand_total`, `remarks`, `terms_condition`, `status`, `notesheet_status`, `is_viewd`, `is_wo`, `attached_file`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_delete`) VALUES
+(62, 'NS-2024-01-ENG-Mec-001', 'RLP-ENG-HEA-2024-01-001', 21, 3, 'Test Notesheet', 'Ref NS', '2', 'SID-002', '', '', '', '', 0, 7200, 0, 0, 0, 7200, 7200, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days after receiving the work order.</li>\r\n\r\n							<li>Mode of payment: After 45 days from the date of bill Submission.</li>\r\n\r\n							<li>The above rate includes VAT, AIT & other Taxes.</li>\r\n\r\n							<li>Transport & Courier costs will be charged by Buyers.</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 1, '', '2024-01-22 08:34:38', 3368, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(63, 'NS-2024-01-ENG-Mec-002', 'RLP-ENG-HEA-2024-01-002', 21, 3, 'Test Notesheet gen arate', 'ns -hfhgfgh', '2', 'SID-002', '', '', '', '', 0, 24500, 0, 0, 0, 24500, 24500, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days after receiving the work order.</li>\r\n\r\n							<li>Mode of payment: After 45 days from the date of bill Submission.</li>\r\n\r\n							<li>The above rate includes VAT, AIT & other Taxes.</li>\r\n\r\n							<li>Transport & Courier costs will be charged by Buyers.</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 1, '', '2024-01-22 10:12:42', 3368, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -8261,7 +8210,7 @@ CREATE TABLE `notesheet_access_chain` (
 --
 
 INSERT INTO `notesheet_access_chain` (`id`, `chain_type`, `division_id`, `department_id`, `project_id`, `notesheet_type`, `users`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(26, 'default', 16, 130, 26, 0, '{\"3373\":\"1\",\"3372\":\"2\"}', 3378, '2024-01-15 09:51:53', NULL, NULL);
+(27, 'default', 1, 11, 21, 0, '{\"616\":\"1\"}', 3368, '2024-01-22 08:33:42', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -8287,8 +8236,8 @@ CREATE TABLE `notesheet_acknowledgement` (
 --
 
 INSERT INTO `notesheet_acknowledgement` (`id`, `notesheet_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(523, 58, 3373, 1, 6, '2024-01-15 09:52:25', '2024-01-15 14:52:42', 1, 3378, 3373),
-(524, 58, 3372, 2, 1, '2024-01-15 14:52:43', '2024-01-15 14:53:00', 1, 3378, 3372);
+(531, 62, 616, 1, 1, '2024-01-22 08:34:39', '2024-01-22 13:35:41', 1, 3368, 616),
+(532, 63, 616, 1, 1, '2024-01-22 10:12:43', '2024-01-22 15:13:14', 1, 3368, 616);
 
 -- --------------------------------------------------------
 
@@ -8309,8 +8258,8 @@ CREATE TABLE `notesheet_remarks_history` (
 --
 
 INSERT INTO `notesheet_remarks_history` (`id`, `notesheet_id`, `user_id`, `remarks`, `remarks_date`) VALUES
-(200, 58, 3373, 'ok', '2024-01-15 14:52:43'),
-(201, 58, 3372, 'ok', '2024-01-15 14:53:00');
+(205, 62, 616, 'ok', '2024-01-22 13:35:41'),
+(206, 63, 616, 'ok', '2024-01-22 15:13:14');
 
 -- --------------------------------------------------------
 
@@ -8558,109 +8507,66 @@ CREATE TABLE `permission_role` (
 --
 
 INSERT INTO `permission_role` (`id`, `permission_id`, `role_id`) VALUES
-(116, 56, 14),
-(117, 55, 14),
-(118, 54, 14),
-(119, 53, 14),
-(120, 52, 14),
-(121, 51, 14),
-(122, 50, 14),
-(123, 49, 14),
-(124, 48, 14),
-(125, 47, 14),
-(126, 46, 14),
-(127, 45, 14),
-(128, 44, 14),
-(129, 43, 14),
-(131, 41, 14),
-(132, 40, 14),
-(133, 39, 14),
-(134, 38, 14),
-(135, 37, 14),
-(136, 36, 14),
-(137, 35, 14),
-(138, 34, 14),
-(140, 32, 14),
-(141, 31, 14),
-(142, 30, 14),
-(143, 27, 14),
-(144, 26, 14),
-(145, 25, 14),
-(146, 24, 14),
-(147, 23, 14),
-(148, 22, 14),
-(149, 21, 14),
-(150, 20, 14),
-(151, 19, 14),
-(152, 18, 14),
-(153, 17, 14),
-(154, 16, 14),
-(155, 15, 14),
-(156, 14, 14),
-(157, 13, 14),
-(158, 12, 14),
-(159, 11, 14),
-(160, 10, 14),
-(161, 9, 14),
-(162, 8, 14),
-(163, 7, 14),
-(164, 6, 14),
-(165, 5, 14),
-(166, 4, 14),
-(168, 2, 14),
-(170, 29, 14),
-(171, 28, 14),
-(173, 55, 15),
-(174, 54, 15),
-(175, 53, 15),
-(176, 52, 15),
-(177, 51, 15),
-(178, 50, 15),
-(179, 49, 15),
-(180, 48, 15),
-(181, 47, 15),
-(182, 46, 15),
-(184, 44, 15),
-(187, 31, 15),
-(188, 27, 15),
-(197, 3, 14),
-(198, 1, 14),
-(199, 42, 14),
-(201, 32, 15),
-(203, 28, 15),
-(204, 56, 15),
-(205, 45, 15),
-(207, 59, 14),
-(208, 1, 16),
-(209, 58, 16),
-(210, 27, 16),
-(211, 57, 16),
-(212, 31, 16),
-(213, 56, 16),
-(214, 55, 16),
-(215, 54, 16),
-(216, 53, 16),
-(217, 52, 16),
-(218, 51, 16),
-(219, 50, 16),
-(220, 49, 16),
-(221, 48, 16),
-(222, 47, 16),
-(223, 46, 16),
-(224, 45, 16),
-(225, 44, 16),
-(226, 40, 16),
-(227, 35, 16),
-(228, 21, 16),
-(229, 17, 16),
-(230, 13, 16),
-(231, 9, 16),
-(232, 6, 16),
-(235, 60, 14),
-(237, 33, 14),
-(240, 43, 16),
-(241, 42, 16),
-(242, 41, 16);
+(243, 60, 5),
+(244, 59, 5),
+(245, 5, 5),
+(246, 4, 5),
+(247, 3, 5),
+(248, 2, 5),
+(249, 1, 5),
+(250, 58, 5),
+(251, 30, 5),
+(252, 29, 5),
+(253, 28, 5),
+(254, 27, 5),
+(255, 57, 5),
+(256, 34, 5),
+(257, 33, 5),
+(258, 32, 5),
+(259, 31, 5),
+(260, 56, 5),
+(261, 55, 5),
+(262, 54, 5),
+(263, 53, 5),
+(264, 52, 5),
+(265, 51, 5),
+(266, 50, 5),
+(267, 49, 5),
+(268, 48, 5),
+(269, 47, 5),
+(270, 46, 5),
+(271, 45, 5),
+(272, 44, 5),
+(273, 43, 5),
+(274, 42, 5),
+(275, 41, 5),
+(276, 40, 5),
+(277, 39, 5),
+(278, 38, 5),
+(279, 37, 5),
+(280, 36, 5),
+(281, 35, 5),
+(282, 26, 5),
+(283, 25, 5),
+(284, 24, 5),
+(285, 23, 5),
+(286, 22, 5),
+(287, 20, 5),
+(288, 19, 5),
+(289, 18, 5),
+(290, 17, 5),
+(291, 16, 5),
+(292, 15, 5),
+(293, 14, 5),
+(294, 13, 5),
+(295, 12, 5),
+(296, 11, 5),
+(297, 10, 5),
+(298, 9, 5),
+(299, 8, 5),
+(300, 7, 5),
+(301, 6, 5),
+(302, 21, 5);
 
 -- --------------------------------------------------------
 
@@ -8816,7 +8722,7 @@ CREATE TABLE `projects` (
   `code` varchar(200) DEFAULT NULL,
   `project_name` varchar(500) NOT NULL,
   `address` text DEFAULT NULL,
-  `type` varchar(50) NOT NULL,
+  `type` varchar(11) NOT NULL,
   `client_id` int(11) NOT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
@@ -8830,10 +8736,41 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `code`, `project_name`, `address`, `type`, `client_id`, `created_by`, `updated_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(24, 'PR-001', 'Payra Project', '72, Mohakhali C/A, (8th Floor), Rupayan Center, Dhaka-1212, Bangladesh', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(25, 'PR-002', 'PCT,Ctg', '72, Mohakhali C/A, (8th Floor), Rupayan Center, Dhaka-1212, Bangladesh', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(26, 'PR-003', 'Head Office', 'Dhaka', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(28, 'PR-004', 'qrqwrqr', 'qrq', 'Rental', 7, NULL, NULL, NULL, NULL, NULL);
+(1, 'P-001', 'Payra Project', '72, Mohakhali C/A, (8th Floor), Rupayan Center, Dhaka-1212, Bangladesh.\r\nTel. : (88-02) 9825705, 9891562, 9891597, 9856358-9,\r\n9857902, 9852454, 9854423,\r\nFax: (88-02) 9855949, \r\nWeb:www.saifpowertecltd.com', 'Own', 2, 1, NULL, '2019-02-10 08:09:28', '2019-04-09 03:46:55', NULL),
+(3, 'P-003', 'PCT,Ctg', '72, Mohakhali C/A, (8th Floor), Rupayan Center, Dhaka-1212, Bangladesh.\r\nTel. : (88-02) 9825705, 9891562, 9891597, 9856358-9,\r\n9857902, 9852454, 9854423,\r\nFax: (88-02) 9855949, \r\nWeb:www.saifpowertecltd.com', 'Own', 2, 1, NULL, '2019-02-10 09:05:36', '2019-05-12 13:09:34', NULL),
+(4, '04', 'NCT,Ctg', 'test', 'Own', 2, 5, NULL, '2019-05-12 13:14:45', '2019-05-12 13:14:45', NULL),
+(5, '03', 'Bhashanchor', ',', 'Own', 2, 5, NULL, '2019-05-14 07:54:29', '2019-05-14 07:54:29', NULL),
+(6, '04', 'Karnophuli', NULL, 'Own', 2, 5, NULL, '2019-05-14 07:55:39', '2019-05-14 07:55:39', NULL),
+(7, '05', 'Payra Port', NULL, 'Own', 2, 5, NULL, '2019-05-14 07:56:11', '2019-05-14 07:56:11', NULL),
+(9, '07', 'Shirajgonj', NULL, 'Own', 2, 5, NULL, '2019-05-14 08:03:14', '2019-05-14 08:03:14', NULL),
+(10, '08', 'Raozan Road', NULL, 'Own', 2, 5, NULL, '2019-05-14 08:05:55', '2019-05-14 08:05:55', NULL),
+(11, '10', 'Mongla Port Project', NULL, 'Own', 2, 5, NULL, '2019-05-25 17:38:21', '2019-05-25 17:38:21', NULL),
+(12, NULL, 'CWLP', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(14, NULL, 'MPA', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(15, NULL, 'Gohira', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(16, NULL, 'MCC', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(17, NULL, 'Pubail', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(18, NULL, 'Maxon Power', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(19, NULL, 'Dredging', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(20, NULL, 'Netrokonah', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(21, 'P-000', 'Head Office', 'Khawaja Tower[13th Floor], 95 Bir Uttam A.K Khandokar Road, Mohakhali C/A, Dhaka-1212, Bangladesh', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(22, '', 'Mymensingh city corporation', 'Mymensingh ', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(23, NULL, 'Rental Site', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(24, NULL, 'Dhaka Air Port', 'Dhaka Air Port', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(25, NULL, 'Jolshiri', 'Jolshiri', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(26, NULL, 'Jamuna Rail Bridge', 'Jamuna Rail Bridge', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(27, NULL, 'Khagrachori,Udoypur', 'Khagrachori,Udoypur', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(28, NULL, 'Khagrachori,Marisha', 'Khagrachori,Marisha', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(29, NULL, 'Bandarban, Naikhoanchori', 'Bandarban, Naikhoanchori', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(30, NULL, 'Bandarban, Chimbuk', 'Bandarban, Chimbuk', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(31, NULL, 'Solar land, Sirajgonj', 'Solar land, Sirajgonj', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
+(32, '101', 'Mongla BNS Project', NULL, 'Own', 2, 5, NULL, '2019-05-25 17:38:21', '2019-05-25 17:38:21', NULL),
+(33, '102', 'Jessore Coal Project', '', 'Own', 2, 5, NULL, '2019-05-12 13:14:45', '2019-05-12 13:14:45', NULL),
+(34, '103', 'kishorganj', '', 'Own', 2, 5, NULL, '2019-05-12 13:14:45', '2019-05-12 13:14:45', NULL),
+(35, '104', 'Narayanganj,Fatulla', '', 'Own', 2, 1, NULL, '2019-02-10 09:05:36', '2019-05-12 13:09:34', NULL),
+(36, '105', 'Potia,CTG', '', 'Own', 2, 1, NULL, '2019-02-10 09:05:36', '2019-05-12 13:09:34', NULL),
+(37, '106', 'Mongla jetty project', '', 'Own', 2, 5, NULL, '2019-05-12 13:14:45', '2019-05-12 13:14:45', NULL),
+(38, '03', 'Afcons infras, Ashuganj', ',', 'Own', 2, 5, NULL, '2019-05-14 07:54:29', '2019-05-14 07:54:29', NULL);
 
 -- --------------------------------------------------------
 
@@ -8957,7 +8894,7 @@ CREATE TABLE `rlp_access_chain` (
 --
 
 INSERT INTO `rlp_access_chain` (`id`, `chain_type`, `division_id`, `department_id`, `project_id`, `rlp_type`, `users`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(69, 'default', 16, 130, 26, 0, '{\"3374\":\"1\",\"3373\":\"2\",\"3372\":\"3\"}', 3378, '2024-01-15 09:49:09', NULL, NULL);
+(70, 'default', 1, 11, 21, 0, '{\"3359\":\"1\",\"3361\":\"2\",\"616\":\"3\"}', 3378, '2024-01-22 06:35:28', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -8983,9 +8920,12 @@ CREATE TABLE `rlp_acknowledgement` (
 --
 
 INSERT INTO `rlp_acknowledgement` (`id`, `rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(1377, 1, 3374, 1, 6, '2024-01-15 09:49:59', '2024-01-15 14:50:31', 1, 3378, 3374),
-(1378, 1, 3373, 2, 6, '2024-01-15 14:50:31', '2024-01-15 14:50:47', 1, 3378, 3373),
-(1379, 1, 3372, 3, 1, '2024-01-15 14:50:48', '2024-01-15 14:51:07', 1, 3378, 3372);
+(1380, 1, 3359, 1, 1, '2024-01-22 08:27:28', '2024-01-22 13:32:18', 1, 3368, 3359),
+(1381, 1, 3361, 2, 0, '2024-01-22 13:32:18', NULL, 1, 3368, NULL),
+(1382, 1, 616, 3, 0, '2024-01-22 08:27:28', NULL, 0, 3368, NULL),
+(1383, 2, 3359, 1, 1, '2024-01-22 10:10:05', '2024-01-22 15:10:36', 1, 3368, 3359),
+(1384, 2, 3361, 2, 0, '2024-01-22 15:10:37', NULL, 1, 3368, NULL),
+(1385, 2, 616, 3, 0, '2024-01-22 10:10:05', NULL, 0, 3368, NULL);
 
 -- --------------------------------------------------------
 
@@ -9028,7 +8968,10 @@ CREATE TABLE `rlp_details` (
 --
 
 INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `material_id`, `material_name`, `part_no`, `purpose`, `quantity`, `unit`, `unit_price`, `amount`, `estimated_price`, `supplier`, `details_remarks`) VALUES
-(1, 1, NULL, '01-01', '16', '123', 'op', '10', '20', 0, 0, NULL, NULL, NULL);
+(1, 1, NULL, '01-01', '18', '123', 'AC-01', '2', '20', 1500, 3000, NULL, NULL, NULL),
+(2, 1, NULL, '01-02', '19', '234', 'AC-02', '3', '20', 2000, 6000, NULL, NULL, NULL),
+(3, 2, NULL, '01-01', '18', '123', 'AC-01', '7', '20', 0, 0, NULL, NULL, NULL),
+(4, 2, NULL, '01-02', '19', '234', 'AC-2', '10', '20', 0, 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -9068,7 +9011,8 @@ CREATE TABLE `rlp_info` (
 --
 
 INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_warehouse`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `totalamount`, `rlp_status`, `is_viewd`, `is_ns`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
-(1, 'RLP-ENG-HEA-2024-01-001', 3378, 'admin@saifpowertec.com', 2, '2024-01-15 12:00:00', 16, 130, 26, 3, 'admin@saifpowertec.com', NULL, '', NULL, 'ok', 0, 1, 0, 0, 3378, '2024-01-15 09:49:58', 3372, '0000-00-00 00:00:00', 0);
+(1, 'RLP-ENG-HEA-2024-01-001', 3368, 'admin@saifpowertec.com', 2, '2024-01-22 12:00:00', 1, 11, 21, 3, 'admin@saifpowertec.com', NULL, '', NULL, 'ok', 9000, 1, 0, 1, 3368, '2024-01-22 08:27:27', 3359, '0000-00-00 00:00:00', 0),
+(2, 'RLP-ENG-HEA-2024-01-002', 3368, 'admin@saifpowertec.com', 2, '2024-01-22 12:00:00', 1, 11, 21, 3, 'admin@saifpowertec.com', NULL, '', NULL, 'ok', 0, 1, 0, 1, 3368, '2024-01-22 10:10:04', 3359, '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -9089,9 +9033,8 @@ CREATE TABLE `rlp_remarks_history` (
 --
 
 INSERT INTO `rlp_remarks_history` (`id`, `rlp_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
-(810, 1, 3374, 'ok', '2024-01-15 14:50:31'),
-(811, 1, 3373, 'ok', '2024-01-15 14:50:48'),
-(812, 1, 3372, 'yuiy', '2024-01-15 14:51:07');
+(813, 1, 3359, 'ok', '2024-01-22 13:32:18'),
+(814, 2, 3359, 'ok', '2024-01-22 15:10:37');
 
 -- --------------------------------------------------------
 
@@ -9383,6 +9326,7 @@ CREATE TABLE `suppliers` (
   `address` varchar(5000) NOT NULL,
   `contact_person` varchar(100) NOT NULL,
   `supplier_phone` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `supplier_op_balance` varchar(100) NOT NULL,
   `supplier_type` varchar(100) NOT NULL,
   `material_type` varchar(100) NOT NULL
@@ -9392,8 +9336,9 @@ CREATE TABLE `suppliers` (
 -- Dumping data for table `suppliers`
 --
 
-INSERT INTO `suppliers` (`id`, `code`, `name`, `address`, `contact_person`, `supplier_phone`, `supplier_op_balance`, `supplier_type`, `material_type`) VALUES
-(1, 'SID-001', 'Saif Powertec Ltd', '-', '-', '-', '-', 'cash', '47');
+INSERT INTO `suppliers` (`id`, `code`, `name`, `address`, `contact_person`, `supplier_phone`, `email`, `supplier_op_balance`, `supplier_type`, `material_type`) VALUES
+(1, 'SID-001', 'Saif Powertec Ltd', '-', '-', '-', '', '-', 'cash', '50'),
+(2, 'SID-002', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '0', 'cash', '50');
 
 -- --------------------------------------------------------
 
@@ -9938,7 +9883,30 @@ INSERT INTO `userlog` (`id`, `userId`, `username`, `role_id`, `employee_id`, `us
 (407, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-16 03:58:42'),
 (408, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-17 03:43:39'),
 (409, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-17 11:28:28'),
-(410, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-18 03:34:42');
+(410, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-18 03:34:42'),
+(411, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-18 07:11:24'),
+(412, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-22 03:56:43'),
+(413, 3374, ' ', 3, '', 0x3a3a31, '2024-01-22 04:12:51'),
+(414, 3373, ' ', 13, '', 0x3a3a31, '2024-01-22 04:13:28'),
+(415, 3372, ' ', 21, '', 0x3a3a31, '2024-01-22 04:13:53'),
+(416, 3378, '88i Admin', 14, '', 0x3a3a31, '2024-01-22 04:14:16'),
+(417, 3378, '88i Super', 14, '', 0x3a3a31, '2024-01-22 05:13:09'),
+(418, 3368, ' ', 1, '', 0x3a3a31, '2024-01-22 05:35:54'),
+(419, 3368, ' ', 1, '', 0x3a3a31, '2024-01-22 05:54:51'),
+(420, 3368, ' ', 5, '', 0x3a3a31, '2024-01-22 05:55:59'),
+(421, 3368, ' ', 5, '', 0x3a3a31, '2024-01-22 07:15:20'),
+(422, 3359, ' ', 19, '', 0x3a3a31, '2024-01-22 07:29:32'),
+(423, 3368, ' ', 5, '', 0x3a3a31, '2024-01-22 07:32:55'),
+(424, 616, ' ', 16, '', 0x3a3a31, '2024-01-22 07:35:30'),
+(425, 3368, ' ', 5, '', 0x3a3a31, '2024-01-22 07:35:51'),
+(426, 3359, ' ', 19, '', 0x3a3a31, '2024-01-22 07:38:02'),
+(427, 3368, ' ', 5, '', 0x3a3a31, '2024-01-22 07:38:16'),
+(428, 3359, ' ', 19, '', 0x3a3a31, '2024-01-22 09:10:18'),
+(429, 3368, ' ', 5, '', 0x3a3a31, '2024-01-22 09:10:48'),
+(430, 616, ' ', 16, '', 0x3a3a31, '2024-01-22 09:12:53'),
+(431, 3368, ' ', 5, '', 0x3a3a31, '2024-01-22 09:13:34'),
+(432, 3359, ' ', 19, '', 0x3a3a31, '2024-01-22 09:14:50'),
+(433, 3368, ' ', 5, '', 0x3a3a31, '2024-01-22 09:15:40');
 
 -- --------------------------------------------------------
 
@@ -9951,6 +9919,7 @@ CREATE TABLE `users` (
   `branch_id` int(11) DEFAULT NULL,
   `department_id` int(11) DEFAULT NULL,
   `project_id` int(11) NOT NULL,
+  `warehouse_id` int(11) NOT NULL,
   `office_id` varchar(550) DEFAULT NULL,
   `role_id` int(11) DEFAULT NULL,
   `type` varchar(50) NOT NULL,
@@ -9965,10 +9934,6 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `is_password_changed` tinyint(1) NOT NULL DEFAULT 0,
   `is_status` tinyint(1) NOT NULL DEFAULT 1,
-  `first_name` varchar(100) NOT NULL,
-  `last_name` varchar(100) NOT NULL,
-  `user_type` varchar(50) NOT NULL,
-  `warehouse_id` int(11) NOT NULL,
   `created_by` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
@@ -9979,14 +9944,37 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `branch_id`, `department_id`, `project_id`, `office_id`, `role_id`, `type`, `store_id`, `designation`, `role_name`, `name`, `email`, `contact_number`, `profile_image`, `signature_image`, `password`, `is_password_changed`, `is_status`, `first_name`, `last_name`, `user_type`, `warehouse_id`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(1, 16, 130, 26, 'SA-000001', 14, '6', 1, '10', 'sa', '88 IT Admin', 'admin@admin.com', '', '', '16919031921667818730Nahid-Hasan-Sign1.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, '88i', 'Admin', 'admin', 3, 0, '2020-03-16 15:03:06', 1, '2023-08-13 11:06:32'),
-(3372, 16, 131, 26, 'IEL-000002', 21, '3', 0, '112', 'g20', 'Tarafder Md Ruhul Saif', 's@gmail.com', '', '', '', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '', '', '', 3, 0, '2023-07-30 10:56:08', 0, '0000-00-00 00:00:00'),
-(3373, 16, 131, 26, 'IEL-000005', 13, '2', 0, '15', 'g14', 'Md Jobaer Kabir', 'jk@gmail.com', '', '', '', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '', '', '', 3, 0, '2023-07-30 10:56:41', 0, '0000-00-00 00:00:00'),
-(3374, 16, 129, 26, 'IEL-000020', 3, '2', 0, '2', 'g10', 'Md. Babul Farajee', 'bf@gmail.com', '', '', '16919032131669633451Zakir-Hussain-handwritten-signature-500x340-removebg-preview.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, '', '', '', 3, 0, '2023-07-30 10:57:40', 1, '2023-08-13 11:06:53'),
-(3375, 16, 130, 26, 'IEL-000017', 5, '1', 0, '1', 'g8', 'Atiqur Rahman Bhuiyan', 'a@gmail.com', '01729714503', '', '', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '', '', '', 3, 0, '2023-07-30 11:09:21', 1, '2023-08-01 01:39:06'),
-(3377, 16, 130, 26, 'IEL-000016', 18, '2', 0, '2', 'g11', 'Muhammed Fakhrul Islam', 'fp@gmail.com', '123456', '', '', 'e10adc3949ba59abbe56e057f20f883e', 0, 1, '', '', '', 3, 0, '2023-08-01 01:41:37', 0, '0000-00-00 00:00:00'),
-(3378, 16, 130, 26, 'admin@saifpowertec.com', 14, '6', 1, '10', 'sa', '88 IT Admin', 'admin@saifpowertec.com', '', '', '16919031921667818730Nahid-Hasan-Sign1.png', '77420bb74cf785398911d47854a2bfab', 1, 1, '88i', 'Admin', 'admin', 3, 0, '2020-03-16 15:03:06', 1, '2023-08-13 11:06:32');
+INSERT INTO `users` (`id`, `branch_id`, `department_id`, `project_id`, `warehouse_id`, `office_id`, `role_id`, `type`, `store_id`, `designation`, `role_name`, `name`, `email`, `contact_number`, `profile_image`, `signature_image`, `password`, `is_password_changed`, `is_status`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
+(1, 1, 11, 21, 0, 'SA-000001', 1, '', 1, '10', 'sa', 'Super Admin', 'sa@rlp.com', NULL, '', '1669634775not_approve.png', '55587a910882016321201e6ebbc9f595', 1, 1, 0, '2020-03-16 09:03:06', 3368, '2023-11-19 21:18:57'),
+(84, 1, 7, 5, 0, 'ENG-000096', 15, '', 1, '42', '', 'Md. Abdullah-al-mamun', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
+(328, 1, 11, 21, 0, 'ENG-000363', 8, 'user', 1, '8', 'g6', 'Md. Jalil Khan Noyan', '123456', NULL, NULL, NULL, 'b6748aff5e69907e77e08ce1a02ac8c2', 1, 1, 0, NULL, 1, '2022-12-15 05:21:08'),
+(374, 1, 11, 22, 0, 'ENG-000409', 8, 'user', 1, '83', 'g6', 'Md. Ayub Ali', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-11-30 21:49:08'),
+(396, 1, 11, 12, 0, 'ENG-000431', 5, 'user', 1, '92', 'g8', 'Md. Liton Mridha', '123456', NULL, NULL, NULL, 'a18065c5d2488eda24b1bf708aaca255', 1, 1, 0, NULL, 1, '2022-11-30 21:07:40'),
+(614, 5, 26, 0, 0, 'SPL-000001', 20, '', 1, '112', 'g19', 'Tarafder Md. Ruhul Amin', '123456', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-02-22 16:56:47'),
+(615, 5, 26, 0, 0, 'SPL-000002', 21, '', 1, '113', '', 'Tarafder Nigar Sultana', '', NULL, NULL, NULL, 'e522c42d71cb28e5811cc071cffce26c', 0, 1, 0, NULL, NULL, NULL),
+(616, 6, 42, 0, 0, 'SPL-000004', 16, '', 1, '29', 'g18', 'Tarafder Md. Ruhul Saif', 's@gmail.com', NULL, NULL, '1670756283saif-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-12-10 22:58:03'),
+(632, 5, 33, 0, 0, 'SPL-000023', 18, '', 1, '106', '', 'Md. Fakrul Islam', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
+(3105, 5, 33, 0, 0, 'SPL-007729', 2, '', 1, '1', '', 'Atiqur Rahman Bhuiyan', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
+(3246, 0, 0, 0, 0, 'SPPL-000001', 20, '', 1, '112', '', 'Rubya Chowdhury', '', NULL, NULL, NULL, 'c1b874dc1e6fe8f7880bfad54f607782', 0, 1, 0, NULL, NULL, NULL),
+(3351, 1, 11, 21, 0, 'ENG-001010', 2, 'user', 1, '8', 'g7', 'MD. Nahid Hasan Shawon', 'nahid.hasan@e-enggltd.com', NULL, NULL, '1701318859Capture.PNG', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-09-10 18:09:55', 1, '2023-11-30 04:34:19'),
+(3352, 1, 11, 11, 0, 'ENG-000555', 2, 'user', 1, '36', 'g7', 'Shahadat Hossain', 'sh@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 17:26:10', NULL, NULL),
+(3353, 1, 12, 11, 0, 'SPHL-000017', 3, 'user', 1, '18', 'g10', 'Hasan Tareq', 'ht@gmail.com', NULL, NULL, NULL, '13968d941558106b161c9ab1f233d0c8', 1, 1, 0, '2022-11-05 17:27:41', NULL, NULL),
+(3354, 1, 12, 12, 0, 'ENG-000665', 3, 'user', 1, '18', 'g10', 'Masud Alam', 'ma@gmail.com', NULL, NULL, NULL, '08f35e3dab180a76c6ed91fe707e374a', 1, 1, 0, '2022-11-05 17:28:47', NULL, NULL),
+(3355, 1, 11, 11, 0, 'ENG-000759', 2, 'user', 1, '36', 'g7', 'Myin uddin', 'mu@gmail.com', NULL, NULL, '1673172279Myin-uddin.png', '21ef05aed5af92469a50b35623d52101', 1, 1, 0, '2022-11-05 17:29:55', 1, '2023-01-07 22:04:39'),
+(3356, 1, 12, 3, 0, 'ENG-000829', 3, 'user', 1, '18', 'g10', 'MD Rasel Alam', 'ra@gmail.com', NULL, NULL, '1673169677rasel-alom.png', 'c33367701511b4f6020ec61ded352059', 1, 1, 0, '2022-11-05 17:30:48', 1, '2023-01-07 21:21:17'),
+(3357, 1, 12, 5, 0, 'ENG-000842', 2, 'user', 1, '36', 'g7', 'Zakir Hossain', 'zh@gmail.com', NULL, NULL, '1673163868zakir-bashanchar.png', '76a6308807dc44c37be0f2241067b69f', 1, 1, 0, '2022-11-05 17:31:40', 1, '2023-01-07 19:44:28'),
+(3358, 1, 12, 22, 0, 'ENG-000867', 17, 'user', 1, '16', 'g15', 'Azhar Mahmud', 'am@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 17:33:10', NULL, NULL),
+(3359, 1, 11, 21, 0, 'ENG-001003', 19, '', 1, '109', 'g16', 'Alauddin Ahmed', 'aa@gmail.com', NULL, NULL, '1670756206alauddin-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-23 22:03:43', 3368, '2023-11-23 06:40:22'),
+(3360, 1, 11, 21, 0, 'ENG-000056', 3, '', 1, '8', 'g10', 'Farhad Hossain Bhuiya', 'rupom.e-eengineering@gmail.com', NULL, NULL, '1670756230forhad-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-28 04:37:09', 1, '2022-12-10 22:57:10'),
+(3361, 1, 3, 21, 0, 'ENG-000058', 11, '', 1, '134', 'g13', 'Md Mahfuz Rahman Sarkar', 'mrs@gmail.com', NULL, NULL, '1670756260mahfuz-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-28 04:48:15', 3368, '2023-11-27 23:03:34'),
+(3362, 1, 11, 11, 0, 'ENG-000316', 2, 'user', 1, '66', 'g7', 'Kamrul', 'k@gmail.com', NULL, NULL, '1673157875kamrul-hasan-mongla.png', 'bbdf56e2fbd1dbb503ceb433bed825ca', 1, 1, 0, '2022-11-30 21:14:38', 1, '2023-01-08 06:04:35'),
+(3363, 5, 32, 21, 0, 'SPL-007009', 14, 'user', 1, '30', 'g12', 'Nazmul Karim', 'nk@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-12-11 23:02:45', NULL, NULL),
+(3364, 1, 12, 11, 0, 'ENG-000204', 3, 'user', 1, '18', 'g10', 'Aryan Khan Md Saifullah', 'ak@gmail.com', NULL, NULL, '1673158014Aryan-Khan-Md-Saifullah.png', 'e268bde125bae2c61d8d1c84b471c334', 1, 1, 0, '2022-12-26 21:16:03', 1, '2023-01-08 06:06:54'),
+(3365, 1, 11, 0, 0, 'ENG-000654', 3, 'user', 1, '30', 'g10', 'Rezoyan Mahabub', 'rm@gmail.com', NULL, NULL, '1673166278Rezoyan-Mahabub.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2023-01-01 19:17:26', 1, '2023-01-07 20:24:53'),
+(3366, 1, 12, 3, 0, 'ENG-000474', 3, '', 1, '67', 'g10', 'MD Mokhlesur Rahman', 'mr@gmail.com', NULL, NULL, '1674711812md-mokhlesur-rahman_page-0001.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2023-01-26 05:32:36', 1, '2023-01-26 05:43:32'),
+(3367, 1, 11, 0, 0, 'ENG-001244', 2, 'user', 1, '2', 'g7', 'Saidul  Islam', 'si@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2023-02-22 04:57:32', NULL, NULL),
+(3368, 1, 11, 21, 3, 'admin@saifpowertec.com', 5, '', 1, '10', 'sa', 'Super Admin', 'admin@saifpowertec.com', NULL, '', '1669634775not_approve.png', '77420bb74cf785398911d47854a2bfab', 1, 1, 0, '2020-03-16 09:03:06', 1, '2022-11-27 23:26:15'),
+(3369, 1, 9, 3, 0, 'ENG-001260', 5, '', 1, '8', 'g8', 'Afra', 'afra@gmail.com', NULL, NULL, NULL, 'fcea920f7412b5da7be0cf42b8c93759', 1, 1, 0, '2023-11-19 21:20:52', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -10061,7 +10049,10 @@ CREATE TABLE `workorders` (
 --
 
 INSERT INTO `workorders` (`id`, `wo_no`, `notesheet_no`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
-(75, '2024-01-ENG-WO-001', 'NS-2024-01-ENG-Sof-001', 'RLP-ENG-HEA-2024-01-001', 'dghdfg', 'dfgdf', 'dfg', 'dfgdf', 'dfg', 'dfgdf', '16', '', 'Pics', '10', '100', '1000.00', '', 'Created', '2024-01-15', 3378);
+(78, '2024-01-ENG-WO-001', 'NS-2024-01-ENG-Mec-001', 'RLP-ENG-HEA-2024-01-001', 'test1', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '18', '', 'Pics', '2', '1500', '3000.00', '', 'Created', '2024-01-22', 3368),
+(79, '2024-01-ENG-WO-001', 'NS-2024-01-ENG-Mec-001', 'RLP-ENG-HEA-2024-01-001', 'test1', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '19', '', 'Pics', '3', '1400', '4200.00', '', 'Created', '2024-01-22', 3368),
+(80, '2024-01-ENG-WO-002', 'NS-2024-01-ENG-Mec-002', 'RLP-ENG-HEA-2024-01-002', 'test workorder', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '18', '', 'Pics', '7', '1500', '10500.00', '', 'Created', '2024-01-22', 3368),
+(81, '2024-01-ENG-WO-002', 'NS-2024-01-ENG-Mec-002', 'RLP-ENG-HEA-2024-01-002', 'test workorder', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '19', '', 'Pics', '10', '1400', '14000.00', '', 'Created', '2024-01-22', 3368);
 
 -- --------------------------------------------------------
 
@@ -10101,7 +10092,8 @@ CREATE TABLE `workorders_master` (
 --
 
 INSERT INTO `workorders_master` (`id`, `wo_no`, `request_project`, `request_warehouse`, `notesheet_no`, `rlp_no`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `grand_total`, `remarks`, `status`, `created_at`, `created_by`, `updated_by`, `updated_at`) VALUES
-(24, '2024-01-ENG-WO-001', 26, 3, 'NS-2024-01-ENG-Sof-001', 'RLP-ENG-HEA-2024-01-001', 'dghdfg', 'dfgdf', 'dfgdf', 'dfg', 'dfgdf', 'dfg', 'dfgdf', 0, 1000, 0, 0, 1000, '', '0', '2024-01-15', 3378, 0, '0000-00-00 00:00:00');
+(27, '2024-01-ENG-WO-001', 21, 3, 'NS-2024-01-ENG-Mec-001', 'RLP-ENG-HEA-2024-01-001', 'test1', 'q234', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', 0, 7200, 0, 0, 7200, '', '1', '2024-01-22', 3368, 3359, '0000-00-00 00:00:00'),
+(28, '2024-01-ENG-WO-002', 21, 3, 'NS-2024-01-ENG-Mec-002', 'RLP-ENG-HEA-2024-01-002', 'test workorder', 'q-', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', 0, 24500, 0, 0, 24500, '', '1', '2024-01-22', 3368, 3359, '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -10377,6 +10369,12 @@ ALTER TABLE `maintenance_details`
 -- Indexes for table `maintenance_mechanic`
 --
 ALTER TABLE `maintenance_mechanic`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `maintenance_other_cost`
+--
+ALTER TABLE `maintenance_other_cost`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -10676,7 +10674,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `client_balance`
 --
 ALTER TABLE `client_balance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `companies`
@@ -10706,7 +10704,7 @@ ALTER TABLE `designations`
 -- AUTO_INCREMENT for table `equipments`
 --
 ALTER TABLE `equipments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1435;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1445;
 
 --
 -- AUTO_INCREMENT for table `equipment_assign`
@@ -10760,13 +10758,13 @@ ALTER TABLE `inv_item_unit`
 -- AUTO_INCREMENT for table `inv_material`
 --
 ALTER TABLE `inv_material`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `inv_materialbalance`
 --
 ALTER TABLE `inv_materialbalance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `inv_materialcategory`
@@ -10796,25 +10794,25 @@ ALTER TABLE `inv_material_level4`
 -- AUTO_INCREMENT for table `inv_material_partno_detail`
 --
 ALTER TABLE `inv_material_partno_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `inv_product_price`
 --
 ALTER TABLE `inv_product_price`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `inv_receive`
 --
 ALTER TABLE `inv_receive`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `inv_receivedetail`
 --
 ALTER TABLE `inv_receivedetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `inv_return`
@@ -10844,7 +10842,7 @@ ALTER TABLE `inv_supplier`
 -- AUTO_INCREMENT for table `inv_supplierbalance`
 --
 ALTER TABLE `inv_supplierbalance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `inv_technicianinfo`
@@ -10904,31 +10902,37 @@ ALTER TABLE `inv_warehosueinfo`
 -- AUTO_INCREMENT for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `maintenance_cost`
 --
 ALTER TABLE `maintenance_cost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=405;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=408;
 
 --
 -- AUTO_INCREMENT for table `maintenance_details`
 --
 ALTER TABLE `maintenance_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `maintenance_mechanic`
 --
 ALTER TABLE `maintenance_mechanic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=468;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=474;
+
+--
+-- AUTO_INCREMENT for table `maintenance_other_cost`
+--
+ALTER TABLE `maintenance_other_cost`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `maintenance_spare_parts`
 --
 ALTER TABLE `maintenance_spare_parts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=912;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=918;
 
 --
 -- AUTO_INCREMENT for table `materialbalance`
@@ -10940,31 +10944,31 @@ ALTER TABLE `materialbalance`
 -- AUTO_INCREMENT for table `notesheets`
 --
 ALTER TABLE `notesheets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=194;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 
 --
 -- AUTO_INCREMENT for table `notesheets_master`
 --
 ALTER TABLE `notesheets_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `notesheet_access_chain`
 --
 ALTER TABLE `notesheet_access_chain`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `notesheet_acknowledgement`
 --
 ALTER TABLE `notesheet_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=525;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=533;
 
 --
 -- AUTO_INCREMENT for table `notesheet_remarks_history`
 --
 ALTER TABLE `notesheet_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
 
 --
 -- AUTO_INCREMENT for table `notesheet_roles_group`
@@ -10994,7 +10998,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `permission_role`
 --
 ALTER TABLE `permission_role`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=303;
 
 --
 -- AUTO_INCREMENT for table `present_condition`
@@ -11018,7 +11022,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `rental_project`
@@ -11030,13 +11034,13 @@ ALTER TABLE `rental_project`
 -- AUTO_INCREMENT for table `rents`
 --
 ALTER TABLE `rents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `rent_details`
 --
 ALTER TABLE `rent_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `rent_extend`
@@ -11048,13 +11052,13 @@ ALTER TABLE `rent_extend`
 -- AUTO_INCREMENT for table `rlp_access_chain`
 --
 ALTER TABLE `rlp_access_chain`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
 --
 ALTER TABLE `rlp_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1380;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1386;
 
 --
 -- AUTO_INCREMENT for table `rlp_delete_history`
@@ -11078,7 +11082,7 @@ ALTER TABLE `rlp_info`
 -- AUTO_INCREMENT for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=813;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=815;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -11126,7 +11130,7 @@ ALTER TABLE `sub_projects`
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `supplier_payment`
@@ -11162,13 +11166,13 @@ ALTER TABLE `tb_logsheet`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=411;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=434;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3379;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3370;
 
 --
 -- AUTO_INCREMENT for table `users2`
@@ -11180,13 +11184,13 @@ ALTER TABLE `users2`
 -- AUTO_INCREMENT for table `workorders`
 --
 ALTER TABLE `workorders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `workorders_master`
 --
 ALTER TABLE `workorders_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

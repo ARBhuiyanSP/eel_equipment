@@ -112,6 +112,7 @@ include 'header.php';
 												<th>Date of Out</th>
 												<th>Problem Description</th>
 												<th>List of Used Spare Parts</th>
+												<th>Extra Cost</th>
 												<th>Responsible Mechanic</th>
 												<th>Certified By</th>
 											</tr>
@@ -120,6 +121,7 @@ include 'header.php';
 										<?php
 											$totalpartsQty = 0;
 											$totalAmount = 0;
+											$totalOtherCost = 0;
 											$eel_code = $row['eel_code'];
 											$sqlh	=	"select * from `maintenance_cost` where `eel_code`='$eel_code' AND `out_time` BETWEEN '$from_date' AND '$to_date'";
 											$resulth = mysqli_query($conn, $sqlh);
@@ -180,6 +182,27 @@ include 'header.php';
 												<td>
 													<table class="table">
 														<tr>
+															<td><b>Cost Name</b></td>
+															<td><b>Amount</b></td>
+														</tr>
+														<?php 
+															$m_cost_id = $rowh['m_cost_id'];
+															$sqlother	=	"select * from `maintenance_other_cost` where `m_cost_id`='$m_cost_id'";
+															$resultother = mysqli_query($conn, $sqlother);
+															while ($rowother = mysqli_fetch_array($resultother)) {
+																$totalOtherCost += $rowother['oc_amount'];
+																
+														?>
+														<tr>
+															<td><?php echo $rowother['oc_name']; ?></td>
+															<td><?php echo $rowother['oc_amount']; ?></td>
+														</tr>
+														<?php } ?>
+													</table>
+												</td>
+												<td>
+													<table class="table">
+														<tr>
 															<td><b>Name</b></td>
 															<td><b>Signature</b></td>
 														</tr>
@@ -200,10 +223,11 @@ include 'header.php';
 											</tr>
 											<?php } ?>
 											<tr>
-												<td colspan="2" style="text-align:right;"><b>Total:</b><td>
+												<td colspan="3" style="text-align:right;"><b>Total:</b></td>
 												<td><b>Parts Quantity : <?php echo $totalpartsQty; ?>
 												& Amount : <?php echo $totalAmount; ?> </b></td>
-												<td colspan="6"></td>
+												<td><b>Extra Cost : <?php echo $totalOtherCost; ?> </b></td>
+												<td><b>Grand Total : <?php echo $totalOtherCost + $totalAmount; ?> </b></td>
 											</tr>
 										</tbody>
 									</table>

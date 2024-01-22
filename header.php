@@ -33,6 +33,7 @@ include 'function/maintenance_cost_processing.php';
 include 'function/rent_processing.php';
 include 'includes/user_process.php';
 include 'includes/order_process.php';
+include 'includes/role_process.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -146,6 +147,16 @@ footer.sticky-footer{
                 <span class="sub_menu_text_design"> Clients</span>
             </a>
              <?php    } ?>
+			 
+			 <?php
+            
+                if(check_permission('project-list')){ ?>
+                    <a class="dropdown-item" href="supplier_entry.php">
+                <i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
+                <span class="sub_menu_text_design"> Suppliers</span>
+            </a>
+             <?php    } ?>
+			 
         <?php
             
                 if(check_permission('project-list')){ ?>

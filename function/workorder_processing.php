@@ -165,12 +165,12 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == "wo_update_execute")
     include '../helper/utilities.php';
     $param['wo_no']   =   $_POST['wo_no'];
     //update_rlp_acknowledgement($param);
-    //$dataParam['wo_no']     	=   $_POST['wo_no'];
+    $dataParam['wo_no']     	=   $_POST['wo_no'];
     $dataParam['status']     	=   $_POST['acknowledgement'];
     $dataParam['updated_by']	=   $_POST['created_by'];
     $dataParam['updated_at']	=   date("Y-d-m H:i:s");
     $where      =   [
-        'id'    =>  $param['wo_no']
+        'id'    =>  $dataParam['wo_no']
     ];
     updateData('workorders_master', $dataParam, $where);
     //save_rlp_remarks();
@@ -180,6 +180,44 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == "wo_update_execute")
     ];
     
     echo json_encode($feedback);
+}
+
+if (isset($_POST['wo_approve']) && !empty($_POST['wo_approve'])){   
+    $wo_approve_info_response  =   execute_workorder_approve_table();
+    if(isset($wo_approve_info_response) && $wo_approve_info_response['status'] == "success"){
+        
+        $_SESSION['success']    =   "Your request have been successfully approved.";
+    }else{
+        //$_SESSION['error']    =   "Failed to save data";
+		$_SESSION['success']    =   "Your request have been successfully approved.";
+    }
+    header("location: workorders_list.php");
+    exit();
+}
+
+function execute_workorder_approve_table(){
+		global $conn;
+		
+		$wo_no		= (isset($_POST['wo_no']) && !empty($_POST['wo_no']) ? trim(mysqli_real_escape_string($conn,$_POST['wo_no'])) : "");
+		$status		= (isset($_POST['acknowledgement']) && !empty($_POST['acknowledgement']) ? trim(mysqli_real_escape_string($conn,$_POST['acknowledgement'])) : "");
+		$updated_by		= (isset($_POST['created_by']) && !empty($_POST['created_by']) ? trim(mysqli_real_escape_string($conn,$_POST['created_by'])) : "");
+		
+		          
+        $dataParam     =   [
+            //'is_wo'		=>  '1'
+			'status'     	=>   $status,
+			'updated_by'	=>   $updated_by,
+			'updated_at'	=>   date("Y-d-m H:i:s")
+        ];
+		
+		$where      =   [
+			'id'    =>  $wo_no
+		];
+    
+    $response   =   updateData('workorders_master', $dataParam, $where);
+    return $response;
+	
+    
 }
 
 

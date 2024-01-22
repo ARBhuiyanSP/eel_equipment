@@ -1,6 +1,6 @@
 <?php include 'header.php';
 
-if(!check_permission('material-receive-approve')){  
+if(!check_permission('material-receive-list')){  
     include('404.php');
     exit();
  }  

@@ -8,10 +8,10 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><input type="text" name="material_name[]" id="material_name0" class="form-control" required ></td>
-			<td><input type="number" name="quantityoc[]" id="quantityoc0" onkeyup="sumoc(0)" class="form-control" required></td>
+			<td><input type="text" name="oc_name[]" id="oc_name0" class="form-control" required ></td>
+			<td><input type="number" name="quantityoc[]" id="quantityoc0" value="1" onkeyup="sumoc(0)" class="form-control" required></td>
 			<td><input type="number" name="unit_priceoc[]" id="unit_priceoc0" onkeyup="sumoc(0)" class="form-control" required></td>
-			<td><input type="text" name="totalamountoc[]" onkeyup="sumoc(0)" id="sumoc0" class="form-control"></td>
+			<td><input type="text" name="totalamountoc[]" onkeyup="sumoc(0)" id="sumoc0" class="form-control" readonly></td>
 			<td><button type="button" name="addoc" id="addoc" class="btn btn-success">+</button></td>
 		</tr>
 	</tbody>
@@ -27,7 +27,7 @@
 	$(document).ready(function () {
 		$('#addoc').click(function () {
 			i++;
-			$('#dynamic_fieldoc').append('<tr id="row' + i + '"><td><input type="text" name="material_name[]" id="material_name' + i + '" class="form-control" required ></td><td><input type="number" name="quantityoc[]" id="quantityoc' + i + '" onkeyup="sumoc(' + i + ')" class="form-control" required></td><td><input type="number" name="unit_priceoc[]" id="unit_priceoc' + i + '" onkeyup="sumoc(' + i + ')" class="form-control" required></td><td><input type="text" name="totalamountoc[]" onkeyup="sumoc(' + i + ')" id="sumoc' + i + '" class="form-control" ></td><td><button type="button" name="remove" id="' + i + '" class="btn btn_remove btn-warning">X</button></td></tr>');
+			$('#dynamic_fieldoc').append('<tr id="row' + i + '"><td><input type="text" name="oc_name[]" id="oc_name' + i + '" class="form-control" required ></td><td><input type="number" name="quantityoc[]" id="quantityoc' + i + '"  value="1" onkeyup="sumoc(' + i + ')" class="form-control" required></td><td><input type="number" name="unit_priceoc[]" id="unit_priceoc' + i + '" onkeyup="sumoc(' + i + ')" class="form-control" required></td><td><input type="text" name="totalamountoc[]" onkeyup="sumoc(' + i + ')" id="sumoc' + i + '" class="form-control" readonly ></td><td><button type="button" name="remove" id="' + i + '" class="btn btn_remove btn-warning">X</button></td></tr>');
 			$(".material_select_2").select2();
 			$('#quantityoc' + i + ', #unit_priceoc' + i).change(function () {
 				sumoc(i)
