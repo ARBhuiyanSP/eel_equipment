@@ -11,7 +11,7 @@
     <!-- info row -->
     <div class="row invoice-info">
         <!-- /.col -->
-        <div class="col-md-8 invoice-col">
+        <div class="col-md-6 invoice-col">
             <div class="pull-left">
                 <?php $workorderNo    =   get_wo_no(); ?>
                 <b>Workorder NO: &nbsp;<span class="rlpno_style"><?php echo $workorderNo; ?></span></b><br>
@@ -20,16 +20,16 @@
 				<input type="hidden" name="notesheet_no" value="<?php echo $notesheets_master->notesheet_no; ?>">
                 <b>RLP NO: &nbsp;<span class="rlpno_style"><?php echo $notesheets_master->rlp_no ?></span></b><br>
                 <input type="hidden" name="rlp_no" value="<?php echo $notesheets_master->rlp_no; ?>">
+            </div>            
+        </div>
+        <!-- /.col -->
+		<div class="col-md-6 invoice-col">
+            <div class="pull-right" style="text-align:right;">
                 <b>Request Date:</b> <?php echo human_format_date($notesheets_master->created_at) ?><br>
 				<b>Project:</b>&nbsp;<?php echo getProjectNameById($notesheets_master->request_project) ?><br>
                 <input type="hidden" name="request_project" value="<?php echo $notesheets_master->request_project; ?>" />
 				<b>Warehouse:</b>&nbsp;<?php echo getWarehouseNameById($notesheets_master->request_warehouse) ?><br>
                 <input type="hidden" name="request_warehouse" value="<?php echo $notesheets_master->request_warehouse; ?>" />
-            </div>            
-        </div>
-        <!-- /.col -->
-		<div class="col-md-4s invoice-col">
-            <div class="pull-right">
             </div>            
         </div>
         <!-- /.col -->
@@ -41,43 +41,49 @@
             <div class="col-xs-6">
 				<div class="form-group">
 					<label for="exampleId">Subject</label>
-					<textarea name="subject" class="form-control"></textarea>
+					<input type="text" class="form-control" name="subject" value="" required />
 				</div>
 			</div>
             <div class="col-xs-6">
 				<div class="form-group">
-					<label for="exampleId">Quotation ref</label>
-					<textarea name="ns_info" class="form-control"></textarea>
+					<label for="exampleId">Quotation Ref</label>
+					<input type="text" class="form-control" name="ns_info" value="" required />
 				</div>
 			</div>
             <div class="col-xs-6">
 				<div class="form-group">
 					<label for="exampleId">Supplier Name</label>
-					<input name="supplier_name" type="text" class="form-control" id="supplier_name" value="" autocomplete="off" />
+					<input name="supplier_name" type="text" class="form-control" id="supplier_name" value="<?php echo getNameByIdAndTable('suppliers',$notesheets_master->supplier_name) ?>" autocomplete="off" readonly />
 				</div>
 			</div>
+			<?php 
+					$supplier_id = $notesheets_master->supplier_name;
+					$sqls = "select * from `suppliers` where `id`='$supplier_id'";
+					$results = mysqli_query($conn, $sqls);
+					$rows = mysqli_fetch_array($results);
+				?>
             <div class="col-xs-6">
 				<div class="form-group">
 					<label for="exampleId">Address</label>
-					<input name="address" type="text" class="form-control" id="address" value="" autocomplete="off" />
+					<input name="address" type="text" class="form-control" id="address" value="<?php echo $rows['address'];?>" autocomplete="off" readonly />
 				</div>
 			</div>
             <div class="col-xs-4">
 				<div class="form-group">
 					<label for="exampleId">Concern Person</label>
-					<input name="concern_person" type="text" class="form-control" id="concern_person" value="" autocomplete="off" />
+					<input name="concern_person" type="text" class="form-control" id="concern_person" value="<?php echo $rows['contact_person'];?>" autocomplete="off" readonly />
 				</div>
 			</div>
             <div class="col-xs-4">
 				<div class="form-group">
 					<label for="exampleId">Cell Number</label>
-					<input name="cell_number" type="text" class="form-control" id="cell_number" value="" autocomplete="off" />
+					<input name="cell_number" type="text" class="form-control" id="cell_number" value="<?php echo $rows['supplier_phone'];?>" autocomplete="off" readonly />
 				</div>
 			</div>
             <div class="col-xs-4">
 				<div class="form-group">
 					<label for="exampleId">Email</label>
-					<input name="email" type="text" class="form-control" id="email" value="" autocomplete="off" />
+					<input name="email" type="text" class="form-control" id="email" value="<?php echo $rows['email'];?>" autocomplete="off" readonly />
 				</div>
 			</div>
 			<div class="col-xs-12 table-responsive">
@@ -112,11 +118,11 @@
 							<input type="hidden" class="form-control" name="total[]" value="<?php echo (isset($data->total) && !empty($data->total) ? $data->total : ""); ?>" >
                         </tr>                        
                             <?php } ?>
-							
+
                         <?php //if(is_super_admin($currentUserId)){ ?>                       
 					   <tr>
                             <td colspan="5" style="text-align:right">Sub Total : </td>
-							<td><?php echo (isset($notesheets_master->sub_total) && !empty($notesheets_master->sub_total) ? $notesheets_master->sub_total : ""); ?></td>
+							<td><?php echo number_format((isset($notesheets_master->sub_total) && !empty($notesheets_master->sub_total) ? $notesheets_master->sub_total : ""),2); ?></td>
 							<input type="hidden" class="form-control" name="sub_total" value="<?php echo (isset($notesheets_master->sub_total) && !empty($notesheets_master->sub_total) ? $notesheets_master->sub_total : ""); ?>" >
                         </tr>
 						<tr>
@@ -131,7 +137,7 @@
                         </tr>
 						<tr>
                             <td colspan="5" style="text-align:right">Grand Total : </td>
-							<td><?php echo (isset($notesheets_master->grand_total) && !empty($notesheets_master->grand_total) ? $notesheets_master->grand_total : ""); ?></td>
+							<td><?php echo number_format((isset($notesheets_master->grand_total) && !empty($notesheets_master->grand_total) ? $notesheets_master->grand_total : ""),2); ?></td>
 							<input type="hidden" class="form-control" name="grand_total" value="<?php echo (isset($notesheets_master->grand_total) && !empty($notesheets_master->grand_total) ? $notesheets_master->grand_total : ""); ?>" >
                         </tr>
 					   <tr>

@@ -29,7 +29,8 @@ include 'header.php';
 							<table id="dataTable" class="table table-bordered table-striped table-hover">
 								<thead>
 									<tr>
-										<th> Name</th>
+										<th> User Name</th>
+										<th> Project Name</th>
 										<th> Type/Role</th>
 										<th>Action</th>
 									</tr>
@@ -42,7 +43,8 @@ include 'header.php';
                                         foreach ($projectsData as $data) {
                                             ?>
 									<tr>
-										<td><?php echo $data['first_name'].' '.$data['last_name']; ?></td>
+										<td><?php echo $data['name']; ?></td>
+										<td><?php echo getProjectNameById($data['project_id']) ?></td>
 										<td>
 											<?php 
 											$dataresult =   getDataRowByTableAndId('roles', $data['role_id']);

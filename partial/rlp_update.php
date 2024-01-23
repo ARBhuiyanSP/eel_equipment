@@ -12,7 +12,6 @@
         <div class="col-xs-12">
             <h2 class="page-header">
                 <i class="fa fa-file"></i> RLP Details.
-                <small class="pull-right">Priority: <?php echo getPriorityNameDiv($rlp_info->priority) ?></small>
             </h2>
         </div>
         <!-- /.col -->
@@ -20,21 +19,23 @@
     <!-- info row -->
     <div class="row invoice-info">
         <div class="col-md-4 invoice-col">
-            Requested For
+            <b>Requested For</b>
             <address>
                 <strong>Name:&nbsp;<?php echo $rlp_info->request_person ?></strong><br>
                 <!-- Designation:&nbsp;<?php// echo getDesignationNameById($rlp_info->designation) ?><br> -->
                 Division:&nbsp;<?php echo getDivisionNameById($rlp_info->request_division) ?><br>
                 Department:&nbsp;<?php echo getDepartmentNameById($rlp_info->request_department) ?><br>
+                Project:&nbsp;<?php echo getProjectNameById($rlp_info->request_project) ?><br>
                 <!--- Contact:&nbsp;<?php //echo $rlp_info->contact_number ?><br>
                 Email:&nbsp;: <?php //echo $rlp_info->email ?> -->
             </address>
         </div>
         <!-- /.col -->
         <div class="col-md-8 invoice-col">
-            <div class="pull-right">
+            <div class="pull-right" style="text-align:right;">
                 <b>RLP NO: &nbsp;<span class="rlpno_style"><?php echo $rlp_info->rlp_no ?></span></b><br>
                 <b>Request Date:</b> <?php echo human_format_date($rlp_info->created_at) ?><br>
+                <b>Priority:</b> <?php echo getPriorityNameDiv($rlp_info->priority) ?><br>
             </div>            
         </div>
         <!-- /.col -->

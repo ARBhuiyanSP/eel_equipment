@@ -114,7 +114,7 @@
 				<div class="col-md-4">
 					<?php
 						if(!has_wo_approved($wo_id)){
-							if($currentUserId!=$wo_info->created_by){
+							if($currentUserId==3359){
 					?>
 							<form id="wo_update_form">        
 								<div class="common_individual_section approval_body_section_style">
@@ -128,27 +128,20 @@
 								</div>
 								<input type="hidden" name="wo_no" value="<?php echo $wo_info->id; ?>">
 								<input type="hidden" name="created_by" value="<?php echo $currentUserId; ?>">
-								<button type="button" class="btn btn-primary btn-block" onclick="execute_wo_update_form('wo_update_form', 'wo_update_execute');">Update</button>
+								<input type="submit" class="btn btn-primary btn-block" name="wo_approve" value="Update">
 							</form>
-						<?php
-							
-							if($wo_info->status == 0){
-						?>
-						<div style="margin: 30% 5% 5% 5%;">
+							<div style="margin: 30% 5% 5% 5%;">
 								<img style="margin-left: 30%" src="images/icon/pending_small.png" class="img img-responsive" />
 							</div>
-						<?php }else{ ?>
-							<div style="margin: 30% 5% 5% 5%;">
-								<img style="margin-left: 30%" src="images/icon/processing_small.png" class="img img-responsive" />
+						<?php } } if($wo_info->status == 1) {?>
+						<div style="margin: 30% 5% 5% 5%;">
+								<img style="margin-left: 30%" height="100px" src="images/icon/approved.png" class="img img-responsive" />
 							</div>
-						<?php }
-						
-						}else{ ?>
-							<div style="margin: 30% 5% 5% 5%;">
-								<img style="margin-left: 30%" src="images/icon/approved_small.png" class="img img-responsive" />
-							</div>
-						<?php } }?>
+						<?php } ?>
 				</div>
+				
+							
+					
 			</div>
             </div>
             <!-- /.col -->

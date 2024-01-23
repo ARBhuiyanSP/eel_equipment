@@ -62,10 +62,14 @@ function execute_notesheets_master_table($file_path = "../uploads/file/"){
 		$subject		= (isset($_POST['subject']) && !empty($_POST['subject']) ? trim(mysqli_real_escape_string($conn,$_POST['subject'])) : "");
 		$ns_info		= (isset($_POST['ns_info']) && !empty($_POST['ns_info']) ? trim(mysqli_real_escape_string($conn,$_POST['ns_info'])) : "");
 		$supplier_name		= (isset($_POST['supplier_name']) && !empty($_POST['supplier_name']) ? trim(mysqli_real_escape_string($conn,$_POST['supplier_name'])) : "");
-		$address		= (isset($_POST['address']) && !empty($_POST['address']) ? trim(mysqli_real_escape_string($conn,$_POST['address'])) : "");
+		
+		$supplier_id		= (isset($_POST['supplier_id']) && !empty($_POST['supplier_id']) ? trim(mysqli_real_escape_string($conn,$_POST['supplier_id'])) : "");
+		
+		/* $address		= (isset($_POST['address']) && !empty($_POST['address']) ? trim(mysqli_real_escape_string($conn,$_POST['address'])) : "");
 		$concern_person		= (isset($_POST['concern_person']) && !empty($_POST['concern_person']) ? trim(mysqli_real_escape_string($conn,$_POST['concern_person'])) : "");
 		$cell_number		= (isset($_POST['cell_number']) && !empty($_POST['cell_number']) ? trim(mysqli_real_escape_string($conn,$_POST['cell_number'])) : "");
-		$email		= (isset($_POST['email']) && !empty($_POST['email']) ? trim(mysqli_real_escape_string($conn,$_POST['email'])) : "");
+		$email		= (isset($_POST['email']) && !empty($_POST['email']) ? trim(mysqli_real_escape_string($conn,$_POST['email'])) : ""); */
+		
 		$ait		= (isset($_POST['ait']) && !empty($_POST['ait']) ? trim(mysqli_real_escape_string($conn,$_POST['ait'])) : "");
 		$sub_total		= (isset($_POST['sub_total']) && !empty($_POST['sub_total']) ? trim(mysqli_real_escape_string($conn,$_POST['sub_total'])) : "");
 		//$remarks		= (isset($_POST['remarks']) && !empty($_POST['remarks']) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'])) : "");
@@ -86,10 +90,11 @@ function execute_notesheets_master_table($file_path = "../uploads/file/"){
             'subject'	=>  $subject,
             'ns_info'	=>  $ns_info,
             'supplier_name'	=>  $supplier_name,
-            'address' 		=>  $address,
-            'concern_person' => $concern_person,
-            'cell_number'   =>  $cell_number,
-            'email'       	=>  $email,
+            'supplier_id'	=>  $supplier_id,
+            //'address' 		=>  $address,
+            //'concern_person' => $concern_person,
+            //'cell_number'   =>  $cell_number,
+            //'email'       	=>  $email,
             //'no_of_item'       	=>  $no_of_material,
             'sub_total'			=>  $sub_total,
             'ait'	 	=>  $ait,
@@ -150,11 +155,11 @@ function execute_notesheet_details_table($notesheet_id){
             'notesheet_id'	=>  $notesheet_id,
             'rlp_no'       	=>  $rlp_no,
             'subject'	=>  $subject,
-            'supplier_name'	=>  $supplier_name,
+            /* 'supplier_name'	=>  $supplier_name,
             'address' 		=>  $address,
             'concern_person' =>  $concern_person,
             'cell_number'   =>  $cell_number,
-            'email'       	=>  $email,
+            'email'       	=>  $email, */
             'item'       	=>  $item,
             'unit'			=>  'Pics',
             'quantity'	 	=>  $quantity,

@@ -124,7 +124,7 @@ function execute_rlp_sa_update_form(form_id, process_type='rlp_sa_update_execute
 }
 function execute_wo_update_form(form_id, process_type='wo_update_execute'){
     $.ajax({
-        url: baseUrl + "function/workorder_processing.php?process_type="+process_type,
+        url: baseUrl + "function/workorder_processing.php?process_type=wo_update_execute",
         type: 'POST',
         dataType: 'json',
         data: $("#"+form_id).serialize(),

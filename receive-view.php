@@ -174,7 +174,7 @@ $mrr_no=$_GET['no']; ?>
 							<div class="col-sm-5"></br><?php 
 										if($rowd['received_by']){
 										$dataresult =   getDataRowByTableAndId('users', $rowd['received_by']);
-										echo (isset($dataresult) && !empty($dataresult) ? $dataresult->first_name . ' ' .$dataresult->last_name : '');	
+										echo (isset($dataresult) && !empty($dataresult) ? $dataresult->name : '');	
 										}?></br>--------------------</br>Receiver Signature</div>
 										
 										

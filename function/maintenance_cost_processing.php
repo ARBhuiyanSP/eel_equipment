@@ -15,6 +15,7 @@ if (isset($_POST['cost_entry']) && !empty($_POST['cost_entry'])){
 		
 		
     
+    $notesheets_info_response  =   execute_other_cost_table();
     $notesheets_info_response  =   execute_maintenance_mechanic_table();
     $notesheets_info_response  =   execute_maintenance_cost_table();
     if(isset($notesheets_info_response) && $notesheets_info_response['status'] == "success"){
@@ -138,6 +139,40 @@ function execute_maintenance_spare_parts_table($rrr_info_id){
 				
 				$query_inmb = "INSERT INTO `inv_materialbalance` (`mb_ref_id`,`mb_materialid`,`material_name`,`eel_code`,`mb_date`,`mbin_qty`,`mbin_val`,`mbout_qty`,`mbout_val`,`mbprice`,`mbtype`,`mbserial`,`mbserial_id`,`mbunit_id`,`jvno`,`part_no`,`project_id`,`warehouse_id`) VALUES ('$mb_ref_id','$mb_materialid','$material_name','$eel_code','$mb_date','$mbin_qty','$mbin_val','$mbout_qty','$mbout_val','$mbprice','$mbtype','$mbserial','$mbunit_id','$unit','$jvno','$part_no','$project_id','$warehouse_id')";
 				$conn->query($query_inmb);
+    }
+}
+
+function execute_other_cost_table(){
+    global $conn;
+    /*
+     * *****************************rrr_details table operation********************
+     */
+	 $no_of_oc     =   0;
+    for($count 		= 0; $count<count($_POST['oc_name']); $count++){
+        $m_cost_id		= (isset($_POST['m_cost_id']) && !empty($_POST['m_cost_id']) ? trim(mysqli_real_escape_string($conn,$_POST['m_cost_id'])) : "");
+		
+        $oc_name		= (isset($_POST['oc_name'][$count]) && !empty($_POST['oc_name'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['oc_name'][$count])) : '');
+		
+        $oc_qty			= (isset($_POST['quantityoc'][$count]) && !empty($_POST['quantityoc'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['quantityoc'][$count])) : '');
+		
+        $oc_unit_price	= (isset($_POST['unit_priceoc'][$count]) && !empty($_POST['unit_priceoc'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_priceoc'][$count])) : '');
+		
+        $oc_amount		= (isset($_POST['totalamountoc'][$count]) && !empty($_POST['totalamountoc'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['totalamountoc'][$count])) : '');
+		
+		$no_of_oc     = $no_of_oc+$oc_name;
+        $dataParam     =   [
+            //'id'                =>  get_table_next_primary_id('rlp_details'),
+            'm_cost_id'		=>  $m_cost_id,
+            'oc_name'		=>  $oc_name,
+            'oc_qty'		=>  $oc_qty,
+            'oc_unit_price'	=>  $oc_unit_price,
+            'oc_amount'		=>  $oc_amount,
+            
+			'created_at'	=>  date('Y-m-d h:i:s'),
+			'created_by'	=>  $_SESSION['logged']['user_id']
+        ];
+    
+        saveData("maintenance_other_cost", $dataParam);
     }
 }
 

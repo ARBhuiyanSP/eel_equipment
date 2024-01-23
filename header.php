@@ -33,6 +33,7 @@ include 'function/maintenance_cost_processing.php';
 include 'function/rent_processing.php';
 include 'includes/user_process.php';
 include 'includes/order_process.php';
+include 'includes/role_process.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -146,6 +147,16 @@ footer.sticky-footer{
                 <span class="sub_menu_text_design"> Clients</span>
             </a>
              <?php    } ?>
+			 
+			 <?php
+            
+                if(check_permission('project-list')){ ?>
+                    <a class="dropdown-item" href="supplier_entry.php">
+                <i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
+                <span class="sub_menu_text_design"> Suppliers</span>
+            </a>
+             <?php    } ?>
+			 
         <?php
             
                 if(check_permission('project-list')){ ?>
@@ -298,13 +309,20 @@ footer.sticky-footer{
         </a>
         <?php //} ?>
         </li>
-		 <li class="nav-item dropdown no-arrow">
-        <?php //if(check_permission('material-issue-list')){ ?>
-        <a class="nav-link" href="equipments-list.php" id="userDropdown">
-          <i class="fa fa-server"></i> Equipments
+		 
+		
+		  <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-server"></i> Equipments
         </a>
-        <?php //} ?>
-        </li>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+			<a class="dropdown-item" href="equipment_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments Entry</span></a>            
+			<a class="dropdown-item" href="equipments-list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments List</span></a>  
+		   
+          <!--<a class="dropdown-item" href="#">Settings</a>-->
+          <!--<a class="dropdown-item" href="#">Activity Log</a>-->
+        </div>
+      </li>
 		
 		
 	  <li class="nav-item dropdown no-arrow">

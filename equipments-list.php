@@ -19,23 +19,24 @@
 						<tr>
 							<th width="15%">Name</th>
 							<th width="10%">EEL Code</th>
-							<th width="20%">
+							<th width="15%">
 								<select name="present_location" id="present_location" class="form-control material_select_2">
 									<option value="">Present Location Search</option>
 									<?php 
-									$query = "SELECT * FROM equipments GROUP BY present_location ASC";
+									$query = "SELECT * FROM projects GROUP BY project_name ASC";
 									$result = mysqli_query($conn, $query);
 									while($row = mysqli_fetch_array($result))
 									{
-										echo '<option value="'.$row["present_location"].'">'.$row["present_location"].'</option>';
+										echo '<option value="'.$row["id"].'">'.$row["project_name"].'</option>';
 									}
 									?>
 								</select>
 							</th>
+							<th width="10%">Location Type</th>
 							<th width="10%">Brand/MakeBy</th>
 							<th width="10%">Model</th>
 							<th width="10%">capacity</th>
-							<th width="25%">Action</th>
+							<th width="20%">Action</th>
 						</tr>
 					</thead>
 				</table>
@@ -83,6 +84,7 @@ $(document).ready(function(){
    load_equipments_data();
   }
  });
+
 });
 </script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
