@@ -1797,6 +1797,18 @@ function getMaterialNameByIdAndTable($table)
     return $name;
 }
 
+function getProjectTypeByID($id)
+{
+    global $conn;
+    $sql = "SELECT * FROM `projects` WHERE `id`='$id'";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        $name   =   $result->fetch_object()->type;
+    }
+    return $name;
+}
+
 function getNameByIdAndTable($table,$id)
 {
     global $conn;

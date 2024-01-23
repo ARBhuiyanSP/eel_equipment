@@ -4,12 +4,13 @@ if (isset($_POST['equipment_entry']) && !empty($_POST['equipment_entry'])){
     /******************************assets table operation******************** */
     
     $rrr_info_response  =   execute_equipment_table();
+    $rrr_info_response  =   execute_equipment_assign_table();
     if(isset($rrr_info_response) && $rrr_info_response['status'] == "success"){
         $_SESSION['success']    =   "Your request have been successfully procced.";
     }else{
         $_SESSION['error']    =   "Failed to save data";
     }
-    header("location: equipment_list.php");
+    header("location: equipments-list.php");
     exit();
 }
 
@@ -20,7 +21,7 @@ function execute_equipment_table(){
 	
     $project_id		= (isset($_POST['project_id']) && !empty($_POST['project_id']) ? trim(mysqli_real_escape_string($conn,$_POST['project_id'])) : "");
 	
-    $sub_project_id		= (isset($_POST['sub_project_id']) && !empty($_POST['sub_project_id']) ? trim(mysqli_real_escape_string($conn,$_POST['sub_project_id'])) : "");
+    
 	
     $name		= (isset($_POST['name']) && !empty($_POST['name']) ? trim(mysqli_real_escape_string($conn,$_POST['name'])) : "");
 	
@@ -38,7 +39,15 @@ function execute_equipment_table(){
 	
     $year_manufacture		= (isset($_POST['year_manufacture']) && !empty($_POST['year_manufacture']) ? trim(mysqli_real_escape_string($conn,$_POST['year_manufacture'])) : "");
 	
+    $inventory_sl_no		= (isset($_POST['inventory_sl_no']) && !empty($_POST['inventory_sl_no']) ? trim(mysqli_real_escape_string($conn,$_POST['inventory_sl_no'])) : "");
+	
+    $engine_model		= (isset($_POST['engine_model']) && !empty($_POST['engine_model']) ? trim(mysqli_real_escape_string($conn,$_POST['engine_model'])) : "");
+	
+    $engine_sl_no		= (isset($_POST['engine_sl_no']) && !empty($_POST['engine_sl_no']) ? trim(mysqli_real_escape_string($conn,$_POST['engine_sl_no'])) : "");
+	
     $present_location		= (isset($_POST['present_location']) && !empty($_POST['present_location']) ? trim(mysqli_real_escape_string($conn,$_POST['present_location'])) : "");
+	
+    $present_location_type		= getProjectTypeByID((isset($_POST['present_location']) && !empty($_POST['present_location']) ? trim(mysqli_real_escape_string($conn,$_POST['present_location'])) : ""));
 	
     $present_condition		= (isset($_POST['present_condition']) && !empty($_POST['present_condition']) ? trim(mysqli_real_escape_string($conn,$_POST['present_condition'])) : "");
 
@@ -52,15 +61,9 @@ function execute_equipment_table(){
      */
     $table_sql     =   "equipments";
     $dataParam     =   [
-        //'id'                    =>  get_table_next_primary_id($table_sql),
-        //'rrr_no'                =>  get_rrr_no(),
-        //'rrr_user_id'           =>  $_SESSION['logged']['user_id'],
-        //'rrr_user_office_id'    =>  $_SESSION['logged']['office_id'],
         'project_id'           	=>  $project_id,
-        'sub_project_id'    	=>  $sub_project_id,
         'equipment_type'      	=>  $equipment_type,
-        'category'          	=>  $category,
-        'date_from'          	=>  date('Y-m-d h:i:s', strtotime($commissioning_date)),
+        'commissioning_date'    =>  date('Y-m-d h:i:s', strtotime($commissioning_date)),
         'name'          		=>  $name,
         'eel_code'          	=>  $eel_code,
         'origin'          		=>  $origin,
@@ -72,11 +75,12 @@ function execute_equipment_table(){
         'engine_model'         	=>  $engine_model,
         'engine_sl_no'      	=>  $engine_sl_no,
         'present_location'  	=>  $present_location,
+        'present_location_type' =>  $present_location_type,
         'present_condition'   	=>  $present_condition,
         'price'  	            =>  $price,
         'assign_status'       	=>  'assigned',
         'remarks'          		=>  $remarks,
-        'status'          		=>  $status,
+        'status'          		=>  'Active',
 		
 		/*--------------------------*/
         //'created_by'            	=>  $_SESSION['logged']['user_id'],
@@ -84,6 +88,36 @@ function execute_equipment_table(){
     ];
     
     $response   =   saveData("equipments", $dataParam);
+    return $response;
+}
+
+function execute_equipment_assign_table(){
+    global $conn;
+    $commissioning_date		= (isset($_POST['commissioning_date']) && !empty($_POST['commissioning_date']) ? trim(mysqli_real_escape_string($conn,$_POST['commissioning_date'])) : date("Y-m-d"));
+	
+    $eel_code		= (isset($_POST['eel_code']) && !empty($_POST['eel_code']) ? trim(mysqli_real_escape_string($conn,$_POST['eel_code'])) : "");
+	
+    $present_location		= (isset($_POST['present_location']) && !empty($_POST['present_location']) ? trim(mysqli_real_escape_string($conn,$_POST['present_location'])) : "");
+	
+    $remarks		= (isset($_POST['remarks']) && !empty($_POST['remarks']) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'])) : "");
+	/*--------------------------*/
+    
+    /*
+     * *****************************rrr_info table operation********************
+     */
+    $table_sql     =   "equipment_assign";
+    $dataParam     =   [
+        'eel_code'          	=>  $eel_code,
+        'project_id'  			=>  $present_location,
+        'assign_date'    =>  date('Y-m-d h:i:s', strtotime($commissioning_date)),
+        'remarks'          		=>  $remarks,
+		
+		/*--------------------------*/
+        //'created_by'            	=>  $_SESSION['logged']['user_id'],
+        //'created_at'            	=>  date('Y-m-d h:i:s')
+    ];
+    
+    $response   =   saveData("equipment_assign", $dataParam);
     return $response;
 }
 
@@ -183,28 +217,27 @@ if (isset($_POST['equipment_shift'])){
     /******************************assets table operation******************** */
     $eel_code 		= $_POST['eel_code'];
 	$project_id 	= $_POST['project_id'];
-	$equipment_type	= $_POST['equipment_type'];
+	$present_location_type  = getProjectTypeByID($project_id);
 	$assign_date 	= $_POST['assign_date'];
 	$remarks 		= $_POST['remarks'];
 	$id 			= $_POST['id'];
 
-	$sql	=	"insert into `equipment_assign` values('','$eel_code','$project_id','','$equipment_type','$assign_date','','$remarks')";
+	$sql	=	"insert into `equipment_assign` values('','$eel_code','$project_id','$assign_date','','$remarks')";
 	$response	=	mysqli_query($conn, $sql);
 
     $sql2	=	"UPDATE `equipment_assign` set `refund_date`='$assign_date' where `id`='$id'";
     $response2	=	mysqli_query($conn, $sql2);
 	
-				$dataresult =   getDataRowByTableAndId('projects', $project_id);
-				$updateProject = (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : '');
-	$sqlUpdate	=	"UPDATE `equipments` set `present_location`='$updateProject' where `eel_code`='$eel_code'";
+	
+	$sqlUpdate	=	"UPDATE `equipments` SET `present_location`='$project_id' ,`present_location_type`='$present_location_type' WHERE `eel_code`='$eel_code'";
     $responseUpdate	=	mysqli_query($conn, $sqlUpdate);
 	
-	if(isset($response)){
+	if(isset($responseUpdate)){
         $_SESSION['success']    =   "Your request have been successfully procced.";
     }else{
         $_SESSION['error']    =   "Failed to save data";
     }
-    header("location: equipment_list.php");
+    header("location: equipments-list.php");
     exit();
     
 	/* $shifting_info_response  =   execute_assign_table();

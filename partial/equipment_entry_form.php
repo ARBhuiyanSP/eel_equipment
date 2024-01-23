@@ -36,8 +36,8 @@
             <div class="form-group">
 				<label for="exampleId">Type:</label>
                 <div class="radio">
-                    <label><input type="radio" name="equipment_type" value="1" checked > <span class="label label-success">OWN</span> </label>
-                    <label><input type="radio" name="equipment_type" value="2"> <span class="label label-danger">RENTAL</span> </label>
+                    <label><input type="radio" name="equipment_type" value="Own" checked > <span class="label label-success">OWN</span> </label>
+                    <label><input type="radio" name="equipment_type" value="Rental"> <span class="label label-danger">RENTAL</span> </label>
                 </div>
 			</div>
         </div>
@@ -93,9 +93,9 @@
                 <input name="model" type="text" class="form-control" id="model" value="" autocomplete="off" required />
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1">
             <div class="form-group">
-                <label for="exampleId">Year of Manufacture</label>
+                <label for="exampleId">Year of Manufac</label>
                 <input name="year_manufacture" type="text" class="form-control" id="year_manufacture" value="" autocomplete="off" required />
             </div>
         </div>
@@ -145,6 +145,16 @@
 				</select>
 			</div>
         </div>
+		<div class="col-md-1">
+		<div class="form-group">
+				<label for="division/company">Condition:</label>
+                <select class="all_emplyees form-control" id="present_condition" name="present_condition" required >
+					<option value="Running">Running</option>
+					<option value="Breakdown">Breakdown</option>
+					<option value="Idle">Idle</option>
+				</select>
+			</div>
+			</div>
         <div class="col-md-12">
             <div class="form-group">
                 <label for="exampleId">Remarks:</label>

@@ -93,7 +93,7 @@
 						$row2=mysqli_fetch_array($result2);
 						?>
 					<label>Transfer To</label>
-					<select id="dv" name="project_id" class="form-control select2">
+					<select id="dv" name="project_id" class="form-control material_select_2">
 						<option>Select Project</option>
 						<?php 
 						$sqllt	= "select * from `projects` WHERE `id`!='$project_id' ORDER BY id ASC";

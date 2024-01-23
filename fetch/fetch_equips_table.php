@@ -4,9 +4,14 @@
 session_start();
 include('../connection/connect.php');
 include('../helper/utilities.php');
-$column = array("equipments.id", "equipments.name", "equipments.eel_code", "equipments.present_location", "equipments.makeby");
+$column = array("equipments.id", "equipments.name", "equipments.eel_code", "equipments.present_location", "equipments.present_location_type", "projects.project_name", "equipments.makeby");
+/* $query = "
+ SELECT *,equipments.id as voucher_id FROM equipments 
+"; */
 $query = "
  SELECT *,equipments.id as voucher_id FROM equipments 
+ INNER JOIN projects 
+ ON projects.id = equipments.present_location 
 ";
 $query .= " WHERE 1=1 AND  ";
 if(isset($_POST["is_present_location"]))
@@ -18,7 +23,8 @@ if(isset($_POST["search"]["value"]))
  $query .= '(equipments.id LIKE "%'.$_POST["search"]["value"].'%" ';
  $query .= 'OR equipments.name LIKE "%'.$_POST["search"]["value"].'%" ';
  $query .= 'OR equipments.eel_code LIKE "%'.$_POST["search"]["value"].'%" ';
- $query .= 'OR equipments.present_location LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= 'OR projects.project_name LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= 'OR equipments.present_location_type LIKE "%'.$_POST["search"]["value"].'%" ';
  $query .= 'OR equipments.makeby LIKE "%'.$_POST["search"]["value"].'%" ';
  $query .= 'OR equipments.model LIKE "%'.$_POST["search"]["value"].'%") ';
 }
@@ -53,7 +59,8 @@ while($row = mysqli_fetch_array($result))
 
  $sub_array[] = $row["name"];
  $sub_array[] = $row["eel_code"];
- $sub_array[] = $row["present_location"];
+ $sub_array[] = $row["project_name"];
+ $sub_array[] = $row["present_location_type"];
  $sub_array[] = $row["makeby"];
  $sub_array[] = $row["model"];
  $sub_array[] = $row["capacity"];
@@ -73,20 +80,17 @@ function get_equipments_list_action_data($row){
     $action = "";
 	
 if(check_permission('material-receive-edit')){
-    $action.='<span><a class="action-icons c-delete" href="'.$edit_url.'" title="edit"><i class="fa fa-edit bg-info text-white mborder"> Edit</i></a></span>';
+    $action.='<span><a class="btn btn-sm btn-info" href="#" title="edit"><i class="fa fa-edit"></i></a></span>';
 }
 
 						
-	$action.='<span><a class="action-icons c-approve" href="'.$view_url.'" title="View"><i class="fas fa-eye bg-success text-white mborder"> Details</i></a></span>';
+	$action.='<span><a class="btn btn-sm btn-success" href="'.$view_url.'" title="Details View"><i class="fas fa-eye"></i></a></span>';
 	
-	$action.='<span><a class="action-icons c-approve" href="'.$shifting_url.'" title="View"><i class="fas fa-edit bg-danger text-white mborder"> Shifting</i></a></span>';
+	$action.='<span><a class="btn btn-sm btn-danger" href="'.$shifting_url.'" title="Transfer"><i class="fas fa-edit"> Shifting</i></a></span>';
 	
-	$action.='<span><a class="action-icons c-approve" href="'.$history_url.'" title="View"><i class="fas fa-edit bg-success text-white mborder"> History</i></a></span>';
+	$action.='<span><a class="btn btn-sm btn-success" href="'.$history_url.'" title="History"><i class="fas fa-edit"> History</i></a></span>';
 
-if(check_permission('material-receive-approve')){
-    $action.='<span><a class="action-icons c-delete" href="'.$approve_url.'" title="edit"><i class="fa fa-check bg-info text-white mborder"></i></a></span>';
-}
-							
+						
 							
 	
 											
