@@ -8,7 +8,7 @@
         <li class="breadcrumb-item active">List</li>
     </ol>
     <!-- receive search start here -->
-    <?php include 'search/consumption_report_search.php'; ?>
+    <?php include 'search/consumption_reprot_search_new.php'; ?>
     <!-- end receive search -->
 
 
