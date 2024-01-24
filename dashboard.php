@@ -93,7 +93,7 @@ $(document).ready(function() {
 				<?php $table    =   "equipments";  ?>
                 <div class="mr-5"><?php echo getDataRowByTable($table); ?> Total Equipments</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="equipment_list.php">
+              <a class="card-footer text-white clearfix small z-1" href="equipments-list.php">
                 <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>

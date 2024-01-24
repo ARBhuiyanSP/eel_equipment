@@ -94,7 +94,7 @@
 			<div class="col-xs-2">
 				<div class="form-group">
 					<label>Warehouse</label>
-					<input type="text" class="form-control" name="" value="<?php echo getProjectNameById($wo_info->request_warehouse) ?>" readonly />
+					<input type="text" class="form-control" name="" value="<?php echo getWarehouseNameById($wo_info->request_warehouse) ?>" readonly />
 					<input type="hidden" name="request_warehouse" value="<?php echo $wo_info->request_warehouse ?>" />
 				</div>
 			</div>
