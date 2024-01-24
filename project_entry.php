@@ -75,12 +75,11 @@ include 'header.php';
 							<table id="dataTable" class="table table-bordered table-striped table-hover">
 								<thead>
 									<tr>
-										<th width="10%">Project Code</th>
-										<th width="20%">Project Name</th>
-										<th width="30%">Address</th>
-										<th>Type</th>
+										<th width="25%">Project Name</th>
+										<th width="45%">Address</th>
+										<th width="7%">Type</th>
 										<th>Client</th>
-										<th width="10%">Action</th>
+										<th width="7%">Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -91,7 +90,6 @@ include 'header.php';
                                         foreach ($projectsData as $data) {
                                             ?>
 									<tr>
-										<td><?php echo $data['code']; ?></td>
 										<td><?php echo $data['project_name']; ?></td>
 										<td><?php echo $data['address']; ?></td>
 										<td><?php echo $data['type']; ?></td>
