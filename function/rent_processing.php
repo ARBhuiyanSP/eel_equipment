@@ -89,12 +89,15 @@ function update_equipments_table(){
         
 		$project_name		= (isset($_POST['project_name']) && !empty($_POST['project_name']) ? trim(mysqli_real_escape_string($conn,$_POST['project_name'])) : "");
 		
+		$present_location_type		= getProjectTypeByID((isset($_POST['project_name']) && !empty($_POST['project_name']) ? trim(mysqli_real_escape_string($conn,$_POST['project_name'])) : ""));
+		
         $equipments		= (isset($_POST['equipments'][$count]) && !empty($_POST['equipments'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['equipments'][$count])) : "");
 		
         $dataParam     =   [
-            //'id'                =>  get_table_next_primary_id('rents'),
-            'present_location'	=>  $project_name,
-            'rent_status'		=>  'Rented'
+            //'id'                	=>  get_table_next_primary_id('rents'),
+            'present_location'		=>  $project_name,
+            'present_location_type'	=>  $present_location_type,
+            'status'				=>  'Rented'
         ];
 		$where      =   [
 			'eel_code'	=>  $equipments
