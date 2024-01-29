@@ -110,7 +110,7 @@ if(isset($_GET['submit'])){
 						<?php
 							$totalQty = 0;
 							$totalAmount = 0;
-							$sqlall	=	"SELECT * FROM `inv_materialbalance` WHERE `eel_code` = '$equipments' AND `mbtype` in ('maintenance' AND 'mCost') AND `mb_date` BETWEEN '$from_date' AND '$to_date';;";
+							$sqlall	=	"SELECT * FROM `inv_materialbalance` WHERE `eel_code` = '$equipments' AND `mbtype` in ('maintenance' AND 'mCost') AND `mb_date` BETWEEN '$from_date' AND '$to_date'";
 							$resultall = mysqli_query($conn, $sqlall);
 							while($rowall=mysqli_fetch_array($resultall))
 							{

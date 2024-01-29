@@ -56,7 +56,7 @@
                         ?>
                         <tr id="rec-1">
                             <td><?php echo $sl++; ?></td>
-                            <td><?php echo $data->item; ?></td>
+                            <td><?php echo getMaterialNameByIdAndTableandId('inv_material',$data->item); ?></td>
                             <td><?php echo $data->part_no; ?></td>
                             <td><?php echo $data->quantity; ?></td>
                             <td><?php echo $data->unit_price; ?></td>

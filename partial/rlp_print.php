@@ -26,26 +26,37 @@
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-bottom:20px;">
 			<center>
-				<h3><?php echo getDivisionNameById($rlp_info->request_division) ?></h3>
-				<p><?php echo getDivisionAddressById($rlp_info->request_division) ?></p>
+				<h3><?php //echo getDivisionNameById($rlp_info->request_division) ?></h3>
+				<p><?php //echo getDivisionAddressById($rlp_info->request_division) ?></p>
 			</center>
 		</div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            Requested For
+		<div class="col-sm-12">	
+					<center>
+						<p>
+							<img src="images/Saif_Engineering_Logo_165X72.png" height="100px;"/><br>
+							<h5>RLP Details</h5>
+						</p>
+					</center>
+				</div>
+        <div class="col-md-6 col-sm-6">
+            From
             <address>
                 <strong>Name:&nbsp;<?php echo $rlp_info->request_person ?></strong><br>
+                <!-- Designation:&nbsp;<?php// echo getDesignationNameById($rlp_info->designation) ?><br> -->
                 Division:&nbsp;<?php echo getDivisionNameById($rlp_info->request_division) ?><br>
                 Department:&nbsp;<?php echo getDepartmentNameById($rlp_info->request_department) ?><br>
+                Project:&nbsp;<?php echo getProjectNameById($rlp_info->request_project) ?><br>
+                <!--- Contact:&nbsp;<?php //echo $rlp_info->contact_number ?><br>
+                Email:&nbsp;: <?php //echo $rlp_info->email ?> -->
             </address>
         </div>
         <!-- /.col -->
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-            <span class="pull-right">
+        <div class="col-md-6 col-sm-6">
+            <div class="pull-right" style="text-align:right">
                 <b>RLP NO: &nbsp;<span style="border:1px solid;padding:2px 5px;"><?php echo $rlp_info->rlp_no ?></span></b><br>
-                <b>Request Date:</b> <?php echo human_format_date($rlp_info->created_at) ?><br>
-                <b>Priority:</b> <?php echo getPriorityName($rlp_info->priority) ?><br>
+                <b>Request Date:</b> <?php echo human_format_date($rlp_info->created_at) ?><br><br>
                 <b>Current Status: &nbsp;<span style="border:1px solid;padding:2px 5px;"><?php echo get_status_name($rlp_info->rlp_status) ?></span></b><br>
-            </span>            
+            </div>            
         </div>
         <!-- /.col -->
     </div>
@@ -67,12 +78,12 @@
                 </thead>
                 <tbody>
                     <?php
-                    $sl =   1;
+						$sl =   1;
                         foreach($rlp_details as $data){
                     ?>
                     <tr>
                         <td><?php echo $sl++; ?></td>
-                        <td><?php echo $data->item_des; ?></td>
+                        <td><?php echo getMaterialNameByIdAndTableandId('inv_material',$data->material_name); ?></td>
                         <td><?php echo $data->purpose; ?></td>
                         <td><?php echo $data->quantity; ?></td>
                         <td><?php echo $data->unit_price; ?></td>
@@ -96,22 +107,15 @@
 					$table = "rlp_acknowledgement WHERE rlp_info_id=$rlp_id";
 					$order = 'DESC';
 					$column = 'ack_request_date';
-					$allRemarksHistory = getTableDataByTableName($table, $order, $column);
+					$allRemarksHistory = getTableDataByTableName2($table, $order, $column);
 						if (isset($allRemarksHistory) && !empty($allRemarksHistory)) {
 						foreach ($allRemarksHistory as $dat) {
-					?>
 					
-					<?php //echo (isset($dat->ack_updated_date) && !empty($dat->ack_updated_date) ? human_format_date($dat->ack_updated_date) : ""); ?>
-					<!-- <div class="col-sm-3 col-xs-3" style="padding-top:100px;">
-						<center><?php if(get_status_name($dat->ack_status)=='Approve' || get_status_name($dat->ack_status)=='Recommended'){ ?><img src="images/signatures/<?php echo getSignatureByUserId($dat->user_id); ?>" height="70px"/><?php } ?></br><?php echo getUserNameByUserId($dat->user_id) ?></br>________________________</br><?php echo getDesignationByUserId($dat->user_id) ?></center>
-					</div> -->
-					
-					<?php if(get_status_name($dat->ack_status)=='Approve' || get_status_name($dat->ack_status)=='Recommended'){ ?>
+					if(get_status_name($dat->ack_status)=='Approve' || get_status_name($dat->ack_status)=='Recommended'){ ?>
 					<div class="col-sm-3 col-xs-3" style="padding-top:100px;">
 						<center><img src="images/signatures/<?php echo getSignatureByUserId($dat->user_id); ?>" height="70px"/></br><?php echo getUserNameByUserId($dat->user_id) ?></br>________________________</br><?php echo getDesignationByUserId($dat->user_id) ?></center>
 					</div>
-					<?php } ?>
-					<?php
+					<?php } 
 					}
 				}
 				?>			

@@ -5,7 +5,7 @@
 }
 </style>
 <?php
-    $currentUserId  =   $_SESSION['logged']['user_id'];
+    //$currentUserId  =   $_SESSION['logged']['user_id'];
     $rlp_id         =   $_GET['rlp_id'];    
     $rlp_details    =   getRlpDetailsData($rlp_id);   
     $rlp_info       =   $rlp_details['rlp_info'];
@@ -15,7 +15,7 @@
 <section class="invoice" id="printableArea">
     <!-- title row -->
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-md-12">
             <h2 class="page-header">
                 <i class="fa fa-globe"></i> RLP Details.
                 <small class="pull-right">Priority: <?php echo getPriorityName($rlp_info->priority) ?></small>
@@ -25,19 +25,21 @@
     </div>
     <!-- info row -->
     <div class="row invoice-info">
-        <div class="col-md-4 invoice-col">
+        <div class="col-md-6 col-sm-6">
             From
             <address>
                 <strong>Name:&nbsp;<?php echo $rlp_info->request_person ?></strong><br>
-                Designation:&nbsp;<?php echo $rlp_info->designation ?><br>
-                Department:&nbsp;<?php echo getNameByIdAndTable("department",$rlp_info->request_department) ?><br>
-                Contact:&nbsp;<?php echo $rlp_info->contact_number ?><br>
-                Email:&nbsp;Email: <?php echo $rlp_info->email ?>
+                <!-- Designation:&nbsp;<?php// echo getDesignationNameById($rlp_info->designation) ?><br> -->
+                Division:&nbsp;<?php echo getDivisionNameById($rlp_info->request_division) ?><br>
+                Department:&nbsp;<?php echo getDepartmentNameById($rlp_info->request_department) ?><br>
+                Project:&nbsp;<?php echo getProjectNameById($rlp_info->request_project) ?><br>
+                <!--- Contact:&nbsp;<?php //echo $rlp_info->contact_number ?><br>
+                Email:&nbsp;: <?php //echo $rlp_info->email ?> -->
             </address>
         </div>
         <!-- /.col -->
-        <div class="col-md-8 invoice-col">
-            <div class="pull-right">
+        <div class="col-md-6 col-sm-6">
+            <div class="pull-right" style="text-align:right">
                 <b>RLP NO: &nbsp;<span style="border:1px solid;padding:2px 5px;"><?php echo $rlp_info->rlp_no ?></span></b><br>
                 <b>Request Date:</b> <?php echo human_format_date($rlp_info->created_at) ?><br><br>
                 <b>Current Status: &nbsp;<span style="border:1px solid;padding:2px 5px;"><?php echo get_status_name($rlp_info->rlp_status) ?></span></b><br>
@@ -68,7 +70,7 @@
                     ?>
                     <tr>
                         <td><?php echo $sl++; ?></td>
-                        <td><?php echo $data->item_des; ?></td>
+                        <td><?php echo getMaterialNameByIdAndTableandId('inv_material',$data->material_name); ?></td>
                         <td><?php echo $data->purpose; ?></td>
                         <td><?php echo $data->quantity; ?></td>
                         <td><?php echo $data->unit; ?></td>

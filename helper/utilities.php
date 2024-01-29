@@ -740,6 +740,17 @@ function get_table_next_primary_id($table){
     return $nextRow;
 }
 
+function get_table_primary_id($table){
+    global $conn;
+    $sql = "SELECT `id` FROM $table ORDER BY `id` DESC";
+    $result = $conn->query($sql);
+    $id   =   '';
+    if ($result->num_rows > 0) {
+        $id   =   $result->fetch_object()->id;
+    }
+    return $id;
+}
+
 /*  function get_rlp_no($prefix="RLP", $formater_length=3){
     global $conn;
     
@@ -1789,6 +1800,18 @@ function getMaterialNameByIdAndTable($table)
 {
     global $conn;
     $sql = "SELECT * FROM $table";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        $name   =   $result->fetch_object()->material_description;
+    }
+    return $name;
+}
+
+function getMaterialNameByIdAndTableandId($table,$id)
+{
+    global $conn;
+    $sql = "SELECT * FROM $table WHERE id='$id'";
     $result = $conn->query($sql);
     $name   =   '';
     if ($result->num_rows > 0) {

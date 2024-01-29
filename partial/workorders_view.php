@@ -61,8 +61,7 @@
                         <tr id="rec-1">
                             <td><?php echo $sl++; ?></td>
 							
-							<td><?php $dataresult =   getDataRowByTableAndId('inv_material', $data->item);
-								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : ''); ?></td>
+							<td><?php echo getMaterialNameByIdAndTableandId('inv_material',$data->item); ?></td>
 								
 							<td><?php $dataresult =   getDataRowByTableAndId('inv_material', $data->item);
 								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->part_no : ''); ?></td>

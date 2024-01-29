@@ -2,8 +2,10 @@
 if (isset($_POST['rent_entry']) && !empty($_POST['rent_entry'])){
     /*
      * *****************************rrr_info table operation********************
-     */    
-    $rent_info_response  =   execute_rent_details_table();
+     */
+    $rent_details_response  =   execute_rent_details_table();
+		$rent_details_id    =   $rent_details_response['last_id'];
+    $rent_info_response  =   execute_rent_extend_table($rent_details_id);
     $rent_info_response  =   execute_rent_master_table();
     $rent_info_response  =   execute_client_balance_table();
     $rent_info_response  =   update_equipments_table();
@@ -139,6 +141,33 @@ function execute_rent_details_table(){
         ];
     
         saveData("rent_details", $dataParam);
+    }
+}
+function execute_rent_extend_table($rent_details_id){
+    global $conn;
+    /*
+     * *****************************rrr_details table operation********************
+     */
+	 //$no_of_material     =   0;
+    for($count 		= 0; $count<count($_POST['equipments']); $count++){
+        $challan_no		= (isset($_POST['challan_no']) && !empty($_POST['challan_no']) ? trim(mysqli_real_escape_string($conn,$_POST['challan_no'])) : "");
+        $equipments		= (isset($_POST['equipments'][$count]) && !empty($_POST['equipments'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['equipments'][$count])) : "");
+		$unit_price		= (isset($_POST['unit_price'][$count]) && !empty($_POST['unit_price'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_price'][$count])) : "");
+		$totalamount		= (isset($_POST['totalamount'][$count]) && !empty($_POST['totalamount'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['totalamount'][$count])) : "");
+		$rent_date		= (isset($_POST['rent_date']) && !empty($_POST['rent_date']) ? trim(mysqli_real_escape_string($conn,$_POST['rent_date'])) : "");
+		$return_date	= (isset($_POST['return_date']) && !empty($_POST['return_date']) ? trim(mysqli_real_escape_string($conn,$_POST['return_date'])) : "");
+		$totaldays		= (isset($_POST['totaldays']) && !empty($_POST['totaldays']) ? trim(mysqli_real_escape_string($conn,$_POST['totaldays'])) : "");
+        $dataParam     =   [
+            //'id'                =>  get_table_next_primary_id('rents'),
+            'rent_details_id'	=>  $rent_details_id,
+            //'challan_no'	=>  $challan_no,
+            'eel_code'	=>  $equipments,
+            'prev_return_date'	=>  $return_date,
+            'extended_date'	=>  $return_date,
+            'amount'	=>  $totalamount
+        ];
+    
+        saveData("rent_extend", $dataParam);
     }
 }
 

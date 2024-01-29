@@ -17,21 +17,20 @@ include 'header.php';
             <!--here your code will go-->
            <div class="row">
 		                   <div class="col-sm-4">
-								<h5>Material Receive Reports</h5>
+								<h5>RLP Reports</h5>
 								<ul>
-									<a href="receive_report.php"><li><b>Material Receive List</b></li></a>
-									<a href="receive_report_by_category.php"><li><b>Material Receive Report by Category</b></li></a>
-									<a href="supplier_ledger.php"><li><b>Supplier Ledger Report</b></li></a>
-									
-								</ul>
-
-								<h5>Transfer Reports</h5>
-								<ul>
-									<a href="transfer_report.php"><li><b>Material Transfer List</b></li></a>
-									
-									
+									<a href="rlp_report.php"><li><b>Project & Datewise RLP Report</b></li></a>
 								</ul>
 								
+								<h5>Notesheet Reports</h5>
+								<ul>
+									<a href="notesheet_report.php"><li><b>Project & Datewise Notesheet Report</b></li></a>
+								</ul>
+								
+								<h5>Workorders Reports</h5>
+								<ul>
+									<a href="wo_report.php"><li><b>Project & Datewise Workorder Report</b></li></a>
+								</ul>
 							</div>
 
 							
@@ -42,7 +41,28 @@ include 'header.php';
 									<a href="materialinfo_report.php"><li><b>Material List</b></li></a>
 									<a href="stock_report.php"><li><b>Stock Reports</b></li></a>
 									<a href="movement_report.php"><li><b>Movement Reports</b></li></a>
+									<a href="material-history.php"><li><b>Material History Report</b></li></a>
 								</ul>
+								
+								<h5>Material Receive Reports</h5>
+								<ul>
+									<a href="receive_report.php"><li><b>Material Receive List</b></li></a>
+									<a href="receive_report_by_category.php"><li><b>Material Receive Report by Category</b></li></a>
+									<a href="supplier_ledger.php"><li><b>Supplier Ledger Report</b></li></a>
+								</ul>
+
+								<h5>Transfer Reports</h5>
+								<ul>
+									<a href="transfer_report.php"><li><b>Material Transfer List</b></li></a>
+								</ul>
+
+								<h5>Consumption Reports</h5>
+								<ul>
+									<a href="consumption_report.php"><li><b>Consumption Report</b></li></a>
+								</ul>
+							</div>
+							
+							<div class="col-sm-4">
 								<h5>Equipment Reports</h5>
 								<ul>
 									<!-- <a href="equipment_list_report.php"><li><b>Equipment List</b></li></a> -->
@@ -54,23 +74,9 @@ include 'header.php';
 									<a href="datewise_maintenance_cost_report.php"><li><b>Maintenance Cost Report</b></li></a>
 									<a href="equipments-history.php"><li><b>Equips.Cost History Report</b></li></a>
 								</ul>
-							</div>
-							
-							<div class="col-sm-4">
-								<h5>Assets Reports</h5>
-								<ul>
-									<a href="material-history.php"><li><b>Material History Report</b></li></a>
-								</ul>
 								<h5>Rent Reports</h5>
 								<ul>
 									<a href="client-history.php"><li><b>Client Ledger Report</b></li></a>
-								</ul>
-
-								<h5>Consumption Reports</h5>
-								<ul>
-									<a href="consumption_report.php"><li><b>Consumption Report</b></li></a>
-									
-									
 								</ul>
 							</div>
 						</div>
