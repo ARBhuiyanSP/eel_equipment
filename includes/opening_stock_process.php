@@ -18,6 +18,7 @@ if (isset($_POST['op_submit']) && !empty($_POST['op_submit'])) {
         $warehouse_id			= $_POST['warehouse_id'];
 		$op_date                = $_POST['op_date'];
         $material_id_code		= $_POST['material_id_code'][$count];  
+        $material_name		= $_POST['material_name'][$count];  
         $op_balance_qty			= $_POST['op_balance_qty'][$count];   
         $part_no		    	= $_POST['part_no'][$count];          
 		
@@ -26,7 +27,7 @@ if (isset($_POST['op_submit']) && !empty($_POST['op_submit'])) {
         *  Update Qty Into inv_materialbalance Table:
         */
 
-		$query_inmb = "INSERT INTO `inv_materialbalance` (`mb_ref_id`,`mb_materialid`,`mb_date`,`mbin_qty`,`mbout_qty`,`mbout_val`,`mbtype`,`part_no`,`project_id`,`warehouse_id`) VALUES ('$material_id_code','$material_id_code','$op_date','$op_balance_qty','0','0','OP','$part_no','$project_id','$warehouse_id')";
+		$query_inmb = "INSERT INTO `inv_materialbalance` (`mb_ref_id`,`mb_materialid`,`material_name`,`mb_date`,`mbin_qty`,`mbout_qty`,`mbout_val`,`mbtype`,`part_no`,`project_id`,`warehouse_id`) VALUES ('$material_id_code','$material_id_code','$material_name','$op_date','$op_balance_qty','0','0','OP','$part_no','$project_id','$warehouse_id')";
 		$conn->query($query_inmb);
 				
     }

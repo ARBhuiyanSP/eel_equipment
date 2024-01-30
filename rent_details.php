@@ -54,7 +54,7 @@ $id = $_GET['id'];
 				<td><?php echo $row["return_date"]; ?></td>  
 				<td style="text-align:right;">
 					<input type="button" name="edit" value="Extend date" id="<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm edit_data" />
-					<input type="button" name="view" value="Return" id="<?php echo $row["id"]; ?>" class="btn btn-success btn-sm view_data" />
+					<input type="button" name="view" value="Return" id="<?php echo $row["id"]; ?>" class="btn btn-success btn-sm rent_data" />
 				</td>  
 		   </tr>  
 		   <?php  
@@ -66,14 +66,51 @@ $id = $_GET['id'];
 
 
 </div>
- <div id="dataModal" class="modal fade">  
+ <div id="add_rentdata_Modal" class="modal fade">  
       <div class="modal-dialog">  
            <div class="modal-content">  
-                <div class="modal-header">  
-                     <button type="button" class="close" data-dismiss="modal">&times;</button>  
-                     <h4 class="modal-title">Employee Details</h4>  
+                <div class="modal-header">    
+                     <h4 class="modal-title">Equipments Return to Own project</h4>  
                 </div>  
-                <div class="modal-body" id="employee_detail">  
+                <div class="modal-body">
+					<form method="post" id="rent_form">   
+						<div class="row">
+							<div class="col-md-4 col-sm-4">
+								<div class="form-group">
+									<label>Return Date</label>  
+									<input type="text" name="rent_date" id="rent_date" class="form-control" />  
+								</div>
+							</div>
+							<div class="col-md-8 col-sm-8">
+								<div class="form-group">
+									<label for="division/company">In Project:</label>
+									<select class="form-control select2" id="in_project" name="in_project" required >
+										<option value="">Select Project</option>
+										<?php
+										$tableName = 'projects';
+										$column = 'project_name';
+										$order = 'asc';
+										$dataType = 'obj';
+										$projectsData = getTableDataByTableName($tableName, $order, $column, $dataType);
+										if (isset($projectsData) && !empty($projectsData)) {
+											foreach ($projectsData as $data) {
+												?>
+												<option value="<?php echo $data->id; ?>"><?php echo $data->project_name; ?></option>
+												<?php
+											}
+										}
+										?>
+									</select>
+								</div>
+							</div>
+							<input type="hidden" name="rentid" id="rentid" />
+							<div class="col-sm-12">
+								<div class="form-group">
+									<input type="submit" name="rent" id="rent" value="Rent" class="btn btn-block btn-success" />  
+								</div>
+							</div>	
+                        </div>	
+                    </form>				
                 </div>  
                 <div class="modal-footer">  
                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
@@ -106,7 +143,9 @@ $id = $_GET['id'];
  $(document).ready(function(){  
       $('#add').click(function(){  
            $('#insert').val("Insert");  
-           $('#insert_form')[0].reset();  
+           $('#insert_form')[0].reset(); 
+           $('#rent').val("Rent");  
+           $('#rent_form')[0].reset(); 
       });  
       $(document).on('click', '.edit_data', function(){  
            var id = $(this).attr("id");  
@@ -122,7 +161,7 @@ $id = $_GET['id'];
                      $('#add_data_Modal').modal('show');  
                 }  
            });  
-      });  
+      }); 
       $('#insert_form').on("submit", function(event){  
            event.preventDefault();  
            if($('#return_date').val() == "")  
@@ -145,7 +184,47 @@ $id = $_GET['id'];
                      }  
                 });  
            }  
-      });  
+      }); 
+	  
+	  $(document).on('click', '.rent_data', function(){  
+           var rentid = $(this).attr("id");  
+           $.ajax({  
+                url:"extend/fetchrent.php",  
+                method:"POST",  
+                data:{rentid:rentid},  
+                dataType:"json",  
+                success:function(data){    
+                     $('#rent_date').val(data.rent_date);  
+                     $('#rentid').val(data.id);  
+                     $('#rent').val("RentUpdate");  
+                     $('#add_rentdata_Modal').modal('show');  
+                }  
+           });  
+      });
+	  $('#rent_form').on("submit", function(event){  
+           event.preventDefault();  
+           if($('#rent_date').val() == "")  
+           {  
+                alert("rent_date is required");  
+           }   
+           else  
+           {  
+                $.ajax({  
+                     url:"extend/rent.php",  
+                     method:"POST",  
+                     data:$('#rent_form').serialize(),  
+                     beforeSend:function(){  
+                          $('#rent').val("Rent");  
+                     },  
+                     success:function(data){  
+                          $('#rent_form')[0].reset();  
+                          $('#add_rentdata_Modal').modal('hide');  
+                          $('#employee_table').html(data);  
+                     }  
+                });  
+           }  
+      });
+  
       $(document).on('click', '.view_data', function(){  
            var id = $(this).attr("id");  
            if(id != '')  
@@ -166,6 +245,18 @@ $id = $_GET['id'];
  <script>
     $(function () {
         $("#return_date").datepicker({
+            inline: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: "-50:+10",
+            changeYear: true,
+            changeMonth: true
+        });
+    });
+</script>
+
+ <script>
+    $(function () {
+        $("#rent_date").datepicker({
             inline: true,
             dateFormat: "yy-mm-dd",
             yearRange: "-50:+10",

@@ -107,6 +107,9 @@ display:none;
 							<td></td>
 							<td></td>
 							<td><input class="form-control" name="material_id_code[]" id="material_id_code" type="text" value="<?php echo $rowmat['material_id_code']; ?>" readonly /></td>
+							
+							<input class="form-control" name="material_name[]" id="material_name" type="hidden" value="<?php echo $rowmat['id']; ?>" readonly />
+							
 							<td><input class="form-control" name="material_description[]" id="material_description" type="text" value="<?php echo $rowmat['material_description']; ?>" readonly /></td>
 							<td><input class="form-control" name="part_no" id="part_no" type="text" value="<?php echo $rowmat['part_no']; ?>" readonly /></td>
 							<td><input class="form-control" name="spec" id="spec" type="text" value="<?php echo $rowmat['spec']; ?>" readonly /></td>
