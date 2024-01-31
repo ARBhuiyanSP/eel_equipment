@@ -610,7 +610,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableRentLis
     $totalFilter=$totalData;
     //Search
     //$sql ="SELECT * FROM rents WHERE 1=1";
-    $sql ="SELECT rents.id as voucher_id,rents.challan_no,rents.client_name,rents.ref_no,rents.grandtotal,rents.due_amount,clients.id,clients.name FROM rents INNER JOIN clients ON rents.client_name=clients.id WHERE 1=1";
+    $sql ="SELECT rents.id as voucher_id,rents.challan_no,rents.client_name,rents.ref_no,rents.grandtotal,rents.due_amount,rents.status,clients.id,clients.name FROM rents INNER JOIN clients ON rents.client_name=clients.id WHERE 1=1";
     if(!empty($request['search']['value'])){
         $sql.=" AND rents.id Like '%".$request['search']['value']."%' ";
         $sql.=" AND rents.challan_no Like '%".$request['search']['value']."%' ";
@@ -618,13 +618,15 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableRentLis
         $sql.=" OR rents.ref_no Like '%".$request['search']['value']."%' ";
         $sql.=" OR rents.grandtotal Like '%".$request['search']['value']."%' ";
         $sql.=" OR rents.due_amount Like '%".$request['search']['value']."%' ";
+        $sql.=" OR rents.status Like '%".$request['search']['value']."%' ";
   
     }
 
     $totalData=getTotalRowBySQL($sql);
     //Order
-    $sql.=" ORDER BY ".$col[$request['order'][0]['column']]."   ".$request['order'][0]['dir']."  LIMIT ".
-        $request['start']."  ,".$request['length']."  ";
+    //$sql.=" ORDER BY ".$col[$request['order'][0]['column']]."   ".$request['order'][0]['dir']."  LIMIT ".
+    $sql.=" ORDER BY rents.id DESC  LIMIT ".
+        $request['start']."  ,".$request['length']."";
     
     $userData   = getDataRowIdAndTableBySQL($sql);
     
@@ -665,8 +667,9 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableRentLis
 }
 function get_rent_list_action_data($data){
     $view_url = 'rent_view.php?id='.$data->voucher_id;
+    $status = $data->status;
     $collection_url = 'mr_create.php?id='.$data->voucher_id;
-    $details_url = 'rent_details.php?id='.$data->voucher_id;
+    $details_url = 'rent_details.php?id='.$data->challan_no;
     //$extend_url = 'extend_date.php?id='.$data->challan_no;
     //$approve_url = 'workorders_approve.php?id='.$data->challan_no;
     //$receive_url = 'receive_from_wo.php?id='.$data->challan_no;
@@ -676,9 +679,14 @@ function get_rent_list_action_data($data){
                                 <span class="fa fa-eye"> <b> Invoice</b></span>
        
                      </a></span>';
-	$action.='<a title="Collection" class="btn btn-sm btn-danger" href="'.$details_url.'">
-                                <i class="fa fa-money"> Return/Extend</i>
-                            </a>';
+	if($status == 'Rented'){
+		$action.='<a title="Collection" class="btn btn-sm btn-danger" href="'.$details_url.'">
+									<i class="fa fa-money"> Return/Extend</i>
+								</a>';	
+	}
+			
+		
+	
 							
 	$action.='<a title="Collection" class="btn btn-sm btn-warning" href="'.$collection_url.'">
                                 <i class="fa fa-money"> Collection</i>

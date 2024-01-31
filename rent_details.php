@@ -1,7 +1,12 @@
-<?php include 'header.php';
+<?php 
+include 'header.php';
 $id = $_GET['id'];
- $query = "SELECT * FROM rent_details ORDER BY id DESC";  
- $result = mysqli_query($conn, $query); 
+$query = "SELECT * FROM rent_details where `challan_no`='$id' ORDER BY id DESC";  
+$result = mysqli_query($conn, $query); 
+ 
+ 
+ 
+			
  ?>
 <div class="container-fluid">
     <!-- Breadcrumbs-->
@@ -14,7 +19,7 @@ $id = $_GET['id'];
     <!-- receive search start here -->
 	<div class="row">
 		<?php 
-		$queryDetails = "SELECT * FROM `rents` WHERE `id`='$id'";  
+		$queryDetails = "SELECT * FROM `rents` WHERE `challan_no`='$id'";  
 		$resultDetails = mysqli_query($conn, $queryDetails);
 		$rowDetails = mysqli_fetch_array($resultDetails);
 		?>
@@ -53,8 +58,15 @@ $id = $_GET['id'];
 				<td><?php echo $row["rent_date"]; ?></td>  
 				<td><?php echo $row["return_date"]; ?></td>  
 				<td style="text-align:right;">
+					<?php 
+					if($row["status"]=='Rented'){
+					?>
 					<input type="button" name="edit" value="Extend date" id="<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm edit_data" />
-					<input type="button" name="view" value="Return" id="<?php echo $row["id"]; ?>" class="btn btn-success btn-sm rent_data" />
+					<input type="button" name="view" value="Return" id="<?php echo $row["id"]; ?>" class="btn btn-warning btn-sm rent_data" />
+					<?php }else{ ?>
+					<input type="button" value="Returned" class="btn btn-success btn-sm" disabled />
+					<?php } ?>
+					
 				</td>  
 		   </tr>  
 		   <?php  
@@ -63,7 +75,6 @@ $id = $_GET['id'];
 	  </table>  
  </div>
     <!-- end receive search -->
-
 
 </div>
  <div id="add_rentdata_Modal" class="modal fade">  
@@ -79,6 +90,18 @@ $id = $_GET['id'];
 								<div class="form-group">
 									<label>Return Date</label>  
 									<input type="text" name="rent_date" id="rent_date" class="form-control" />  
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<div class="form-group">
+									<label>EEL Code</label>  
+									<input type="text" name="eel_code" id="eel_code" class="form-control" />  
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<div class="form-group">
+									<label>Challan No</label>  
+									<input type="text" name="challan_no" id="challan_no" class="form-control" />  
 								</div>
 							</div>
 							<div class="col-md-8 col-sm-8">
@@ -122,15 +145,33 @@ $id = $_GET['id'];
       <div class="modal-dialog">  
            <div class="modal-content">  
                 <div class="modal-header">  
-                     <button type="button" class="close" data-dismiss="modal">&times;</button>  
+                     <h5>Extend Return Date</h5>  
                 </div>  
                 <div class="modal-body">  
-                     <form method="post" id="insert_form">   
-                          <label>return_date</label>  
-                          <input type="text" name="return_date" id="return_date" class="form-control" />  
-                          <br />  
+                    <form method="post" id="insert_form">   
+                        <div class="row">
+							<div class="col-md-4 col-sm-4">
+								<div class="form-group">
+									<label>Previous Return Date</label>  
+									<input type="text" name="return_date" id="return_date" class="form-control" readonly />
+								</div>  
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<div class="form-group">
+									<label>Extended Return Date</label>  
+									<input type="text" name="ex_return_date" id="ex_return_date" class="form-control" />
+								</div>  
+							</div> 
+							<div class="col-md-4 col-sm-4">
+								<div class="form-group">
+									<label>Amount will be Added</label>  
+									<input type="text" name="ex_amount" id="ex_amount" class="form-control" />
+								</div>  
+							</div>  
+						</div>
+							<input type="text" name="ex_challan_no" id="ex_challan_no" class="form-control" />
                           <input type="hidden" name="id" id="id" />  
-                          <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />  
+                          <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-block btn-sm btn-success" />  
                      </form>  
                 </div>  
                 <div class="modal-footer">  
@@ -156,6 +197,10 @@ $id = $_GET['id'];
                 dataType:"json",  
                 success:function(data){    
                      $('#return_date').val(data.return_date);  
+                     $('#ex_return_date').val(data.ex_return_date);  
+                     $('#ex_amount').val(data.ex_amount); 
+                     $('#ex_challan_no').val(data.challan_no);  
+                     $('#ex_project').val(data.ex_project);  
                      $('#id').val(data.id);  
                      $('#insert').val("Update");  
                      $('#add_data_Modal').modal('show');  
@@ -164,9 +209,9 @@ $id = $_GET['id'];
       }); 
       $('#insert_form').on("submit", function(event){  
            event.preventDefault();  
-           if($('#return_date').val() == "")  
+           if($('#ex_return_date').val() == "")  
            {  
-                alert("return_date is required");  
+                alert("ex_return_date is required");  
            }   
            else  
            {  
@@ -195,6 +240,9 @@ $id = $_GET['id'];
                 dataType:"json",  
                 success:function(data){    
                      $('#rent_date').val(data.rent_date);  
+                     $('#eel_code').val(data.eel_code);  
+                     $('#challan_no').val(data.challan_no);  
+                     $('#in_project').val(data.in_project);  
                      $('#rentid').val(data.id);  
                      $('#rent').val("RentUpdate");  
                      $('#add_rentdata_Modal').modal('show');  
@@ -244,7 +292,7 @@ $id = $_GET['id'];
  </script>
  <script>
     $(function () {
-        $("#return_date").datepicker({
+        $("#return_dates").datepicker({
             inline: true,
             dateFormat: "yy-mm-dd",
             yearRange: "-50:+10",
@@ -253,7 +301,17 @@ $id = $_GET['id'];
         });
     });
 </script>
-
+ <script>
+    $(function () {
+        $("#ex_return_date").datepicker({
+            inline: true,
+            dateFormat: "yy-mm-dd",
+            yearRange: "-50:+10",
+            changeYear: true,
+            changeMonth: true
+        });
+    });
+</script>
  <script>
     $(function () {
         $("#rent_date").datepicker({

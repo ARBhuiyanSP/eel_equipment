@@ -1,16 +1,24 @@
 <?php  
+include '../helper/utilities.php';
  $conn = mysqli_connect("localhost", "root", "", "eel_equipment");  
  if(!empty($_POST))  
  {  
       $output = '';  
       $message = '';  
       $return_date = mysqli_real_escape_string($conn, $_POST["return_date"]);  
+      $ex_return_date = mysqli_real_escape_string($conn, $_POST["ex_return_date"]);  
+      $ex_amount = mysqli_real_escape_string($conn, $_POST["ex_amount"]);  
       if($_POST["id"] != '')  
       {  
-           $query = "  
-           UPDATE rent_details   
-           SET return_date='$return_date'   
-           WHERE id='".$_POST["id"]."'";  
+			$query = "UPDATE rent_details SET return_date='$return_date' WHERE id='".$_POST["id"]."'";
+			$conn->query($query);
+		   
+			$query2 = "insert into `rent_history` values('','".$_POST["rentid"]."','".$_POST["eel_code"]."','$return_date','$ex_return_date','$ex_amount','Rented')";
+			$conn->query($query2);
+			
+			$query3 = "insert into `client_balance` values('', '".$_POST["ex_challan_no"]."', '$ex_return_date', 'client_id', 'project_id', 'cb_dr_amount', 'cb_cr_amount', 'cb_method', 'bank_name', 'bank_branch', 'bank_cheque_no', 'bank_cheque_date', 'cb_remarks', 'created_at', 'created_by', 'updated_at', 'updated_by')";
+			$conn->query($query3);
+				
            $message = 'Data Updated';  
       }  
       else  

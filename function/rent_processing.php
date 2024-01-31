@@ -50,7 +50,8 @@ if (isset($_POST['rent_entry']) && !empty($_POST['rent_entry'])) {
 			$temp_file=$_FILES['file']['tmp_name'];
 			$mrr_image=time().$_FILES['file']['name'];
 			$q = move_uploaded_file($temp_file,"images/".$mrr_image);
-		} */      
+		} */
+		
         $query = "INSERT INTO `rent_details`(`rent_id`, `challan_no`, `eel_code`, `rent_date`, `return_date`, `extended_date`, `total_days`, `amount`, `status`) VALUES ('$rent_id','$challan_no','$equipments','$rent_date','$return_date','$return_date','$totaldays','$totalamount','Rented')";
         $conn->query($query);
 		$lastinsertedId =  mysqli_insert_id($conn);
@@ -63,11 +64,27 @@ if (isset($_POST['rent_entry']) && !empty($_POST['rent_entry'])) {
 		*/
 		$queryEquipments = "UPDATE `equipments` SET `present_location`='$project_name',`present_location_type`='$present_location_type',`status`='Rented' WHERE `eel_code` = '$equipments'";
 		$conn->query($queryEquipments); 
+		
+			$select_assign = "SELECT * FROM `equipment_assign` WHERE `eel_code`='$equipments' ORDER BY `id` DESC";  
+			$resultassign = mysqli_query($conn, $select_assign);
+			$rowassign = mysqli_fetch_array($resultassign);
+			$assign_id = $rowassign['id'];
+	
+
+    $sql8	=	"UPDATE `equipment_assign` set `refund_date`='$created_at' where `id`='$assign_id'";
+    $result8 = $conn->query($sql8); 
+	
+	$sql9	=	"insert into `equipment_assign` values('','$equipments','$project_name','$created_at','','')";
+	$result9 = $conn->query($sql9); 
 		}
     /*
     *  Insert Data Into inv_receive Table:
     */
-    $query2 = "INSERT INTO `rents`(`date`, `client_name`, `project_name`, `ref_no`, `challan_no`, `total_rent_amount`, `discount`, `grandtotal`, `deposit_amount`, `due_amount`, `status`, `created_at`, `created_by`) VALUES ('$date','$client_name','$project_name','$ref_name','$challan_no','$sub_total_amount','$discount','$grandtotal','$paid_amount','$due_amount','0','$created_at','$created_by')";
+	
+
+	
+	
+    $query2 = "INSERT INTO `rents`(`date`, `client_name`, `project_name`, `ref_no`, `challan_no`, `total_rent_amount`, `discount`, `grandtotal`, `deposit_amount`, `due_amount`, `status`, `created_at`, `created_by`) VALUES ('$date','$client_name','$project_name','$ref_name','$challan_no','$sub_total_amount','$discount','$grandtotal','$paid_amount','$due_amount','Rented','$created_at','$created_by')";
     $result2 = $conn->query($query2);    
     /*
     *  Insert Data Into inv_supplierbalance Table:
