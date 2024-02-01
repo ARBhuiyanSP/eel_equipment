@@ -356,6 +356,18 @@ function getDataRowByTable($table){
     }
     return "0";
 }
+
+function getDataRowByConditions($table,$where){
+    global $conn;
+    $sql = "SELECT * FROM $table $where";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        return $result->num_rows;
+    }
+    return "0";
+}
+
 function getDataRowByTableByStatus($table,$status){
     global $conn;
     $sql = "SELECT * FROM $table WHERE `rlp_status`='$status'";

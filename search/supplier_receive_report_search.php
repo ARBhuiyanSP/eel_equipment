@@ -58,13 +58,13 @@
                                 </div>
                             </td>
 							
-							
 							<td style="width:15%">
                                 <div class="form-group">
                                     <label for="todate">.</label>
-									<button type="submit" name="submitLedger" class="form-control btn btn-primary">Supplier Ledger</button>
+									<button type="submit" name="submit" class="form-control btn btn-primary">Supplier Receive Details</button>
                                 </div>
                             </td>
+							
                         </tr>
                     </tbody>
                 </table>

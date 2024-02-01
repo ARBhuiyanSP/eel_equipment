@@ -49,6 +49,7 @@ include 'header.php';
 									<a href="receive_report.php"><li><b>Material Receive List</b></li></a>
 									<a href="materialwise_receive_report.php"><li><b>Materialwise Receive Report</b></li></a>
 									<a href="receive_report_by_category.php"><li><b>Material Receive Report by Category</b></li></a>
+									<a href="supplier_receive.php"><li><b>Supplierwise Receive Report</b></li></a>
 									<a href="supplier_ledger.php"><li><b>Supplier Ledger Report</b></li></a>
 								</ul>
 
@@ -74,7 +75,7 @@ include 'header.php';
 									<a href="datewise_logsheet_report.php"><li><b>Equipment Logsheet Report</b></li></a>
 									<a href="datewise_maintenance_report.php"><li><b>Schedule Maintenance Cost Report</b></li></a>
 									<a href="datewise_maintenance_cost_report.php"><li><b>Maintenance Cost Report</b></li></a>
-									<a href="equipments-history.php"><li><b>Equips.Cost History Report</b></li></a>
+									<a href="equipments-history.php"><li><b>Equipments Cost History Report</b></li></a>
 								</ul>
 								<h5>Rent Reports</h5>
 								<ul>
