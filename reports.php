@@ -41,7 +41,7 @@ include 'header.php';
 									<a href="materialinfo_report.php"><li><b>Material List</b></li></a>
 									<a href="stock_report.php"><li><b>Stock Reports</b></li></a>
 									<a href="movement_report.php"><li><b>Movement Reports</b></li></a>
-									<a href="material-history.php"><li><b>Material History Report</b></li></a>
+									<a href="material-history.php"><li><b>Materialwise Movement Report</b></li></a>
 								</ul>
 								
 								<h5>Material Receive Reports</h5>
