@@ -47,6 +47,7 @@ include 'header.php';
 								<h5>Material Receive Reports</h5>
 								<ul>
 									<a href="receive_report.php"><li><b>Material Receive List</b></li></a>
+									<a href="materialwise_receive_report.php"><li><b>Materialwise Receive Report</b></li></a>
 									<a href="receive_report_by_category.php"><li><b>Material Receive Report by Category</b></li></a>
 									<a href="supplier_ledger.php"><li><b>Supplier Ledger Report</b></li></a>
 								</ul>
@@ -59,6 +60,7 @@ include 'header.php';
 								<h5>Consumption Reports</h5>
 								<ul>
 									<a href="consumption_report.php"><li><b>Consumption Report</b></li></a>
+									<a href="materialwise_consumption_report.php"><li><b>Materialwise Consumption Report</b></li></a>
 								</ul>
 							</div>
 							

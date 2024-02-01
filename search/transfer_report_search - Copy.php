@@ -15,24 +15,6 @@
                         <tr>  
 							<td>
                                 <div class="form-group">
-                                    <label for="FromProject"> From Project</label>
-                                    <select class="form-control material_select_2" id="project_id" name="project_id">
-										<option value="all">All Project</option>
-										<?php $results = mysqli_query($conn, "SELECT * FROM `projects`"); 
-										while ($row = mysqli_fetch_array($results)) {
-											if($_GET['project_id'] == $row['id']){
-											$selected	= 'selected';
-											}else{
-											$selected	= '';
-											}
-											?>
-										<option value="<?php echo $row['id']; ?>" <?php echo $selected; ?>><?php echo $row['project_name']; ?></option>
-										<?php } ?>
-									</select>
-                                </div>
-                            </td>
-							<td>
-                                <div class="form-group">
                                     <label for="todate">From Date</label>
                                     <input type="text" class="form-control" id="from_date" name="from_date" value="<?php if(isset($_GET['from_date'])){ echo $_GET['from_date']; } ?>" autocomplete="off" required >
                                 </div>
@@ -60,7 +42,6 @@
 <?php
 if(isset($_GET['submit'])){
 	
-	$project_id		= $_GET['project_id'];
 	$from_date		=	$_GET['from_date'];
 	$to_date		=	$_GET['to_date'];
 	$warehouse_id	=	$_SESSION['logged']['warehouse_id'];
@@ -98,7 +79,7 @@ if(isset($_GET['submit'])){
 					</thead>
 					<tbody>
 						<?php
-							$sql	=	"SELECT * FROM `inv_transfermaster` where 1=1 ".($project_id!='all'?" AND `from_project` = '$project_id'":'')." AND `transfer_date` BETWEEN '$from_date' AND '$to_date';";
+							$sql	=	"SELECT * FROM `inv_transfermaster` where `transfer_date` BETWEEN '$from_date' AND '$to_date';";
 							$result = mysqli_query($conn, $sql);
 							while($row=mysqli_fetch_array($result))
 							{
@@ -106,8 +87,6 @@ if(isset($_GET['submit'])){
 						<tr style="background-color:#E9ECEF;">
 							<td>Trans. No : <?php echo $row['transfer_id']; ?></td>
 							<td>Date : <?php echo date("jS F Y", strtotime($row['transfer_date']));?></td>
-							<td>From : <?php echo getProjectNameByID($row['from_project']);?></td>
-							<td>To : <?php echo getProjectNameByID($row['to_project']);?></td>
 							
 							
 						</tr>

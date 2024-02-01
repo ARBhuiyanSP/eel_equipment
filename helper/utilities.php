@@ -1831,6 +1831,28 @@ function getMaterialNameByIdAndTableandId($table,$id)
     }
     return $name;
 }
+function getMaterialPartNoByIdAndTableandId($table,$id)
+{
+    global $conn;
+    $sql = "SELECT * FROM $table WHERE id='$id'";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        $name   =   $result->fetch_object()->part_no;
+    }
+    return $name;
+}
+function getMaterialSpecByIdAndTableandId($table,$id)
+{
+    global $conn;
+    $sql = "SELECT * FROM $table WHERE id='$id'";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        $name   =   $result->fetch_object()->spec;
+    }
+    return $name;
+}
 
 function getProjectTypeByID($id)
 {
