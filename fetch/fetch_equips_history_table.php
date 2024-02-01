@@ -79,16 +79,9 @@ function get_equipments_list_action_data($row){
     $approve_url = 'receive_approve.php?no='.$row["name"];
     $action = "";
 	
-if(check_permission('material-receive-edit')){
-    $action.='<span><a class="btn btn-sm btn-info" href="#" title="edit"><i class="fa fa-edit"> Edit</i></a></span>';
-}
 
-						
-	$action.='<span><a class="btn btn-sm btn-success" href="'.$view_url.'" title="Details View"><i class="fas fa-eye"> Details</i></a></span>';
 	
-/* 	$action.='<span><a class="btn btn-sm btn-danger" href="'.$shifting_url.'" title="Transfer"><i class="fas fa-edit"> Shifting</i></a></span>';
-	
-	$action.='<span><a class="btn btn-sm btn-success" href="'.$history_url.'" title="History"><i class="fas fa-edit"> History</i></a></span>'; */
+	$action.='<span><a class="btn btn-sm btn-success" href="'.$history_url.'" title="History"><i class="fas fa-edit"> History</i></a></span>';
 
 						
 							

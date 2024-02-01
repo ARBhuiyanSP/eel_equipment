@@ -36,7 +36,7 @@
 							<th width="10%">Brand/MakeBy</th>
 							<th width="10%">Model</th>
 							<th width="10%">capacity</th>
-							<th width="15%">Action</th>
+							<th width="10%">Action</th>
 						</tr>
 					</thead>
 				</table>
@@ -59,7 +59,7 @@ $(document).ready(function(){
    "serverSide":true,
    "order":[],
    "ajax":{
-    url:"fetch/fetch_equips_table.php",
+    url:"fetch/fetch_equips_history_table.php",
     type:"POST",
     data:{is_present_location:is_present_location}
    },
