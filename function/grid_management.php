@@ -667,6 +667,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableRentLis
 }
 function get_rent_list_action_data($data){
     $view_url = 'rent_view.php?id='.$data->voucher_id;
+    $invoice_url = 'rent_invoice.php?id='.$data->challan_no;
     $status = $data->status;
     $collection_url = 'mr_create.php?id='.$data->voucher_id;
     $details_url = 'rent_details.php?id='.$data->challan_no;
@@ -675,7 +676,7 @@ function get_rent_list_action_data($data){
     //$receive_url = 'receive_from_wo.php?id='.$data->challan_no;
     $action = "";
 							
-	$action.='<span><a title="Details View" class="btn btn-sm btn-success" href="#">
+	$action.='<span><a title="Details View" class="btn btn-sm btn-success" href="'.$invoice_url.'">
                                 <span class="fa fa-eye"> <b> Invoice</b></span>
        
                      </a></span>';

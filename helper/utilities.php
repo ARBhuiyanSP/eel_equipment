@@ -717,6 +717,18 @@ function getProjectNameById($id){
     }
     return $name;
 }
+function getProjectAddressById($id){
+    global $conn;
+    $table  =   "projects";
+    $sql = "SELECT * FROM $table WHERE id=$id";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        //$name   =   $result->fetch_object()->project_name;
+        $name   =   $result->fetch_object()->address;
+    }
+    return $name;
+}
 
 function getWarehouseNameById($id){
     global $conn;
