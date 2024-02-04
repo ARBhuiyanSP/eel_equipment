@@ -247,7 +247,7 @@ $result = mysqli_query($conn, $query);
                 data:{rentid:rentid},  
                 dataType:"json",  
                 success:function(data){    
-                     $('#rent_date').val(data.rent_date);  
+                     $('#rent_date').val(data.extended_date);  
                      $('#eel_code').val(data.eel_code);  
                      $('#challan_no').val(data.challan_no);  
                      $('#in_project').val(data.in_project);  

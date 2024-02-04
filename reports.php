@@ -38,7 +38,7 @@ include 'header.php';
 							<div class="col-sm-4">
 								<h5>Material Reports</h5>
 								<ul>
-									<a href="materialinfo_report.php"><li><b>Material List</b></li></a>
+									<a href="material_list_report.php"><li><b>Material List</b></li></a>
 									<a href="stock_report.php"><li><b>Stock Reports</b></li></a>
 									<a href="movement_report.php"><li><b>Movement Reports</b></li></a>
 									<a href="material-history.php"><li><b>Materialwise Movement Report</b></li></a>

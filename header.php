@@ -332,11 +332,11 @@ footer.sticky-footer{
           <i class="fas fa-fw fa-server"></i> Maintenance
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-			<a class="dropdown-item" href="logsheet.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Logsheet</span></a>            
+			<a class="dropdown-item" href="logsheet_list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Logsheet</span></a>            
 			<?php //if(check_permission('material-receive-add')){ ?>
-			<a class="dropdown-item" href="schedulemaintenance.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Schedule Maintenance</span></a>
+			<a class="dropdown-item" href="schedulemaintenance_list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Schedule Maintenance</span></a>
 			<?php //} ?>
-			<a class="dropdown-item" href="maintenance_cost.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Maintenance Cost</span></a>
+			<a class="dropdown-item" href="maintenancecost_list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Maintenance Cost</span></a>
 		   
           <!--<a class="dropdown-item" href="#">Settings</a>-->
           <!--<a class="dropdown-item" href="#">Activity Log</a>-->

@@ -14,11 +14,11 @@
 		</div>
         <div class="card-body">
 			<div class="table-responsive data-table-wrapper">
-				<table id="mr_data_list" class="table table-bordered table-striped">
+				<table id="logsheet_data_list" class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th>Bill Date</th>
-							<th>Bill No</th>
+							<th>EEL Code</th>
+							<th> Date</th>
 							<th>
 								<select name="project_id" id="project_id" class="form-control select2">
 									<option value="">Project name</option>
@@ -32,8 +32,8 @@
 									?>
 								</select>
 							</th>
-							<th> Amount</th>
-							<th> Payment Type</th>
+							<th> Work Detail</th>
+							<th>Stand By</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -52,12 +52,12 @@ $(document).ready(function(){
 
  function load_logsheet_data(is_project_id)
  {
-  var dataTable = $('#mr_data_list').DataTable({
+  var dataTable = $('#logsheet_data_list').DataTable({
    "processing":true,
    "serverSide":true,
    "order":[],
    "ajax":{
-    url:"fetch/fetch_mr_table.php",
+    url:"fetch/fetch_logsheet_table.php",
     type:"POST",
     data:{is_project_id:is_project_id}
    },
@@ -72,7 +72,7 @@ $(document).ready(function(){
 
  $(document).on('change', '#project_id', function(){
   var project_id = $(this).val();
-  $('#mr_data_list').DataTable().destroy();
+  $('#logsheet_data_list').DataTable().destroy();
   if(project_id != '')
   {
    load_logsheet_data(project_id);

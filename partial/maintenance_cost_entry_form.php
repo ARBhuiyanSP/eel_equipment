@@ -80,7 +80,7 @@
 						<label for="exampleId">Project</label>
 						<input name="" type="text" class="form-control" id="" value="<?php $dataresult =   getDataRowByTableAndId('projects', $row['project_id']); echo (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : ''); ?>" autocomplete="off" readonly />
 					</div>
-					<input name="project_id" type="hidden" class="form-control" id="project_id" value="<?php echo $row['project_id']; ?>" autocomplete="off" />
+					
 				</div>
 				<div class="col-sm-2">
 					<div class="form-group">
@@ -113,7 +113,25 @@
 						<input name="out_time" type="text" class="form-control" id="date" value="" size="30" autocomplete="off" />
 					</div>
 				</div>
-				<div class="col-sm-12">
+							<div class="col-xs-2">
+								<div class="form-group">
+									<label>Your Project</label>
+									<?php $project_id = $_SESSION['logged']['project_id']; ?>
+									<input name="" type="text" class="form-control" id="" value="<?php $dataresult =   getDataRowByTableAndId('projects', $project_id); echo (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : ''); ?>" autocomplete="off" readonly />
+								
+									<input name="project_id" type="hidden" class="form-control" id="project_id" value="<?php echo $project_id; ?>" autocomplete="off" />
+								</div>
+							</div>
+							<div class="col-xs-3">
+								<div class="form-group">
+									<label>Your Warehouse</label>
+									<?php $warehouse_id = $_SESSION['logged']['warehouse_id']; ?>
+									<input name="" type="text" class="form-control" id="" value="<?php $dataresult =   getDataRowByTableAndId('inv_warehosueinfo', $warehouse_id); echo (isset($dataresult) && !empty($dataresult) ? $dataresult->name : ''); ?>" autocomplete="off" readonly />
+								
+									<input name="warehouse_id" type="hidden" class="form-control" id="warehouse_id" value="<?php echo $warehouse_id; ?>" autocomplete="off" />
+								</div>
+							</div>
+				<div class="col-xs-7">
 					<div class="form-group">
 						<label for="exampleId">Problem Description</label>
 						<textarea name="problem_details" class="form-control" rows="1"></textarea>
@@ -140,7 +158,7 @@
 				</div>
 				<div class="col-sm-12">
 					<input type="submit" name="cost_entry" id="submit" class="btn btn-block btn-primary" value="Save Data" />
-				</div>
+				</div>		
 			</div>
 		</form>
 	<?php  } else if(isset($_POST['historySubmit'])){ 

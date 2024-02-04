@@ -729,6 +729,19 @@ function getProjectNameById($id){
     }
     return $name;
 }
+
+function getCategoryNameById($id){
+    global $conn;
+    $table  =   "inv_materialcategorysub";
+    $sql = "SELECT * FROM $table WHERE id=$id";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        //$name   =   $result->fetch_object()->project_name;
+        $name   =   $result->fetch_object()->category_description;
+    }
+    return $name;
+}
 function getProjectAddressById($id){
     global $conn;
     $table  =   "projects";
@@ -881,6 +894,29 @@ function get_mcsl_no($prefix="MCSL", $formater_length=3){
     $depName    = replace_dashes(getDepartmentNameById($department_id));
     
     return $year."-".$month."-".$divName.'-'.$prefix.'-'.$finalRLPNo;
+}
+function get_mr_bill_no($prefix="MR", $formater_length=3){
+    global $conn;
+    
+    //$division_id    =   $_SESSION['logged']['branch_id'];
+    //$department_id  =   $_SESSION['logged']['department_id'];
+    $department_id  =   $_SESSION['logged']['department_id'];
+    //$office_id      =   $_SESSION['logged']['office_id'];
+    //$user_id        =   $_SESSION['logged']['user_id'];
+    
+    $year       =   date("Y");
+    $month      =   date("m");
+    $sql        = "SELECT count('id') as total FROM `rent_bill` WHERE 1=1";
+    $result     = $conn->query($sql);
+    $total_row  =   $result->fetch_object()->total;
+    
+    $nextRLP    =   $total_row+1;
+    $finalRLPNo = sprintf('%0' . $formater_length . 'd', $nextRLP);
+    //$divName    = replace_dashes(getDivisionNameById($division_id));
+    $divName    = 'EEL';
+    $depName    = replace_dashes(getDepartmentNameById($department_id));
+    
+    return $divName.'-'.$prefix.'-'.$finalRLPNo;
 }
 function get_wo_no($prefix="WO", $formater_length=3){
     global $conn;

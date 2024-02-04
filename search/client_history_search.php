@@ -42,13 +42,13 @@
                                     <input type="text" class="form-control" id="to_date" name="to_date" value="<?php if(isset($_GET['to_date'])){ echo $_GET['to_date']; } ?>" autocomplete="off" required >
                                 </div>
                             </td>
-							
+							<!-- 
 							<td style="width:15%">
                                 <div class="form-group">
                                     <label for="todate">.</label>
 									<button type="submit" name="submit" class="form-control btn btn-primary">Clients Details</button>
                                 </div>
-                            </td>
+                            </td> -->
 							<td style="width:15%">
                                 <div class="form-group">
                                     <label for="todate">.</label>

@@ -187,6 +187,8 @@ if (isset($_POST['mr_create']) && !empty($_POST['mr_create'])) {
         $project_id		= $_POST['project_id'];
         $invoice_no		= $_POST['invoice_no'];
         $amount        	= $_POST['amount'];
+        $challan_no        	= $_POST['challan_no'];
+        $rent_id        	= $_POST['rent_id'];
         $deposit_amount        	= $_POST['deposit_amount'];
         $due_amount        	= $_POST['due_amount'];
         $cb_method		= $_POST['cb_method'];
@@ -216,6 +218,9 @@ if (isset($_POST['mr_create']) && !empty($_POST['mr_create'])) {
 		
 		$query2 = "INSERT INTO `client_balance` (`ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`,`created_at`,`created_by`) VALUES ('$mr_no', '$cb_date', '$client_id', '$project_id', '$amount', '0', '$cb_method', '$bank_name', '$bank_branch', '$bank_cheque_no', '$bank_cheque_date', '$cb_remarks','$created_at','$created_by')";
         $conn->query($query2);
+		
+		$query8 = "INSERT INTO `rent_bill` (`bill_no`, `rent_id`, `bill_date`, `challan_no`, `client_name`, `project_name`,`eel_code`, `amount`, `payment_type`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `created_at`, `created_by`) VALUES ('$mr_no','$id','$cb_date','$challan_no','$client_id', '$project_id','','$amount','$cb_method','$bank_name','$bank_branch','$bank_cheque_no','$bank_cheque_date','$created_at','$created_by')";
+        $conn->query($query8);
 		
 		header("location: mr_list.php");
 		exit();

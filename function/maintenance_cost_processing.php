@@ -7,6 +7,9 @@ if (isset($_POST['cost_entry']) && !empty($_POST['cost_entry'])){
 	$out_time		= (isset($_POST['out_time']) && !empty($_POST['out_time']) ? trim(mysqli_real_escape_string($conn,$_POST['out_time'])) : date("Y-m-d h:i:s"));
     $problem_details		= (isset($_POST['problem_details']) && !empty($_POST['problem_details']) ? trim(mysqli_real_escape_string($conn,$_POST['problem_details'])) : "");
     $remarks		= (isset($_POST['remarks']) && !empty($_POST['remarks']) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'])) : "");
+	
+	$project_id		= (isset($_POST['project_id']) && !empty($_POST['project_id']) ? trim(mysqli_real_escape_string($conn,$_POST['project_id'])) : "");
+    $warehouse_id		= (isset($_POST['warehouse_id']) && !empty($_POST['warehouse_id']) ? trim(mysqli_real_escape_string($conn,$_POST['warehouse_id'])) : "");
     
     /*
      * *****************************rrr_info table operation********************
@@ -38,6 +41,9 @@ function execute_maintenance_cost_table(){
 		$out_time		= (isset($_POST['out_time']) && !empty($_POST['out_time']) ? trim(mysqli_real_escape_string($conn,$_POST['out_time'])) : date("Y-m-d h:i:s"));
 		$problem_details		= (isset($_POST['problem_details']) && !empty($_POST['problem_details']) ? trim(mysqli_real_escape_string($conn,$_POST['problem_details'])) : "");
 		$remarks		= (isset($_POST['remarks']) && !empty($_POST['remarks']) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'])) : "");
+		
+		$project_id		= (isset($_POST['project_id']) && !empty($_POST['project_id']) ? trim(mysqli_real_escape_string($conn,$_POST['project_id'])) : "");
+    $warehouse_id		= (isset($_POST['warehouse_id']) && !empty($_POST['warehouse_id']) ? trim(mysqli_real_escape_string($conn,$_POST['warehouse_id'])) : "");
                        
         $dataParam     =   [
             'm_cost_id'	=>  $m_cost_id,
@@ -47,6 +53,8 @@ function execute_maintenance_cost_table(){
             'problem_details'	=>  $problem_details,
             'remarks'	=>  $remarks,
             'status'		=>  'Created',
+            'project_id'		=>  $project_id,
+            'warehouse_id'		=>  $warehouse_id,
 			'created_at'	=>  date('Y-m-d h:i:s'),
 			'created_by'	=>  $_SESSION['logged']['user_id']
         ];
@@ -70,6 +78,8 @@ function execute_maintenance_spare_parts_table($rrr_info_id){
         $unit	= (isset($_POST['unit'][$count]) && !empty($_POST['unit'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit'][$count])) : '');
         $unit_price	= (isset($_POST['unit_price'][$count]) && !empty($_POST['unit_price'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_price'][$count])) : '');
         $totalamount	= (isset($_POST['totalamount'][$count]) && !empty($_POST['totalamount'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['totalamount'][$count])) : '');
+		$project_id		= (isset($_POST['project_id']) && !empty($_POST['project_id']) ? trim(mysqli_real_escape_string($conn,$_POST['project_id'])) : "");
+    $warehouse_id		= (isset($_POST['warehouse_id']) && !empty($_POST['warehouse_id']) ? trim(mysqli_real_escape_string($conn,$_POST['warehouse_id'])) : "");
 		//$no_of_material     = $no_of_material+$quantity;
         $dataParam     =   [
             //'id'                =>  get_table_next_primary_id('rlp_details'),
@@ -81,6 +91,8 @@ function execute_maintenance_spare_parts_table($rrr_info_id){
             'unit'	=>  $unit,
             'rate'	=>  $unit_price,
             'amount'	=>  $totalamount,
+            'project_id'	=>  $project_id,
+            'warehouse_id'	=>  $warehouse_id,
             
 			'created_at'	=>  date('Y-m-d h:i:s'),
 			'created_by'	=>  $_SESSION['logged']['user_id']
@@ -158,6 +170,8 @@ function execute_other_cost_table(){
         $oc_unit_price	= (isset($_POST['unit_priceoc'][$count]) && !empty($_POST['unit_priceoc'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_priceoc'][$count])) : '');
 		
         $oc_amount		= (isset($_POST['totalamountoc'][$count]) && !empty($_POST['totalamountoc'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['totalamountoc'][$count])) : '');
+		$project_id		= (isset($_POST['project_id']) && !empty($_POST['project_id']) ? trim(mysqli_real_escape_string($conn,$_POST['project_id'])) : "");
+    $warehouse_id		= (isset($_POST['warehouse_id']) && !empty($_POST['warehouse_id']) ? trim(mysqli_real_escape_string($conn,$_POST['warehouse_id'])) : "");
 		
 		$no_of_oc     = $no_of_oc+$oc_name;
         $dataParam     =   [
@@ -167,6 +181,8 @@ function execute_other_cost_table(){
             'oc_qty'		=>  $oc_qty,
             'oc_unit_price'	=>  $oc_unit_price,
             'oc_amount'		=>  $oc_amount,
+            'project_id'		=>  $project_id,
+            'warehouse_id'		=>  $warehouse_id,
             
 			'created_at'	=>  date('Y-m-d h:i:s'),
 			'created_by'	=>  $_SESSION['logged']['user_id']

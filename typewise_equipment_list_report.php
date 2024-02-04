@@ -21,7 +21,7 @@ ini_set('display_errors', 0);
 							<div class="col-sm-12">
 								<form action="" method="post">
 									<div class="row">
-										<div class="col-sm-3">
+										<div class="col-sm-2">
 											<div class="form-group">
 												<label>Project/Location</label>
 												<select class="form-control material_select_2" id="project_id" name="project_id">
@@ -39,7 +39,7 @@ ini_set('display_errors', 0);
 												</select>
 											</div>
 										</div>
-										<div class="col-sm-3">
+										<div class="col-sm-2">
 											<div class="form-group">
 												<label>Type</label>
 												<select class="form-control material_select_2" id="equipment_type" name="equipment_type">
@@ -52,14 +52,78 @@ ini_set('display_errors', 0);
 										</div>
 										<div class="col-sm-2">
 											<div class="form-group">
-												<label></label>
-												<input type="submit" name="submit" id="submit" class="btn btn-block btn-success" value="Search Data" />
+												<label>Origin</label>
+												<select class="form-control material_select_2" id="origin" name="origin">
+														
+														<option value="all">All</option>
+														<?php
+														$tableName = 'country';
+														$column = 'name';
+														$order = 'asc';
+														$dataType = 'obj';
+														$projectsData = getTableDataByTableName($tableName, $order, $column, $dataType);
+														if (isset($projectsData) && !empty($projectsData)) {
+															foreach ($projectsData as $data) {
+																if(isset($_POST['origin']) && $_POST['origin'] == $data->name){
+																	$selected	= 'selected';
+																	}else{
+																	$selected	= '';
+																	}
+																?>
+																<option value="<?php echo $data->name; ?>" <?php echo $selected; ?>><?php echo $data->name; ?></option>
+																<?php
+															}
+														}
+														?>
+												</select>
 											</div>
 										</div>
-										<div class="col-sm-3">
+										<div class="col-sm-2">
+											<div class="form-group">
+												<label>Capacity</label>
+												<select class="form-control material_select_2" id="capacity" name="capacity">
+														<option value="all">All</option>
+														<?php $results = mysqli_query($conn, "SELECT capacity FROM `equipments` group by capacity"); 
+														while ($row = mysqli_fetch_array($results)) {
+															if(isset($_POST['capacity']) && $_POST['capacity'] == $row['capacity']){
+															$selected	= 'selected';
+															}else{
+															$selected	= '';
+															}
+															?>
+														<option value="<?php echo $row['capacity']; ?>" <?php echo $selected; ?>><?php echo $row['capacity']; ?></option>
+														<?php } ?>
+												</select>
+											</div>
+										</div>
+										<div class="col-sm-2">
+											<div class="form-group">
+												<label>Model</label>
+												<select class="form-control material_select_2" id="model" name="model">
+														<option value="all">All</option>
+														<?php $results = mysqli_query($conn, "SELECT model FROM `equipments` group by model"); 
+														while ($row = mysqli_fetch_array($results)) {
+															if(isset($_POST['model']) && $_POST['model'] == $row['model']){
+															$selected	= 'selected';
+															}else{
+															$selected	= '';
+															}
+															?>
+														<option value="<?php echo $row['model']; ?>" <?php echo $selected; ?>><?php echo $row['model']; ?></option>
+														<?php } ?>
+												</select>
+											</div>
+										</div>
+										<div class="col-sm-1">
 											<div class="form-group">
 												<label></label>
-												<input type="button" name="" id="" class="btn btn-block btn-primary" value="Back To Reports Section" onclick="location.href='reports.php';"/>
+												<input type="submit" name="submit" id="submit" class="btn btn-block btn-success" value="Search" />
+											</div>
+										</div>
+										<div class="col-sm-1">
+											<div class="form-group">
+												<label></label>
+												<a class="btn btn-block btn-danger" href="<?php $_SERVER['PHP_SELF']; ?>">Reset</a>
 											</div>
 										</div>
 									</div>
@@ -71,11 +135,14 @@ if(isset($_POST['submit'])){
 	$assign_status	= 'assigned';
 	//$origin			= $_POST['origin'];
 	$project_id		= $_POST['project_id'];
+	$origin		= $_POST['origin'];
+	$capacity		= $_POST['capacity'];
+	$model		= $_POST['model'];
 	$equipment_type			= $_POST['equipment_type'];
 	
 	//query from db
 	
-	$resultSet = mysqli_query($conn, "SELECT * FROM `equipments` WHERE `assign_status` =  '$assign_status'".($project_id!='all'?" AND `present_location` = '$project_id'":'')." ".($equipment_type!='all'?" AND `equipment_type` = '$equipment_type'":'')." ");
+	$resultSet = mysqli_query($conn, "SELECT * FROM `equipments` WHERE `assign_status` =  '$assign_status'".($project_id!='all'?" AND `present_location` = '$project_id'":'')." ".($equipment_type!='all'?" AND `equipment_type` = '$equipment_type'":'')." ".($origin!='all'?" AND `origin` = '$origin'":'')." ".($capacity!='all'?" AND `capacity` = '$capacity'":'')." ".($model!='all'?" AND `model` = '$model'":'')." ");
 	$count = $resultSet->num_rows;
 	
 /* 	echo "<pre>";
@@ -102,7 +169,7 @@ echo "</pre>"; */
 		while($rows = $resultSet->fetch_assoc()) {
 			$i++;
 			echo "<tr>
-					<td>" . $rows['name'] . "</td>
+					<td>" . $rows['name'] .' || '.$rows['eel_code']. "</td>
 					<td><a href='history.php?id=" . $rows['eel_code'] . "' target='blank'>" . $rows['eel_code'] . "</a></td>
 					<td>" . getProjectNameByID($rows['present_location']) . "</td>
 					<td>" . $rows['origin'] . "</td>

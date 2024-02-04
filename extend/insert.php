@@ -1,5 +1,9 @@
-<?php  
+<?php 
+session_start();  
 include '../helper/utilities.php';
+include '../includes/user_process.php';
+include '../function/user_management.php';
+include '../includes/login_process.php';
  $conn = mysqli_connect("localhost", "root", "", "eel_equipment");  
  if(!empty($_POST))  
  {  
@@ -16,6 +20,9 @@ include '../helper/utilities.php';
 			$ex_return_dateCount = strtotime(mysqli_real_escape_string($conn, $_POST["ex_return_date"])); 
 			$days =  $ex_return_dateCount - $return_dateCount;
 			$ex_days =  round($days / (60 * 60 * 24)); 
+			
+		$created_at		=  date('Y-m-d h:i:s');
+		$created_by		=  $_SESSION['logged']['user_id'];	
       if($_POST["id"] != '')  
       {  
 			$query = "UPDATE `rent_details` SET `extended_date`='$ex_return_date',`total_days`= `total_days` + '$ex_days',`amount`= `amount` + '$ex_amount' WHERE `id`='".$_POST["id"]."'";
@@ -27,7 +34,7 @@ include '../helper/utilities.php';
 			$query2 = "insert into `rent_history` values('','".$_POST["id"]."','".$_POST["ex_eel_code"]."','$return_date','$ex_return_date','$ex_amount','Rented')";
 			$conn->query($query2);
 			
-			$query3 = "insert into `client_balance` values('', '".$_POST["ex_challan_no"]."', '$ex_return_date', '$ex_client_name', '$ex_project_name', '', '$ex_amount', '', '', '', '', '', '', 'created_at', 'created_by', '', '')";
+			$query3 = "insert into `client_balance` values('', '".$_POST["ex_challan_no"]."', '$ex_return_date', '$ex_client_name', '$ex_project_name', '', '$ex_amount', '', '', '', '', '', '', '$created_at', '$created_by', '', '')";
 			$conn->query($query3);
 				
            $message = 'Data Updated';  

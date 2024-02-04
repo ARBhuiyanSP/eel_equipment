@@ -31,21 +31,21 @@ include 'header.php';
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_array($result);
 							?>
+							
 							<div class="col-sm-12">
 								<table class="table table-condensed table-hover table-bordered">
 									<tr>
-										<td>Bill/MR No# <?php echo $row['challan_no']; ?></td>
-										<td>Bill/MR Date# <?php echo $row['date']; ?></td>
+										<?php $mrrno    =   get_mr_bill_no(); ?>
+										<td>Bill/MR No# <?php echo $mrrno; ?><input type="hidden" name="mr_no" value="<?php echo $mrrno; ?>"></td>
+										<td>Bill/MR Date# <input name="mr_date" type="text" class="form-control" id="fromdate" value="<?php echo date("Y-m-d"); ?>" size="" autocomplete="off" required /></td>
 									</tr>
 								</table>
 							</div>
 							
-							
-							
 							<input type="hidden" name="client_id" value="<?php echo $row['client_name']; ?>"/>
 							<input type="hidden" name="project_id" value="<?php echo $row['project_name']; ?>"/>
-							<input type="hidden" name="mr_no" value="<?php echo $row['challan_no']; ?>"/>
-							<input type="hidden" name="mr_date" value="<?php echo $row['date']; ?>"/>
+							<input type="hidden" name="challan_no" value="<?php echo $row['challan_no']; ?>"/>
+							<input type="hidden" name="rent_id" value="<?php echo $row['id']; ?>"/>
 						</div>
 					</div>
 					<div class="col-sm-5">

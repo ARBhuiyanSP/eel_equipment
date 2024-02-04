@@ -87,7 +87,7 @@
        <div class="col-md-4">
             <div class="form-group">
                 <label for="exampleId">Work Narration</label>
-                <textarea class="form-control" id="" name="remarks" rows="1"></textarea>
+                <textarea class="form-control" id="" name="workdetails" rows="1"></textarea>
             </div>
         </div>
 		

@@ -936,7 +936,7 @@ function execute_logsheet_table(){
         'd_date'          	=>  date('Y-m-d h:i:s', strtotime($d_date)),
         'equipment_code'	=>  $equipment_code,
         'project_id' 		=>  $project_id,
-        'workdetails' 		=>  '',
+        'workdetails' 		=>  $workdetails,
         'runninghrkm' 		=>  $runninghrkm,
         'closehrkm' 		=>  $closehrkm,
         'totalhrkm' 		=>  $totalhrkm,
