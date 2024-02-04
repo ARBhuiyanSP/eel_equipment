@@ -5,18 +5,29 @@ include '../helper/utilities.php';
  {  
       $output = '';  
       $message = '';  
-      $return_date = mysqli_real_escape_string($conn, $_POST["return_date"]);  
+      $eel_code = mysqli_real_escape_string($conn, $_POST["ex_eel_code"]);  
+      $return_date =mysqli_real_escape_string($conn, $_POST["return_date"]);  
       $ex_return_date = mysqli_real_escape_string($conn, $_POST["ex_return_date"]);  
       $ex_amount = mysqli_real_escape_string($conn, $_POST["ex_amount"]);  
+      $ex_client_name = mysqli_real_escape_string($conn, $_POST["ex_client_name"]);  
+      $ex_project_name = mysqli_real_escape_string($conn, $_POST["ex_project_name"]); 
+
+			$return_dateCount = strtotime(mysqli_real_escape_string($conn, $_POST["return_date"]));  
+			$ex_return_dateCount = strtotime(mysqli_real_escape_string($conn, $_POST["ex_return_date"])); 
+			$days =  $ex_return_dateCount - $return_dateCount;
+			$ex_days =  round($days / (60 * 60 * 24)); 
       if($_POST["id"] != '')  
       {  
-			$query = "UPDATE rent_details SET return_date='$return_date' WHERE id='".$_POST["id"]."'";
+			$query = "UPDATE `rent_details` SET `extended_date`='$ex_return_date',`total_days`= `total_days` + '$ex_days',`amount`= `amount` + '$ex_amount' WHERE `id`='".$_POST["id"]."'";
 			$conn->query($query);
+			
+			$query5 = "UPDATE `rents` SET `total_rent_amount`= `total_rent_amount` + '$ex_amount',`grandtotal`= `grandtotal` + '$ex_amount',`due_amount`= `due_amount` + '$ex_amount' WHERE `challan_no`='".$_POST["ex_challan_no"]."'";
+			$conn->query($query5);
 		   
-			$query2 = "insert into `rent_history` values('','".$_POST["rentid"]."','".$_POST["eel_code"]."','$return_date','$ex_return_date','$ex_amount','Rented')";
+			$query2 = "insert into `rent_history` values('','".$_POST["id"]."','".$_POST["ex_eel_code"]."','$return_date','$ex_return_date','$ex_amount','Rented')";
 			$conn->query($query2);
 			
-			$query3 = "insert into `client_balance` values('', '".$_POST["ex_challan_no"]."', '$ex_return_date', 'client_id', 'project_id', 'cb_dr_amount', 'cb_cr_amount', 'cb_method', 'bank_name', 'bank_branch', 'bank_cheque_no', 'bank_cheque_date', 'cb_remarks', 'created_at', 'created_by', 'updated_at', 'updated_by')";
+			$query3 = "insert into `client_balance` values('', '".$_POST["ex_challan_no"]."', '$ex_return_date', '$ex_client_name', '$ex_project_name', '', '$ex_amount', '', '', '', '', '', '', 'created_at', 'created_by', '', '')";
 			$conn->query($query3);
 				
            $message = 'Data Updated';  
@@ -26,8 +37,8 @@ include '../helper/utilities.php';
             
            $message = 'Data Inserted';  
       }  
-      if(mysqli_query($conn, $query))  
-      {  
+      //if(mysqli_query($conn, $query))  
+      //{  
            $output .= '<center><h5 class="text-success">' . $message . '</h5></center>';  
            $select_query = "SELECT * FROM rent_details WHERE id='".$_POST["id"]."'";  
            $result = mysqli_query($conn, $select_query);  
@@ -55,7 +66,7 @@ include '../helper/utilities.php';
                 ';  
            }  
            $output .= '</table>';  
-      }  
+      //}  
       echo $output;  
  }  
  ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2024 at 09:23 AM
+-- Generation Time: Feb 04, 2024 at 06:45 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -142,8 +142,8 @@ CREATE TABLE `client_balance` (
 --
 
 INSERT INTO `client_balance` (`id`, `ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(6, 'RCH-CW-001', '2024-01-31', '8', '40', 0, 2900, '', '', '', '', '0000-00-00', '', '2024-01-31', '3368', NULL, ''),
-(7, 'RCH-CW-002', '2024-01-31', '8', '40', 0, 2900, '', '', '', '', '0000-00-00', '', '2024-01-31', '3368', NULL, '');
+(13, 'RCH-CW-001', '2024-02-04', '8', '40', 500, 2500, '', '', '', '', '0000-00-00', '', '2024-02-04', '3368', NULL, ''),
+(29, 'RCH-CW-001', '2024-02-06', '8', '40', 0, 200, '', '', '', '', '0000-00-00', '', '0000-00-00', 'created_by', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -526,7 +526,7 @@ CREATE TABLE `equipments` (
 
 INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_date`, `name`, `eel_code`, `origin`, `capacity`, `makeby`, `model`, `year_manufacture`, `inventory_sl_no`, `engine_model`, `engine_sl_no`, `present_location`, `present_location_type`, `present_condition`, `price`, `qr_image`, `assign_status`, `inspaction_date`, `incharge`, `superintend`, `coo_admin`, `remarks`, `status`, `created_at`, `updated_at`) VALUES
 (1162, '12', 'Own', '2023-12-20', 'Air Compressor', 'AC-01', 'CHINA', '7 bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021439', '48T-C80', '78941393', '40', 'Rental', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', 'Rented', '2023-12-20 12:51:05', '2022-12-14 05:38:01'),
-(1163, '3', 'Own', '2023-12-20', 'Air Compressor', 'AC-02', 'CHINA', '7 Bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021440', '4BT.9-C80', '78941394', '40', 'Rental', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', 'Rented', '2023-12-20 12:51:50', '2022-12-14 05:38:01'),
+(1163, '3', 'Own', '2023-12-20', 'Air Compressor', 'AC-02', 'CHINA', '7 Bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021440', '4BT.9-C80', '78941394', '3', 'Own', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2023-12-20 12:51:50', '2022-12-14 05:38:01'),
 (1164, '12', 'Own', '0000-00-00', 'Air Compressor', 'AC-03', 'China', ' ', 'LOCAL', 'YL100L12', '2020', ' ', ' ', ' ', '12', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
 (1165, '3', 'Own', '0000-00-00', 'Air Compressor', 'AC-04', 'China', ' ', 'LOCAL', ' ', '2020', ' ', ' ', ' ', '3', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
 (1166, '5', 'Own', '0000-00-00', 'Air Compressor', 'AC-05', 'China', ' ', 'LOCAL', ' ', '2021', ' ', ' ', ' ', '5', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
@@ -540,7 +540,7 @@ INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_d
 (1174, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-02', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160-3', '2018', '02WP9SL0973012', 'WD109178', 'N/A', '1', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', 'Rented', '2023-12-20 01:30:55', '2022-12-14 05:38:01'),
 (1175, '11', 'Own', '2023-12-28', 'Bull Dozer', 'BD-03', 'CHINA', '4.50M3', 'LIUGONG', 'CLGB160C', '2019', 'LGCB160CPKC006577', 'WD10G178E25', '1219D002221', '3', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', 'Rented', '2023-12-28 12:27:10', '2022-12-14 05:38:01'),
 (1176, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-04', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041CL0003198', 'WD10G178E25', '1220E003771', '27', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'CUTTING EDGE NEED', ' ', '2023-12-20 01:39:14', '2022-12-14 05:38:01'),
-(1177, '5', 'Own', '0000-00-00', 'Bull Dozer', 'BD-05', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041EL0003197', 'WD10G178E25', '1220G004116', '5', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1177, '5', 'Own', '0000-00-00', 'Bull Dozer', 'BD-05', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041EL0003197', 'WD10G178E25', '1220G004116', '1', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
 (1178, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-06', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041TL0003199', 'WD10G178E25', '1220G003768', '28', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:37:58', '2022-12-14 05:38:01'),
 (1179, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-07', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041HL0003179', 'WD10G178E25', '1220D003260', '28', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:38:25', '2022-12-14 05:38:01'),
 (1180, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-08', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041EL0003202', 'WD10G178E25', '1220D004584', '28', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', 'NEED TRACK LINK,BUSH,PIN,CUTTING EDGE', ' ', '2023-12-20 01:38:49', '2022-12-14 05:38:01'),
@@ -845,7 +845,7 @@ INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `
 (898, 'BD-02', '27', '2023-12-20', '', ''),
 (899, 'BD-03', '37', '2023-12-28', '', ''),
 (900, 'BD-04', '27', '2023-12-20', '', ''),
-(901, 'BD-05', '5', '0000-00-00', '', ''),
+(901, 'BD-05', '5', '0000-00-00', '2024-02-04 05:15:08', ''),
 (902, 'BD-06', '28', '2023-12-20', '', ''),
 (903, 'BD-07', '28', '2023-12-20', '', ''),
 (904, 'BD-08', '28', '2023-12-20', '', ''),
@@ -1107,18 +1107,27 @@ INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `
 (1160, 'not set yet', '3', '2023-12-28', '', ''),
 (1161, 'DHAKA METRO THA-13 6397', '3', '2023-12-28', '', ''),
 (1162, 'not set yet', '37', '2023-12-28', '', ''),
-(1163, '13-6470', '37', '2023-12-28', '', ''),
+(1163, '13-6470', '37', '2023-12-28', '2024-02-04 05:09:38', ''),
 (1164, '13-6668', '37', '2023-12-28', '', ''),
 (1165, 'not known', '37', '2023-12-28', '', ''),
-(1166, '13-6296', '37', '2023-12-28', '', ''),
+(1166, '13-6296', '37', '2023-12-28', '2024-02-04 05:09:38', ''),
 (1167, '13-9034', '37', '2023-12-28', '', ''),
 (1168, 'B-01', '37', '2023-12-28', '', ''),
 (1436, 'AC-01', '40', '2024-01-31', '2024-01-01', ''),
 (1437, 'AC-02', '40', '2024-01-31', '2024-01-01', ''),
 (1438, 'AC-01', '12', '2024-01-01', '2024-01-31 08:29:33', ''),
 (1439, 'AC-02', '3', '2024-01-01', '2024-01-31 08:29:34', ''),
-(1440, 'AC-01', '40', '2024-01-31', '', ''),
-(1441, 'AC-02', '40', '2024-01-31', '', '');
+(1440, 'AC-01', '40', '2024-01-31', '2024-02-04 05:49:09', ''),
+(1441, 'AC-02', '40', '2024-01-31', '2024-02-04 05:49:09', ''),
+(1442, '13-6296', '1', '2024-02-04', '', ''),
+(1443, '13-6470', '1', '2024-02-04', '2024-02-04 05:15:08', ''),
+(1444, '13-6470', '1', '2024-02-04', '', ''),
+(1445, 'BD-05', '1', '2024-02-04', '', ''),
+(1446, 'AC-01', '40', '2024-02-04', '2024-02-04 05:58:55', ''),
+(1447, 'AC-02', '40', '2024-02-04', '2024-02-04 05:58:55', ''),
+(1448, 'AC-01', '40', '2024-02-04', '', ''),
+(1449, 'AC-02', '40', '2024-02-04', '2024-02-01', ''),
+(1450, 'AC-02', '3', '2024-02-01', '', '');
 
 -- --------------------------------------------------------
 
@@ -9707,8 +9716,7 @@ CREATE TABLE `rents` (
 --
 
 INSERT INTO `rents` (`id`, `date`, `client_name`, `project_name`, `ref_no`, `challan_no`, `total_rent_amount`, `discount`, `grandtotal`, `deposit_amount`, `due_amount`, `from_project`, `from_warehouse`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(6, '2024-01-31', '8', '40', 'atiq', 'RCH-CW-001', 2900, 0, 2900, 0, 2900, 0, 0, 'Returned', '2024-01-31', '3368', NULL, ''),
-(7, '2024-01-31', '8', '40', 'fghdf', 'RCH-CW-002', 2900, 0, 2900, 0, 2900, 0, 0, 'Rented', '2024-01-31', '3368', NULL, '');
+(11, '2024-02-04', '8', '40', 'ati', 'RCH-CW-001', 2900, 200, 2700, 500, 2200, 0, 0, 'Rented', '2024-02-04', '3368', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -9719,6 +9727,8 @@ INSERT INTO `rents` (`id`, `date`, `client_name`, `project_name`, `ref_no`, `cha
 CREATE TABLE `rent_details` (
   `id` int(11) NOT NULL,
   `rent_id` int(11) NOT NULL,
+  `client_name` int(11) NOT NULL,
+  `project_name` int(11) NOT NULL,
   `challan_no` varchar(50) NOT NULL,
   `eel_code` varchar(50) NOT NULL,
   `rent_date` date NOT NULL,
@@ -9733,11 +9743,9 @@ CREATE TABLE `rent_details` (
 -- Dumping data for table `rent_details`
 --
 
-INSERT INTO `rent_details` (`id`, `rent_id`, `challan_no`, `eel_code`, `rent_date`, `return_date`, `extended_date`, `total_days`, `amount`, `status`) VALUES
-(11, 1, 'RCH-CW-001', 'AC-01', '2024-01-01', '2024-01-01', '2024-01-05', 4, 1500, 'Returned'),
-(12, 1, 'RCH-CW-001', 'AC-02', '2024-01-01', '2024-01-01', '2024-01-05', 4, 1400, 'Returned'),
-(13, 2, 'RCH-CW-002', 'AC-01', '2024-01-10', '2024-01-16', '2024-01-16', 6, 1500, 'Rented'),
-(14, 2, 'RCH-CW-002', 'AC-02', '2024-01-10', '2024-01-16', '2024-01-16', 6, 1400, 'Rented');
+INSERT INTO `rent_details` (`id`, `rent_id`, `client_name`, `project_name`, `challan_no`, `eel_code`, `rent_date`, `return_date`, `extended_date`, `total_days`, `amount`, `status`) VALUES
+(21, 11, 8, 40, 'RCH-CW-001', 'AC-01', '2024-02-01', '2024-02-04', '2024-02-04', 3, 1500, 'Rented'),
+(22, 11, 8, 40, 'RCH-CW-001', 'AC-02', '2024-02-01', '2024-02-04', '2024-02-06', 5, 1400, 'Rented');
 
 -- --------------------------------------------------------
 
@@ -9760,10 +9768,9 @@ CREATE TABLE `rent_history` (
 --
 
 INSERT INTO `rent_history` (`id`, `rent_details_id`, `eel_code`, `rent_date`, `return_date`, `amount`, `status`) VALUES
-(11, 11, 'AC-01', '2024-01-01', '2024-01-05', 1500, 'Returned'),
-(12, 12, 'AC-02', '2024-01-01', '2024-01-05', 1400, 'Returned'),
-(13, 13, 'AC-01', '2024-01-10', '2024-01-16', 1500, 'Rented'),
-(14, 14, 'AC-02', '2024-01-10', '2024-01-16', 1400, 'Rented');
+(23, 21, 'AC-01', '2024-02-01', '2024-02-04', 1500, 'Rented'),
+(24, 22, 'AC-02', '2024-02-01', '2024-02-04', 1200, 'Rented'),
+(40, 22, 'AC-02', '2024-02-04', '2024-02-06', 200, 'Rented');
 
 -- --------------------------------------------------------
 
@@ -10835,7 +10842,9 @@ INSERT INTO `userlog` (`id`, `userId`, `username`, `role_id`, `employee_id`, `us
 (456, 3368, ' ', 5, '', 0x3a3a31, '2024-01-30 10:31:45'),
 (457, 3368, ' ', 5, '', 0x3a3a31, '2024-01-31 03:59:38'),
 (458, 3368, ' ', 5, '', 0x3a3a31, '2024-02-01 03:37:17'),
-(459, 3368, ' ', 5, '', 0x3a3a31, '2024-02-01 06:49:01');
+(459, 3368, ' ', 5, '', 0x3a3a31, '2024-02-01 06:49:01'),
+(460, 3370, ' ', 5, '', 0x3a3a31, '2024-02-01 08:56:34'),
+(461, 3368, ' ', 5, '', 0x3a3a31, '2024-02-04 03:45:39');
 
 -- --------------------------------------------------------
 
@@ -10903,7 +10912,8 @@ INSERT INTO `users` (`id`, `branch_id`, `department_id`, `project_id`, `warehous
 (3366, 1, 12, 3, 0, 'ENG-000474', 3, '', 1, '67', 'g10', 'MD Mokhlesur Rahman', 'mr@gmail.com', NULL, NULL, '1674711812md-mokhlesur-rahman_page-0001.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2023-01-26 05:32:36', 1, '2023-01-26 05:43:32'),
 (3367, 1, 11, 0, 0, 'ENG-001244', 2, 'user', 1, '2', 'g7', 'Saidul  Islam', 'si@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2023-02-22 04:57:32', NULL, NULL),
 (3368, 1, 11, 21, 3, 'admin@saifpowertec.com', 5, '', 1, '10', 'sa', 'Super Admin', 'admin@saifpowertec.com', NULL, '', 'superadmin.png', '77420bb74cf785398911d47854a2bfab', 1, 1, 0, '2020-03-16 09:03:06', 1, '2022-11-27 23:26:15'),
-(3369, 1, 9, 3, 0, 'ENG-001260', 5, '', 1, '8', 'g8', 'Afra', 'afra@gmail.com', NULL, NULL, NULL, 'fcea920f7412b5da7be0cf42b8c93759', 1, 1, 0, '2023-11-19 21:20:52', NULL, NULL);
+(3369, 1, 9, 3, 0, 'ENG-001260', 5, '', 1, '8', 'g8', 'Afra', 'afra@gmail.com', NULL, NULL, NULL, 'fcea920f7412b5da7be0cf42b8c93759', 1, 1, 0, '2023-11-19 21:20:52', NULL, NULL),
+(3370, 1, 11, 21, 3, 'pulok@saifpowertec.com', 5, '', 1, '10', 'sa', 'Super Admin', 'pulok@saifpowertec.com', NULL, '', 'superadmin.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2020-03-16 09:03:06', 1, '2022-11-27 23:26:15');
 
 -- --------------------------------------------------------
 
@@ -11596,7 +11606,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `client_balance`
 --
 ALTER TABLE `client_balance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `companies`
@@ -11632,7 +11642,7 @@ ALTER TABLE `equipments`
 -- AUTO_INCREMENT for table `equipment_assign`
 --
 ALTER TABLE `equipment_assign`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1442;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1451;
 
 --
 -- AUTO_INCREMENT for table `inv_designation`
@@ -11950,19 +11960,19 @@ ALTER TABLE `rental_project`
 -- AUTO_INCREMENT for table `rents`
 --
 ALTER TABLE `rents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `rent_details`
 --
 ALTER TABLE `rent_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `rent_history`
 --
 ALTER TABLE `rent_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `rlp_access_chain`
@@ -12082,13 +12092,13 @@ ALTER TABLE `tb_logsheet`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=460;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=462;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3370;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3371;
 
 --
 -- AUTO_INCREMENT for table `users2`

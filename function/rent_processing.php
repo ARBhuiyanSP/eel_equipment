@@ -17,6 +17,32 @@ if (isset($_POST['rent_entry']) && !empty($_POST['rent_entry'])) {
 		$status     =   'error';
 		$_SESSION['warning']    =   "Operation faild. Duplicate data found..!";
     }else{
+		$project_name		= (isset($_POST['project_name']) && !empty($_POST['project_name']) ? trim(mysqli_real_escape_string($conn,$_POST['project_name'])) : "");
+		$present_location_type		= getProjectTypeByID((isset($_POST['project_name']) && !empty($_POST['project_name']) ? trim(mysqli_real_escape_string($conn,$_POST['project_name'])) : ""));
+		$challan_no		= (isset($_POST['challan_no']) && !empty($_POST['challan_no']) ? trim(mysqli_real_escape_string($conn,$_POST['challan_no'])) : "");
+		$date		= (isset($_POST['date']) && !empty($_POST['date']) ? trim(mysqli_real_escape_string($conn,$_POST['date'])) : "");
+		$client_name		= (isset($_POST['client_name']) && !empty($_POST['client_name']) ? trim(mysqli_real_escape_string($conn,$_POST['client_name'])) : "");
+		$ref_name		= (isset($_POST['ref_name']) && !empty($_POST['ref_name']) ? trim(mysqli_real_escape_string($conn,$_POST['ref_name'])) : "");
+		$sub_total_amount		= (isset($_POST['sub_total_amount']) && !empty($_POST['sub_total_amount']) ? trim(mysqli_real_escape_string($conn,$_POST['sub_total_amount'])) : "");
+		$discount		= (isset($_POST['discount']) && !empty($_POST['discount']) ? trim(mysqli_real_escape_string($conn,$_POST['discount'])) : "");
+		$grandtotal		= (isset($_POST['grandtotal']) && !empty($_POST['grandtotal']) ? trim(mysqli_real_escape_string($conn,$_POST['grandtotal'])) : "");
+		$paid_amount		= (isset($_POST['paid_amount']) && !empty($_POST['paid_amount']) ? trim(mysqli_real_escape_string($conn,$_POST['paid_amount'])) : "");
+		$due_amount		= (isset($_POST['due_amount']) && !empty($_POST['due_amount']) ? trim(mysqli_real_escape_string($conn,$_POST['due_amount'])) : "");
+        
+        $equipments		= (isset($_POST['equipments'][$count]) && !empty($_POST['equipments'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['equipments'][$count])) : "");
+		$unit_price		= (isset($_POST['unit_price'][$count]) && !empty($_POST['unit_price'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_price'][$count])) : "");
+		$totalamount		= (isset($_POST['totalamount'][$count]) && !empty($_POST['totalamount'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['totalamount'][$count])) : "");
+		$rent_date		= (isset($_POST['rent_date']) && !empty($_POST['rent_date']) ? trim(mysqli_real_escape_string($conn,$_POST['rent_date'])) : "");
+		$return_date	= (isset($_POST['return_date']) && !empty($_POST['return_date']) ? trim(mysqli_real_escape_string($conn,$_POST['return_date'])) : "");
+		$totaldays		= (isset($_POST['totaldays']) && !empty($_POST['totaldays']) ? trim(mysqli_real_escape_string($conn,$_POST['totaldays'])) : "");
+		$rent_id = get_table_next_primary_id('rents');
+		
+		$created_at		=  date('Y-m-d h:i:s');
+		$created_by		=  $_SESSION['logged']['user_id'];	
+		
+	$query2 = "INSERT INTO `rents`(`date`, `client_name`, `project_name`, `ref_no`, `challan_no`, `total_rent_amount`, `discount`, `grandtotal`, `deposit_amount`, `due_amount`, `status`, `created_at`, `created_by`) VALUES ('$date','$client_name','$project_name','$ref_name','$challan_no','$sub_total_amount','$discount','$grandtotal','$paid_amount','$due_amount','Rented','$created_at','$created_by')";
+    $result2 = $conn->query($query2);
+	$lastinsertedrentId =  mysqli_insert_id($conn);	
 		
 	//$receive_total      =   0;
     //$no_of_material     =   0;
@@ -39,7 +65,7 @@ if (isset($_POST['rent_entry']) && !empty($_POST['rent_entry'])) {
 		$rent_date		= (isset($_POST['rent_date']) && !empty($_POST['rent_date']) ? trim(mysqli_real_escape_string($conn,$_POST['rent_date'])) : "");
 		$return_date	= (isset($_POST['return_date']) && !empty($_POST['return_date']) ? trim(mysqli_real_escape_string($conn,$_POST['return_date'])) : "");
 		$totaldays		= (isset($_POST['totaldays']) && !empty($_POST['totaldays']) ? trim(mysqli_real_escape_string($conn,$_POST['totaldays'])) : "");
-		$rent_id = get_table_next_primary_id('rents');
+		$rent_id = $lastinsertedrentId;
 		
 		$created_at		=  date('Y-m-d h:i:s');
 		$created_by		=  $_SESSION['logged']['user_id'];
@@ -52,7 +78,7 @@ if (isset($_POST['rent_entry']) && !empty($_POST['rent_entry'])) {
 			$q = move_uploaded_file($temp_file,"images/".$mrr_image);
 		} */
 		
-        $query = "INSERT INTO `rent_details`(`rent_id`, `challan_no`, `eel_code`, `rent_date`, `return_date`, `extended_date`, `total_days`, `amount`, `status`) VALUES ('$rent_id','$challan_no','$equipments','$rent_date','$return_date','$return_date','$totaldays','$totalamount','Rented')";
+        $query = "INSERT INTO `rent_details`(`rent_id`,`client_name`,`project_name`, `challan_no`, `eel_code`, `rent_date`, `return_date`, `extended_date`, `total_days`, `amount`, `status`) VALUES ('$rent_id','$client_name','$project_name','$challan_no','$equipments','$rent_date','$return_date','$return_date','$totaldays','$totalamount','Rented')";
         $conn->query($query);
 		$lastinsertedId =  mysqli_insert_id($conn);
 		
@@ -84,8 +110,7 @@ if (isset($_POST['rent_entry']) && !empty($_POST['rent_entry'])) {
 
 	
 	
-    $query2 = "INSERT INTO `rents`(`date`, `client_name`, `project_name`, `ref_no`, `challan_no`, `total_rent_amount`, `discount`, `grandtotal`, `deposit_amount`, `due_amount`, `status`, `created_at`, `created_by`) VALUES ('$date','$client_name','$project_name','$ref_name','$challan_no','$sub_total_amount','$discount','$grandtotal','$paid_amount','$due_amount','Rented','$created_at','$created_by')";
-    $result2 = $conn->query($query2);    
+  
     /*
     *  Insert Data Into inv_supplierbalance Table:
     */

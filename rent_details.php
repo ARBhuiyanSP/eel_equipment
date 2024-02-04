@@ -153,7 +153,7 @@ $result = mysqli_query($conn, $query);
 							<div class="col-md-4 col-sm-4">
 								<div class="form-group">
 									<label>Previous Return Date</label>  
-									<input type="text" name="return_date" id="return_date" class="form-control" readonly />
+									<input type="text" name="return_date" id="return_date" class="form-control return_date" readonly />
 								</div>  
 							</div>
 							<div class="col-md-4 col-sm-4">
@@ -169,7 +169,10 @@ $result = mysqli_query($conn, $query);
 								</div>  
 							</div>  
 						</div>
-							<input type="text" name="ex_challan_no" id="ex_challan_no" class="form-control" />
+							<input type="hidden" name="ex_eel_code" id="ex_eel_code" class="form-control" />
+							<input type="hidden" name="ex_challan_no" id="ex_challan_no" class="form-control" />
+							<input type="hidden" name="ex_client_name" id="ex_client_name" class="form-control" />
+							<input type="hidden" name="ex_project_name" id="ex_project_name" class="form-control" />
                           <input type="hidden" name="id" id="id" />  
                           <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-block btn-sm btn-success" />  
                      </form>  
@@ -181,6 +184,8 @@ $result = mysqli_query($conn, $query);
       </div>  
  </div>  
  <script>  
+
+			
  $(document).ready(function(){  
       $('#add').click(function(){  
            $('#insert').val("Insert");  
@@ -196,10 +201,13 @@ $result = mysqli_query($conn, $query);
                 data:{id:id},  
                 dataType:"json",  
                 success:function(data){    
+                     $('#ex_eel_code').val(data.eel_code);   
                      $('#return_date').val(data.return_date);  
                      $('#ex_return_date').val(data.ex_return_date);  
                      $('#ex_amount').val(data.ex_amount); 
                      $('#ex_challan_no').val(data.challan_no);  
+                     $('#ex_client_name').val(data.client_name);  
+                     $('#ex_project_name').val(data.project_name);  
                      $('#ex_project').val(data.ex_project);  
                      $('#id').val(data.id);  
                      $('#insert').val("Update");  
@@ -313,6 +321,8 @@ $result = mysqli_query($conn, $query);
     });
 </script>
  <script>
+
+			
     $(function () {
         $("#rent_date").datepicker({
             inline: true,
