@@ -107,6 +107,7 @@
                         <?php
                         $sl =   1;
                             foreach($rlp_details as $key => $data){
+								
                         ?>
                         <tr id="row<?php echo $data->id ?>">
                             <td><?php echo $sl++; ?></td>

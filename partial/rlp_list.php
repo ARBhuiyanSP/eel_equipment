@@ -1,5 +1,7 @@
 <?php
 $rlpListData = getRLPListData();
+
+
 if (isset($rlpListData) && !empty($rlpListData)) {
     ?>
     <div class="table-responsive">

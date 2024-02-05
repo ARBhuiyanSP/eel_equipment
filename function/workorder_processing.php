@@ -110,10 +110,12 @@ function execute_workorder_details_table(){
         $unit_price	= (isset($_POST['unit_price'][$count]) && !empty($_POST['unit_price'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_price'][$count])) : '');
         $total	= (isset($_POST['total'][$count]) && !empty($_POST['total'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['total'][$count])) : '');        
         $remarks= (isset($_POST['remarks'][$count]) && !empty($_POST['remarks'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'][$count])) : '');  
+        $ns_details_id= (isset($_POST['ns_details_id'][$count]) && !empty($_POST['ns_details_id'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['ns_details_id'][$count])) : '');  
 		$no_of_material     = $no_of_material+$quantity;
         $dataParam     =   [
             //'id'                =>  get_table_next_primary_id('rlp_details'),
             'wo_no'	=>  $wo_no,
+            'ns_details_id'	=>  $ns_details_id,
             'notesheet_no'	=>  $notesheet_no,
             'rlp_no'       	=>  $rlp_no,
             'subject'	=>  $subject,
@@ -149,6 +151,23 @@ function getWorkordersDetailsData($wo_id){
     $order = 'asc';
     $column='id';
     $table         =   "`workorders` WHERE `wo_no`='$wo_id'";
+    $wo_details   = getTableDataByTableName2($table, $order, $column);
+    
+    $feedbackData   =   [
+        'wo_info'      =>  $wo_info,
+        'wo_details'   =>  $wo_details
+    ];
+    return $feedbackData;
+}
+
+
+function getWorkordersDetailsDataNs($wo_id){
+    $table      =   "`workorders_master` WHERE `wo_no`='$wo_id'";
+    $wo_info   = getDataRowIdAndTable($table);
+    
+    $order = 'asc';
+    $column='id';
+    $table         =   "`workorders` WHERE `wo_no`='$wo_id' AND `is_mrr`='0'";
     $wo_details   = getTableDataByTableName2($table, $order, $column);
     
     $feedbackData   =   [
