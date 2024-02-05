@@ -70,7 +70,7 @@ function get_logsheet_list_action_data($row){
 
 
 						
-	$action.='<span><a class="btn btn-sm btn-info" href="'.$view_url.'" title="View"><i class="fas fa-eye"> View</i></a></span>';
+	$action.='<span><a class="btn btn-sm btn-info" href="#" title="View"><i class="fas fa-eye"> View</i></a></span>';
 
 	
 	
