@@ -12,7 +12,12 @@ include 'header.php';
     </ol>
     <!-- DataTables Example -->
     <div class="card mb-3">
-        
+        <style>
+        	h5{
+        		color:red;
+        		font-weight: bold;
+        	}
+        </style>
         <div class="card-body">
             <!--here your code will go-->
            <div class="row">
@@ -31,18 +36,20 @@ include 'header.php';
 								<ul>
 									<a href="wo_report.php"><li><b>Project & Datewise Workorder Report</b></li></a>
 								</ul>
-							</div>
 
-							
-
-							<div class="col-sm-4">
-								<h5>Material Reports</h5>
+								<h5>Material Stock Reports</h5>
 								<ul>
 									<a href="material_list_report.php"><li><b>Material List</b></li></a>
 									<a href="stock_report.php"><li><b>Stock Reports</b></li></a>
 									<a href="movement_report.php"><li><b>Movement Reports</b></li></a>
 									<a href="material-history.php"><li><b>Materialwise Movement Report</b></li></a>
 								</ul>
+							</div>
+
+							
+
+							<div class="col-sm-4">
+								
 								
 								<h5>Material Receive Reports</h5>
 								<ul>
@@ -55,12 +62,12 @@ include 'header.php';
 
 								<h5>Transfer Reports</h5>
 								<ul>
-									<a href="transfer_report.php"><li><b>Material Transfer List</b></li></a>
+									<a href="transfer_report.php"><li><b>Project to Project wise Material Transfer</b></li></a>
 								</ul>
 
 								<h5>Consumption Reports</h5>
 								<ul>
-									<a href="consumption_report.php"><li><b>Consumption Report</b></li></a>
+									<a href="consumption_report.php"><li><b>All Materialwise Consumption Report</b></li></a>
 									<a href="materialwise_consumption_report.php"><li><b>Materialwise Consumption Report</b></li></a>
 								</ul>
 							</div>
@@ -79,7 +86,8 @@ include 'header.php';
 								</ul>
 								<h5>Rent Reports</h5>
 								<ul>
-									<a href="client-history.php"><li><b>Client Ledger Report</b></li></a>
+									<a href="client-history.php"><li><b>Party/Client Ledger Report</b></li></a>
+									<a href="allsupplierbalance_report_search.php"><li><b>All Party/Client Account Status Report</b></li></a>
 								</ul>
 							</div>
 						</div>

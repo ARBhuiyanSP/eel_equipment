@@ -3,9 +3,9 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="#">Stock management Filters</a>
+            <a href="reports.php">Report</a>
         </li>
-        <li class="breadcrumb-item active">List</li>
+        <li class="breadcrumb-item active">All Materialwise Consumption Report</li>
     </ol>
     <!-- receive search start here -->
     <?php include 'search/consumption_reprot_search_new.php'; ?>
