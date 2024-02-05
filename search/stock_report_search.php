@@ -65,7 +65,7 @@
 				</div>
 			</div>
 			<?php
-					
+			$warehouse_id	=	$_SESSION['logged']['warehouse_id'];		
 			$sql = "SELECT t1.id,t1.id as category_id,t1.parent_id,t1.category_description FROM `inv_materialcategorysub` as t1 ";
 			$result = mysqli_query($conn, $sql);	
 			$category_resize_data =[]; 
@@ -77,6 +77,7 @@
 
 			function fetch_category_wise_data($cateory_id,$to_date){
 			global $conn;
+			$warehouse_id	=	$_SESSION['logged']['warehouse_id'];	
 			$sql2=" SELECT t1.mb_date,t2.material_id,t1.mb_materialid,t2.material_description,t2.spec,t2.part_no,t2.qty_unit, t3.unit_name,SUM(t1.mbin_qty-t1.mbout_qty) as qty_balance,t1.mb_materialid FROM `inv_materialbalance` AS t1
 			INNER JOIN inv_material AS t2 ON t1.mb_materialid=t2.material_id_code
 			INNER JOIN inv_item_unit AS t3 ON t3.id=t2.qty_unit
