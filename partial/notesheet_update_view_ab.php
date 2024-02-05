@@ -15,7 +15,7 @@
             <textarea class="form-control" rows="5" id="remarks" name="remarks"></textarea>
         </div>
             <input type="hidden" name="notesheet_id" value="<?php echo $notesheet_id; ?>">
-            <input type="text" name="created_by" value="<?php echo $currentUserId; ?>">
+            <input type="hidden" name="created_by" value="<?php echo $currentUserId; ?>">
             <button type="button" class="btn btn-primary btn-block" onclick="execute_notesheet_ab_update_form('notesheet_ab_update_form', 'notesheet_ab_update_execute');">Update</button>
         </form>
     </div>
