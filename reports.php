@@ -53,10 +53,10 @@ include 'header.php';
 								
 								<h5>Material Receive Reports</h5>
 								<ul>
-									<a href="receive_report.php"><li><b>Material Receive List</b></li></a>
-									<a href="materialwise_receive_report.php"><li><b>Materialwise Receive Report</b></li></a>
-									<a href="receive_report_by_category.php"><li><b>Material Receive Report by Category</b></li></a>
-									<a href="supplier_receive.php"><li><b>Supplierwise Receive Report</b></li></a>
+									<a href="receive_report.php"><li><b>Date to Date wise Material Receive Report</b></li></a>
+									<a href="materialwise_receive_report.php"><li><b>Individul Material Receive Report</b></li></a>
+									<a href="receive_report_by_category.php"><li><b>Category Wise Material Receive Report  </b></li></a>
+									<a href="supplier_receive.php"><li><b>Supplier wise Receive Report</b></li></a>
 									<a href="supplier_ledger.php"><li><b>Supplier Ledger Report</b></li></a>
 								</ul>
 

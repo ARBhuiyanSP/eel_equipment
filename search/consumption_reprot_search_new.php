@@ -166,7 +166,6 @@ if(isset($_GET['submit'])){
 										echo $group_totalAmount ;
 										?>
 									</td>
-									
 								</tr>
 						</tr>
 						
