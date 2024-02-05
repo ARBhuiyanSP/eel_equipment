@@ -307,6 +307,21 @@ function getRlpDetailsData($rlp_id){
     ];
     return $feedbackData;
 }
+function getRlpDetailsDataForNs($rlp_id){
+    $table      =   "rlp_info WHERE id=$rlp_id";
+    $rlp_info   = getDataRowIdAndTable($table);
+    
+    $order = 'asc';
+    $column='id';
+    $table         =   "rlp_details WHERE rlp_info_id=$rlp_id";
+    $rlp_details   = getTableDataByTableNameRlp($table, $order, $column);
+    
+    $feedbackData   =   [
+        'rlp_info'      =>  $rlp_info,
+        'rlp_details'   =>  $rlp_details
+    ];
+    return $feedbackData;
+}
 
 if(isset($_GET['process_type']) && $_GET['process_type'] == "rlp_quick_view"){
     date_default_timezone_set("Asia/Dhaka");

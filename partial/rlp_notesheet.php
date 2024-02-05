@@ -1,7 +1,7 @@
 <?php
     $currentUserId  =   $_SESSION['logged']['user_id'];
     $rlp_id         =   $_GET['rlp_id'];    
-    $rlp_details    =   getRlpDetailsData($rlp_id);   
+    $rlp_details    =   getRlpDetailsDataForNs($rlp_id);   
     $rlp_info       =   $rlp_details['rlp_info'];
     $rlp_details    =   $rlp_details['rlp_details'];
 ?>
