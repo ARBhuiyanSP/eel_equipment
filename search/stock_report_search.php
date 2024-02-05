@@ -80,7 +80,7 @@
 			$sql2=" SELECT t1.mb_date,t2.material_id,t1.mb_materialid,t2.material_description,t2.spec,t2.part_no,t2.qty_unit, t3.unit_name,SUM(t1.mbin_qty-t1.mbout_qty) as qty_balance,t1.mb_materialid FROM `inv_materialbalance` AS t1
 			INNER JOIN inv_material AS t2 ON t1.mb_materialid=t2.material_id_code
 			INNER JOIN inv_item_unit AS t3 ON t3.id=t2.qty_unit
-			WHERE 1=1 AND t2.material_id=$cateory_id AND t1.mb_date <= '$to_date' 
+			WHERE 1=1 AND t1.warehouse_id = $warehouse_id AND t2.material_id=$cateory_id AND t1.mb_date <= '$to_date' 
 
 			GROUP BY t1.mb_materialid 
 			HAVING SUM(t1.mbin_qty-t1.mbout_qty) > 0 ";
