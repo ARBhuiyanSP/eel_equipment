@@ -7,12 +7,7 @@
 }
 </style>
 <div class="card mb-3">
-    <div class="card-header">
-		<button class="btn btn-success linktext"> Individual Consumption Report</button>
-		<!-- <button class="btn btn-info linktext" onclick="window.location.href='consumption_type_report.php';"> Type Wise Consumption Report</button> -->
-		<!-- <button class="btn btn-info linktext" onclick="window.location.href='consumption_group_report.php';"> Material Groupwise Consumption Report</button> -->
-		<!-- <button class="btn btn-info linktext" onclick="window.location.href='consumption_pakg_build_report.php';"> Package and Bulding Wise Consumption Report</button> -->
-	</div>
+    
 		
     <div class="card-body">
         <form class="form-horizontal" action="" id="warehouse_stock_search_form" method="GET">
@@ -20,27 +15,7 @@
                 <table class="table table-borderless search-table">
                     <tbody>
                         <tr> 
-							<td>
-                                <div class="form-group">
-									<label for="sel1">Material:</label>
-									<select class="form-control select2" id="material_id" name="material_id" required>
-										<option value="">Select</option>
-										<?php
-										$warehouse = getTableDataByTableName('inv_material','','material_description');
-										if (isset($warehouse) && !empty($warehouse)) {
-											foreach ($warehouse as $data) {
-												if($_GET['material_id'] == $data['id']){
-													$selected	= 'selected';
-													}else{
-													$selected	= '';
-													}
-												?>
-												<option value="<?php  echo $data['id'] ?>" <?php echo $selected; ?>><?php echo $data['material_description'] ?></option>
-											<?php }
-										} ?>
-									</select>
-								</div>
-                            </td>
+							
 							<td>
                                 <div class="form-group">
                                     <label for="todate">From Date</label>
@@ -69,7 +44,7 @@
 </div>
 <?php
 if(isset($_GET['submit'])){
-	$material_id	=	$_GET['material_id'];
+	$material_id	=	$_GET['material_id'] ?? '';
 	$from_date		=	$_GET['from_date'];
 	$to_date		=	$_GET['to_date'];
 	$warehouse_id	=	$_SESSION['logged']['warehouse_id'];
@@ -120,11 +95,7 @@ if(isset($_GET['submit'])){
                             INNER JOIN  `inv_material` a2 ON a1.material_name=a2.id
                             INNER JOIN `inv_materialcategorysub` a3 ON a2.material_id=a3.id
                             INNER JOIN `inv_item_unit` a4 ON a1.mbunit_id=a4.id
-                            WHERE 1=1 AND mbtype IN ('mCost','maintenance') ";
-							  //if($material_id !=0){
-								$sqlall	.=	"  AND a2.id ='$material_id' ";
-							  //} 
-							$sqlall	.=	" AND a1.mb_date BETWEEN '$from_date' AND '$to_date' GROUP BY a2.material_description ;";
+                            WHERE 1=1 AND mbtype IN ('mCost','maintenance')  AND a1.mb_date BETWEEN '$from_date' AND '$to_date' GROUP BY a2.material_description ;";
 
 							$resultall = mysqli_query($conn, $sqlall);
 							
