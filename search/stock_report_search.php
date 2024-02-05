@@ -80,7 +80,10 @@
 			$sql2=" SELECT t1.mb_date,t2.material_id,t1.mb_materialid,t2.material_description,t2.spec,t2.part_no,t2.qty_unit, t3.unit_name,SUM(t1.mbin_qty-t1.mbout_qty) as qty_balance,t1.mb_materialid FROM `inv_materialbalance` AS t1
 			INNER JOIN inv_material AS t2 ON t1.mb_materialid=t2.material_id_code
 			INNER JOIN inv_item_unit AS t3 ON t3.id=t2.qty_unit
-			WHERE 1=1 AND t2.material_id=$cateory_id AND t1.mb_date <= '$to_date' GROUP BY t1.mb_materialid ";
+			WHERE 1=1 AND t2.material_id=$cateory_id AND t1.mb_date <= '$to_date' 
+
+			GROUP BY t1.mb_materialid 
+			HAVING SUM(t1.mbin_qty-t1.mbout_qty) > 0 ";
 			$result = mysqli_query($conn, $sql2);
 			$group_sub_total=0;
 			while ($val = $result->fetch_assoc()) {
@@ -95,9 +98,9 @@
 					</tr>";
 				}
 			$rowcount=mysqli_num_rows($result);
-			if($rowcount < 1) { 
-					echo "<tr><td colspan='6'><center>No Data Found</center></td></tr>";
-				} 
+			// if($rowcount < 1) { 
+			// 		echo "<tr><td colspan='6'><center>No Data</center></td></tr>";
+			// 	} 
 
 			if($group_sub_total > 0){
 				echo  "<tr><td colspan='5'><b style='float:right'>Sub Total</b></td>
@@ -120,9 +123,10 @@
 					 <?php
 						$html = '';
 						function generateOptions($data, $indent = 0,$to_date='') {
-							foreach ($data as $key => $value) {?>
+							foreach ($data as $key => $value) {
+								?>
 							   <tr>
-								<td colspan="6"><b><?php echo str_repeat('-', $indent * 1) .$value['category_description']; ?></b></td>
+								<td colspan="6"><b><?php  echo str_repeat('-', $indent * 1) .$value['category_description']; ?></b></td>
 							   </tr>
 							  
 							   <?php

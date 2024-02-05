@@ -94,6 +94,7 @@ if(isset($_GET['submit'])){
 							<th width="30%">Party Name</th>
 							
 							
+							<th class="text-center">Previous Balance</th>
 							<th class="text-center">Bill amount</th>
 							<th class="text-center">Paid amount</th>
 							
@@ -111,10 +112,21 @@ if(isset($_GET['submit'])){
 	
 
 						
-					$sql	=	" SELECT t2.name as client_name,t1.client_id,SUM(t1.cb_dr_amount) as sum_debit_amount,SUM(t1.cb_cr_amount) as sum_credit_amount,SUM(t1.cb_cr_amount-t1.cb_dr_amount) as _balance
+					$sql	=	" SELECT s1.client_name,s1.client_id,SUM(IFNULL(s1.previous_balance,0)) as previous_balance,SUM(IFNULL(s1.sum_debit_amount,0)) as sum_debit_amount,SUM(IFNULL(s1.sum_credit_amount,0)) as sum_credit_amount, SUM(IFNULL(s1._balance,0)+IFNULL(s1.previous_balance,0)) as _balance FROM (
+
+SELECT 'opening' as _type, t2.name as client_name,t1.client_id,SUM(IFNULL(t1.cb_cr_amount,0)-IFNULL(t1.cb_dr_amount,0)) as previous_balance,0 as sum_debit_amount,0 as sum_credit_amount,0 as _balance
 						FROM client_balance as t1 
 						INNER JOIN clients as t2 ON t1.client_id=t2.id 
-						WHERE 1=1 AND t1.cb_date BETWEEN '$from_date' AND '$to_date' GROUP BY t1.client_id";
+						WHERE 1=1 AND t1.cb_date < '$from_date'
+                        GROUP BY t1.client_id
+   UNION ALL
+SELECT 'current' as _type, t2.name as client_name,t1.client_id,0 as previous_balance,t1.cb_dr_amount as sum_debit_amount,t1.cb_cr_amount as sum_credit_amount,t1.cb_cr_amount-t1.cb_dr_amount as _balance
+						FROM client_balance as t1 
+						INNER JOIN clients as t2 ON t1.client_id=t2.id 
+						WHERE 1=1 AND t1.cb_date BETWEEN '$from_date' AND '$to_date'
+    ) as s1 GROUP BY s1.client_id ";
+						
+					
 						
 						$result = mysqli_query($conn, $sql);
 						
@@ -137,6 +149,11 @@ if(isset($_GET['submit'])){
 							<td><?php echo $row['client_id'];?></td>
 							<td><?php  echo $row['client_name'] ?? ''; ?></td>
 							<td style="text-align:right;">
+							<?php $previous_balance = $row['previous_balance'] ?? 0;
+							echo number_format((float)$previous_balance, 2, '.', '');
+							?>
+							</td>
+							<td style="text-align:right;">
 							<?php $totcredit = $row['sum_credit_amount'] ?? 0;
 							echo number_format((float)$totcredit, 2, '.', '');
 							?>
@@ -154,7 +171,7 @@ if(isset($_GET['submit'])){
 							<td style="text-align:right;">
 								<?php
 
-							$balance =  $totcredit - $totdebit; echo number_format((float)$balance, 2, '.', ''); //row balance amount debit - credit
+							$balance =  $row['_balance'] ?? 0; echo number_format((float)$balance, 2, '.', ''); //row balance amount debit - credit
 								
 							$balance_sum+=$balance; //total sum balance amount 
 							$totalcr+=$totcredit;	//total goods receive from supplier
@@ -172,7 +189,7 @@ if(isset($_GET['submit'])){
 						
 						<tr>
 						
-							<td colspan="2" style="text-align:right">Total</td>
+							<td colspan="4" style="text-align:right">Total</td>
 							<td style="text-align:right;font-weight: bold;"><?php echo number_format((float)$totalcr, 2, '.', ''); ?></td>
 							<td style="text-align:right;font-weight: bold;"><?php echo number_format((float)$totaldr, 2, '.', ''); ?></td>
 							<td style="text-align:right;font-weight: bold;"><?php echo number_format((float)$balance_sum, 2, '.', ''); ?></td>
