@@ -131,11 +131,11 @@ if(isset($_GET['submit'])){
 							<th></th>
 							<th style="text-align:right;">
 									<?php 
-									if($_SESSION['logged']['user_type'] !== 'whm'){
+									/* if($_SESSION['logged']['user_type'] !== 'whm'){
 										$sqlpreinqty = "SELECT SUM(`mbin_qty`)- SUM(`mbout_qty`) AS totalpre FROM `inv_materialbalance` WHERE `mb_materialid` = '$material_id_code' AND `mb_date` < '$from_date'";
-									}else{
+									}else{ */
 										$sqlpreinqty = "SELECT SUM(`mbin_qty`)- SUM(`mbout_qty`) AS totalpre FROM `inv_materialbalance` WHERE `warehouse_id` = '$warehouse_id' AND `mb_materialid` = '$material_id_code' AND `mb_date` < '$from_date'";
-									}
+									//}
 									
 									$resultpreinqty = mysqli_query($conn, $sqlpreinqty);
 									$rowpreinqty = mysqli_fetch_object($resultpreinqty);
@@ -156,7 +156,7 @@ if(isset($_GET['submit'])){
 							$sl = 0;
 							$totalin = 0;
 							$totalout = 0;
-							$sqlall	=	"SELECT * FROM `inv_materialbalance` WHERE `mb_materialid` = '$material_name' AND `mb_date` BETWEEN '$from_date' AND '$to_date';";
+							$sqlall	=	"SELECT * FROM `inv_materialbalance` WHERE `warehouse_id` = '$warehouse_id' AND `mb_materialid` = '$material_name' AND `mb_date` BETWEEN '$from_date' AND '$to_date';";
 							//$sqlall	=	"SELECT * FROM `inv_materialbalance` WHERE `mb_materialid` = '$material_name';";
 							$resultall = mysqli_query($conn, $sqlall);
 							while($rowall=mysqli_fetch_array($resultall))
