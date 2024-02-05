@@ -144,7 +144,7 @@ if (isset($_POST['receive_submit']) && !empty($_POST['receive_submit'])) {
 	
     
     $_SESSION['success']    =   "Receive process have been successfully completed.";
-    header("location: receive_entry.php");
+    header("location: receive-list.php");
     exit();
 	}
 		
