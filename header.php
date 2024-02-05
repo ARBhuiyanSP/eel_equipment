@@ -281,34 +281,70 @@ footer.sticky-footer{
          <a class="dropdown-item" href="#">Activity Log</a>
         </div>
       </li> -->
-	  <li class="nav-item dropdown no-arrow">
-        <?php //if(check_permission('material-issue-list')){ ?>
-		<a class="nav-link" href="transfer_list.php" id="userDropdown">
-          <i class="fa fa-server"></i> Transfer
+	  
+        <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="TransferDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-server"></i> Transfer
         </a>
-		<?php //} ?>
-		</li>
-	  <li class="nav-item dropdown no-arrow">
-        <?php //if(check_permission('material-issue-list')){ ?>
-		<a class="nav-link" href="rlp_list.php" id="userDropdown">
-          <i class="fa fa-server"></i> RLP
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="TransferDropdown">
+            <a class="dropdown-item" href="transfer_entry.php">
+                <i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i>
+                <span class="sub_menu_text_design"> Transfer Entry</span>
+            </a> 
+            <a class="dropdown-item" href="transfer_list.php">
+                <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
+                <span class="sub_menu_text_design"> Transfer List</span>
+            </a> 
+            
+        </div>
+      </li>
+	  
+        <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="rlpDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-server"></i> RLP
         </a>
-		<?php //} ?>
-		</li>
-      <li class="nav-item dropdown no-arrow">
-        <?php //if(check_permission('material-issue-list')){ ?>
-        <a class="nav-link" href="notesheets_list.php" id="userDropdown">
-          <i class="fa fa-server"></i> Notesheet
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="rlpDropdown">
+            <a class="dropdown-item" href="rlp_create.php">
+                <i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i>
+                <span class="sub_menu_text_design"> RLP Entry</span>
+            </a> 
+            <a class="dropdown-item" href="rlp_list.php">
+                <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
+                <span class="sub_menu_text_design"> RLP List</span>
+            </a> 
+            
+        </div>
+      </li>
+      
+         <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="noteSheetDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-server"></i> Notesheet
         </a>
-        <?php //} ?>
-        </li>
-		 <li class="nav-item dropdown no-arrow">
-        <?php //if(check_permission('material-issue-list')){ ?>
-        <a class="nav-link" href="workorders_list.php" id="userDropdown">
-          <i class="fa fa-server"></i> Workorder
+
+        
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="noteSheetDropdown">
+            
+            <a class="dropdown-item" href="notesheets_list.php">
+                <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
+                <span class="sub_menu_text_design"> Notesheet List</span>
+            </a> 
+            
+        </div>
+      </li>
+		 
+        <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="workorderDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-server"></i> Workorder
         </a>
-        <?php //} ?>
-        </li>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="workorderDropdown">
+
+            <a class="dropdown-item" href="workorders_list.php">
+                <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
+                <span class="sub_menu_text_design"> Workorder List</span>
+            </a> 
+            
+        </div>
+      </li>
 		 
 		
 		  <li class="nav-item dropdown no-arrow">
@@ -328,15 +364,21 @@ footer.sticky-footer{
 		
 		
 	  <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="mainTainceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-server"></i> Maintenance
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-			<a class="dropdown-item" href="logsheet_list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Logsheet</span></a>            
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="mainTainceDropdown">
+
+			<a class="dropdown-item" href="logsheet.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Logsheet Entry</span></a> 
+            <a class="dropdown-item" href="logsheet_list.php"><i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Logsheet List</span></a>            
 			<?php //if(check_permission('material-receive-add')){ ?>
-			<a class="dropdown-item" href="schedulemaintenance_list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Schedule Maintenance</span></a>
-			<?php //} ?>
-			<a class="dropdown-item" href="maintenancecost_list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Maintenance Cost</span></a>
+			<a class="dropdown-item" href="schedulemaintenance.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Schedule Maintenance Entry</span></a>
+			<?php //} ?>           
+            <?php //if(check_permission('material-receive-add')){ ?>
+            <a class="dropdown-item" href="schedulemaintenance_list.php"><i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Schedule Maintenance List</span></a>
+            <?php //} ?>
+			<a class="dropdown-item" href="maintenance_cost.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Maintenance Cost Entry</span></a>
+            <a class="dropdown-item" href="maintenancecost_list.php"><i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Maintenance Cost List</span></a>
 		   
           <!--<a class="dropdown-item" href="#">Settings</a>-->
           <!--<a class="dropdown-item" href="#">Activity Log</a>-->
@@ -353,14 +395,12 @@ footer.sticky-footer{
                 <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
                 <span class="sub_menu_text_design"> Rent/Bill List</span>
             </a> 
-                
-            <a class="dropdown-item" href="rent_list.php">
+
+            <a class="dropdown-item" href="mr_list.php">
                 <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
-                <span class="sub_menu_text_design"> Rent/Bill Collection</span>
-            </a>            
-            
-            
-            
+                <span class="sub_menu_text_design"> Rent/Bill Collection List</span>
+            </a> 
+
         </div>
       </li>
 		
