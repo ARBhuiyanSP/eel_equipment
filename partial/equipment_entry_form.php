@@ -4,7 +4,7 @@
 ?>
 <form action="" method="post">
     <div class="row">
-        <div class="col-sm-1">
+        <div class="col-sm-2">
             <div class="form-group">
                 <label for="exampleId">Date</label>
                 <input name="commissioning_date" type="text" class="form-control" id="rlpdate" value="<?php echo date("Y-m-d"); ?>" size="30" autocomplete="off" required />
@@ -12,7 +12,7 @@
         </div>
 		<div class="col-sm-2">
             <div class="form-group">
-				<label for="division/company">Owner Project:</label>
+				<label for="division/company">Project:</label>
 				<select class="form-control material_select_2" id="project_id" name="project_id" required >
 					<option value="">Select Project</option>
 					<?php
@@ -36,8 +36,8 @@
             <div class="form-group">
 				<label for="exampleId">Type:</label>
                 <div class="radio">
-                    <label><input type="radio" name="equipment_type" value="Own" checked > <span class="label label-success">OWN</span> </label>
-                    <label><input type="radio" name="equipment_type" value="Rental"> <span class="label label-danger">RENTAL</span> </label>
+                    <label><input type="radio" name="equipment_type" value="Own" checked > <span class="text-success">OWN</span> </label>
+                    <label><input type="radio" name="equipment_type" value="Rental"> <span class="text-danger">RENTAL</span> </label>
                 </div>
 			</div>
         </div>
@@ -47,13 +47,13 @@
                 <input name="name" type="text" class="form-control" id="name" value="" autocomplete="off" required />
             </div>
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
             <div class="form-group">
                 <label for="exampleId">EEL Code</label>
                 <input name="eel_code" type="text" class="form-control" id="eel_code" value="" autocomplete="off" required />
             </div>
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
             <div class="form-group">
                 <label for="exampleId">Capacity</label>
                 <input name="capacity" type="text" class="form-control" id="capacity" value="" autocomplete="off" required />
@@ -81,21 +81,21 @@
 				</select>
 			</div>
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
             <div class="form-group">
-                <label for="exampleId">Make By</label>
+                <label for="exampleId">Brand/Make By</label>
                 <input name="makeby" type="text" class="form-control" id="makeby" value="" autocomplete="off" required />
             </div>
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
             <div class="form-group">
                 <label for="exampleId">Model</label>
                 <input name="model" type="text" class="form-control" id="model" value="" autocomplete="off" required />
             </div>
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
             <div class="form-group">
-                <label for="exampleId">Year of Manufac</label>
+                <label for="exampleId">Year of Manufacture</label>
                 <input name="year_manufacture" type="text" class="form-control" id="year_manufacture" value="" autocomplete="off" required />
             </div>
         </div>
