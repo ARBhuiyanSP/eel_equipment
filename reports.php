@@ -69,6 +69,7 @@ include 'header.php';
 								<ul>
 									<a href="consumption_report.php"><li><b>All Materialwise Consumption Report</b></li></a>
 									<a href="materialwise_consumption_report.php"><li><b>Materialwise Consumption Report</b></li></a>
+									<a href="date_wise_material_issue_report.php"><li><b>Date to date wise Material issue report</b></li></a>
 								</ul>
 							</div>
 							
