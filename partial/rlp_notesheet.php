@@ -110,7 +110,7 @@
                         ?>
                         <tr id="row<?php echo $data->id ?>">
                             <td><?php echo $sl++; ?></td>
-							
+							<input type="hidden" class="form-control" name="rlp_details_id[]" id="" value="<?php echo $data->id; ?>" readonly >
 							
                             <td><input type="text" class="form-control" name="" id="" value="<?php $dataresult =   getDataRowByTableAndId('inv_material', $data->material_name);
 								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : ''); ?>" readonly ></td>
