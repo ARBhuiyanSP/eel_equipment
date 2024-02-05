@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2024 at 06:45 AM
+-- Generation Time: Feb 05, 2024 at 04:42 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -142,8 +142,8 @@ CREATE TABLE `client_balance` (
 --
 
 INSERT INTO `client_balance` (`id`, `ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(13, 'RCH-CW-001', '2024-02-04', '8', '40', 500, 2500, '', '', '', '', '0000-00-00', '', '2024-02-04', '3368', NULL, ''),
-(29, 'RCH-CW-001', '2024-02-06', '8', '40', 0, 200, '', '', '', '', '0000-00-00', '', '0000-00-00', 'created_by', '0000-00-00', '');
+(42, 'RCH-CW-001', '2024-02-05', '2', '3', 0, 345, '', '', '', '', '0000-00-00', '', '2024-02-05', '3368', NULL, ''),
+(43, 'EEL-MR-001', '2024-02-05', '2', '3', 10, 0, 'cash', '', '', '', '0000-00-00', 'ytu', '2024-05-02', '3368', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -189,10 +189,15 @@ CREATE TABLE `country` (
 --
 
 INSERT INTO `country` (`id`, `name`) VALUES
-(1, 'Bangladesh'),
-(2, 'India'),
-(3, 'Germany'),
-(4, 'usa');
+(1, 'CHINA'),
+(2, 'MALAYSIA'),
+(3, 'INDIA'),
+(4, 'USA'),
+(5, 'TURKEY'),
+(6, 'SPAIN'),
+(7, 'Local'),
+(8, 'KOREA'),
+(9, 'GERMANY');
 
 -- --------------------------------------------------------
 
@@ -525,7 +530,7 @@ CREATE TABLE `equipments` (
 --
 
 INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_date`, `name`, `eel_code`, `origin`, `capacity`, `makeby`, `model`, `year_manufacture`, `inventory_sl_no`, `engine_model`, `engine_sl_no`, `present_location`, `present_location_type`, `present_condition`, `price`, `qr_image`, `assign_status`, `inspaction_date`, `incharge`, `superintend`, `coo_admin`, `remarks`, `status`, `created_at`, `updated_at`) VALUES
-(1162, '12', 'Own', '2023-12-20', 'Air Compressor', 'AC-01', 'CHINA', '7 bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021439', '48T-C80', '78941393', '40', 'Rental', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', 'Rented', '2023-12-20 12:51:05', '2022-12-14 05:38:01'),
+(1162, '12', 'Own', '2023-12-20', 'Air Compressor', 'AC-01', 'CHINA', '7 bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021439', '48T-C80', '78941393', '12', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2023-12-20 12:51:05', '2022-12-14 05:38:01'),
 (1163, '3', 'Own', '2023-12-20', 'Air Compressor', 'AC-02', 'CHINA', '7 Bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021440', '4BT.9-C80', '78941394', '3', 'Own', 'Idle', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2023-12-20 12:51:50', '2022-12-14 05:38:01'),
 (1164, '12', 'Own', '0000-00-00', 'Air Compressor', 'AC-03', 'China', ' ', 'LOCAL', 'YL100L12', '2020', ' ', ' ', ' ', '12', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
 (1165, '3', 'Own', '0000-00-00', 'Air Compressor', 'AC-04', 'China', ' ', 'LOCAL', ' ', '2020', ' ', ' ', ' ', '3', 'Own', 'Running', ' ', ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
@@ -806,7 +811,7 @@ INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_d
 (1439, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6470', '241', '2930 KG', 'Dyna', 'N/A', '2014', '', '', '', '1', 'Own', '2', 'NA', '', 'assigned', '', '', '', '', '', 'Rented', '2023-12-28 12:37:36', ''),
 (1440, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6668', '241', '2915 kg', 'Dyna', 'NA', '2011', '', '', '', '1', 'Own', '2', 'NA', '', 'assigned', '', '', '', '', '', 'Rented', '2023-12-28 12:39:14', ''),
 (1441, '37', 'Own', '2023-12-28', 'Double cabin pickup', 'not known', '241', 'NA', 'HILAX', 'NA', 'NA', '', '', '', '37', 'Own', '2', 'NA', '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:40:44', ''),
-(1442, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6296', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '1', 'Own', '2', 'NA', '', 'assigned', '', '', '', '', '', 'Rented', '2023-12-28 12:42:04', ''),
+(1442, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6296', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '3', 'Own', '2', 'NA', '', 'assigned', '', '', '', '', '', 'Rented', '2023-12-28 12:42:04', ''),
 (1443, '37', 'Own', '2023-12-28', 'Double cabin pick up', '13-9034', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '37', 'Own', '2', 'NA', '', 'assigned', '', '', '', '', 'Steering box motor problem', '', '2023-12-28 12:43:35', ''),
 (1444, '37', 'Own', '2023-12-28', 'Barge', 'B-01', '240', '99 X 30X 7 FEET', 'NA', 'NA', 'NA', '', '', '', '37', 'Own', '2', 'NA', '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:46:37', '');
 
@@ -1110,24 +1115,10 @@ INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `
 (1163, '13-6470', '37', '2023-12-28', '2024-02-04 05:09:38', ''),
 (1164, '13-6668', '37', '2023-12-28', '', ''),
 (1165, 'not known', '37', '2023-12-28', '', ''),
-(1166, '13-6296', '37', '2023-12-28', '2024-02-04 05:09:38', ''),
+(1166, '13-6296', '37', '2023-12-28', '2024-02-05 04:42:09', ''),
 (1167, '13-9034', '37', '2023-12-28', '', ''),
 (1168, 'B-01', '37', '2023-12-28', '', ''),
-(1436, 'AC-01', '40', '2024-01-31', '2024-01-01', ''),
-(1437, 'AC-02', '40', '2024-01-31', '2024-01-01', ''),
-(1438, 'AC-01', '12', '2024-01-01', '2024-01-31 08:29:33', ''),
-(1439, 'AC-02', '3', '2024-01-01', '2024-01-31 08:29:34', ''),
-(1440, 'AC-01', '40', '2024-01-31', '2024-02-04 05:49:09', ''),
-(1441, 'AC-02', '40', '2024-01-31', '2024-02-04 05:49:09', ''),
-(1442, '13-6296', '1', '2024-02-04', '', ''),
-(1443, '13-6470', '1', '2024-02-04', '2024-02-04 05:15:08', ''),
-(1444, '13-6470', '1', '2024-02-04', '', ''),
-(1445, 'BD-05', '1', '2024-02-04', '', ''),
-(1446, 'AC-01', '40', '2024-02-04', '2024-02-04 05:58:55', ''),
-(1447, 'AC-02', '40', '2024-02-04', '2024-02-04 05:58:55', ''),
-(1448, 'AC-01', '40', '2024-02-04', '', ''),
-(1449, 'AC-02', '40', '2024-02-04', '2024-02-01', ''),
-(1450, 'AC-02', '3', '2024-02-01', '', '');
+(1453, '13-6296', '3', '2024-02-05', '', '');
 
 -- --------------------------------------------------------
 
@@ -7534,9 +7525,9 @@ INSERT INTO `inv_material` (`id`, `material_id_code`, `material_id`, `material_s
 (253, '01-74', '41', '0', 0, 0, 'Air system protector	', '', '', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'wg0000360521/2 (tb1374)', 0, 0),
 (254, '01-75', '41', '0', 0, 0, 'Fuel Filter	', '', '', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'SP115134', 0, 0),
 (255, '01-76', '41', '0', 0, 0, 'Oil Filter	', '', '', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'SP102047', 0, 0),
-(256, '01-77', '41', '0', 0, 0, 'Air Filter	', '', '', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '34C3429', 180, 0),
+(256, '01-77', '41', '0', 0, 0, 'Air Filter	', '', '', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '34C3429', 0, 0),
 (257, '01-78', '41', '0', 0, 0, 'Return Oil Filter	', '', '', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '53C0431', 0, 0),
-(258, '01-79', '41', '0', 0, 0, 'Filter Element	', '', '', '', 5, NULL, NULL, 0, '27', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '53C0443', 300, 0),
+(258, '01-79', '41', '0', 0, 0, 'Filter Element	', '', '', '', 5, NULL, NULL, 0, '27', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '53C0443', 0, 0),
 (259, '04-136', '48', '0', 0, 0, 'Battery Charger	', '', '', '', 1, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'QA115600/QA115300', 0, 0),
 (260, '01-80', '41', '0', 0, 0, 'Oil Filter	', '', '', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '8-97049-7085-1', 0, 0),
 (261, '01-81', '41', '0', 0, 0, 'Fuel filter	', '', '', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'MB-220900', 0, 0),
@@ -7720,18 +7711,6 @@ CREATE TABLE `inv_materialbalance` (
   `approval_status` tinyint(1) NOT NULL DEFAULT 0,
   `is_manual_code_edit` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'for checking manual code update	'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `inv_materialbalance`
---
-
-INSERT INTO `inv_materialbalance` (`id`, `mb_ref_id`, `mb_materialid`, `material_name`, `material_category`, `eel_code`, `mb_date`, `mbin_qty`, `mbin_val`, `mbout_qty`, `mbout_val`, `mbprice`, `mbtype`, `mbserial`, `mbserial_id`, `mbunit_id`, `jvno`, `part_no`, `project_id`, `warehouse_id`, `package_id`, `building_id`, `approval_status`, `is_manual_code_edit`) VALUES
-(2763, 'MRR-CW001', '01-77', 256, 0, '', '2024-01-30', 100, 150000, 0, 0, 1500, 'Receive', 1.1, '21', '20', 'MRR-CW001', '34C3429', '21', '3', '', '', 0, 0),
-(2764, 'MRR-CW001', '01-79', 258, 0, '', '2024-01-30', 150, 210000, 0, 0, 1400, 'Receive', 1.1, '21', '27', 'MRR-CW001', '53C0443', '21', '3', '', '', 0, 0),
-(2765, '19', '01-77', 256, 0, 'AC-01', '2024-02-01', 0, 0, 10, 15000, 1500, 'maintenance', 1.1, '21', '20', '19', '34C3429', '21', '3', '', '', 0, 0),
-(2766, '19', '01-77', 256, 0, 'AC-01', '2024-02-01', 0, 0, 10, 15000, 1500, 'maintenance', 1.1, '21', '20', '19', '34C3429', '21', '3', '', '', 0, 0),
-(2767, 'MRR-CW002', '01-77', 256, 0, '', '2024-02-01', 100, 120000, 0, 0, 1200, 'Receive', 1.1, '21', '20', 'MRR-CW002', '34C3429', '21', '3', '', '', 0, 0),
-(2768, 'MRR-CW002', '01-79', 258, 0, '', '2024-02-01', 150, 180000, 0, 0, 1200, 'Receive', 1.1, '21', '27', 'MRR-CW002', '53C0443', '21', '3', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -8320,16 +8299,6 @@ CREATE TABLE `inv_product_price` (
   `updated_by` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `inv_product_price`
---
-
-INSERT INTO `inv_product_price` (`id`, `from_table_name`, `mrr_no`, `material_id`, `receive_details_id`, `qty`, `price`, `part_no`, `project_id`, `warehouse_id`, `status`, `created_at`, `cerated_by`, `updated_at`, `updated_by`) VALUES
-(38, '', 'MRR-CW001', '01-77', 34, 80, 1500, '34C3429', 21, 3, 1, '2024-01-30', '', '0000-00-00', ''),
-(39, '', 'MRR-CW001', '01-79', 35, 150, 1400, '53C0443', 21, 3, 1, '2024-01-30', '', '0000-00-00', ''),
-(40, '', 'MRR-CW002', '01-77', 36, 100, 1200, '34C3429', 21, 3, 1, '2024-02-01', '', '0000-00-00', ''),
-(41, '', 'MRR-CW002', '01-79', 37, 150, 1200, '53C0443', 21, 3, 1, '2024-02-01', '', '0000-00-00', '');
-
 -- --------------------------------------------------------
 
 --
@@ -8367,14 +8336,6 @@ CREATE TABLE `inv_receive` (
   `mrr_image` varchar(10000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `inv_receive`
---
-
-INSERT INTO `inv_receive` (`id`, `mrr_no`, `mrr_date`, `purchase_id`, `receive_acct_id`, `supplier_id`, `postedtogl`, `vat_challan_no`, `remarks`, `receive_type`, `project_id`, `warehouse_id`, `receive_unit_id`, `chk_year_end`, `receive_total`, `no_of_material`, `challanno`, `challan_date`, `jv_no`, `part_no`, `requisitionno`, `requisition_date`, `received_by`, `approval_status`, `approved_by`, `approved_at`, `approval_remarks`, `mrr_image`) VALUES
-(15, 'MRR-CW001', '2024-01-30', '2024-01-ENG-WO-', '6-14-010', 'SID-002', 0, '', 'ok', 'Credit', '21', '3', '1', NULL, 360000, 250, 'sc-001', '2024-01-30', NULL, '53C0443', 'RLP-ENG-HEA-2024-01-001', NULL, '3368', 0, '', '0000-00-00 00:00:00', '', ''),
-(16, 'MRR-CW002', '2024-02-01', '2024-01-ENG-WO-', '6-14-010', 'SID-001', 0, '', 'tyut', 'Credit', '21', '3', '1', NULL, 300000, 250, 'tyuy', '2024-02-01', NULL, '53C0443', 'RLP-ENG-HEA-2024-01-001', NULL, '3368', 0, '', '0000-00-00 00:00:00', '', '');
-
 -- --------------------------------------------------------
 
 --
@@ -8399,16 +8360,6 @@ CREATE TABLE `inv_receivedetail` (
   `approval_status` tinyint(1) NOT NULL DEFAULT 0,
   `is_manual_code_edit` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'for checking manual code update'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `inv_receivedetail`
---
-
-INSERT INTO `inv_receivedetail` (`id`, `mrr_no`, `material_id`, `material_name`, `material_category`, `unit_id`, `receive_qty`, `unit_price`, `sl_no`, `total_receive`, `rd_serial_id`, `part_no`, `project_id`, `warehouse_id`, `approval_status`, `is_manual_code_edit`) VALUES
-(34, 'MRR-CW001', '01-77', '256', 0, 20, 100, 1500, 1, 150000, '', '34C3429', '21', '3', 0, 0),
-(35, 'MRR-CW001', '01-79', '258', 0, 27, 150, 1400, 1, 210000, '', '53C0443', '21', '3', 0, 0),
-(36, 'MRR-CW002', '01-77', '256', 0, 20, 100, 1200, 1, 120000, '', '34C3429', '21', '3', 0, 0),
-(37, 'MRR-CW002', '01-79', '258', 0, 27, 150, 1200, 1, 180000, '', '53C0443', '21', '3', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -8503,18 +8454,6 @@ CREATE TABLE `inv_supplierbalance` (
   `approval_status` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `inv_supplierbalance`
---
-
-INSERT INTO `inv_supplierbalance` (`id`, `sb_ref_id`, `warehouse_id`, `sb_date`, `sb_supplier_id`, `sb_dr_amount`, `sb_cr_amount`, `sb_remark`, `sb_partac_id`, `approval_status`) VALUES
-(12, 'MRR-CW001', '3', '2024-01-22', 'SID-002', 0, 7200, 'ok', 'MRR-CW001', 0),
-(13, 'MRR-CW002', '3', '2024-01-22', 'SID-002', 0, 24500, 'ok', 'MRR-CW002', 0),
-(14, 'MRR-CW001', '3', '2024-01-23', 'SID-002', 0, 187500, 'ok', 'MRR-CW001', 0),
-(15, 'MRR-CW002', '3', '2024-01-24', 'SID-002', 0, 31800, 'ok', 'MRR-CW002', 0),
-(16, 'MRR-CW001', '3', '2024-01-30', 'SID-002', 0, 360000, 'ok', 'MRR-CW001', 0),
-(17, 'MRR-CW002', '3', '2024-02-01', 'SID-001', 0, 300000, 'tyut', 'MRR-CW002', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -8560,14 +8499,6 @@ CREATE TABLE `inv_tranferdetail` (
   `outproject` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `inv_tranferdetail`
---
-
-INSERT INTO `inv_tranferdetail` (`id`, `transfer_id`, `material_id`, `material_name`, `part_no`, `transfer_qty`, `unit`, `unit_price`, `type`, `inwarehouse`, `outwarehouse`, `inproject`, `outproject`) VALUES
-(6, 'TR-CW-001', '01-77', '256', '34C3429', '5', 20, 1500, '1', '5', '3', '40', '21'),
-(7, 'TR-CW-002', '01-77', '256', '34C3429', '5', 20, 1500, '1', '5', '3', '40', '21');
-
 -- --------------------------------------------------------
 
 --
@@ -8609,14 +8540,6 @@ CREATE TABLE `inv_transfermaster` (
   `updated_at` date NOT NULL,
   `updated_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `inv_transfermaster`
---
-
-INSERT INTO `inv_transfermaster` (`id`, `transfer_id`, `transfer_date`, `no_of_material`, `transfer_total`, `from_warehouse`, `to_warehouse`, `from_project`, `to_project`, `remarks`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(4, 'TR-CW-001', '2024-02-01', 5, 1500, '3', '5', '21', '40', 'fgyhut', 'Pending', '2024-02-01', '3368', '0000-00-00', ''),
-(5, 'TR-CW-002', '2024-02-01', 5, 1500, '3', '5', '21', '40', 'ok', 'Pending', '2024-02-01', '3368', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -8761,14 +8684,6 @@ CREATE TABLE `maintenance` (
   `updated_by` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `maintenance`
---
-
-INSERT INTO `maintenance` (`id`, `maintenance_id`, `project_id`, `equipment_id`, `lastseervice_date`, `lastservice_hrkm`, `schedule_hrkm`, `present_hrkm`, `nextservice_date`, `nextservice_hrkm`, `dueforservice_hrkm`, `typeofservice_hrkm`, `detailsofmaintenance`, `remarks`, `warehouse_id`, `created_date`, `updated_date`, `created_by`, `updated_by`) VALUES
-(18, '', '21', 'AC-01', '2024-01-23', 0, 250, 240, '2024-01-24', 490, 10, 250, '', 'ok', 3, '2024-01-23 10:21:26', '2024-01-23 10:21:26', '', ''),
-(19, '', '21', 'AC-01', '2024-02-01', 240, 490, 480, '2024-03-10', 730, 10, 250, '', 'ok', 3, '2024-02-01 06:29:12', '2024-02-01 06:29:12', '', '');
-
 -- --------------------------------------------------------
 
 --
@@ -8779,24 +8694,19 @@ CREATE TABLE `maintenance_cost` (
   `id` int(11) NOT NULL,
   `m_cost_id` varchar(50) NOT NULL,
   `eel_code` varchar(20) NOT NULL,
-  `in_time` datetime NOT NULL,
-  `out_time` datetime NOT NULL,
+  `in_time` date NOT NULL,
+  `out_time` date NOT NULL,
   `problem_details` longtext NOT NULL,
   `remarks` longtext NOT NULL,
   `status` varchar(20) NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `warehouse_id` int(11) NOT NULL,
   `certified_by` varchar(20) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_by` varchar(20) NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_by` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `maintenance_cost`
---
-
-INSERT INTO `maintenance_cost` (`id`, `m_cost_id`, `eel_code`, `in_time`, `out_time`, `problem_details`, `remarks`, `status`, `certified_by`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(408, '2024-01-EEL-MCSL-001', 'AC-01', '2024-01-12 00:00:00', '2024-01-23 00:00:00', 'solved', 'ok', 'Created', '', '2024-01-23 11:22:17', '3368', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -8817,15 +8727,6 @@ CREATE TABLE `maintenance_details` (
   `warehouse_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `maintenance_details`
---
-
-INSERT INTO `maintenance_details` (`id`, `maintenance_id`, `material_id`, `material_name`, `unit`, `qty`, `price`, `part_no`, `project_id`, `warehouse_id`) VALUES
-(30, '18', '01-77', '256', '20', 1, 1500, '34C3429', 21, 3),
-(31, '18', '01-79', '258', '27', 2, 250, '53C0443', 21, 3),
-(32, '19', '01-77', '256', '20', 10, 1500, '34C3429', 21, 3);
-
 -- --------------------------------------------------------
 
 --
@@ -8840,14 +8741,6 @@ CREATE TABLE `maintenance_mechanic` (
   `created_by` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `maintenance_mechanic`
---
-
-INSERT INTO `maintenance_mechanic` (`id`, `m_cost_id`, `mechanic_name`, `created_at`, `created_by`) VALUES
-(474, '2024-01-EEL-MCSL-001', 'Karim', '2024-01-23 11:22:17', '3368'),
-(475, '2024-01-EEL-MCSL-001', 'Rahim', '2024-01-23 11:22:17', '3368');
-
 -- --------------------------------------------------------
 
 --
@@ -8861,16 +8754,11 @@ CREATE TABLE `maintenance_other_cost` (
   `oc_qty` int(11) NOT NULL,
   `oc_unit_price` float NOT NULL,
   `oc_amount` float NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `warehouse_id` int(11) NOT NULL,
   `created_at` date NOT NULL DEFAULT current_timestamp(),
   `created_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `maintenance_other_cost`
---
-
-INSERT INTO `maintenance_other_cost` (`id`, `m_cost_id`, `oc_name`, `oc_qty`, `oc_unit_price`, `oc_amount`, `created_at`, `created_by`) VALUES
-(5, '2024-01-EEL-MCSL-001', 'Transport', 1, 500, 500, '2024-01-23', '3368');
 
 -- --------------------------------------------------------
 
@@ -8888,17 +8776,11 @@ CREATE TABLE `maintenance_spare_parts` (
   `unit` varchar(50) NOT NULL,
   `rate` varchar(20) NOT NULL,
   `amount` varchar(20) NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `warehouse_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_by` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `maintenance_spare_parts`
---
-
-INSERT INTO `maintenance_spare_parts` (`id`, `m_cost_id`, `spare_parts_name`, `material_id`, `part_no`, `qty`, `unit`, `rate`, `amount`, `created_at`, `created_by`) VALUES
-(918, '2024-01-EEL-MCSL-001', '256', '01-77', '34C3429', 1, '20', '1500', '1500', '2024-01-23 11:22:17', '3368'),
-(919, '2024-01-EEL-MCSL-001', '258', '01-79', '53C0443', 2, '27', '250', '500', '2024-01-23 11:22:17', '3368');
 
 -- --------------------------------------------------------
 
@@ -9000,16 +8882,6 @@ CREATE TABLE `notesheets` (
   `created_by` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `notesheets`
---
-
-INSERT INTO `notesheets` (`id`, `notesheet_no`, `notesheet_id`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
-(201, 'NS-2024-01-ENG-Mec-001', 64, 'RLP-ENG-HEA-2024-01-001', 'TestNotesheet', '', '', '', '', '', '256', '', 'Pics', '100', '1500', '150000.00', '', 'Created', '2024-01-23 11:16:51', 3368),
-(202, 'NS-2024-01-ENG-Mec-001', 64, 'RLP-ENG-HEA-2024-01-001', 'TestNotesheet', '', '', '', '', '', '258', '', 'Pics', '150', '250', '37500.00', '', 'Created', '2024-01-23 11:16:51', 3368),
-(203, 'NS-2024-01-ENG-Mec-002', 65, 'RLP-ENG-HEA-2024-01-002', 'test ns', '', '', '', '', '', '256', '', 'Pics', '10', '1500', '15000.00', '', 'Created', '2024-01-24 05:34:31', 3368),
-(204, 'NS-2024-01-ENG-Mec-002', 65, 'RLP-ENG-HEA-2024-01-002', 'test ns', '', '', '', '', '', '11', '', 'Pics', '12', '1400', '16800.00', '', 'Created', '2024-01-24 05:34:31', 3368);
-
 -- --------------------------------------------------------
 
 --
@@ -9050,14 +8922,6 @@ CREATE TABLE `notesheets_master` (
   `updated_by` datetime NOT NULL,
   `is_delete` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `notesheets_master`
---
-
-INSERT INTO `notesheets_master` (`id`, `notesheet_no`, `rlp_no`, `request_project`, `request_warehouse`, `subject`, `ns_info`, `supplier_name`, `supplier_id`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `discount`, `total_afterdiscount`, `grand_total`, `remarks`, `terms_condition`, `status`, `notesheet_status`, `is_viewd`, `is_wo`, `attached_file`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_delete`) VALUES
-(64, 'NS-2024-01-ENG-Mec-001', 'RLP-ENG-HEA-2024-01-001', 21, 3, 'TestNotesheet', 'NS-001', '2', 'SID-002', '', '', '', '', 0, 187500, 0, 0, 0, 187500, 187500, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days after receiving the work order.</li>\r\n\r\n							<li>Mode of payment: After 45 days from the date of bill Submission.</li>\r\n\r\n							<li>The above rate includes VAT, AIT & other Taxes.</li>\r\n\r\n							<li>Transport & Courier costs will be charged by Buyers.</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 1, '', '2024-01-23 11:16:51', 3368, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
-(65, 'NS-2024-01-ENG-Mec-002', 'RLP-ENG-HEA-2024-01-002', 21, 3, 'test ns', 'ns4654654', '2', 'SID-002', '', '', '', '', 0, 31800, 0, 0, 0, 31800, 31800, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days after receiving the work order.</li>\r\n\r\n							<li>Mode of payment: After 45 days from the date of bill Submission.</li>\r\n\r\n							<li>The above rate includes VAT, AIT & other Taxes.</li>\r\n\r\n							<li>Transport & Courier costs will be charged by Buyers.</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 1, '', '2024-01-24 05:34:31', 3368, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -9105,14 +8969,6 @@ CREATE TABLE `notesheet_acknowledgement` (
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `notesheet_acknowledgement`
---
-
-INSERT INTO `notesheet_acknowledgement` (`id`, `notesheet_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(533, 64, 616, 1, 1, '2024-01-23 11:16:51', '2024-01-23 16:17:12', 1, 3368, 616),
-(534, 65, 616, 1, 1, '2024-01-24 05:34:32', '2024-01-24 10:37:53', 1, 3368, 616);
-
 -- --------------------------------------------------------
 
 --
@@ -9126,14 +8982,6 @@ CREATE TABLE `notesheet_remarks_history` (
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `notesheet_remarks_history`
---
-
-INSERT INTO `notesheet_remarks_history` (`id`, `notesheet_id`, `user_id`, `remarks`, `remarks_date`) VALUES
-(207, 64, 616, 'ok', '2024-01-23 16:17:12'),
-(208, 65, 616, 'ok', '2024-01-24 10:37:53');
 
 -- --------------------------------------------------------
 
@@ -9716,7 +9564,39 @@ CREATE TABLE `rents` (
 --
 
 INSERT INTO `rents` (`id`, `date`, `client_name`, `project_name`, `ref_no`, `challan_no`, `total_rent_amount`, `discount`, `grandtotal`, `deposit_amount`, `due_amount`, `from_project`, `from_warehouse`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(11, '2024-02-04', '8', '40', 'ati', 'RCH-CW-001', 2900, 200, 2700, 500, 2200, 0, 0, 'Rented', '2024-02-04', '3368', NULL, '');
+(12, '2024-02-05', '2', '3', 'rtyrty', 'RCH-CW-001', 345, 0, 345, 10, 335, 0, 0, 'Pending', '2024-02-05', '3368', '2024-05-02', '3368');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rent_bill`
+--
+
+CREATE TABLE `rent_bill` (
+  `id` int(11) NOT NULL,
+  `bill_no` varchar(50) NOT NULL,
+  `rent_id` int(11) NOT NULL,
+  `bill_date` date NOT NULL,
+  `challan_no` varchar(50) NOT NULL,
+  `client_name` int(11) NOT NULL,
+  `project_name` int(11) NOT NULL,
+  `eel_code` varchar(50) NOT NULL,
+  `amount` float NOT NULL,
+  `payment_type` varchar(20) NOT NULL,
+  `bank_name` varchar(50) NOT NULL,
+  `bank_branch` varchar(50) NOT NULL,
+  `bank_cheque_no` varchar(50) NOT NULL,
+  `bank_cheque_date` date NOT NULL,
+  `created_at` date NOT NULL,
+  `created_by` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rent_bill`
+--
+
+INSERT INTO `rent_bill` (`id`, `bill_no`, `rent_id`, `bill_date`, `challan_no`, `client_name`, `project_name`, `eel_code`, `amount`, `payment_type`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `created_at`, `created_by`) VALUES
+(3, 'EEL-MR-001', 12, '2024-02-05', 'RCH-CW-001', 2, 3, '', 10, 'cash', '', '', '', '0000-00-00', '2024-05-02', '3368');
 
 -- --------------------------------------------------------
 
@@ -9744,8 +9624,7 @@ CREATE TABLE `rent_details` (
 --
 
 INSERT INTO `rent_details` (`id`, `rent_id`, `client_name`, `project_name`, `challan_no`, `eel_code`, `rent_date`, `return_date`, `extended_date`, `total_days`, `amount`, `status`) VALUES
-(21, 11, 8, 40, 'RCH-CW-001', 'AC-01', '2024-02-01', '2024-02-04', '2024-02-04', 3, 1500, 'Rented'),
-(22, 11, 8, 40, 'RCH-CW-001', 'AC-02', '2024-02-01', '2024-02-04', '2024-02-06', 5, 1400, 'Rented');
+(23, 12, 2, 3, 'RCH-CW-001', '13-6296', '2024-02-05', '2024-02-14', '2024-02-14', 9, 345, 'Rented');
 
 -- --------------------------------------------------------
 
@@ -9768,9 +9647,7 @@ CREATE TABLE `rent_history` (
 --
 
 INSERT INTO `rent_history` (`id`, `rent_details_id`, `eel_code`, `rent_date`, `return_date`, `amount`, `status`) VALUES
-(23, 21, 'AC-01', '2024-02-01', '2024-02-04', 1500, 'Rented'),
-(24, 22, 'AC-02', '2024-02-01', '2024-02-04', 1200, 'Rented'),
-(40, 22, 'AC-02', '2024-02-04', '2024-02-06', 200, 'Rented');
+(46, 23, '13-6296', '2024-02-05', '2024-02-14', 345, 'Rented');
 
 -- --------------------------------------------------------
 
@@ -9823,12 +9700,9 @@ CREATE TABLE `rlp_acknowledgement` (
 --
 
 INSERT INTO `rlp_acknowledgement` (`id`, `rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(1386, 1, 3359, 1, 1, '2024-01-23 11:15:40', '2024-01-23 16:16:05', 1, 3, 3359),
-(1387, 1, 3361, 2, 0, '2024-01-23 16:16:05', NULL, 1, 3, NULL),
-(1388, 1, 616, 3, 0, '2024-01-23 11:15:40', NULL, 0, 3, NULL),
-(1389, 2, 3359, 1, 1, '2024-01-24 05:31:36', '2024-01-24 10:32:15', 1, 3368, 3359),
-(1390, 2, 3361, 2, 0, '2024-01-24 10:32:15', NULL, 1, 3368, NULL),
-(1391, 2, 616, 3, 0, '2024-01-24 05:31:36', NULL, 0, 3368, NULL);
+(1392, 1, 3359, 1, 1, '2024-02-05 04:29:58', '2024-02-05 09:30:32', 1, 3368, 3359),
+(1393, 1, 3361, 2, 0, '2024-02-05 09:30:32', NULL, 1, 3368, NULL),
+(1394, 1, 616, 3, 0, '2024-02-05 04:29:58', NULL, 0, 3368, NULL);
 
 -- --------------------------------------------------------
 
@@ -9863,18 +9737,19 @@ CREATE TABLE `rlp_details` (
   `amount` float NOT NULL,
   `estimated_price` float DEFAULT NULL,
   `supplier` text DEFAULT NULL,
-  `details_remarks` text DEFAULT NULL
+  `details_remarks` text DEFAULT NULL,
+  `is_ns` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `rlp_details`
 --
 
-INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `material_id`, `material_name`, `part_no`, `purpose`, `quantity`, `unit`, `unit_price`, `amount`, `estimated_price`, `supplier`, `details_remarks`) VALUES
-(1, 1, NULL, '01-77', '256', '34C3429', 'AC-01', '100', '20', 1500, 150000, NULL, NULL, NULL),
-(2, 1, NULL, '01-79', '258', '53C0443', 'AC-02', '150', '27', 250, 37500, NULL, NULL, NULL),
-(3, 2, NULL, '01-77', '256', '34C3429', 'ac-01', '10', '20', 1500, 15000, NULL, NULL, NULL),
-(4, 2, NULL, '01-01', '11', '8965', 'ac-02', '12', '20', 1400, 16800, NULL, NULL, NULL);
+INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `material_id`, `material_name`, `part_no`, `purpose`, `quantity`, `unit`, `unit_price`, `amount`, `estimated_price`, `supplier`, `details_remarks`, `is_ns`) VALUES
+(1, 1, NULL, '01-77', '256', '34C3429', 'AC-01', '100', '20', 1500, 150000, NULL, NULL, NULL, 0),
+(2, 1, NULL, '01-01', '11', '8965', 'AC-02', '100', '20', 1400, 140000, NULL, NULL, NULL, 0),
+(3, 1, NULL, '01-95', '275', 'C271050', 'AC-02', '50', '20', 1200, 60000, NULL, NULL, NULL, 0),
+(4, 1, NULL, '01-03', '18', '(LF-3349)/VG6100007005', 'AC-01', '100', '20', 1300, 130000, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -9914,8 +9789,7 @@ CREATE TABLE `rlp_info` (
 --
 
 INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_warehouse`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `totalamount`, `rlp_status`, `is_viewd`, `is_ns`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
-(1, 'RLP-ENG-HEA-2024-01-001', 3, 'admin@saifpowertec.com', 2, '2024-01-23 12:00:00', 1, 11, 21, 3, 'admin@saifpowertec.com', NULL, '', NULL, 'ok', 187500, 1, 0, 1, 3, '2024-01-23 11:15:39', 3359, '0000-00-00 00:00:00', 0),
-(2, 'RLP-ENG-HEA-2024-01-002', 3368, 'admin@saifpowertec.com', 3, '2024-01-24 12:00:00', 1, 11, 21, 3, 'admin@saifpowertec.com', NULL, '', NULL, 'ok', 31800, 1, 0, 1, 3368, '2024-01-24 05:31:36', 3359, '0000-00-00 00:00:00', 0);
+(1, 'RLP-ENG-HEA-2024-02-001', 3368, 'admin@saifpowertec.com', 2, '2024-02-05 12:00:00', 1, 11, 21, 3, 'admin@saifpowertec.com', NULL, '', NULL, 'Okay', 480000, 1, 0, 0, 3368, '2024-02-05 04:29:58', 3359, '2024-05-02 09:30:32', 0);
 
 -- --------------------------------------------------------
 
@@ -9936,8 +9810,7 @@ CREATE TABLE `rlp_remarks_history` (
 --
 
 INSERT INTO `rlp_remarks_history` (`id`, `rlp_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
-(815, 1, 3359, 'ok', '2024-01-23 16:16:05'),
-(816, 2, 3359, 'ok', '2024-01-24 10:32:15');
+(817, 1, 3359, 'ok', '2024-02-05 09:30:32');
 
 -- --------------------------------------------------------
 
@@ -10339,13 +10212,6 @@ CREATE TABLE `tb_logsheet` (
   `engineoil` int(11) NOT NULL,
   `greasing` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `tb_logsheet`
---
-
-INSERT INTO `tb_logsheet` (`slno`, `d_date`, `equipment_code`, `project_id`, `operator_id`, `monthname`, `workdetails`, `runninghrkm`, `closehrkm`, `totalhrkm`, `standby`, `hydrolicltr`, `disealltr`, `engineoil`, `greasing`) VALUES
-(6041, '2024-01-23', 'AC-01', 12, 0, '', '', 250, 270, 20, 'Running', 2, 20, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -10844,7 +10710,12 @@ INSERT INTO `userlog` (`id`, `userId`, `username`, `role_id`, `employee_id`, `us
 (458, 3368, ' ', 5, '', 0x3a3a31, '2024-02-01 03:37:17'),
 (459, 3368, ' ', 5, '', 0x3a3a31, '2024-02-01 06:49:01'),
 (460, 3370, ' ', 5, '', 0x3a3a31, '2024-02-01 08:56:34'),
-(461, 3368, ' ', 5, '', 0x3a3a31, '2024-02-04 03:45:39');
+(461, 3368, ' ', 5, '', 0x3a3a31, '2024-02-04 03:45:39'),
+(462, 3368, ' ', 5, '', 0x3a3a31, '2024-02-04 05:53:56'),
+(463, 3368, ' ', 5, '', 0x3a3a31, '2024-02-04 06:33:53'),
+(464, 3368, ' ', 5, '', 0x3a3a31, '2024-02-05 03:28:10'),
+(465, 3359, ' ', 19, '', 0x3a3a31, '2024-02-05 03:30:22'),
+(466, 3368, ' ', 5, '', 0x3a3a31, '2024-02-05 03:30:43');
 
 -- --------------------------------------------------------
 
@@ -10983,16 +10854,6 @@ CREATE TABLE `workorders` (
   `created_by` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `workorders`
---
-
-INSERT INTO `workorders` (`id`, `wo_no`, `notesheet_no`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
-(84, '2024-01-ENG-WO-001', 'NS-2024-01-ENG-Mec-001', 'RLP-ENG-HEA-2024-01-001', 'Test Work Order', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '256', '', 'Pics', '100', '1500', '150000.00', '', 'Created', '2024-01-23', 3368),
-(85, '2024-01-ENG-WO-001', 'NS-2024-01-ENG-Mec-001', 'RLP-ENG-HEA-2024-01-001', 'Test Work Order', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '258', '', 'Pics', '150', '250', '37500.00', '', 'Created', '2024-01-23', 3368),
-(86, '2024-01-ENG-WO-002', 'NS-2024-01-ENG-Mec-002', 'RLP-ENG-HEA-2024-01-002', 'test wo', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '256', '', 'Pics', '10', '1500', '15000.00', '', 'Created', '2024-01-24', 3368),
-(87, '2024-01-ENG-WO-002', 'NS-2024-01-ENG-Mec-002', 'RLP-ENG-HEA-2024-01-002', 'test wo', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '11', '', 'Pics', '12', '1400', '16800.00', '', 'Created', '2024-01-24', 3368);
-
 -- --------------------------------------------------------
 
 --
@@ -11025,14 +10886,6 @@ CREATE TABLE `workorders_master` (
   `updated_by` int(11) NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `workorders_master`
---
-
-INSERT INTO `workorders_master` (`id`, `wo_no`, `request_project`, `request_warehouse`, `notesheet_no`, `rlp_no`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `grand_total`, `remarks`, `status`, `created_at`, `created_by`, `updated_by`, `updated_at`) VALUES
-(30, '2024-01-ENG-WO-001', 21, 3, 'NS-2024-01-ENG-Mec-001', 'RLP-ENG-HEA-2024-01-001', 'Test Work Order', 'Q-0001', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', 0, 187500, 0, 0, 187500, '', '1', '2024-01-23', 3368, 3359, '0000-00-00 00:00:00'),
-(31, '2024-01-ENG-WO-002', 21, 3, 'NS-2024-01-ENG-Mec-002', 'RLP-ENG-HEA-2024-01-002', 'test wo', 'q867', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', 0, 31800, 0, 0, 31800, '', '1', '2024-01-24', 3368, 3359, '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -11420,6 +11273,12 @@ ALTER TABLE `rents`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `rent_bill`
+--
+ALTER TABLE `rent_bill`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `rent_details`
 --
 ALTER TABLE `rent_details`
@@ -11606,7 +11465,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `client_balance`
 --
 ALTER TABLE `client_balance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `companies`
@@ -11618,7 +11477,7 @@ ALTER TABLE `companies`
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `department`
@@ -11642,7 +11501,7 @@ ALTER TABLE `equipments`
 -- AUTO_INCREMENT for table `equipment_assign`
 --
 ALTER TABLE `equipment_assign`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1451;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1454;
 
 --
 -- AUTO_INCREMENT for table `inv_designation`
@@ -11690,7 +11549,7 @@ ALTER TABLE `inv_material`
 -- AUTO_INCREMENT for table `inv_materialbalance`
 --
 ALTER TABLE `inv_materialbalance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2769;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2774;
 
 --
 -- AUTO_INCREMENT for table `inv_materialcategory`
@@ -11834,7 +11693,7 @@ ALTER TABLE `maintenance`
 -- AUTO_INCREMENT for table `maintenance_cost`
 --
 ALTER TABLE `maintenance_cost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=409;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=412;
 
 --
 -- AUTO_INCREMENT for table `maintenance_details`
@@ -11846,19 +11705,19 @@ ALTER TABLE `maintenance_details`
 -- AUTO_INCREMENT for table `maintenance_mechanic`
 --
 ALTER TABLE `maintenance_mechanic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=476;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=479;
 
 --
 -- AUTO_INCREMENT for table `maintenance_other_cost`
 --
 ALTER TABLE `maintenance_other_cost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `maintenance_spare_parts`
 --
 ALTER TABLE `maintenance_spare_parts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=920;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=925;
 
 --
 -- AUTO_INCREMENT for table `materialbalance`
@@ -11960,19 +11819,25 @@ ALTER TABLE `rental_project`
 -- AUTO_INCREMENT for table `rents`
 --
 ALTER TABLE `rents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `rent_bill`
+--
+ALTER TABLE `rent_bill`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `rent_details`
 --
 ALTER TABLE `rent_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `rent_history`
 --
 ALTER TABLE `rent_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `rlp_access_chain`
@@ -11984,7 +11849,7 @@ ALTER TABLE `rlp_access_chain`
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
 --
 ALTER TABLE `rlp_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1392;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1395;
 
 --
 -- AUTO_INCREMENT for table `rlp_delete_history`
@@ -12008,7 +11873,7 @@ ALTER TABLE `rlp_info`
 -- AUTO_INCREMENT for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=817;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=818;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -12086,13 +11951,13 @@ ALTER TABLE `tb_ledger`
 -- AUTO_INCREMENT for table `tb_logsheet`
 --
 ALTER TABLE `tb_logsheet`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6042;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6045;
 
 --
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=462;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=467;
 
 --
 -- AUTO_INCREMENT for table `users`
