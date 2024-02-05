@@ -313,7 +313,7 @@ function getRlpDetailsDataForNs($rlp_id){
     
     $order = 'asc';
     $column='id';
-    $table         =   "rlp_details WHERE rlp_info_id=$rlp_id";
+    $table         =   "rlp_details WHERE rlp_info_id=$rlp_id AND `is_ns`='0'";
     $rlp_details   = getTableDataByTableNameRlp($table, $order, $column);
     
     $feedbackData   =   [
