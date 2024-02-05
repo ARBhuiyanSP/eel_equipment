@@ -64,13 +64,13 @@ while($row = mysqli_fetch_array($result))
 function get_logsheet_list_action_data($row){
 	//$edit_url = 'receive_edit.php?edit_id='.$row["transfer_id"];
     
-    $view_url = 'bill_view.php?no='.$row["voucher_id"];
+    $view_url = 'bill_view.php?no='.$row["id"];
     $action = "";
 	
 
 
 						
-	$action.='<span><a class="btn btn-sm btn-info" href="'.$view_url.'" title="View"><i class="fas fa-eye"> View</i></a></span>';
+	$action.='<span><a class="btn btn-sm btn-info" href="#" title="View"><i class="fas fa-eye"> View</i></a></span>';
 
 	
 	

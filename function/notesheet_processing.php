@@ -54,6 +54,25 @@ function update_rlp_master_table(){
     
 }
 
+function update_rlp_details_table(){
+	global $conn;	
+    for($count = 0; $count<count($_POST['rlp_details_id']); $count++){
+		
+        $rlp_details_id= (isset($_POST['rlp_details_id'][$count]) && !empty($_POST['rlp_details_id'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['rlp_details_id'][$count])) : '');
+		
+	
+        $dataParam     =   [
+            'is_ns'		=>  '1'
+        ];
+		
+		$where      =   [
+			'id'	=>  $rlp_details_id
+		];
+		updateData('rlp_details', $dataParam, $where);
+    
+	}
+}
+
 
 function execute_notesheets_master_table($file_path = "../uploads/file/"){
 		global $conn;
@@ -157,6 +176,11 @@ function execute_notesheet_details_table($notesheet_id){
             'notesheet_id'	=>  $notesheet_id,
             'rlp_no'       	=>  $rlp_no,
             'subject'	=>  $subject,
+            /* 'supplier_name'	=>  $supplier_name,
+            'address' 		=>  $address,
+            'concern_person' =>  $concern_person,
+            'cell_number'   =>  $cell_number,
+            'email'       	=>  $email, */
             'item'       	=>  $item,
             'unit'			=>  'Pics',
             'quantity'	 	=>  $quantity,
@@ -170,25 +194,6 @@ function execute_notesheet_details_table($notesheet_id){
     
         saveData("notesheets", $dataParam);
     }
-}
-
-function update_rlp_details_table(){
-	global $conn;	
-    for($count = 0; $count<count($_POST['rlp_details_id']); $count++){
-		
-        $rlp_details_id= (isset($_POST['rlp_details_id'][$count]) && !empty($_POST['rlp_details_id'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['rlp_details_id'][$count])) : '');
-		
-	
-        $dataParam     =   [
-            'is_ns'		=>  '1'
-        ];
-		
-		$where      =   [
-			'id'	=>  $rlp_details_id
-		];
-		updateData('rlp_details', $dataParam, $where);
-    
-	}
 }
 /* if(isset($_GET['process_type']) && $_GET['process_type'] == "rlp_sa_supplier_update_execute"){
     include '../connection/connect.php';

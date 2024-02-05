@@ -50,6 +50,7 @@ if (isset($_POST['receive_submit']) && !empty($_POST['receive_submit'])) {
 
 
         $material_name      = $_POST['material_name'][$count];
+        $ns_details_id      = $_POST['ns_details_id'][$count];
         $material_id        = $_POST['material_id'][$count];
         $unit               = $_POST['unit'][$count];
         $part_no            = $_POST['part_no'][$count];
@@ -84,6 +85,11 @@ if (isset($_POST['receive_submit']) && !empty($_POST['receive_submit'])) {
         $conn->query($query);
 		
 		$lastinsertedId =  mysqli_insert_id($conn);
+		
+		
+		
+		$queryUpdateNs = "UPDATE `workorders` SET `is_mrr`='1' WHERE `ns_details_id` = '$ns_details_id'";
+        $conn->query($queryUpdateNs);
 		
 		
 		/* print_r($lastinsertedId);
@@ -138,7 +144,7 @@ if (isset($_POST['receive_submit']) && !empty($_POST['receive_submit'])) {
 	
     
     $_SESSION['success']    =   "Receive process have been successfully completed.";
-    header("location: receive_entry.php");
+    header("location: receive-list.php");
     exit();
 	}
 		

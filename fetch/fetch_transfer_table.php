@@ -72,9 +72,7 @@ function get_receive_list_action_data($row){
     $approve_url = 'transfer_approve.php?no='.$row["voucher_id"];
     $action = "";
 	
-if(check_permission('material-receive-edit')){
-    $action.='<span><a class="btn btn-sm btn-danger" href="'.$edit_url.'" title="edit"><i class="fa fa-edit"> Edit</i></a></span>';
-}
+
 
 						
 	$action.='<span><a class="btn btn-sm btn-info" href="'.$view_url.'" title="View"><i class="fas fa-eye"> View</i></a></span>';

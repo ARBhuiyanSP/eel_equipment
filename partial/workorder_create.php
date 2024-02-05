@@ -109,7 +109,9 @@
 								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : ''); ?>" readonly ></td>
 							
                             <input type="hidden" class="form-control" name="item[]" id="" value="<?php echo (isset($data->item) && !empty($data->item) ? $data->item : ""); ?>" readonly >
-                            <td></td>
+                            
+							<td><input type="text" class="form-control" name="ns_details_id[]" id="" value="<?php echo (isset($data->id) && !empty($data->id) ? $data->id : ""); ?>" readonly ></td>
+							
                             <td><?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?></td>
 							<input type="hidden" class="form-control" name="quantity[]" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" >
                             <td><?php echo (isset($data->unit_price) && !empty($data->unit_price) ? $data->unit_price : ""); ?></td>

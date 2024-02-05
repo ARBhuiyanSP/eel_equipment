@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2024 at 12:55 PM
+-- Generation Time: Feb 05, 2024 at 08:58 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -136,6 +136,15 @@ CREATE TABLE `client_balance` (
   `updated_at` date DEFAULT NULL,
   `updated_by` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `client_balance`
+--
+
+INSERT INTO `client_balance` (`id`, `ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(42, 'RCH-CW-001', '2024-02-05', '2', '3', 0, 345, '', '', '', '', '0000-00-00', '', '2024-02-05', '3368', NULL, ''),
+(43, 'EEL-MR-001', '2024-02-05', '2', '3', 10, 0, 'cash', '', '', '', '0000-00-00', 'ytu', '2024-05-02', '3368', NULL, ''),
+(44, 'RCH-CW-002', '2024-02-05', '8', '40', 0, 12, '', '', '', '', '0000-00-00', '', '2024-02-05', '3368', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -803,7 +812,7 @@ INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_d
 (1439, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6470', '241', '2930 KG', 'Dyna', 'N/A', '2014', '', '', '', '1', 'Own', '2', 'NA', '', 'assigned', '', '', '', '', '', 'Rented', '2023-12-28 12:37:36', ''),
 (1440, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6668', '241', '2915 kg', 'Dyna', 'NA', '2011', '', '', '', '1', 'Own', '2', 'NA', '', 'assigned', '', '', '', '', '', 'Rented', '2023-12-28 12:39:14', ''),
 (1441, '37', 'Own', '2023-12-28', 'Double cabin pickup', 'not known', '241', 'NA', 'HILAX', 'NA', 'NA', '', '', '', '37', 'Own', '2', 'NA', '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:40:44', ''),
-(1442, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6296', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '1', 'Own', '2', 'NA', '', 'assigned', '', '', '', '', '', 'Rented', '2023-12-28 12:42:04', ''),
+(1442, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6296', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '40', 'Rental', '2', 'NA', '', 'assigned', '', '', '', '', '', 'Rented', '2023-12-28 12:42:04', ''),
 (1443, '37', 'Own', '2023-12-28', 'Double cabin pick up', '13-9034', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '37', 'Own', '2', 'NA', '', 'assigned', '', '', '', '', 'Steering box motor problem', '', '2023-12-28 12:43:35', ''),
 (1444, '37', 'Own', '2023-12-28', 'Barge', 'B-01', '240', '99 X 30X 7 FEET', 'NA', 'NA', 'NA', '', '', '', '37', 'Own', '2', 'NA', '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:46:37', '');
 
@@ -827,8 +836,8 @@ CREATE TABLE `equipment_assign` (
 --
 
 INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `refund_date`, `remarks`) VALUES
-(886, 'AC-01', '12', '2023-12-20', '2024-01-31 08:28:09', ''),
-(887, 'AC-02', '3', '2023-12-20', '2024-01-31 08:28:09', ''),
+(886, 'AC-01', '12', '2023-12-20', '', ''),
+(887, 'AC-02', '3', '2023-12-20', '', ''),
 (888, 'AC-03', '12', '0000-00-00', '', ''),
 (889, 'AC-04', '3', '0000-00-00', '', ''),
 (890, 'AC-05', '5', '0000-00-00', '', ''),
@@ -842,7 +851,7 @@ INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `
 (898, 'BD-02', '27', '2023-12-20', '', ''),
 (899, 'BD-03', '37', '2023-12-28', '', ''),
 (900, 'BD-04', '27', '2023-12-20', '', ''),
-(901, 'BD-05', '5', '0000-00-00', '2024-02-04 05:15:08', ''),
+(901, 'BD-05', '5', '0000-00-00', '', ''),
 (902, 'BD-06', '28', '2023-12-20', '', ''),
 (903, 'BD-07', '28', '2023-12-20', '', ''),
 (904, 'BD-08', '28', '2023-12-20', '', ''),
@@ -1104,10 +1113,10 @@ INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `
 (1160, 'not set yet', '3', '2023-12-28', '', ''),
 (1161, 'DHAKA METRO THA-13 6397', '3', '2023-12-28', '', ''),
 (1162, 'not set yet', '37', '2023-12-28', '', ''),
-(1163, '13-6470', '37', '2023-12-28', '2024-02-04 05:09:38', ''),
+(1163, '13-6470', '37', '2023-12-28', '', ''),
 (1164, '13-6668', '37', '2023-12-28', '', ''),
 (1165, 'not known', '37', '2023-12-28', '', ''),
-(1166, '13-6296', '37', '2023-12-28', '2024-02-04 05:09:38', ''),
+(1166, '13-6296', '37', '2023-12-28', '', ''),
 (1167, '13-9034', '37', '2023-12-28', '', ''),
 (1168, 'B-01', '37', '2023-12-28', '', '');
 
@@ -9691,7 +9700,8 @@ CREATE TABLE `rlp_details` (
   `amount` float NOT NULL,
   `estimated_price` float DEFAULT NULL,
   `supplier` text DEFAULT NULL,
-  `details_remarks` text DEFAULT NULL
+  `details_remarks` text DEFAULT NULL,
+  `is_ns` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -10641,7 +10651,18 @@ INSERT INTO `userlog` (`id`, `userId`, `username`, `role_id`, `employee_id`, `us
 (460, 3370, ' ', 5, '', 0x3a3a31, '2024-02-01 08:56:34'),
 (461, 3368, ' ', 5, '', 0x3a3a31, '2024-02-04 03:45:39'),
 (462, 3368, ' ', 5, '', 0x3a3a31, '2024-02-04 05:53:56'),
-(463, 3368, ' ', 5, '', 0x3a3a31, '2024-02-04 06:33:53');
+(463, 3368, ' ', 5, '', 0x3a3a31, '2024-02-04 06:33:53'),
+(464, 3368, ' ', 5, '', 0x3a3a31, '2024-02-05 03:28:10'),
+(465, 3359, ' ', 19, '', 0x3a3a31, '2024-02-05 03:30:22'),
+(466, 3368, ' ', 5, '', 0x3a3a31, '2024-02-05 03:30:43'),
+(467, 616, ' ', 16, '', 0x3a3a31, '2024-02-05 04:31:28'),
+(468, 3368, ' ', 5, '', 0x3a3a31, '2024-02-05 04:37:33'),
+(469, 616, ' ', 16, '', 0x3a3a31, '2024-02-05 04:38:39'),
+(470, 616, ' ', 16, '', 0x3a3a31, '2024-02-05 04:44:39'),
+(471, 3368, ' ', 5, '', 0x3a3a31, '2024-02-05 04:49:52'),
+(472, 616, ' ', 16, '', 0x3a3a31, '2024-02-05 04:50:27'),
+(473, 3368, ' ', 5, '', 0x3a3a31, '2024-02-05 04:50:58'),
+(474, 3368, ' ', 5, '', 0x3a3a31, '2024-02-05 06:16:01');
 
 -- --------------------------------------------------------
 
@@ -10760,6 +10781,7 @@ INSERT INTO `users2` (`id`, `id2`, `first_name`, `last_name`, `user_type`, `proj
 CREATE TABLE `workorders` (
   `id` int(11) NOT NULL,
   `wo_no` varchar(50) NOT NULL,
+  `ns_details_id` int(11) NOT NULL,
   `notesheet_no` varchar(50) NOT NULL,
   `rlp_no` varchar(100) NOT NULL,
   `subject` longtext NOT NULL,
@@ -10776,9 +10798,20 @@ CREATE TABLE `workorders` (
   `total` varchar(20) NOT NULL,
   `remarks` varchar(500) NOT NULL,
   `status` varchar(15) NOT NULL,
+  `is_mrr` tinyint(4) NOT NULL DEFAULT 0,
   `created_at` date NOT NULL,
   `created_by` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `workorders`
+--
+
+INSERT INTO `workorders` (`id`, `wo_no`, `ns_details_id`, `notesheet_no`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `is_mrr`, `created_at`, `created_by`) VALUES
+(90, '2024-02-ENG-WO-001', 225, 'NS-2024-02-ENG-Mec-002', 'RLP-ENG-HEA-2024-02-001', 'test', 'Saif Powertec Ltd', '-', '-', '-', '', '275', '', 'Pics', '50', '1200', '60000.00', '', 'Created', 1, '2024-02-05', 3368),
+(91, '2024-02-ENG-WO-001', 226, 'NS-2024-02-ENG-Mec-002', 'RLP-ENG-HEA-2024-02-001', 'test', 'Saif Powertec Ltd', '-', '-', '-', '', '18', '', 'Pics', '100', '1200', '120000.00', '', 'Created', 1, '2024-02-05', 3368),
+(92, '2024-02-ENG-WO-002', 223, 'NS-2024-02-ENG-Mec-001', 'RLP-ENG-HEA-2024-02-001', 'fghfg', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '256', '', 'Pics', '100', '10', '1000.00', '', 'Created', 0, '2024-02-05', 3368),
+(93, '2024-02-ENG-WO-002', 224, 'NS-2024-02-ENG-Mec-001', 'RLP-ENG-HEA-2024-02-001', 'fghfg', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '11', '', 'Pics', '100', '10', '1000.00', '', 'Created', 0, '2024-02-05', 3368);
 
 -- --------------------------------------------------------
 
@@ -10812,6 +10845,14 @@ CREATE TABLE `workorders_master` (
   `updated_by` int(11) NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `workorders_master`
+--
+
+INSERT INTO `workorders_master` (`id`, `wo_no`, `request_project`, `request_warehouse`, `notesheet_no`, `rlp_no`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `grand_total`, `remarks`, `status`, `created_at`, `created_by`, `updated_by`, `updated_at`) VALUES
+(33, '2024-02-ENG-WO-001', 21, 3, 'NS-2024-02-ENG-Mec-002', 'RLP-ENG-HEA-2024-02-001', 'test', 'test', 'Saif Powertec Ltd', '-', '-', '-', '', 0, 180000, 0, 0, 180000, '', '0', '2024-02-05', 3368, 0, '0000-00-00 00:00:00'),
+(34, '2024-02-ENG-WO-002', 21, 3, 'NS-2024-02-ENG-Mec-001', 'RLP-ENG-HEA-2024-02-001', 'fghfg', 'fghfghfg', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', 0, 2000, 0, 0, 2000, '', '0', '2024-02-05', 3368, 0, '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -11391,7 +11432,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `client_balance`
 --
 ALTER TABLE `client_balance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `companies`
@@ -11427,7 +11468,7 @@ ALTER TABLE `equipments`
 -- AUTO_INCREMENT for table `equipment_assign`
 --
 ALTER TABLE `equipment_assign`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1453;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1455;
 
 --
 -- AUTO_INCREMENT for table `inv_designation`
@@ -11475,7 +11516,7 @@ ALTER TABLE `inv_material`
 -- AUTO_INCREMENT for table `inv_materialbalance`
 --
 ALTER TABLE `inv_materialbalance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2774;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2776;
 
 --
 -- AUTO_INCREMENT for table `inv_materialcategory`
@@ -11511,19 +11552,19 @@ ALTER TABLE `inv_material_partno_detail`
 -- AUTO_INCREMENT for table `inv_product_price`
 --
 ALTER TABLE `inv_product_price`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `inv_receive`
 --
 ALTER TABLE `inv_receive`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `inv_receivedetail`
 --
 ALTER TABLE `inv_receivedetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `inv_return`
@@ -11553,7 +11594,7 @@ ALTER TABLE `inv_supplier`
 -- AUTO_INCREMENT for table `inv_supplierbalance`
 --
 ALTER TABLE `inv_supplierbalance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `inv_technicianinfo`
@@ -11655,13 +11696,13 @@ ALTER TABLE `materialbalance`
 -- AUTO_INCREMENT for table `notesheets`
 --
 ALTER TABLE `notesheets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=205;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=227;
 
 --
 -- AUTO_INCREMENT for table `notesheets_master`
 --
 ALTER TABLE `notesheets_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `notesheet_access_chain`
@@ -11673,13 +11714,13 @@ ALTER TABLE `notesheet_access_chain`
 -- AUTO_INCREMENT for table `notesheet_acknowledgement`
 --
 ALTER TABLE `notesheet_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=535;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=543;
 
 --
 -- AUTO_INCREMENT for table `notesheet_remarks_history`
 --
 ALTER TABLE `notesheet_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=236;
 
 --
 -- AUTO_INCREMENT for table `notesheet_roles_group`
@@ -11745,25 +11786,25 @@ ALTER TABLE `rental_project`
 -- AUTO_INCREMENT for table `rents`
 --
 ALTER TABLE `rents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `rent_bill`
 --
 ALTER TABLE `rent_bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `rent_details`
 --
 ALTER TABLE `rent_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `rent_history`
 --
 ALTER TABLE `rent_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `rlp_access_chain`
@@ -11775,7 +11816,7 @@ ALTER TABLE `rlp_access_chain`
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
 --
 ALTER TABLE `rlp_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1392;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1395;
 
 --
 -- AUTO_INCREMENT for table `rlp_delete_history`
@@ -11799,7 +11840,7 @@ ALTER TABLE `rlp_info`
 -- AUTO_INCREMENT for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=817;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=819;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -11883,7 +11924,7 @@ ALTER TABLE `tb_logsheet`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=464;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=475;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -11901,13 +11942,13 @@ ALTER TABLE `users2`
 -- AUTO_INCREMENT for table `workorders`
 --
 ALTER TABLE `workorders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT for table `workorders_master`
 --
 ALTER TABLE `workorders_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -145,21 +145,21 @@
 								<?php 
 									$mb_materialid = $rowmat['material_id_code'];
 									
-									if($_SESSION['logged']['user_type'] !== 'whm'){
+									/* if($_SESSION['logged']['user_type'] !== 'whm'){
 										$sqlinqty = "SELECT SUM(`mbin_qty`) AS totalin FROM `inv_materialbalance` WHERE `mb_materialid` = '$mb_materialid' AND mb_date <= '$to_date'";
-									}else{
+									}else{ */
 										$sqlinqty = "SELECT SUM(`mbin_qty`) AS totalin FROM `inv_materialbalance` WHERE warehouse_id = $warehouse_id AND `mb_materialid` = '$mb_materialid' AND mb_date <= '$to_date'";
-									}
+									//}
 									
 									
 									$resultinqty = mysqli_query($conn, $sqlinqty);
 									$rowinqty = mysqli_fetch_object($resultinqty) ;
 									
-									if($_SESSION['logged']['user_type'] !== 'whm'){
+								/* 	if($_SESSION['logged']['user_type'] !== 'whm'){
 										$sqloutqty = "SELECT SUM(`mbout_qty`) AS totalout FROM `inv_materialbalance` WHERE `mb_materialid` = '$mb_materialid' AND mb_date <= '$to_date'";
-									}else{
+									}else{ */
 										$sqloutqty = "SELECT SUM(`mbout_qty`) AS totalout FROM `inv_materialbalance` WHERE warehouse_id = $warehouse_id AND `mb_materialid` = '$mb_materialid' AND mb_date <= '$to_date'";
-									}
+									//}
 									
 									$resultoutqty = mysqli_query($conn, $sqloutqty);
 									$rowoutqty = mysqli_fetch_object($resultoutqty) ;

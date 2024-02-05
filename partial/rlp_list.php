@@ -1,5 +1,7 @@
 <?php
 $rlpListData = getRLPListData();
+
+
 if (isset($rlpListData) && !empty($rlpListData)) {
     ?>
     <div class="table-responsive">
@@ -9,6 +11,7 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                     <th>SLN#</th>
                     <th>RLP No</th>
                     <th>Request Date</th>
+                    <th>Purpose</th>
                     <th>Created By</th>
                     <th>Project</th>
                     <th>Status</th>
@@ -35,6 +38,11 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                     $approve_url =   "function/rlp_process.php?process_type=rlp_dh_common_update_execute";
                 }
                 foreach ($rlpListData as $adata) {
+					
+					$rlp_id = $adata->id;
+					$rlp_details    =   getRlpDetailsData($rlp_id);   
+					$rlp_info       =   $rlp_details['rlp_info'];
+					$rlp_details    =   $rlp_details['rlp_details'];
                     ?>
                     <tr id="row_id_<?php echo $adata->id; ?>">
                         <td><?php echo ++$sl; ?> </td>
@@ -46,6 +54,9 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                             </div>
                         </td>
                         <td><?php echo (isset($adata->request_date) && !empty($adata->request_date) ? human_format_date($adata->created_at) : 'No data'); ?></td>
+						
+                        <td><?php  foreach($rlp_details as $dataDetails){ echo $dataDetails->purpose.','; }?></td>
+						
                         <td><?php echo (isset($adata->rlp_user_id) && !empty($adata->rlp_user_id) ? getUserNameByUserId($adata->rlp_user_id) : 'No data'); ?></td>
                         <td><?php echo (isset($adata->request_project) && !empty($adata->request_project) ? getProjectNameById($adata->request_project) : 'No data'); ?></td>
                        

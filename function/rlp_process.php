@@ -307,6 +307,7 @@ function getRlpDetailsData($rlp_id){
     ];
     return $feedbackData;
 }
+
 function getRlpDetailsDataForNs($rlp_id){
     $table      =   "rlp_info WHERE id=$rlp_id";
     $rlp_info   = getDataRowIdAndTable($table);

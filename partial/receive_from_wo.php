@@ -1,7 +1,7 @@
 <?php
 	$currentUserId  =   $_SESSION['logged']['user_id'];
     $wo_id         =   $_GET['id'];    
-    $wo_details    =   getWorkordersDetailsData($wo_id);   
+    $wo_details    =   getWorkordersDetailsDataNs($wo_id);   
     $wo_info       =   $wo_details['wo_info'];
     $wo_details    =   $wo_details['wo_details'];
 ?>
@@ -75,8 +75,13 @@
 
 						if (isset($projectsData) && !empty($projectsData)) {
 							foreach ($projectsData as $data) {
+									if($wo_info->supplier_name == $data['name']){
+									$selected	= 'selected';
+									}else{
+									$selected	= 'disabled';
+									}
 								?>
-								<option value="<?php echo $data['code']; ?>"><?php echo $data['name']; ?></option>
+								<option value="<?php echo $data['code']; ?>" <?php echo $selected; ?>><?php echo $data['name']; ?></option>
 								<?php
 							}
 						}
@@ -106,10 +111,12 @@
                         <tr>
                             <th>#</th>
                             <th>Item Description</th>
+                            <th>ns details id</th>
                             <th width="10%">Item Code</th>
                             <th width="10%">Part No</th>
                             <th width="5%">Unit</th>
                             <th width="5%">Qty</th>
+                            <th width="5%">Rcv Qty</th>
                             <th width="10%">Unit Price</th>
                             <th width="10%">Total</th>
                             <th width="10%">Action</th>
@@ -127,6 +134,9 @@
                             <td><input type="text" class="form-control" name="" id="" value="<?php $dataresult =   getDataRowByTableAndId('inv_material', $data->item);
 								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : ''); ?>" readonly ></td>
 								<input type="hidden" class="form-control" name="material_name[]" id="" value="<?php echo (isset($data->item) && !empty($data->item) ? $data->item : ""); ?>" readonly >
+							
+							<td><input type="text" class="form-control" name="ns_details_id[]" id="" value="<?php echo $data->ns_details_id; ?>" readonly >
+								</td>
 								
 							<td><input type="text" class="form-control" name="material_id[]" id="" value="<?php $dataresult =   getDataRowByTableAndId('inv_material', $data->item);
 								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_id_code : ''); ?>" readonly >
@@ -143,7 +153,10 @@
 										?>" readonly ></td>
 										<input type="hidden" name="unit[]" value="<?php $dataresults =   getDataRowByTableAndId('inv_material', $data->item); echo (isset($dataresults) && !empty($dataresults) ? $dataresults->qty_unit : ''); ?>" >
 										
-                            <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="quantity[]" id="quantity_<?php echo $data->id; ?>" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" required ></td>
+                            <td><input type="text" class="form-control" name="qty[]" id="qty_<?php echo $data->id; ?>" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" readonly ></td>
+							
+							<td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="quantity[]" id="quantity_<?php echo $data->id; ?>" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" required ></td>
+							
                             <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="unit_price[]" id="unit_price_<?php echo $data->id; ?>" value="" required ></td>
                             <td>
                                 <div class="form-group">
@@ -160,7 +173,7 @@
 							
                         <?php //if(is_super_admin($currentUserId)){ ?>                       
 					   <tr>
-                            <td colspan="7" style="text-align:right">Sub Total : </td>
+                            <td colspan="9" style="text-align:right">Sub Total : </td>
 							<td>
 								<input type="text" class="form-control" name="sub_total" value="" onchange="calculate_total_buy_amount()" id="allcur" readonly />
                             </td>

@@ -390,15 +390,15 @@ footer.sticky-footer{
           <i class="fas fa-fw fa-server"></i> Rent
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="rentDropdown">
-            <a class="dropdown-item" href="rent.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Rent/Bill Entry</span></a>
+            <a class="dropdown-item" href="rent.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Rent Entry</span></a>
             <a class="dropdown-item" href="rent_list.php">
                 <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
-                <span class="sub_menu_text_design"> Rent/Bill List</span>
+                <span class="sub_menu_text_design"> Rent List</span>
             </a> 
-
+			<a class="dropdown-item" href="bill_collection.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Bill Entry</span></a>
             <a class="dropdown-item" href="mr_list.php">
                 <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
-                <span class="sub_menu_text_design"> Rent/Bill Collection List</span>
+                <span class="sub_menu_text_design"> Bill Collection List</span>
             </a> 
 
         </div>
