@@ -30,6 +30,8 @@ include 'header.php';
 								<thead>
 									<tr>
 										<th> User Name</th>
+										<th> Office ID</th>
+										<th> Email</th>
 										<th> Project Name</th>
 										<th> Type/Role</th>
 										<th>Action</th>
@@ -44,6 +46,8 @@ include 'header.php';
                                             ?>
 									<tr>
 										<td><?php echo $data['name']; ?></td>
+										<td><?php echo $data['office_id']; ?></td>
+										<td><?php echo $data['email']; ?></td>
 										<td><?php echo getProjectNameById($data['project_id']) ?></td>
 										<td>
 											<?php 
