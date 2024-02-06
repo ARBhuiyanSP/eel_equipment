@@ -81,7 +81,7 @@ function get_equipments_list_action_data($row){
     $action = "";
 	
 if(check_permission('material-receive-edit')){
-    $action.='<span><a class="btn btn-sm btn-info" href="#" title="edit"><i class="fa fa-edit"> Edit</i></a></span>';
+    $action.='<span><a class="btn btn-sm btn-info" href="'.$edit_url.'" title="edit"><i class="fa fa-edit"> Edit</i></a></span>';
 }
 
 						

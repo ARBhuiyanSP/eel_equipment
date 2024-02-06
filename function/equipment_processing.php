@@ -128,19 +128,19 @@ if (isset($_POST['equipment_update']) && !empty($_POST['equipment_update'])){
     if(isset($rrr_info_response) && $rrr_info_response['status'] == "success"){
         $_SESSION['success']    =   "Your Update Request have been successfully procced.";
     }else{
-        $_SESSION['error']    =   "Failed to save data";
+        $_SESSION['error']    =   "";
     }
     header("location: equipment_edit.php?id=$id");
     exit();
 }
 function update_equipment_table(){
     global $conn;
-    $commissioning_date		= (isset($_POST['commissioning_date']) && !empty($_POST['commissioning_date']) ? trim(mysqli_real_escape_string($conn,$_POST['commissioning_date'])) : date("Y-m-d"));
+     $id		= (isset($_POST['id']) && !empty($_POST['id']) ? trim(mysqli_real_escape_string($conn,$_POST['id'])) : "");
+	 $commissioning_date		= (isset($_POST['commissioning_date']) && !empty($_POST['commissioning_date']) ? trim(mysqli_real_escape_string($conn,$_POST['commissioning_date'])) : date("Y-m-d"));
 	
-    $id		= (isset($_POST['id']) && !empty($_POST['id']) ? trim(mysqli_real_escape_string($conn,$_POST['id'])) : "");
     $project_id		= (isset($_POST['project_id']) && !empty($_POST['project_id']) ? trim(mysqli_real_escape_string($conn,$_POST['project_id'])) : "");
 	
-    $sub_project_id		= (isset($_POST['sub_project_id']) && !empty($_POST['sub_project_id']) ? trim(mysqli_real_escape_string($conn,$_POST['sub_project_id'])) : "");
+    
 	
     $name		= (isset($_POST['name']) && !empty($_POST['name']) ? trim(mysqli_real_escape_string($conn,$_POST['name'])) : "");
 	
@@ -158,7 +158,15 @@ function update_equipment_table(){
 	
     $year_manufacture		= (isset($_POST['year_manufacture']) && !empty($_POST['year_manufacture']) ? trim(mysqli_real_escape_string($conn,$_POST['year_manufacture'])) : "");
 	
+    $inventory_sl_no		= (isset($_POST['inventory_sl_no']) && !empty($_POST['inventory_sl_no']) ? trim(mysqli_real_escape_string($conn,$_POST['inventory_sl_no'])) : "");
+	
+    $engine_model		= (isset($_POST['engine_model']) && !empty($_POST['engine_model']) ? trim(mysqli_real_escape_string($conn,$_POST['engine_model'])) : "");
+	
+    $engine_sl_no		= (isset($_POST['engine_sl_no']) && !empty($_POST['engine_sl_no']) ? trim(mysqli_real_escape_string($conn,$_POST['engine_sl_no'])) : "");
+	
     $present_location		= (isset($_POST['present_location']) && !empty($_POST['present_location']) ? trim(mysqli_real_escape_string($conn,$_POST['present_location'])) : "");
+	
+    $present_location_type		= getProjectTypeByID((isset($_POST['present_location']) && !empty($_POST['present_location']) ? trim(mysqli_real_escape_string($conn,$_POST['present_location'])) : ""));
 	
     $present_condition		= (isset($_POST['present_condition']) && !empty($_POST['present_condition']) ? trim(mysqli_real_escape_string($conn,$_POST['present_condition'])) : "");
 
@@ -170,17 +178,11 @@ function update_equipment_table(){
     /*
      * *****************************rrr_info table operation********************
      */
-   // $table_sql     =   "equipments";
+    $table_sql     =   "equipments";
     $dataParams     =   [
-        //'id'                    =>  get_table_next_primary_id($table_sql),
-        //'rrr_no'                =>  get_rrr_no(),
-        //'rrr_user_id'           =>  $_SESSION['logged']['user_id'],
-        //'rrr_user_office_id'    =>  $_SESSION['logged']['office_id'],
         'project_id'           	=>  $project_id,
-        'sub_project_id'    	=>  $sub_project_id,
         'equipment_type'      	=>  $equipment_type,
-        'category'          	=>  $category,
-        'date_from'          	=>  date('Y-m-d h:i:s', strtotime($commissioning_date)),
+        'commissioning_date'    =>  $commissioning_date,
         'name'          		=>  $name,
         'eel_code'          	=>  $eel_code,
         'origin'          		=>  $origin,
@@ -192,24 +194,23 @@ function update_equipment_table(){
         'engine_model'         	=>  $engine_model,
         'engine_sl_no'      	=>  $engine_sl_no,
         'present_location'  	=>  $present_location,
+        'present_location_type' =>  $present_location_type,
         'present_condition'   	=>  $present_condition,
         'price'  	            =>  $price,
-        'assign_status'       	=>  'assigned',
         'remarks'          		=>  $remarks,
-        'status'          		=>  $status,
 		
 		/*--------------------------*/
         //'created_by'            	=>  $_SESSION['logged']['user_id'],
-        'created_at'            	=>  date('Y-m-d h:i:s')
+        'updated_at'            	=>  date('Y-m-d h:i:s')
     ];
-	//$dataParam['details_remarks']  =   (isset($datValue) && !empty($datValue) ? trim(mysqli_real_escape_string($conn, $datValue)) : '');;
-        $where      =   [
-            'id'    =>  $id
-        ];
+	
+	$where      =   [
+		'id'    =>  $id
+	];
         
+ 
+    updateData('equipments', $dataParams, $where);
     
-    $response   =   updateData('equipments', $dataParams, $where);
-    return $response;
 }
 
 /// equipment shifting process

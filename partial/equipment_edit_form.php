@@ -12,10 +12,10 @@
         <div class="col-sm-2">
             <div class="form-group">
                 <label for="exampleId">Date</label>
-                <input name="commissioning_date" type="text" class="form-control" id="rlpdate" value="" size="30" autocomplete="off" />
+                <input name="commissioning_date" type="text" class="form-control" id="rlpdate" value="<?php echo $equipment_info->commissioning_date; ?>" size="30" autocomplete="off" />
             </div>
         </div>
-		<div class="col-sm-2">
+		<div class="col-sm-3">
             <div class="form-group">
 				<label for="division/company">Project:</label>
 				<select class="all_emplyees form-control" id="project_id" name="project_id" required >
@@ -46,41 +46,14 @@
         </div>
 		<div class="col-sm-2">
             <div class="form-group">
-				<label for="division/company">Sub Project:</label>
-                <select class="all_emplyees form-control" id="sub_project_id" name="sub_project_id" >
-					<option value="">Select Sub Project</option>
-					<?php
-					$tableName = 'sub_projects';
-					$column = 'name';
-					$order = 'asc';
-					$dataType = 'obj';
-					$projectsData = getTableDataByTableName($tableName, $order, $column, $dataType);
-					if (isset($projectsData) && !empty($projectsData)) {
-						foreach ($projectsData as $data) {
-							if($equipment_info->sub_project_id == $data->id){
-								$selected	= 'selected';
-								}else{
-								$selected	= '';
-								}
-							?>
-							<option value="<?php echo $data->id; ?>" <?php echo $selected; ?>><?php echo $data->name; ?></option>
-							<?php
-						}
-					}
-					?>
-				</select>
-			</div>
-        </div>
-		<div class="col-sm-2">
-            <div class="form-group">
 				<label for="exampleId">Type:</label>
                 <div class="radio">
-                    <label><input type="radio" name="equipment_type" value="1" <?php if($equipment_info->equipment_type == 1){ echo 'checked'; } ?> > <span class="label label-success">OWN</span> </label>
-                    <label><input type="radio" name="equipment_type" value="2" <?php if($equipment_info->equipment_type == 2){ echo 'checked'; } ?>> <span class="label label-danger">RENTAL</span> </label>
+                    <label><input type="radio" name="equipment_type" value="Own" <?php if($equipment_info->equipment_type == 'Own'){ echo 'checked'; } ?> > <span class="label label-success">OWN</span> </label>
+                    <label><input type="radio" name="equipment_type" value="Rental" <?php if($equipment_info->equipment_type == 'Rental'){ echo 'checked'; } ?>> <span class="label label-danger">RENTAL</span> </label>
                 </div>
 			</div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <div class="form-group">
                 <label for="exampleId">Name</label>
                 <input name="name" type="text" class="form-control" id="name" value="<?php echo $equipment_info->name; ?>" autocomplete="off" required />
@@ -94,6 +67,12 @@
         </div>
 	</div>
 	<div class="row">
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="exampleId">Capacity</label>
+                <input name="capacity" type="text" class="form-control" id="capacity" value="<?php echo $equipment_info->capacity; ?>" autocomplete="off" required />
+            </div>
+        </div>
 		<div class="col-sm-2">
             <div class="form-group">
 				<label for="division/company">Country Origin:</label>
@@ -101,19 +80,19 @@
 					<option value="">Select</option>
 					<?php
 					$tableName = 'country';
-					$column = 'nicename';
+					$column = 'name';
 					$order = 'asc';
 					$dataType = 'obj';
 					$projectsData = getTableDataByTableName($tableName, $order, $column, $dataType);
 					if (isset($projectsData) && !empty($projectsData)) {
 						foreach ($projectsData as $data) {
-							if($equipment_info->origin == $data->nicename){
+							if($equipment_info->origin == $data->name){
 								$selected	= 'selected';
 								}else{
 								$selected	= '';
 								}
 							?>
-							<option value="<?php echo $data->nicename; ?>" <?php echo $selected; ?>><?php echo $data->nicename; ?></option>
+							<option value="<?php echo $data->name; ?>" <?php echo $selected; ?>><?php echo $data->name; ?></option>
 							<?php
 						}
 					}
@@ -121,19 +100,13 @@
 				</select>
 			</div>
         </div>
-        <div class="col-sm-1">
-            <div class="form-group">
-                <label for="exampleId">Capacity</label>
-                <input name="capacity" type="text" class="form-control" id="capacity" value="<?php echo $equipment_info->capacity; ?>" autocomplete="off" required />
-            </div>
-        </div>
         <div class="col-sm-2">
             <div class="form-group">
                 <label for="exampleId">Brand/Make By</label>
                 <input name="makeby" type="text" class="form-control" id="makeby" value="<?php echo $equipment_info->makeby; ?>" autocomplete="off" required />
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <div class="form-group">
                 <label for="exampleId">Model</label>
                 <input name="model" type="text" class="form-control" id="model" value="<?php echo $equipment_info->model; ?>" autocomplete="off" required />
@@ -151,16 +124,22 @@
                 <input name="inventory_sl_no" type="text" class="form-control" id="inventory_sl_no" value="<?php echo $equipment_info->inventory_sl_no; ?>" autocomplete="off" required />
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
             <div class="form-group">
                 <label for="exampleId">Engine Model</label>
                 <input name="engine_model" type="text" class="form-control" id="engine_model" value="<?php echo $equipment_info->engine_model; ?>" autocomplete="off" required />
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
             <div class="form-group">
                 <label for="exampleId">Engine SL No</label>
                 <input name="engine_sl_no" type="text" class="form-control" id="engine_sl_no" value="<?php echo $equipment_info->engine_sl_no; ?>" autocomplete="off" required />
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="exampleId">Price</label>
+                <input name="price" type="text" class="form-control" id="price" value="<?php echo $equipment_info->price; ?>" autocomplete="off" required />
             </div>
         </div>
 		<div class="col-sm-2">
@@ -176,13 +155,13 @@
 					$projectsData = getTableDataByTableName($tableName, $order, $column, $dataType);
 					if (isset($projectsData) && !empty($projectsData)) {
 						foreach ($projectsData as $data) {
-							if($equipment_info->present_location == $data->project_name){
+							if($equipment_info->present_location == $data->id){
 								$selected	= 'selected';
 								}else{
 								$selected	= '';
 								}
 							?>
-							<option value="<?php echo $data->project_name; ?>" <?php echo $selected; ?>><?php echo $data->project_name; ?></option>
+							<option value="<?php echo $data->id; ?>" <?php echo $selected; ?>><?php echo $data->project_name; ?></option>
 							<?php
 						}
 					}
@@ -195,6 +174,9 @@
 				<label for="division/company">Present Condition:</label>
                 <select class="all_emplyees form-control" id="present_condition" name="present_condition" required >
 					<option value="">Select</option>
+					<option value="Running" <?php if($equipment_info->present_condition == 'Running'){echo 'selected';}?>>Running</option>
+					<option value="Breakdown" <?php if($equipment_info->present_condition == 'Breakdown'){echo 'selected';}?>>Breakdown</option>
+					<option value="Idle" <?php if($equipment_info->present_condition == 'Idle'){echo 'selected';}?>>Idle</option>
 					<?php
 					$tableName = 'present_condition';
 					$column = 'name';
@@ -216,12 +198,6 @@
 					?>
 				</select>
 			</div>
-        </div>
-        <div class="col-sm-2">
-            <div class="form-group">
-                <label for="exampleId">Price</label>
-                <input name="price" type="text" class="form-control" id="price" value="<?php echo $equipment_info->price; ?>" autocomplete="off" required />
-            </div>
         </div>
         <div class="col-md-12">
             <div class="form-group">

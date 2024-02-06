@@ -10,7 +10,7 @@
                 <input name="commissioning_date" type="text" class="form-control" id="rlpdate" value="<?php echo date("Y-m-d"); ?>" size="30" autocomplete="off" required />
             </div>
         </div>
-		<div class="col-sm-2">
+		<div class="col-sm-3">
             <div class="form-group">
 				<label for="division/company">Project:</label>
 				<select class="form-control material_select_2" id="project_id" name="project_id" required >
@@ -41,7 +41,7 @@
                 </div>
 			</div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <div class="form-group">
                 <label for="exampleId">Name</label>
                 <input name="name" type="text" class="form-control" id="name" value="" autocomplete="off" required />
@@ -81,13 +81,13 @@
 				</select>
 			</div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <div class="form-group">
                 <label for="exampleId">Brand/Make By</label>
                 <input name="makeby" type="text" class="form-control" id="makeby" value="" autocomplete="off" required />
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <div class="form-group">
                 <label for="exampleId">Model</label>
                 <input name="model" type="text" class="form-control" id="model" value="" autocomplete="off" required />
@@ -117,7 +117,7 @@
                 <input name="engine_sl_no" type="text" class="form-control" id="engine_sl_no" value="" autocomplete="off" required />
             </div>
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
             <div class="form-group">
                 <label for="exampleId">Price</label>
                 <input name="price" type="text" class="form-control" id="price" value="" autocomplete="off" required />
@@ -145,8 +145,8 @@
 				</select>
 			</div>
         </div>
-		<div class="col-md-1">
-		<div class="form-group">
+		<div class="col-md-2">
+			<div class="form-group">
 				<label for="division/company">Condition:</label>
                 <select class="all_emplyees form-control" id="present_condition" name="present_condition" required >
 					<option value="Running">Running</option>
@@ -154,7 +154,7 @@
 					<option value="Idle">Idle</option>
 				</select>
 			</div>
-			</div>
+		</div>
         <div class="col-md-12">
             <div class="form-group">
                 <label for="exampleId">Remarks:</label>
