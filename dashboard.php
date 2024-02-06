@@ -224,7 +224,7 @@ $(document).ready(function() {
 			<div class="com-xl-3 col-sm-6 col-md-6">
 				<?php 
 
-		$used_equipments= "SELECT DISTINCT use_in FROM inv_issuedetail ORDER BY use_in ASC";
+		$used_equipments= "SELECT DISTINCT eel_code FROM inv_materialbalance WHERE mbtype IN ('mCost','maintenance') ORDER BY eel_code ASC";
 		$used_equipment_res = mysqli_query($conn, $used_equipments);
 			?>
 
@@ -232,7 +232,7 @@ $(document).ready(function() {
 					<option value="">Select Equipment</option>
 					<?php
 					while($row = mysqli_fetch_array($used_equipment_res)){ ?>
-						<option value="<?php echo $row['use_in']; ?>"><?php echo $row['use_in']; ?></option>
+						<option value="<?php echo $row['eel_code']; ?>"><?php echo $row['eel_code']; ?></option>
 					<?php } ?>
 					
 				</select>
@@ -465,18 +465,18 @@ $(".stock_serach_material_name").on('change',function(){
 
 
       	 $(".equipment_name").on('change', function() {
-      		var use_in = $(this).val();
+      		var eel_code = $(this).val();
       		
-      		var url =  baseUrl + "function/chart_ajax.php?process_type=equipment_wise_issue";
-      		var data = {use_in};
-      		var equipment = use_in;
+      		var url =  baseUrl + "function/chart_ajax.php?process_type=equipment_wise_consumption";
+      		var data = {eel_code};
+      		var equipment = eel_code;
       		chart_ajax_call(data,url,equipment)
       		
       	})
 
 		$(function(){
-			var url =  baseUrl + "function/chart_ajax.php?process_type=equipment_wise_issue";
-      		var data = {use_in:''};
+			var url =  baseUrl + "function/chart_ajax.php?process_type=equipment_wise_consumption";
+      		var data = {eel_code:''};
       		var equipment = '';
       		chart_ajax_call(data,url,equipment);
 		})
