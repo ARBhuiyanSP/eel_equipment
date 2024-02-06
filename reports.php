@@ -84,6 +84,7 @@ include 'header.php';
 									<a href="datewise_maintenance_report.php"><li><b>Schedule Maintenance Cost Report</b></li></a>
 									<a href="datewise_maintenance_cost_report.php"><li><b>Maintenance Cost Report</b></li></a>
 									<a href="equipments-history.php"><li><b>Equipments Cost History Report</b></li></a>
+									<a href="inspection-history.php"><li><b>Equipments Inspection History Report</b></li></a>
 								</ul>
 								<h5>Rent Reports</h5>
 								<ul>

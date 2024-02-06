@@ -56,6 +56,43 @@
 <script src="js/general_operation.js"></script>
 <!--for handling rlp create form operation use the following link-->
 <script src="js/rlp_create_handle.js"></script>
+
+<script>
+$(function () {    
+  get_ins_data_table();
+})
+
+function get_ins_data_table(){
+
+  let division_id   = '';
+  let department_id   = '';
+    //getDataTablelogsheetList call from  grid_management.php
+    var url       =   baseUrl + "function/grid_management.php?process_type=getDataTableinsList";
+//logsheet_list_table  reference logsheet-list.php
+    var userListDataTable   =   $('#ins_list_table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                url:url,
+                type:'POST',
+                dataType:'json',
+                data: {
+                    division_id     : division_id,
+                    department_id   : department_id
+                }
+            },
+            "aoColumnDefs": [
+                { "bSortable": false, "aTargets": [ -1, 2, 3 ] }
+            ],
+            "lengthMenu": [[10, 100, 250, 500, -1], [10,100, 250, 500, "All"]]
+        });
+
+
+}
+
+ 
+</script>
+
 <script type="text/javascript" type="text/javascript">
   jQuery(document).ready(function($) {
     $('#dataTable').DataTable();

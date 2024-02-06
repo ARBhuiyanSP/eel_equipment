@@ -9,7 +9,7 @@
         <li class="breadcrumb-item">
             <a href="#">Reports</a>
         </li>
-        <li class="breadcrumb-item active">Material Issue Report</li>
+        <li class="breadcrumb-item active">Material Consumption Report</li>
     </ol>
     <style>
 .dtext{
@@ -17,9 +17,6 @@
 }
 </style>
 <div class="card mb-3">
-    <div class="card-header">
-        <i class="fas fa-search"></i>
-        Receive Report Search</div>
     <div class="card-body">
        <style>
 .dtext{

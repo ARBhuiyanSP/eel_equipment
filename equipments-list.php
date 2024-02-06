@@ -36,7 +36,7 @@
 							<th width="10%">Brand/MakeBy</th>
 							<th width="10%">Model</th>
 							<th width="10%">capacity</th>
-							<th width="15%">Action</th>
+							<th width="20%">Action</th>
 						</tr>
 					</thead>
 				</table>

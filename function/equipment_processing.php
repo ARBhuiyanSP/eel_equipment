@@ -302,18 +302,18 @@ function execute_assign_table(){
 
 if (isset($_POST['ins_submit'])){
     /******************************assets table operation******************** */
-    	$id 			= $_POST['id'];
-	$product_id 	= $_POST['product_id'];
+ 
+	$eel_code 		= $_POST['eel_code'];
 	$ins_date 		= $_POST['ins_date'];
 	$status 		= $_POST['status'];
 	$remarks 		= $_POST['remarks'];
 
 
 
-	$sql	=	"insert into `inspaction` values('','$product_id','$ins_date','$status','$remarks')";
+	$sql	=	"insert into `inspaction` values('','$eel_code','$ins_date','$status','$remarks')";
 	$response	=	mysqli_query($conn, $sql);
 	
-    $sql2	=	"UPDATE `equipments`  set `inspaction_date`='$ins_date',`status`='$status' where `eel_code`='$product_id'";
+    $sql2	=	"UPDATE `equipments`  set `inspaction_date`='$ins_date',`status`='$status' where `eel_code`='$eel_code'";
     $response2	=	mysqli_query($conn, $sql2);
 
 	

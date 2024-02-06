@@ -355,6 +355,7 @@ footer.sticky-footer{
 			<a class="dropdown-item" href="equipment_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments Entry</span></a>            
 			<a class="dropdown-item" href="equipments-list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments List</span></a>  
 			<a class="dropdown-item" href="shifting-list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments Shifting</span></a>  
+			<a class="dropdown-item" href="inspection.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments Inspection</span></a>  
 			<a class="dropdown-item" href="history-list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments History</span></a>  
 		   
           <!--<a class="dropdown-item" href="#">Settings</a>-->

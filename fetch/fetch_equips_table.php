@@ -75,6 +75,7 @@ function get_equipments_list_action_data($row){
 	   
     $view_url = 'equipment_view.php?id='.$row["voucher_id"];
     $shifting_url = 'equipment_shifting.php?id='.$row["voucher_id"];
+    $inspection_url = 'take_inspection.php?id='.$row["voucher_id"];
     $history_url = 'history.php?id='.$row["eel_code"];
     $approve_url = 'receive_approve.php?no='.$row["name"];
     $action = "";
@@ -85,6 +86,8 @@ if(check_permission('material-receive-edit')){
 
 						
 	$action.='<span><a class="btn btn-sm btn-success" href="'.$view_url.'" title="Details View"><i class="fas fa-eye"> Details</i></a></span>';
+	
+	$action.='<span><a class="btn btn-sm btn-danger" href="'.$inspection_url.'" title="Inspection"><i class="fas fa-eye"> Inspection</i></a></span>';
 	
 /* 	$action.='<span><a class="btn btn-sm btn-danger" href="'.$shifting_url.'" title="Transfer"><i class="fas fa-edit"> Shifting</i></a></span>';
 	
