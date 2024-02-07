@@ -148,7 +148,7 @@
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label for="exampleId">Next service Date</label>
-									<input name="nextservice_date" type="text" class="form-control" id="fromdate" value="" size="30" autocomplete="off" />
+									<input name="nextservice_date" type="text" class="form-control" id="start_date" value="" size="30" autocomplete="off" />
 								</div>
 							</div>
 							<div class="col-xs-2">
