@@ -35,7 +35,8 @@ if (isset($_POST['login_submit']) && !empty($_POST['login_submit'])) {
             $presult = $conn->query($passsql);
             if ($presult->num_rows > 0) {
                 $row        	=   $presult->fetch_object();
-                $fname      	=   $row->first_name;
+                $name      	=   $row->name;
+                $lname      	=   $row->last_name;
                 $lname      	=   $row->last_name;
                 $user_id    	=   $row->id;
                 $user_type		=   $row->user_type;
@@ -46,8 +47,8 @@ if (isset($_POST['login_submit']) && !empty($_POST['login_submit'])) {
                 $warehouse_id	=   $row->warehouse_id;
                 $_SESSION['logged']['permissin_urls'] =   [];
                 unset($_SESSION['error']);
-                $_SESSION['success']                =   $fname.' '.$lname." have successfully loggedin!";
-                $_SESSION['logged']['user_name']    =   $fname.' '.$lname;
+                $_SESSION['success']                =   $name.' '.$name." have successfully loggedin!";
+                $_SESSION['logged']['user_name']    =   $name;
                 $_SESSION['logged']['user_id']      =   $user_id;
                 $_SESSION['logged']['user_type']	=   $user_type;
                 $_SESSION['logged']['role_id']    =   $role_id;

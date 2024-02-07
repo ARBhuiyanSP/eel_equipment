@@ -416,7 +416,7 @@ footer.sticky-footer{
     </ul>
 	
 	
-	<div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" style="color: white;"><?php echo $_SESSION['logged']['user_name']; ?>-[<?php echo $_SESSION['logged']['user_name']; ?>]</div>
+	<div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" style=""><?php echo $_SESSION['logged']['user_name']; ?>-[<?php echo $_SESSION['logged']['user_name']; ?>]</div>
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
