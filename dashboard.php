@@ -129,7 +129,7 @@ $(document).ready(function() {
 				$table    =   "equipments";
 				$where    =   "WHERE `equipment_type`='Rental'";
 				?>
-                <div class="mr-5"><?php echo getDataRowByConditions($table,$where); ?> Rental Equipments</div>
+                <div class="mr-5"><?php echo getDataRowByConditions($table,$where); ?> Hired Equipments</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="typewise_equipment_list_report.php">
                 <span class="float-left">View Details</span>

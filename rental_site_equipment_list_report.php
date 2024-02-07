@@ -45,7 +45,7 @@ include 'header.php';
 														
 														<option value="all">All</option>
 														<option value="Own" <?php if(isset($_POST['equipment_type']) && $_POST['equipment_type'] == 'Own'){echo 'selected';}?>>Own</option>
-														<option value="Rental" <?php if(isset($_POST['equipment_type']) && $_POST['equipment_type'] == 'Rental'){echo 'selected';} ?>>Rental</option>
+														<option value="Rental" <?php if(isset($_POST['equipment_type']) && $_POST['equipment_type'] == 'Rental'){echo 'selected';} ?>>Hired</option>
 												</select>
 											</div>
 										</div>
