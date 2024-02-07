@@ -230,12 +230,12 @@
 										<thead>
 											<tr>
 												<th>Date of Service</th>
-												<th>Service Done</br><small>(HMR/KMR)</small></th>
-												<th>Next Service Due</br><small>(HMR/KMR)</small></th>
-												<th>Present</br><small>(HMR/KMR)</small></th>
-												<th>Due For Service</br><small>(HMR/KMR)</small></th>
-												<th>Next Service</br><small>(HMR/KMR)</small></th>
-												<th>Type of Service</br><small>(HMR/KMR)</small></th>
+												<th>Service Done</br><small>(HR/KM)</small></th>
+												<th>Next Service Due</br><small>(HR/KM)</small></th>
+												<th>Present</br><small>(HR/KM)</small></th>
+												<th>Due For Service</br><small>(HR/KM)</small></th>
+												<th>Next Service</br><small>(HR/KM)</small></th>
+												<th>Type of Service</br><small>(HR/KM)</small></th>
 												<th>Details of Maintenance</br>Carried Out</th>
 												<th>Remarks</th>
 											</tr>
