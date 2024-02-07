@@ -134,7 +134,7 @@ if(isset($_GET['submit'])){
 						<tr>
 							<th style="text-align:center"> Date</th>
 							<th style="text-align:center"> Ref No</th>
-							<th style="text-align:center">Use In</th>
+							<th style="text-align:center"> Equipment Code</th>
 							<th style="text-align:center">Unit</th>
 							<th style="text-align:center">QTY</th>
 							<th style="text-align:center">Unit Price</th>
