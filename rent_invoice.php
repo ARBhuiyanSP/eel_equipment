@@ -79,6 +79,7 @@ $result = mysqli_query($conn, $query);
 					<div id="employee_table">  
 						<table class="table table-bordered table-striped">  
 						   <tr>  
+								<th>Equipment Name</th>  
 								<th>EEL Code</th>  
 								<th style="width:10%;">Rent Date</th>  
 								<th style="width:10%;">Return Date</th>   
@@ -91,6 +92,7 @@ $result = mysqli_query($conn, $query);
 					   $totalamount += $row["amount"];
 						   ?>  
 						   <tr>  
+								<td><?php echo getEquipmentNameByEELCode($row["eel_code"]); ?></td>  
 								<td><?php echo $row["eel_code"]; ?></td>  
 								<td><?php echo $row["rent_date"]; ?></td>  
 								<td><?php echo $row["return_date"]; ?></td>    
@@ -100,19 +102,19 @@ $result = mysqli_query($conn, $query);
 						   }  
 						   ?> 
 							<tr>  
-								<td colspan="3" style="text-align:right"><b>Sub Total:</b></td>    
+								<td colspan="4" style="text-align:right"><b>Sub Total:</b></td>    
 								<td><?php echo $totalamount; ?></td>    
 						   </tr>
 						   <tr>  
-								<td colspan="3" style="text-align:right"><b>Discount:</b></td>    
+								<td colspan="4" style="text-align:right"><b>Discount:</b></td>    
 								<td><?php echo $rowDetails["discount"]; ?></td>    
 						   </tr>
 						   <tr>  
-								<td colspan="3" style="text-align:right"><b>Grand Total:</b></td>    
+								<td colspan="4" style="text-align:right"><b>Grand Total:</b></td>    
 								<td><?php echo $grandtotal = $totalamount - $rowDetails["discount"]; ?></td>    
 						   </tr>
 						   <tr>
-								<td colspan="4" class="grand_total" style="text-align:left;">
+								<td colspan="5" class="grand_total" style="text-align:left;">
 									<b>Amount In Words :<span style="font-style: italic;text-decoration:underline;"><?php echo convertNumberToWords($grandtotal);?></span> Only</b>
 								</td>
 							</tr>

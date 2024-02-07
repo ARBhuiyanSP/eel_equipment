@@ -1926,6 +1926,18 @@ function getNameByIdAndTable($table,$id)
     return $name;
 }
 
+function getEquipmentNameByEELCode($code)
+{
+    global $conn;
+    $sql = "SELECT * FROM `equipments` WHERE `eel_code`='$code'";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        $name   =   $result->fetch_object()->name;
+    }
+    return $name;
+}
+
 function getItemCodeByParam($table, $field)
 {
     global $conn;

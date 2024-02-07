@@ -44,6 +44,7 @@ $result = mysqli_query($conn, $query);
     <div id="employee_table">  
 		<table class="table table-bordered">  
 		   <tr>  
+				<th>Equipment Name</th>  
 				<th>EEL Code</th>  
 				<th style="width:10%;">Rent Date</th>  
 				<th style="width:10%;">Return Date</th>  
@@ -54,6 +55,7 @@ $result = mysqli_query($conn, $query);
 		   {  
 		   ?>  
 		   <tr>  
+				<td><?php echo getEquipmentNameByEELCode($row["eel_code"]); ?></td>
 				<td><?php echo $row["eel_code"]; ?></td>  
 				<td><?php echo $row["rent_date"]; ?></td>  
 				<td><?php echo $row["return_date"]; ?></td>  
