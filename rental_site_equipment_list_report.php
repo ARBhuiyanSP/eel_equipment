@@ -82,7 +82,7 @@ print_r($resultSet);
 echo "</pre>"; */
 	
 	if($resultSet->num_rows > 0){
-		echo "<div id='printableArea'><center><h1 align='center'><img src='images/spl.png' height='50' style='padding-top:10px'></h1><h2>SAIF POWERTEC LIMITED</h2><p>72,Mohakhali C/A, (8th Floor),Rupayan Center,Dhaka-1212,bangladesh</p><h3>Rental Project's Equipment List Report</h3>Total Equipment: $count</center>";
+		echo "<div id='printableArea'><center><h1 align='center'><img src='images/spl.png' height='50' style='padding-top:10px'></h1><h2>SAIF POWERTEC LIMITED</h2><p>72,Mohakhali C/A, (8th Floor),Rupayan Center,Dhaka-1212,bangladesh</p><h3>Rental Project's Equipment List Report</h3><span style='font-weight:bold;color:red;'>Total Equipment: $count</span></center>";
 		echo "<table id='htmltable' class='table table-bordered table-striped list-table-custom-style'>
 		<tr>
 			<th>SL No</th>

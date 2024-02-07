@@ -79,6 +79,7 @@ include 'header.php';
 									<!-- <a href="equipment_list_report.php"><li><b>Equipment List</b></li></a> -->
 									<a href="typewise_equipment_list_report.php"><li><b>Typewise Equipment List</b></li></a>
 									<a href="rental_site_equipment_list_report.php"><li><b>Rental Site Equipment List</b></li></a>
+									<a href="statuswise_equipment_list_report.php"><li><b> Statuswise Equipment List</b></li></a>
 									<a href="equipment_history_report.php"><li><b>Equipment Shifting Report</b></li></a>
 									<a href="datewise_logsheet_report.php"><li><b>Equipment Logsheet Report</b></li></a>
 									<a href="datewise_maintenance_report.php"><li><b>Schedule Maintenance Cost Report</b></li></a>
