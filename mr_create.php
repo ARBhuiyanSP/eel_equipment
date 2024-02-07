@@ -69,7 +69,7 @@ include 'header.php';
 					
 					<div class="col-xs-2">
 						<div class="form-group">
-							<label for="id">Payable Amount</label>
+							<label for="id">Receiveable Amount</label>
 							<input type="text" id="id-1" name="due_amount" value="<?php echo $row['due_amount']; ?>"  class="form-control" readonly >
 						</div>
 					</div>
@@ -77,13 +77,13 @@ include 'header.php';
 							<input type="hidden" name="id" value="<?php echo $row['id']; ?>" >
 					<div class="col-xs-2">
 						<div class="form-group">
-							<label for="id">Paid Amount<span class="reqr"> ***</span></label>
+							<label for="id">Receive Amount<span class="reqr"> ***</span></label>
 							<input type="number" step=".01" min="1.0" max="<?php echo $row['due_amount']; ?>" autocomplete="off" name="amount" id="id-2" class="form-control" required>
 						</div>
 					</div>
 					<div class="col-xs-1">
 						<div class="form-group">
-							<label for="id">Due</label>
+							<label for="id">Net Receiveable</label>
 							<input type="text" autocomplete="off" id="id-3" class="form-control" readonly >
 						</div>
 					</div>
