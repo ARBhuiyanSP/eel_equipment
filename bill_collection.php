@@ -1,7 +1,7 @@
 <?php 
 include 'header.php';
 ?>
-<?php /* if(!check_permission('user-list')){ 
+<?php /* if(!cheque_permission('user-list')){ 
         include("404.php");
         exit();
  } */ ?>
@@ -143,16 +143,16 @@ include 'header.php';
 						<label>Payment Method</label>
 						<select class="form-control" name="cb_method" id="switch">
 							<option value="cash">Cash</option>
-							<option value="check">Cheque</option>
+							<option value="cheque">Cheque</option>
 						</select>
 					</div>
 					
 					
-					<div id="check-dropdown" style="display:none;width: 100%;">
+					<div id="cheque-dropdown" style="display:none;width: 100%;">
 						<div class="col-sm-3">
 							<div class="form-group">
 								<label for="id">Select Bank Name<span class="reqr"> is required***</span></label>
-								<select class="form-control" name="bank_name" id="check">
+								<select class="form-control" name="bank_name" id="cheque">
 									<option value=""></option>
 									<option value="Dhaka Bank">Dhaka Bank</option>
 									<option value="UCB Bank">UCB Bank</option>
@@ -229,12 +229,12 @@ $(function () {
 <script>
 					$("#switch").change(function () {
 					  switch($("#switch").val()) {
-						case "check":
+						case "cheque":
 						  $("#name-input").css("display", "none")
-						  $("#check-dropdown").css("display", "inline")
+						  $("#cheque-dropdown").css("display", "inline")
 						  break
 						default:
-						  $("#check-dropdown").css("display", "none")
+						  $("#cheque-dropdown").css("display", "none")
 						  $("#name-input").css("display", "none")
 					  }
 					})
