@@ -143,7 +143,7 @@ include 'header.php';
 						<label>Payment Method</label>
 						<select class="form-control" name="cb_method" id="switch">
 							<option value="cash">Cash</option>
-							<option value="cheque">Cheque</option>
+							<option value="check">Cheque</option>
 						</select>
 					</div>
 					
@@ -174,7 +174,7 @@ include 'header.php';
 						<div class="col-sm-3">
 							<div class="form-group">
 								<label for="id">Cheque Date<span class="reqr"> is required***</span></label>
-								<input type="text" autocomplete="off" name="bank_cheque_date" id="check_date" class="form-control" >
+								<input type="text" autocomplete="off" name="bank_cheque_date" id="start_date" class="form-control" >
 							</div>
 						</div>
 					</div>
@@ -219,5 +219,25 @@ $(document).ready(function() {
 			});
 		});
 </script>
+<script>
+$(function () {
+  $("#id-1, #id-2").keyup(function () {
+    $("#id-3").val(+$("#id-1").val() - +$("#id-2").val());
+  });
+});
+</script>
+<script>
+					$("#switch").change(function () {
+					  switch($("#switch").val()) {
+						case "check":
+						  $("#name-input").css("display", "none")
+						  $("#check-dropdown").css("display", "inline")
+						  break
+						default:
+						  $("#check-dropdown").css("display", "none")
+						  $("#name-input").css("display", "none")
+					  }
+					})
+					</script>
 <!-- /.container-fluid -->
 <?php include 'footer.php' ?>

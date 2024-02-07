@@ -93,7 +93,7 @@ include 'header.php';
 						<label>Payment Method</label>
 						<select class="form-control" name="cb_method" id="switch">
 							<option value="cash">Cash</option>
-							<option value="cheque">Cheque</option>
+							<option value="check">Cheque</option>
 						</select>
 					</div>
 					
