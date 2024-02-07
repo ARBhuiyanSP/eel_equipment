@@ -396,7 +396,7 @@ footer.sticky-footer{
                 <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
                 <span class="sub_menu_text_design"> Rent List</span>
             </a> 
-			<a class="dropdown-item" href="bill_collection.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Bill Entry</span></a>
+			<a class="dropdown-item" href="bill_collection.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Bill Collection Entry</span></a>
             <a class="dropdown-item" href="mr_list.php">
                 <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
                 <span class="sub_menu_text_design"> Bill Collection List</span>

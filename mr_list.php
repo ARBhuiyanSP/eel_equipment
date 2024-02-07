@@ -18,6 +18,7 @@
 					<thead>
 						<tr>
 							<th>Bill Date</th>
+							<th>Invoice NO</th>
 							<th>Bill No</th>
 							<th>
 								<select name="project_id" id="project_id" class="form-control select2">

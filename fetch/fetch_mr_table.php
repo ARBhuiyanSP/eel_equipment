@@ -3,7 +3,8 @@
 session_start();
 include('../connection/connect.php');
 include('../helper/utilities.php');
-$column = array("rent_bill.id", "rent_bill.bill_no", "rent_bill.bill_date", "rent_bill.project_name", "projects.project_name", "rent_bill.amount", "rent_bill.payment_type");
+$column = array("rent_bill.id", "rent_bill.bill_no", "rent_bill.challan_no","rent_bill.bill_date", "rent_bill.project_name", "projects.project_name", "rent_bill.amount", "rent_bill.payment_type");
+
 $query = "
  SELECT *,rent_bill.id as voucher_id FROM rent_bill 
  INNER JOIN projects 
@@ -53,10 +54,12 @@ while($row = mysqli_fetch_array($result))
  $sub_array = array();
 
  $sub_array[] = $row["bill_date"];
+ $sub_array[] = $row["challan_no"];
  $sub_array[] = $row["bill_no"];
  $sub_array[] = $row["project_name"];
  $sub_array[] = $row["amount"];
  $sub_array[] = $row["payment_type"];
+ 
  $sub_array[] = $actionData;
  $data[] = $sub_array;
 }

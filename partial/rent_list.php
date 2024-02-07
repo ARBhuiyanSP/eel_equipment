@@ -17,7 +17,7 @@ table.list-table-custom-style tr td{
 				<tr>
                     <th>#</th>
                     <!-- <th>Requisition No</th> -->
-                    <th>Challan No</th>
+                    <th>Invoice No</th>
                     <th>Client Name</th>
                     <th>Ref No</th>
                     <th>Total  Amount</th>
