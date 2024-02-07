@@ -93,7 +93,7 @@ include 'header.php';
 						<label>Payment Method</label>
 						<select class="form-control" name="cb_method" id="switch">
 							<option value="cash">Cash</option>
-							<option value="check">Check</option>
+							<option value="cheque">Cheque</option>
 						</select>
 					</div>
 					
@@ -117,13 +117,13 @@ include 'header.php';
 						</div>
 						<div class="col-sm-3">
 							<div class="form-group">
-								<label for="id">Check No<span class="reqr"> is required***</span></label>
+								<label for="id">Cheque No<span class="reqr"> is required***</span></label>
 								<input type="text" autocomplete="off" name="bank_cheque_no" class="form-control" >
 							</div>
 						</div>
 						<div class="col-sm-3">
 							<div class="form-group">
-								<label for="id">Check Date<span class="reqr"> is required***</span></label>
+								<label for="id">Cheque Date<span class="reqr"> is required***</span></label>
 								<input type="text" autocomplete="off" name="bank_cheque_date" id="start_date" class="form-control" >
 							</div>
 						</div>
