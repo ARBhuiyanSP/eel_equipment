@@ -124,7 +124,7 @@ include 'header.php';
 						<div class="col-sm-3">
 							<div class="form-group">
 								<label for="id">Check Date<span class="reqr"> is required***</span></label>
-								<input type="text" autocomplete="off" name="bank_cheque_date" id="check_date" class="form-control" >
+								<input type="text" autocomplete="off" name="bank_cheque_date" id="start_date" class="form-control" >
 							</div>
 						</div>
 					</div>

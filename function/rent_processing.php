@@ -189,9 +189,9 @@ if (isset($_POST['mr_create']) && !empty($_POST['mr_create'])) {
         $amount        	= $_POST['amount'];
         $challan_no        	= $_POST['challan_no'];
         $rent_id        	= $_POST['rent_id'];
-        $deposit_amount        	= $_POST['deposit_amount'];
+        $deposit_amount     = $_POST['deposit_amount'];
         $due_amount        	= $_POST['due_amount'];
-        $cb_method		= $_POST['cb_method'];
+        $cb_method			= $_POST['cb_method'];
 			$bank_name			= $_POST['bank_name'];
 			$bank_branch		= $_POST['bank_branch'];
 			$bank_cheque_no		= $_POST['bank_cheque_no'];
@@ -210,7 +210,7 @@ if (isset($_POST['mr_create']) && !empty($_POST['mr_create'])) {
 			$updated_at			=	date("Y-d-m");;
 			$updated_by			=	$_SESSION['logged']['user_id'];
 		
-			$query3 = "UPDATE `rents` SET `deposit_amount`='$newDeposit_amount',`due_amount`='$newDue_amount',`status`='$newStatus',`updated_at`='$updated_at',`updated_by`='$updated_by' WHERE `id`='$id'";
+			$query3 = "UPDATE `rents` SET `deposit_amount`='$newDeposit_amount',`due_amount`='$newDue_amount',`bill_status`='$newStatus',`updated_at`='$updated_at',`updated_by`='$updated_by' WHERE `id`='$id'";
 			$conn->query($query3); 
 			
 		$created_at			=	date("Y-d-m");
