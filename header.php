@@ -110,7 +110,7 @@ footer.sticky-footer{
 	<!-- Menu -->
     <ul class="navbar-nav ml-auto ml-md-0">
 	  <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-cog"></i> Master Setup
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -213,7 +213,7 @@ footer.sticky-footer{
         </div>
       </li>
 	  <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-tachometer-alt"></i> Settings
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -254,7 +254,7 @@ footer.sticky-footer{
         </div>
       </li>
 	  <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-truck"></i> Receive
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -283,7 +283,7 @@ footer.sticky-footer{
       </li> -->
 	  
         <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="TransferDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="TransferDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-server"></i> Transfer
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="TransferDropdown">
@@ -300,7 +300,7 @@ footer.sticky-footer{
       </li>
 	  
         <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="rlpDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="rlpDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-server"></i> RLP
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="rlpDropdown">
@@ -317,7 +317,7 @@ footer.sticky-footer{
       </li>
       
          <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="noteSheetDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="noteSheetDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-server"></i> Notesheet
         </a>
 
@@ -333,7 +333,7 @@ footer.sticky-footer{
       </li>
 		 
         <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="workorderDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="workorderDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-server"></i> Workorder
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="workorderDropdown">
@@ -348,7 +348,7 @@ footer.sticky-footer{
 		 
 		
 		  <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-server"></i> Equipments
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -365,7 +365,7 @@ footer.sticky-footer{
 		
 		
 	  <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="mainTainceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="mainTainceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-server"></i> Maintenance
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="mainTainceDropdown">
@@ -387,7 +387,7 @@ footer.sticky-footer{
       </li>
 
        <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="rentDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="rentDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-server"></i> Rent
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="rentDropdown">
@@ -408,7 +408,7 @@ footer.sticky-footer{
 		
 	  <li class="nav-item dropdown no-arrow">
         
-		<a class="nav-link" href="reports.php" id="userDropdown">
+		<a class="nav-link" href="reports.php" id="userDropdown" style="color:#000;">
           <i class="fas fa-user-circle fa-fw"></i> Reports
         </a>
 		
@@ -416,7 +416,7 @@ footer.sticky-footer{
     </ul>
 	
 	
-	<div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" style=""><?php echo $_SESSION['logged']['user_name']; ?>-[<?php echo $_SESSION['logged']['user_name']; ?>]</div>
+	<div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" style="color:#000;"><?php echo $_SESSION['logged']['user_name']; ?>-[<?php echo $_SESSION['logged']['user_name']; ?>]</div>
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
