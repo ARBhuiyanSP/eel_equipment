@@ -116,12 +116,12 @@ include 'header.php';
 																//$totalAmount += $rowparts['amount'];
 														?>
 														<tr>
-															<td><?php //echo $rowparts['spare_parts_name'];
-																$dataresult =   getDataRowByTableAndId('inv_material', $rowparts['material_name']);
-																echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : '');
-															?></td>
+															<td><?php echo getMaterialNameByIdAndTableandId('inv_material',$rowparts['material_name']); ?></td>
 															<td><?php echo $rowparts['qty']; ?></td>
-															<td><?php echo $rowparts['unit']; ?></td>
+															<td><?php 
+															$dataresult =   getDataRowByTableAndId('inv_item_unit', $rowparts['unit']);
+															echo (isset($dataresult) && !empty($dataresult) ? $dataresult->unit_name : '');
+															?></td>
 															<td><?php echo $rowparts['price']; ?></td>
 															<td><?php echo $rowparts['price'] * $rowparts['qty']; ?></td>
 														</tr>

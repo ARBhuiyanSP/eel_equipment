@@ -172,7 +172,10 @@ include 'header.php';
 																echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : '');
 															?></td>
 															<td><?php echo $rowparts['qty']; ?></td>
-															<td><?php echo $rowparts['unit']; ?></td>
+															<td><?php 
+															$dataresult =   getDataRowByTableAndId('inv_item_unit', $rowparts['unit']);
+															echo (isset($dataresult) && !empty($dataresult) ? $dataresult->unit_name : '');
+															?></td>
 															<td><?php echo $rowparts['rate']; ?></td>
 															<td><?php echo $rowparts['amount']; ?></td>
 														</tr>
