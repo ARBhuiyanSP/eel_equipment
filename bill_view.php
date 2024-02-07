@@ -78,8 +78,8 @@ $row = mysqli_fetch_array($result);
 						<table class="table table-bordered table-striped">  
 						   <tr>  
 								<th>Bill No</th>  
-								<th style="width:10%;">Challan No</th>    
-								<th style="width:10%;">Amount</th>   
+								<th style="">Challan No</th>    
+								<th style="">Amount</th>   
 						   </tr>  
 						   <?php
 							$id = $_GET['no'];
