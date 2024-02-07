@@ -119,7 +119,8 @@
 						<div class="col-xs-2">
                             <div class="form-group">
                                 <label>Project</label>
-                                <select class="form-control" id="project_id" name="request_project" readonly >
+                                <select class="form-control material_select_2" id="project_id" name="request_project"  >
+									<option value="">Select</option>
 									<?php
 									$projectsData = getTableDataByTableName('projects');
 									;
@@ -137,8 +138,9 @@
 						<div class="col-xs-2">
                             <div class="form-group">
                                 <label>Warehouse</label>
-                                <select class="form-control" id="warehouse_id" name="request_warehouse" >
-                                    <?php
+                                <select class="form-control material_select_2" id="warehouse_id" name="request_warehouse" >
+                                    <option value="">Select</option>
+									<?php
                                     $projectsData = getTableDataByTableName('inv_warehosueinfo');
                                     ;
                                     if (isset($projectsData) && !empty($projectsData)) {
