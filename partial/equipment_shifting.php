@@ -84,7 +84,7 @@
 	<h3 style="color:red;">Want To Shift This Equipment To Another Project ?</h3>
 	<form action="" method="post">
 		<div class="row">
-			<div class="col-xs-3">
+			<div class="col-xs-2">
 				<div class="form-group">
 					<?php 
 						$eel_code	= 	$equipment_info->eel_code;
@@ -107,22 +107,34 @@
 					</select>
 				</div>
 			</div>
-			<div class="col-xs-3">
+			<div class="col-xs-2">
 				<div class="form-group">
 					<label>Transfer Date</label>
 					<input name="assign_date" type="text" class="form-control" id="rlpdate" autocomplete="off" />
 				</div>
 			</div>
-			<div class="col-xs-3">
+			<div class="col-xs-2">
 				<div class="form-group">
-					<label>Requisition No</label>
+					<label>Approved RLP No</label>
 					<input name="req_no" type="text" class="form-control" autocomplete="off" />
 				</div>
 			</div>
-			<div class="col-xs-3">
+			<div class="col-xs-2">
 				<div class="form-group">
-					<label>Requisition Date</label>
+					<label>Approved RLP Date</label>
 					<input name="req_date" type="text" class="form-control" id="date" autocomplete="off" />
+				</div>
+			</div>
+			<div class="col-xs-2">
+				<div class="form-group">
+					<label>Approved Notesheet No</label>
+					<input name="ns_no" type="text" class="form-control" autocomplete="off" />
+				</div>
+			</div>
+			<div class="col-xs-2">
+				<div class="form-group">
+					<label>Approved Notesheet Date</label>
+					<input name="ns_date" type="text" class="form-control" id="fromdate" autocomplete="off" />
 				</div>
 			</div>
 		</div>
