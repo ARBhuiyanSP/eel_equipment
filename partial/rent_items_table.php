@@ -11,7 +11,7 @@
 				<select class="form-control material_select_2" name="equipments[]" id="equipments0" required >
 					<option value="">Select</option>
 					<?php
-					$projectsData = getTableDataByTableName('equipments', '', 'eel_code');
+					$projectsData = getRentableEquipments();
 					if (isset($projectsData) && !empty($projectsData)) {
 						foreach ($projectsData as $data) {
 							?>
