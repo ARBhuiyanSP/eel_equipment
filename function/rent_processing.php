@@ -130,21 +130,29 @@ if (isset($_POST['rent_entry']) && !empty($_POST['rent_entry'])) {
 /////// new process
 
 
+function getrentListData(){
+	$table      = 'rents WHERE 1 = 1';
+	$order      = 'DESC';
+	$column     = 'created_at';
+	$dataType   = 'obj';
+	$listData   = getTableDataByTableName2($table, $order, $column, $dataType);
+       
+    return $listData;
+}
 
 
-
-function getRentDetailsData($wo_id){
-    $table      =   "`workorders_master` WHERE `wo_no`='$wo_id'";
-    $wo_info   = getDataRowIdAndTable($table);
+function getRentDetailsData($rent_id){
+    $table      =   "`rents` WHERE `id`='$rent_id'";
+    $rent_info   = getDataRowIdAndTable($table);
     
     $order = 'asc';
     $column='id';
-    $table         =   "`workorders` WHERE `wo_no`='$wo_id'";
-    $wo_details   = getTableDataByTableName2($table, $order, $column);
+    $table         =   "`rent_details` WHERE `rent_id`='$rent_id'";
+    $rent_details   = getTableDataByTableName2($table, $order, $column);
     
     $feedbackData   =   [
-        'wo_info'      =>  $wo_info,
-        'wo_details'   =>  $wo_details
+        'rents'      =>  $rent_info,
+        'rent_details'   =>  $rent_details
     ];
     return $feedbackData;
 }
