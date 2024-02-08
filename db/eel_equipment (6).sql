@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2024 at 04:48 AM
+-- Generation Time: Feb 08, 2024 at 04:59 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -8469,6 +8469,13 @@ CREATE TABLE `inv_supplierbalance` (
   `approval_status` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `inv_supplierbalance`
+--
+
+INSERT INTO `inv_supplierbalance` (`id`, `sb_ref_id`, `warehouse_id`, `sb_date`, `sb_supplier_id`, `sb_dr_amount`, `sb_cr_amount`, `sb_remark`, `sb_partac_id`, `approval_status`) VALUES
+(26, 'OP', '', '2024-02-08', 'SID-003', 0, 0, 'Opening balance', 'OP', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -8931,6 +8938,14 @@ CREATE TABLE `notesheets` (
   `created_by` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `notesheets`
+--
+
+INSERT INTO `notesheets` (`id`, `notesheet_no`, `notesheet_id`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
+(237, 'NS-2024-02-ENG-Mec-001', 80, 'RLP-ENG-HEA-2024-02-001', 'Test Notesheet', '', '', '', '', '', '256', '', 'Pics', '10', '1500', '15000.00', '', 'Created', '2024-02-08 04:53:50', 3368),
+(238, 'NS-2024-02-ENG-Mec-001', 80, 'RLP-ENG-HEA-2024-02-001', 'Test Notesheet', '', '', '', '', '', '275', '', 'Pics', '5', '1450', '7250.00', '', 'Created', '2024-02-08 04:53:50', 3368);
+
 -- --------------------------------------------------------
 
 --
@@ -8971,6 +8986,13 @@ CREATE TABLE `notesheets_master` (
   `updated_by` datetime NOT NULL,
   `is_delete` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `notesheets_master`
+--
+
+INSERT INTO `notesheets_master` (`id`, `notesheet_no`, `rlp_no`, `request_project`, `request_warehouse`, `subject`, `ns_info`, `supplier_name`, `supplier_id`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `discount`, `total_afterdiscount`, `grand_total`, `remarks`, `terms_condition`, `status`, `notesheet_status`, `is_viewd`, `is_wo`, `attached_file`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_delete`) VALUES
+(80, 'NS-2024-02-ENG-Mec-001', 'RLP-ENG-HEA-2024-02-001', 21, 3, 'Test Notesheet', 'NS-0001', '3', 'SID-003', '', '', '', '', 0, 22250, 0, 0, 0, 22250, 22250, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days after receiving the work order.</li>\r\n\r\n							<li>Mode of payment: After 45 days from the date of bill Submission.</li>\r\n\r\n							<li>The above rate includes VAT, AIT & other Taxes.</li>\r\n\r\n							<li>Transport & Courier costs will be charged by Buyers.</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 1, '', '2024-02-08 04:53:50', 3368, '2024-08-02 09:55:41', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -9018,6 +9040,16 @@ CREATE TABLE `notesheet_acknowledgement` (
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `notesheet_acknowledgement`
+--
+
+INSERT INTO `notesheet_acknowledgement` (`id`, `notesheet_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
+(552, 80, 3360, 1, 6, '2024-02-08 04:53:50', '2024-02-08 09:54:25', 1, 3368, 3360),
+(553, 80, 3361, 2, 6, '2024-02-08 09:54:25', '2024-02-08 09:54:51', 1, 3368, 3361),
+(554, 80, 3359, 3, 6, '2024-02-08 09:54:51', '2024-02-08 09:55:19', 1, 3368, 3359),
+(555, 80, 616, 4, 1, '2024-02-08 09:55:19', '2024-02-08 09:55:40', 1, 3368, 616);
+
 -- --------------------------------------------------------
 
 --
@@ -9031,6 +9063,16 @@ CREATE TABLE `notesheet_remarks_history` (
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `notesheet_remarks_history`
+--
+
+INSERT INTO `notesheet_remarks_history` (`id`, `notesheet_id`, `user_id`, `remarks`, `remarks_date`) VALUES
+(245, 80, 3360, 'Okay', '2024-02-08 09:54:25'),
+(246, 80, 3361, 'Okay', '2024-02-08 09:54:51'),
+(247, 80, 3359, 'Okay', '2024-02-08 09:55:19'),
+(248, 80, 616, 'Go Ahead', '2024-02-08 09:55:41');
 
 -- --------------------------------------------------------
 
@@ -9729,6 +9771,13 @@ CREATE TABLE `rlp_acknowledgement` (
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `rlp_acknowledgement`
+--
+
+INSERT INTO `rlp_acknowledgement` (`id`, `rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
+(1406, 1, 3359, 1, 1, '2024-02-08 04:50:31', '2024-02-08 09:51:18', 1, 3368, 3359);
+
 -- --------------------------------------------------------
 
 --
@@ -9766,6 +9815,15 @@ CREATE TABLE `rlp_details` (
   `is_ns` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `rlp_details`
+--
+
+INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `material_id`, `material_name`, `part_no`, `purpose`, `quantity`, `unit`, `unit_price`, `amount`, `estimated_price`, `supplier`, `details_remarks`, `is_ns`) VALUES
+(1, 1, NULL, '01-77', '256', '34C3429', 'AC-01', '10', '20', 1500, 15000, NULL, NULL, NULL, 1),
+(2, 1, NULL, '01-95', '275', 'C271050', 'AC-02', '5', '20', 2500, 12500, NULL, NULL, NULL, 1),
+(3, 1, NULL, '01-03', '18', '(LF-3349)/VG6100007005', 'BD-01', '20', '20', 110, 2200, NULL, NULL, NULL, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -9799,6 +9857,13 @@ CREATE TABLE `rlp_info` (
   `is_delete` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `rlp_info`
+--
+
+INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_warehouse`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `totalamount`, `rlp_status`, `is_viewd`, `is_ns`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
+(1, 'RLP-ENG-HEA-2024-02-001', 3368, 'admin@saifpowertec.com', 2, '2024-02-08 12:00:00', 1, 11, 21, 3, 'admin@saifpowertec.com', NULL, '', NULL, 'Okay', 29700, 1, 0, 0, 3368, '2024-02-08 04:50:31', 3359, '2024-08-02 09:51:18', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -9812,6 +9877,13 @@ CREATE TABLE `rlp_remarks_history` (
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `rlp_remarks_history`
+--
+
+INSERT INTO `rlp_remarks_history` (`id`, `rlp_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
+(826, 1, 3359, 'Go Ahead', '2024-02-08 09:51:18');
 
 -- --------------------------------------------------------
 
@@ -10115,7 +10187,8 @@ CREATE TABLE `suppliers` (
 
 INSERT INTO `suppliers` (`id`, `code`, `name`, `address`, `contact_person`, `supplier_phone`, `email`, `supplier_op_balance`, `supplier_type`, `material_type`) VALUES
 (1, 'SID-001', 'Saif Powertec Ltd', '-', '-', '-', '', '-', 'cash', '50'),
-(2, 'SID-002', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '0', 'cash', '50');
+(2, 'SID-002', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '0', 'cash', '50'),
+(3, 'SID-003', 'ABC International', 'Dhaka', '---', '123456789', '', '0', 'cash', '48');
 
 -- --------------------------------------------------------
 
@@ -10774,7 +10847,17 @@ INSERT INTO `userlog` (`id`, `userId`, `username`, `role_id`, `employee_id`, `us
 (520, 3359, 'Alauddin Ahmed', 19, '', 0x3a3a31, '2024-02-07 10:14:39'),
 (521, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-07 10:15:01'),
 (522, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 03:35:03'),
-(523, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 03:46:08');
+(523, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 03:46:08'),
+(524, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 03:49:12'),
+(525, 3359, 'Alauddin Ahmed', 19, '', 0x3a3a31, '2024-02-08 03:50:57'),
+(526, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 03:51:31'),
+(527, 3360, 'Farhad Hossain Bhuiya', 3, '', 0x3a3a31, '2024-02-08 03:54:14'),
+(528, 3361, 'Md Mahfuz Rahman Sarkar', 11, '', 0x3a3a31, '2024-02-08 03:54:39'),
+(529, 3359, 'Alauddin Ahmed', 19, '', 0x3a3a31, '2024-02-08 03:55:07'),
+(530, 616, 'Tarafder Md. Ruhul Saif', 16, '', 0x3a3a31, '2024-02-08 03:55:28'),
+(531, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 03:55:57'),
+(532, 3359, 'Alauddin Ahmed', 19, '', 0x3a3a31, '2024-02-08 03:56:43'),
+(533, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 03:57:14');
 
 -- --------------------------------------------------------
 
@@ -10875,6 +10958,14 @@ CREATE TABLE `workorders` (
   `created_by` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `workorders`
+--
+
+INSERT INTO `workorders` (`id`, `wo_no`, `ns_details_id`, `notesheet_no`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `is_mrr`, `created_at`, `created_by`) VALUES
+(105, '2024-02-ENG-WO-001', 237, 'NS-2024-02-ENG-Mec-001', 'RLP-ENG-HEA-2024-02-001', 'Test Work Order', 'ABC International', 'Dhaka', '---', '123456789', '', '256', '', 'Pics', '10', '1500', '15000.00', '', 'Created', 0, '2024-02-08', 3368),
+(106, '2024-02-ENG-WO-001', 238, 'NS-2024-02-ENG-Mec-001', 'RLP-ENG-HEA-2024-02-001', 'Test Work Order', 'ABC International', 'Dhaka', '---', '123456789', '', '275', '', 'Pics', '5', '1450', '7250.00', '', 'Created', 0, '2024-02-08', 3368);
+
 -- --------------------------------------------------------
 
 --
@@ -10907,6 +10998,13 @@ CREATE TABLE `workorders_master` (
   `updated_by` int(11) NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `workorders_master`
+--
+
+INSERT INTO `workorders_master` (`id`, `wo_no`, `request_project`, `request_warehouse`, `notesheet_no`, `rlp_no`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `grand_total`, `remarks`, `status`, `created_at`, `created_by`, `updated_by`, `updated_at`) VALUES
+(41, '2024-02-ENG-WO-001', 21, 3, 'NS-2024-02-ENG-Mec-001', 'RLP-ENG-HEA-2024-02-001', 'Test Work Order', 'Q-001', 'ABC International', 'Dhaka', '---', '123456789', '', 0, 22250, 0, 0, 22250, '', '1', '2024-02-08', 3368, 3359, '2024-08-02 04:56:51');
 
 --
 -- Indexes for dumped tables
@@ -11654,7 +11752,7 @@ ALTER TABLE `inv_supplier`
 -- AUTO_INCREMENT for table `inv_supplierbalance`
 --
 ALTER TABLE `inv_supplierbalance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `inv_technicianinfo`
@@ -11756,13 +11854,13 @@ ALTER TABLE `materialbalance`
 -- AUTO_INCREMENT for table `notesheets`
 --
 ALTER TABLE `notesheets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
 
 --
 -- AUTO_INCREMENT for table `notesheets_master`
 --
 ALTER TABLE `notesheets_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `notesheet_access_chain`
@@ -11774,13 +11872,13 @@ ALTER TABLE `notesheet_access_chain`
 -- AUTO_INCREMENT for table `notesheet_acknowledgement`
 --
 ALTER TABLE `notesheet_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=552;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=556;
 
 --
 -- AUTO_INCREMENT for table `notesheet_remarks_history`
 --
 ALTER TABLE `notesheet_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=245;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
 
 --
 -- AUTO_INCREMENT for table `notesheet_roles_group`
@@ -11876,7 +11974,7 @@ ALTER TABLE `rlp_access_chain`
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
 --
 ALTER TABLE `rlp_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1406;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1407;
 
 --
 -- AUTO_INCREMENT for table `rlp_delete_history`
@@ -11900,7 +11998,7 @@ ALTER TABLE `rlp_info`
 -- AUTO_INCREMENT for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=826;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=827;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -11948,7 +12046,7 @@ ALTER TABLE `sub_projects`
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `supplier_payment`
@@ -11984,7 +12082,7 @@ ALTER TABLE `tb_logsheet`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=524;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=534;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -11996,13 +12094,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `workorders`
 --
 ALTER TABLE `workorders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `workorders_master`
 --
 ALTER TABLE `workorders_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
