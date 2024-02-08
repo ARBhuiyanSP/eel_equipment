@@ -52,6 +52,13 @@ $result = mysqli_query($conn, $query);
 										?>
 									</td>
 								</tr>
+							  <tr>
+									<th>Invoice Print Date:</th>
+									<td>
+										<?php echo date("jS F Y");  
+										?>
+									</td>
+								</tr>
 							</table>
 						</div>
 					</div>
@@ -95,7 +102,7 @@ $result = mysqli_query($conn, $query);
 								<td><?php echo getEquipmentNameByEELCode($row["eel_code"]); ?></td>  
 								<td><?php echo $row["eel_code"]; ?></td>  
 								<td><?php echo $row["rent_date"]; ?></td>  
-								<td><?php echo $row["return_date"]; ?></td>    
+								<td><?php echo $row["extended_date"]; ?></td>    
 								<td><?php echo $row["amount"]; ?></td>    
 						   </tr>  
 						   <?php  
@@ -113,9 +120,17 @@ $result = mysqli_query($conn, $query);
 								<td colspan="4" style="text-align:right"><b>Grand Total:</b></td>    
 								<td><?php echo $grandtotal = $totalamount - $rowDetails["discount"]; ?></td>    
 						   </tr>
+						   <tr>  
+								<td colspan="4" style="text-align:right"><b>Received Amount:</b></td>    
+								<td><?php echo $received = $rowDetails["deposit_amount"]; ?></td>    
+						   </tr>
+						   <tr>  
+								<td colspan="4" style="text-align:right"><b>Net Receivable Amount:</b></td>    
+								<td><?php echo $receivable = $grandtotal - $received; ?></td>    
+						   </tr>
 						   <tr>
 								<td colspan="5" class="grand_total" style="text-align:left;">
-									<b>Amount In Words :<span style="font-style: italic;text-decoration:underline;"><?php echo convertNumberToWords($grandtotal);?></span> Only</b>
+									<b>Amount In Words :<span style="font-style: italic;text-decoration:underline;"><?php echo convertNumberToWords($receivable);?></span> Only</b>
 								</td>
 							</tr>
 					  </table>  
