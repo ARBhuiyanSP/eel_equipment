@@ -23,6 +23,7 @@ include 'includes/return_process.php';
 include 'includes/payment_process.php';
 //include 'includes/equipment_process.php';
 include 'function/rlp_process.php';
+include 'function/equips_rlp_process.php';
 include 'function/rlp_chain_process.php';
 include 'function/notesheet_processing.php';
 include 'function/notesheet_chain_process.php';
@@ -357,6 +358,8 @@ footer.sticky-footer{
 			<a class="dropdown-item" href="shifting-list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments Shifting</span></a>  
 			<a class="dropdown-item" href="inspection.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments Inspection</span></a>  
 			<a class="dropdown-item" href="history-list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments History</span></a>  
+			<a class="dropdown-item" href="equips_rlp_create.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments RLP Create</span></a>  
+			<a class="dropdown-item" href="equips_rlp_list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments RLP List</span></a>  
 		   
           <!--<a class="dropdown-item" href="#">Settings</a>-->
           <!--<a class="dropdown-item" href="#">Activity Log</a>-->

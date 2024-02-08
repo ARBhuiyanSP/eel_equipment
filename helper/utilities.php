@@ -838,6 +838,37 @@ function get_table_primary_id($table){
     //return $prefix."-".$year."-".$month."-".$divName.'-'.$proName.'-'.$finalRLPNo;
     return $prefix."-".$divName."-".$depName."-".$year.'-'.$month.'-'.$finalRLPNo;
 } */ 
+ function get_equips_rlp_no($prefix="E-RLP", $formater_length=3){
+    global $conn;
+    
+    $division_id    =   $_SESSION['logged']['branch_id'];
+    $department_id  =   $_SESSION['logged']['department_id'];
+    $project_id  	=   $_SESSION['logged']['project_id'];
+    $office_id      =   $_SESSION['logged']['office_id'];
+    $user_id        =   $_SESSION['logged']['user_id']; 
+    
+    $year       =   date("Y");
+    $month      =   date("m");
+    $sql        = "SELECT count('id') as total FROM equips_rlp_info WHERE YEAR(created_at) = '$year' AND MONTH(created_at) = $month AND is_delete=0 AND request_project=$project_id";
+    $result     = $conn->query($sql);
+    $total_row  =   $result->fetch_object()->total;
+    
+    $nextRLP    =   $total_row+1;
+    $finalRLPNo = sprintf('%0' . $formater_length . 'd', $nextRLP);
+    //$divName    = replace_dashes(getDivisionNameById($division_id));
+    $divName    = 'ENG';
+    //$depName    = replace_dashes(getDepartmentNameById($department_id));
+    //$dep    = replace_dashes(getDepartmentNameById($department_id));
+   // $depName    = mb_substr($dep, 0, 3);
+	
+	$pro   = replace_dashes(getProjectNameById($project_id));
+    $proName    = strtoupper(mb_substr($pro, 0, 3));
+    
+    //return $prefix."-".$year."-".$month."-".$divName.'-'.$proName.'-'.$finalRLPNo;
+    //return $prefix."-".$divName."-".$proName."-".$year.'-'.$month.'-'.$finalRLPNo;
+    return $prefix."-".$divName."-".$proName."-".$year.'-'.$month.'-'.$finalRLPNo;
+}
+
  function get_rlp_no($prefix="RLP", $formater_length=3){
     global $conn;
     
@@ -916,6 +947,31 @@ function get_mcsl_no($prefix="MCSL", $formater_length=3){
     
     return $year."-".$month."-".$divName.'-'.$prefix.'-'.$finalRLPNo;
 }
+
+function get_invoice_no($prefix="INV", $formater_length=3){
+    global $conn;
+    
+    //$division_id    =   $_SESSION['logged']['branch_id'];
+    //$department_id  =   $_SESSION['logged']['department_id'];
+    $department_id  =   $_SESSION['logged']['department_id'];
+    //$office_id      =   $_SESSION['logged']['office_id'];
+    //$user_id        =   $_SESSION['logged']['user_id'];
+    
+    $year       =   date("Y");
+    $month      =   date("m");
+    $sql        = "SELECT count('id') as total FROM `rent_bill` WHERE 1=1";
+    $result     = $conn->query($sql);
+    $total_row  =   $result->fetch_object()->total;
+    
+    $nextRLP    =   $total_row+1;
+    $finalRLPNo = sprintf('%0' . $formater_length . 'd', $nextRLP);
+    //$divName    = replace_dashes(getDivisionNameById($division_id));
+    $divName    = 'EEL';
+    $depName    = replace_dashes(getDepartmentNameById($department_id));
+    
+    return $divName.'-'.$prefix.'-'.$finalRLPNo;
+}
+
 function get_mr_bill_no($prefix="MR", $formater_length=3){
     global $conn;
     
@@ -1546,6 +1602,20 @@ function get_user_department_wise_rlp_chain_for_create($division_id,$department_
     $defaultChain       =   getDataRowIdAndTable($table);
     $defaultChainUsers  =   (isset($defaultChain) && !empty($defaultChain) ? json_decode($defaultChain->users) : "");
     include 'partial/rlp_chain_for_form.php';
+}
+
+function get_user_project_wise_equips_rlp_chain_for_create(){
+    $division_id    =   $_SESSION['logged']['branch_id'];
+    $department_id  =   $_SESSION['logged']['department_id'];
+    $project_id  =   $_SESSION['logged']['project_id'];
+    $table          =   "rlp_access_chain"
+            . " WHERE chain_type='default'"
+            . " AND division_id=$division_id"
+            . " AND department_id=$department_id"
+            . " AND project_id=$project_id";
+    $defaultChain       =   getDataRowIdAndTable($table);
+    $defaultChainUsers  =   (isset($defaultChain) && !empty($defaultChain) ? json_decode($defaultChain->users) : "");
+    include 'partial/equips_rlp_chain_for_form.php';
 }
 
 function get_user_project_wise_rlp_chain_for_create(){
