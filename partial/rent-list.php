@@ -48,7 +48,7 @@ if (isset($rentListData) && !empty($rentListData)) {
 							<?php if($adata->bill_status != 'Paid'){ ?>
                             <a title="Edit RLP" class="btn btn-sm btn-info" href="mr_create.php?id=<?php echo $adata->id; ?>" style="font-size:10px;"> Collection</a>
                             <?php } ?>
-							<a title="Edit RLP" class="btn btn-sm btn-success" href="rent_history.php?id=<?php echo $adata->challan_no; ?>" style="font-size:10px;"> Details</a>
+							<a title="Edit RLP" class="btn btn-sm btn-success" href="invoice_history.php?id=<?php echo $adata->challan_no; ?>" style="font-size:10px;"> Details</a>
                                                     
                         </td>
                     </tr>
