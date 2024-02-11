@@ -31,7 +31,7 @@ include '../includes/login_process.php';
 			$query5 = "UPDATE `rents` SET `total_rent_amount`= `total_rent_amount` + '$ex_amount',`grandtotal`= `grandtotal` + '$ex_amount',`due_amount`= `due_amount` + '$ex_amount' WHERE `challan_no`='".$_POST["ex_challan_no"]."'";
 			$conn->query($query5);
 		   
-			$query2 = "insert into `rent_history` values('','".$_POST["id"]."','".$_POST["ex_eel_code"]."','$return_date','$ex_return_date','$ex_amount','Rented')";
+			$query2 = "insert into `rent_history` values('', '".$_POST["ex_challan_no"]."','".$_POST["id"]."','".$_POST["ex_eel_code"]."','$return_date','$ex_return_date','$ex_amount','Rented')";
 			$conn->query($query2);
 			
 			$query3 = "insert into `client_balance` values('', '".$_POST["ex_challan_no"]."', '$ex_return_date', '$ex_client_name', '$ex_project_name', '', '$ex_amount', '', '', '', '', '', '', '$created_at', '$created_by', '', '')";

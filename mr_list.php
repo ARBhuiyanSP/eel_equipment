@@ -10,7 +10,7 @@
         <div class="card-header">
             <i class="fas fa-table"></i>
             Equipment Logsheet List
-			<a href="logsheet.php" style="float:right"><i class="fas fa-plus"></i> New Entry<a>
+			<a href="bill_collection.php" style="float:right"><i class="fas fa-plus"></i> New Entry<a>
 		</div>
         <div class="card-body">
 			<div class="table-responsive data-table-wrapper">

@@ -82,7 +82,7 @@ if (isset($_POST['rent_entry']) && !empty($_POST['rent_entry'])) {
         $conn->query($query);
 		$lastinsertedId =  mysqli_insert_id($conn);
 		
-		$queryEx = "INSERT INTO `rent_history`(`rent_details_id`, `eel_code`, `rent_date`, `return_date`, `amount`, `status`) VALUES ('$lastinsertedId','$equipments','$rent_date','$return_date','$totalamount','Rented')";
+		$queryEx = "INSERT INTO `rent_history`(`challan_no`,`rent_details_id`, `eel_code`, `rent_date`, `return_date`, `amount`, `status`) VALUES ('$challan_no','$lastinsertedId','$equipments','$rent_date','$return_date','$totalamount','Rented')";
          $conn->query($queryEx); 
 		
 		/*

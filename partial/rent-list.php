@@ -5,7 +5,7 @@ $rentListData = getrentListData();
 if (isset($rentListData) && !empty($rentListData)) {
     ?>
     <div class="table-responsive">
-        <table id="rlp_list_table" class="table table-bordered table-striped">
+        <table id="rlp_list_table" class="table table-bordered table-striped" width="100%">
             <thead>
                 <tr>
                     <th>Invoice  No</th>
@@ -29,7 +29,8 @@ if (isset($rentListData) && !empty($rentListData)) {
                     ?>
                     <tr id="row_id_<?php echo $adata->id; ?>">
                         <td><?php echo (isset($adata->challan_no) && !empty($adata->challan_no) ? $adata->challan_no : ''); ?> </td>
-                        <td><?php echo (isset($adata->date) && !empty($adata->date) ? human_format_date($adata->date) : 'No data'); ?></td>
+                        
+                        <td><?php echo (isset($adata->date) && !empty($adata->date) ? date("jS F Y", strtotime($adata->date)) : 'No data'); ?></td>
 						
                         <td><?php  foreach($rent_details as $dataDetails){ echo $dataDetails->eel_code.','; }?></td>
 						
@@ -40,14 +41,14 @@ if (isset($rentListData) && !empty($rentListData)) {
                         <td><?php echo (isset($adata->due_amount) && !empty($adata->due_amount) ? $adata->due_amount : ''); ?> </td>
                         <td>
                             
-                            <a title="Edit RLP" class="btn btn-sm btn-success" href="rent_invoice.php?id=<?php echo $adata->challan_no; ?>"> Invoice</a>
+                            <a title="Edit RLP" class="btn btn-sm btn-success" href="rent_invoice.php?id=<?php echo $adata->challan_no; ?>" style="font-size:10px;"> Invoice</a>
 							<?php if($adata->status == 'Rented'){ ?>
-                            <a title="Edit RLP" class="btn btn-sm btn-danger" href="rent_details.php?id=<?php echo $adata->challan_no; ?>">Return/Extend</a>
+                            <a title="Edit RLP" class="btn btn-sm btn-danger" href="rent_details.php?id=<?php echo $adata->challan_no; ?>" style="font-size:10px;">Return/Extend</a>
                             <?php } ?>
 							<?php if($adata->bill_status != 'Paid'){ ?>
-                            <a title="Edit RLP" class="btn btn-sm btn-info" href="mr_create.php?id=<?php echo $adata->id; ?>"> Collection</a>
+                            <a title="Edit RLP" class="btn btn-sm btn-info" href="mr_create.php?id=<?php echo $adata->id; ?>" style="font-size:10px;"> Collection</a>
                             <?php } ?>
-							
+							<a title="Edit RLP" class="btn btn-sm btn-success" href="rent_history.php?id=<?php echo $adata->challan_no; ?>" style="font-size:10px;"> Details</a>
                                                     
                         </td>
                     </tr>
