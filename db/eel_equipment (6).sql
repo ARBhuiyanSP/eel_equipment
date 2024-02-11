@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2024 at 04:59 AM
+-- Generation Time: Feb 11, 2024 at 12:01 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -95,7 +95,6 @@ CREATE TABLE `clients` (
   `address` varchar(500) NOT NULL,
   `phone` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `status` tinyint(11) NOT NULL DEFAULT 1,
   `created_at` date NOT NULL DEFAULT current_timestamp(),
   `created_by` varchar(50) NOT NULL,
   `updated_at` date DEFAULT NULL,
@@ -106,9 +105,10 @@ CREATE TABLE `clients` (
 -- Dumping data for table `clients`
 --
 
-INSERT INTO `clients` (`id`, `name`, `address`, `phone`, `email`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(9, 'Tradfly International', 'Dhaka', 123456, 'tf@gmail.com', 1, '2024-02-06', '', NULL, ''),
-(10, 'PALASH', 'MIRPUR', 1787686742, '', 1, '2024-02-07', '', NULL, '');
+INSERT INTO `clients` (`id`, `name`, `address`, `phone`, `email`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(9, 'Tradfly International', 'Dhaka', 123456, 'tf@gmail.com', '2024-02-06', '', NULL, ''),
+(10, 'PALASH', 'MIRPUR', 1787686742, '', '2024-02-07', '', NULL, ''),
+(11, 'ABC International', 'Dhaka', 123456789, '--@---.---', '2024-02-08', '', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -141,19 +141,9 @@ CREATE TABLE `client_balance` (
 --
 
 INSERT INTO `client_balance` (`id`, `ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(50, 'RCH-CW-001', '2024-02-06', '9', '41', 0, 252000, '', '', '', '', '0000-00-00', '', '2024-02-06', '3368', NULL, ''),
-(51, 'RCH-CW-002', '2024-02-06', '9', '41', 0, 50000, '', '', '', '', '0000-00-00', '', '2024-02-06', '3368', NULL, ''),
-(52, 'EEL-MR-001', '2024-02-06', '9', '41', 10000, 0, 'cash', '', '', '', '0000-00-00', 'ok', '2024-06-02', '3368', NULL, ''),
-(53, 'EEL-MR-002', '2024-02-06', '9', '41', 10000, 0, 'check', 'Dhaka Bank', 'Mohakhali', '123456', '2024-02-06', '', '2024-06-02', '3368', NULL, ''),
-(54, 'EEL-MR-003', '2024-02-06', '9', '41', 10000, 0, 'cash', '', '', '', '0000-00-00', 'ok', '2024-06-02', '3368', NULL, ''),
-(55, 'EEL-MR-004', '2024-02-07', '9', '41', 5000, 0, 'cash', '', '', '', '0000-00-00', 'ok', '2024-07-02', '3368', NULL, ''),
-(56, 'EEL-MR-005', '2024-02-07', '9', '41', 242000, 0, 'cash', '', '', '', '0000-00-00', 'ok', '2024-07-02', '3368', NULL, ''),
-(57, 'EEL-MR-006', '2024-02-07', '9', '41', 5000, 0, 'check', 'Dhaka Bank', 'yyyyyyui', 'yuiy', '2024-02-14', 'yui', '2024-07-02', '3368', NULL, ''),
-(58, 'EEL-MR-007', '2024-02-07', '9', '41', 1000, 0, 'check', 'Dhaka Bank', 'uiouio', 'uiouio', '2024-02-21', 'uioui', '2024-07-02', '3368', NULL, ''),
-(59, 'EEL-MR-008', '2024-02-07', '9', '41', 100, 0, 'cheque', 'Dhaka Bank', 'fghfg', 'fghfg', '2024-02-14', 'fghfg', '2024-07-02', '3368', NULL, ''),
-(60, 'RCH-CW-003', '2024-02-07', '10', '42', 1000, 10000, '', '', '', '', '0000-00-00', '', '2024-02-07', '3368', NULL, ''),
-(61, 'EEL-MR-009', '2024-02-07', '10', '42', 5000, 0, 'cash', '', '', '', '0000-00-00', 'J', '2024-07-02', '3368', NULL, ''),
-(62, 'RCH-CW-003', '2024-02-10', '10', '42', 0, 2000, '', '', '', '', '0000-00-00', '', '2024-02-07', '3368', '0000-00-00', '');
+(84, 'RCH-CW-001', '2024-02-11', '9', '41', 500, 29500, '', '', '', '', '0000-00-00', '', '2024-02-11', '3368', NULL, ''),
+(85, 'RCH-CW-001', '2024-02-07', '9', '41', 0, 2000, '', '', '', '', '0000-00-00', '', '2024-02-11', '3368', '0000-00-00', ''),
+(86, 'EEL-MR-004', '2024-02-11', '9', '41', 1000, 0, 'cash', '', '', '', '0000-00-00', 'ok', '2024-11-02', '3368', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -540,22 +530,22 @@ CREATE TABLE `equipments` (
 --
 
 INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_date`, `name`, `eel_code`, `origin`, `capacity`, `makeby`, `model`, `year_manufacture`, `inventory_sl_no`, `engine_model`, `engine_sl_no`, `present_location`, `present_location_type`, `present_condition`, `price`, `qr_image`, `assign_status`, `inspaction_date`, `incharge`, `superintend`, `coo_admin`, `remarks`, `status`, `created_at`, `updated_at`) VALUES
-(1162, '12', 'Own', '2023-12-20', 'Air Compressor', 'AC-01', 'CHINA', '7 bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021439', '48T-C80', '78941393', '25', 'Rental', 'Running', 0, ' ', 'assigned', '2024-02-07', ' ', ' ', ' ', 'ok', '', '2023-12-20 12:51:05', '2024-02-06 07:01:31'),
-(1163, '3', 'Own', '2023-12-20', 'Air Compressor', 'AC-02', 'CHINA', '7 Bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021440', '4BT.9-C80', '78941394', '24', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'ok', '', '2023-12-20 12:51:50', '2024-02-06 07:11:32'),
-(1164, '12', 'Own', '0000-00-00', 'Air Compressor', 'AC-03', 'China', ' ', 'LOCAL', 'YL100L12', '2020', ' ', ' ', ' ', '25', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2022-12-14', '2022-12-14 05:38:01'),
-(1165, '3', 'Own', '0000-00-00', 'Air Compressor', 'AC-04', 'China', ' ', 'LOCAL', ' ', '2020', ' ', ' ', ' ', '41', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
-(1166, '5', 'Own', '0000-00-00', 'Air Compressor', 'AC-05', 'China', ' ', 'LOCAL', ' ', '2021', ' ', ' ', ' ', '5', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1162, '12', 'Own', '2023-12-20', 'Air Compressor', 'AC-01', 'CHINA', '7 bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021439', '48T-C80', '78941393', '41', 'Rental', 'Running', 0, ' ', 'assigned', '2024-02-07', ' ', ' ', ' ', 'ok', 'Rented', '2023-12-20 12:51:05', '2024-02-06 07:01:31'),
+(1163, '3', 'Own', '2023-12-20', 'Air Compressor', 'AC-02', 'CHINA', '7 Bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021440', '4BT.9-C80', '78941394', '41', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'ok', 'Rented', '2023-12-20 12:51:50', '2024-02-06 07:11:32'),
+(1164, '12', 'Own', '0000-00-00', 'Air Compressor', 'AC-03', 'China', ' ', 'LOCAL', 'YL100L12', '2020', ' ', ' ', ' ', '42', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2022-12-14', '2022-12-14 05:38:01'),
+(1165, '3', 'Own', '0000-00-00', 'Air Compressor', 'AC-04', 'China', ' ', 'LOCAL', ' ', '2020', ' ', ' ', ' ', '42', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2022-12-14', '2022-12-14 05:38:01'),
+(1166, '5', 'Own', '0000-00-00', 'Air Compressor', 'AC-05', 'China', ' ', 'LOCAL', ' ', '2021', ' ', ' ', ' ', '41', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2022-12-14', '2022-12-14 05:38:01'),
 (1167, '11', 'Own', '0000-00-00', 'Air Compressor', 'AC-06', 'China', ' ', 'LOCAL', ' ', '2021', ' ', ' ', ' ', '11', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
 (1168, '3', 'Own', '2023-12-20', 'Amphibious Hy. Excavator', 'Ex. Am-01', 'MALAYSIA', '0.33 m3 ,9M', 'Ultratex', 'TAKEUCHI TB285CH', '2019', '1058003818', 'ATNV98-APTB', 'T1695', '3', 'Own', 'Breakdown', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'Maintenance, chain Drive ,Drive motor needed.', ' ', '2023-12-20 12:32:56', '2022-12-14 05:38:01'),
 (1169, '23', 'Own', '2023-11-29', 'Amphibious Hy. Excavator', 'Ex. Am-02', 'MALAYSIA', '0.33 m3 ,9M', 'Ultratex', 'TAKEUCHI TB285CH', '2019', ' ', 'ATNV98-APTB', ' ', '3', 'Own', 'Idle', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'Chottogram city', ' ', '2023-11-29 02:50:24', '2022-12-14 05:38:01'),
 (1170, '15', 'Own', '0000-00-00', 'Asphalt Plant', 'ASP-01', 'China', '120t/h', 'TTM', 'LB1500', '2019', ' ', ' ', ' ', '15', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
 (1171, '16', 'Own', '0000-00-00', 'Backhoe Loader', 'BL-01', 'Indian', '0.25m3', 'CASE', '770EXMAGNUM', '2018', 'NKJ770EMJJKH01332', ' ', '8045.45.735-249601', '16', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
 (1172, '16', 'Own', '2023-11-29', 'Backhoe Loader', 'BL-02', 'INDIA', '0.25m3', 'CASE', '770EXMAGNUM', '2018', 'NKJ770EMJJKH01333', ' ', '8045.45.735-248258', '16', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 03:16:43', '2022-12-14 05:38:01'),
-(1173, '7', 'Own', '0000-00-00', 'Bull Dozer', 'BD-01', 'USA', '20000 KG', 'POWER PLUS', 'D65EX-15', '2018', 'CCND65EX118101218', 'SC11CB184G2B1REACAT3306B(L)', 'C9186000891', '1', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
-(1174, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-02', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160-3', '2018', '02WP9SL0973012', 'WD109178', 'N/A', '1', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', 'Rented', '2023-12-20 01:30:55', '2022-12-14 05:38:01'),
-(1175, '11', 'Own', '2023-12-28', 'Bull Dozer', 'BD-03', 'CHINA', '4.50M3', 'LIUGONG', 'CLGB160C', '2019', 'LGCB160CPKC006577', 'WD10G178E25', '1219D002221', '3', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', 'Rented', '2023-12-28 12:27:10', '2022-12-14 05:38:01'),
+(1173, '7', 'Own', '0000-00-00', 'Bull Dozer', 'BD-01', 'USA', '20000 KG', 'POWER PLUS', 'D65EX-15', '2018', 'CCND65EX118101218', 'SC11CB184G2B1REACAT3306B(L)', 'C9186000891', '19', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2022-12-14', '2022-12-14 05:38:01'),
+(1174, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-02', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160-3', '2018', '02WP9SL0973012', 'WD109178', 'N/A', '12', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2023-12-20 01:30:55', '2022-12-14 05:38:01'),
+(1175, '11', 'Own', '2023-12-28', 'Bull Dozer', 'BD-03', 'CHINA', '4.50M3', 'LIUGONG', 'CLGB160C', '2019', 'LGCB160CPKC006577', 'WD10G178E25', '1219D002221', '3', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2023-12-28 12:27:10', '2022-12-14 05:38:01'),
 (1176, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-04', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041CL0003198', 'WD10G178E25', '1220E003771', '27', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'CUTTING EDGE NEED', ' ', '2023-12-20 01:39:14', '2022-12-14 05:38:01'),
-(1177, '5', 'Own', '0000-00-00', 'Bull Dozer', 'BD-05', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041EL0003197', 'WD10G178E25', '1220G004116', '1', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
+(1177, '5', 'Own', '0000-00-00', 'Bull Dozer', 'BD-05', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041EL0003197', 'WD10G178E25', '1220G004116', '1', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2022-12-14', '2022-12-14 05:38:01'),
 (1178, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-06', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041TL0003199', 'WD10G178E25', '1220G003768', '28', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:37:58', '2022-12-14 05:38:01'),
 (1179, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-07', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041HL0003179', 'WD10G178E25', '1220D003260', '28', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:38:25', '2022-12-14 05:38:01'),
 (1180, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-08', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041EL0003202', 'WD10G178E25', '1220D004584', '28', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'NEED TRACK LINK,BUSH,PIN,CUTTING EDGE', ' ', '2023-12-20 01:38:49', '2022-12-14 05:38:01'),
@@ -818,11 +808,11 @@ INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_d
 (1436, '3', 'Own', '2023-12-28', 'Engine with Pump', 'not set yet', '241', '8 Cyllinder', 'HINO', 'NOT KNOWN', 'NOT KNOWN', '', '', '', '3', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 11:36:08', ''),
 (1437, '3', 'Own', '2023-12-28', 'Double cabin pick-up', 'DHAKA METRO THA-13 6397', '249', 'not known', 'MAHINDRA', 'not known', 'not known', '', '', '', '3', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 11:42:53', ''),
 (1438, '37', 'Own', '2023-12-28', 'Crawler crane (hydraulic hammer driver)', 'not set yet', '244', 'not known', 'LIEBHERR', 'HS 895 HD', '2021', '', '', '', '37', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 11:57:22', ''),
-(1439, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6470', '241', '2930 KG', 'Dyna', 'N/A', '2014', '', '', '', '1', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', 'Rented', '2023-12-28 12:37:36', ''),
-(1440, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6668', '241', '2915 kg', 'Dyna', 'NA', '2011', '', '', '', '1', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', 'Rented', '2023-12-28 12:39:14', ''),
+(1439, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6470', '241', '2930 KG', 'Dyna', 'N/A', '2014', '', '', '', '1', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:37:36', ''),
+(1440, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6668', '241', '2915 kg', 'Dyna', 'NA', '2011', '', '', '', '1', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:39:14', ''),
 (1441, '37', 'Own', '2023-12-28', 'Double cabin pickup', 'not known', '241', 'NA', 'HILAX', 'NA', 'NA', '', '', '', '37', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:40:44', ''),
-(1442, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6296', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '40', 'Rental', 'Running', 0, '', 'assigned', '', '', '', '', '', 'Rented', '2023-12-28 12:42:04', ''),
-(1443, '37', 'Own', '2023-12-28', 'Double cabin pick up', '13-9034', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '42', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', 'Steering box motor problem', 'Rented', '2023-12-28 12:43:35', ''),
+(1442, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6296', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '42', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:42:04', ''),
+(1443, '37', 'Own', '2023-12-28', 'Double cabin pick up', '13-9034', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '42', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', 'Steering box motor problem', '', '2023-12-28 12:43:35', ''),
 (1444, '37', 'Own', '2023-12-28', 'Barge', 'B-01', '240', '99 X 30X 7 FEET', 'NA', 'NA', 'NA', '', '', '', '37', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:46:37', '');
 
 -- --------------------------------------------------------
@@ -845,19 +835,19 @@ CREATE TABLE `equipment_assign` (
 --
 
 INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `refund_date`, `remarks`) VALUES
-(886, 'AC-01', '12', '2023-12-20', '', ''),
-(887, 'AC-02', '3', '2023-12-20', '', ''),
-(888, 'AC-03', '12', '0000-00-00', '', ''),
-(889, 'AC-04', '3', '0000-00-00', '', ''),
-(890, 'AC-05', '5', '0000-00-00', '', ''),
+(886, 'AC-01', '12', '2023-12-20', '2024-02-11 09:44:40', ''),
+(887, 'AC-02', '3', '2023-12-20', '2024-02-11 09:44:40', ''),
+(888, 'AC-03', '12', '0000-00-00', '2024-02-11 06:40:57', ''),
+(889, 'AC-04', '3', '0000-00-00', '2024-02-11 07:18:22', ''),
+(890, 'AC-05', '5', '0000-00-00', '2024-02-11 08:28:59', ''),
 (891, 'AC-06', '11', '0000-00-00', '', ''),
 (892, 'Ex. Am-01', '3', '2023-12-20', '', ''),
 (893, 'Ex. Am-02', '3', '2023-11-29', '', ''),
 (894, 'ASP-01', '15', '0000-00-00', '', ''),
 (895, 'BL-01', '16', '0000-00-00', '', ''),
 (896, 'BL-02', '16', '2023-11-29', '', ''),
-(897, 'BD-01', '1', '0000-00-00', '', ''),
-(898, 'BD-02', '27', '2023-12-20', '', ''),
+(897, 'BD-01', '1', '0000-00-00', '2024-02-08 05:12:18', ''),
+(898, 'BD-02', '27', '2023-12-20', '2024-02-08 05:12:18', ''),
 (899, 'BD-03', '37', '2023-12-28', '', ''),
 (900, 'BD-04', '27', '2023-12-20', '', ''),
 (901, 'BD-05', '5', '0000-00-00', '', ''),
@@ -1125,9 +1115,135 @@ INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `
 (1163, '13-6470', '37', '2023-12-28', '', ''),
 (1164, '13-6668', '37', '2023-12-28', '', ''),
 (1165, 'not known', '37', '2023-12-28', '', ''),
-(1166, '13-6296', '37', '2023-12-28', '', ''),
+(1166, '13-6296', '37', '2023-12-28', '2024-02-11 07:18:22', ''),
 (1167, '13-9034', '37', '2023-12-28', '', ''),
-(1168, 'B-01', '37', '2023-12-28', '', '');
+(1168, 'B-01', '37', '2023-12-28', '', ''),
+(1477, 'AC-01', '41', '2024-02-11', '', ''),
+(1478, 'AC-02', '41', '2024-02-11', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `equips_rlp_acknowledgement`
+--
+
+CREATE TABLE `equips_rlp_acknowledgement` (
+  `id` int(11) NOT NULL,
+  `equips_rlp_info_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `ack_order` int(11) NOT NULL COMMENT 'acknowledge order to show the RLP',
+  `ack_status` tinyint(4) NOT NULL DEFAULT 0,
+  `ack_request_date` datetime NOT NULL,
+  `ack_updated_date` datetime DEFAULT NULL,
+  `is_visible` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=not visible; 1= visible',
+  `created_by` int(11) NOT NULL,
+  `updated_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `equips_rlp_acknowledgement`
+--
+
+INSERT INTO `equips_rlp_acknowledgement` (`id`, `equips_rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
+(1408, 1, 3359, 1, 0, '2024-02-08 10:13:48', NULL, 0, 3368, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `equips_rlp_delete_history`
+--
+
+CREATE TABLE `equips_rlp_delete_history` (
+  `id` int(11) NOT NULL,
+  `equips_rlp_info_id` int(11) NOT NULL,
+  `deleted_by` int(11) NOT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `equips_rlp_details`
+--
+
+CREATE TABLE `equips_rlp_details` (
+  `id` int(11) NOT NULL,
+  `equips_rlp_info_id` int(11) NOT NULL,
+  `item_des` varchar(200) DEFAULT NULL,
+  `material_id` varchar(50) NOT NULL,
+  `equipments_name` varchar(100) NOT NULL,
+  `part_no` varchar(50) NOT NULL,
+  `purpose` longtext DEFAULT NULL,
+  `quantity` varchar(100) DEFAULT NULL,
+  `unit` varchar(11) NOT NULL,
+  `unit_price` float NOT NULL,
+  `amount` float NOT NULL,
+  `estimated_price` float DEFAULT NULL,
+  `supplier` text DEFAULT NULL,
+  `details_remarks` text DEFAULT NULL,
+  `is_ns` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `equips_rlp_details`
+--
+
+INSERT INTO `equips_rlp_details` (`id`, `equips_rlp_info_id`, `item_des`, `material_id`, `equipments_name`, `part_no`, `purpose`, `quantity`, `unit`, `unit_price`, `amount`, `estimated_price`, `supplier`, `details_remarks`, `is_ns`) VALUES
+(1, 1, NULL, '', 'Air Compressor', '', 'CWLP Project', '10', '', 0, 0, NULL, NULL, NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `equips_rlp_info`
+--
+
+CREATE TABLE `equips_rlp_info` (
+  `id` int(11) NOT NULL,
+  `equips_rlp_no` varchar(100) NOT NULL,
+  `rlp_user_id` int(11) UNSIGNED NOT NULL,
+  `rlp_user_office_id` varchar(500) NOT NULL,
+  `priority` tinyint(4) NOT NULL,
+  `request_date` datetime NOT NULL,
+  `request_division` int(11) DEFAULT NULL,
+  `request_department` int(11) NOT NULL,
+  `request_project` int(11) NOT NULL,
+  `request_warehouse` int(11) NOT NULL,
+  `request_person` varchar(650) DEFAULT NULL,
+  `designation` varchar(500) DEFAULT NULL,
+  `email` varchar(500) NOT NULL,
+  `contact_number` varchar(100) DEFAULT NULL,
+  `user_remarks` text DEFAULT NULL,
+  `totalamount` float NOT NULL,
+  `rlp_status` tinyint(1) NOT NULL DEFAULT 5,
+  `is_viewd` tinyint(1) NOT NULL DEFAULT 0,
+  `is_ns` tinyint(1) NOT NULL DEFAULT 0,
+  `created_by` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `updated_at` datetime NOT NULL,
+  `is_delete` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `equips_rlp_info`
+--
+
+INSERT INTO `equips_rlp_info` (`id`, `equips_rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_warehouse`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `totalamount`, `rlp_status`, `is_viewd`, `is_ns`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
+(1, 'E-RLP-ENG-HEA-2024-02-001', 3368, 'admin@saifpowertec.com', 1, '2024-02-08 12:00:00', 1, 11, 21, 3, 'admin@saifpowertec.com', NULL, '', NULL, 'Urgent need', 0, 5, 0, 0, 3368, '2024-02-08 10:13:48', NULL, '0000-00-00 00:00:00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `equips_rlp_remarks_history`
+--
+
+CREATE TABLE `equips_rlp_remarks_history` (
+  `id` int(11) NOT NULL,
+  `equips_rlp_info_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `remarks` longtext NOT NULL,
+  `remarks_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -9653,6 +9769,13 @@ CREATE TABLE `rents` (
   `updated_by` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `rents`
+--
+
+INSERT INTO `rents` (`id`, `date`, `client_name`, `project_name`, `ref_no`, `challan_no`, `total_rent_amount`, `discount`, `grandtotal`, `deposit_amount`, `due_amount`, `from_project`, `from_warehouse`, `status`, `bill_status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(25, '2024-02-11', '9', '41', 'Atiq', 'RCH-CW-001', 32000, 500, 31500, 1500, 30000, 0, 0, 'Rented', 'Pending', '2024-02-11', '3368', '2024-11-02', '3368');
+
 -- --------------------------------------------------------
 
 --
@@ -9678,6 +9801,16 @@ CREATE TABLE `rent_bill` (
   `created_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `rent_bill`
+--
+
+INSERT INTO `rent_bill` (`id`, `bill_no`, `rent_id`, `bill_date`, `challan_no`, `client_name`, `project_name`, `eel_code`, `amount`, `payment_type`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `created_at`, `created_by`) VALUES
+(3, 'EEL-MR-003', 23, '2024-02-11', 'RCH-CW-001', 10, 42, '', 5000, 'cash', '', '', '', '0000-00-00', '2024-11-02', '3368'),
+(4, 'EEL-MR-004', 23, '2024-02-11', 'RCH-CW-001', 10, 42, '', 295000, 'cash', '', '', '', '0000-00-00', '2024-11-02', '3368'),
+(5, 'EEL-MR-005', 24, '2024-02-11', 'RCH-CW-002', 9, 41, '', 654, 'cash', '', '', '', '0000-00-00', '2024-11-02', '3368'),
+(6, 'EEL-MR-004', 25, '2024-02-11', 'RCH-CW-001', 9, 41, '', 1000, 'cash', '', '', '', '0000-00-00', '2024-11-02', '3368');
+
 -- --------------------------------------------------------
 
 --
@@ -9699,6 +9832,14 @@ CREATE TABLE `rent_details` (
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `rent_details`
+--
+
+INSERT INTO `rent_details` (`id`, `rent_id`, `client_name`, `project_name`, `challan_no`, `eel_code`, `rent_date`, `return_date`, `extended_date`, `total_days`, `amount`, `status`) VALUES
+(42, 25, 9, 41, 'RCH-CW-001', 'AC-01', '2024-02-01', '2024-02-05', '2024-02-05', 4, 15000, 'Rented'),
+(43, 25, 9, 41, 'RCH-CW-001', 'AC-02', '2024-02-01', '2024-02-05', '2024-02-07', 6, 17000, 'Rented');
+
 -- --------------------------------------------------------
 
 --
@@ -9707,12 +9848,47 @@ CREATE TABLE `rent_details` (
 
 CREATE TABLE `rent_history` (
   `id` int(11) NOT NULL,
+  `challan_no` varchar(50) NOT NULL,
   `rent_details_id` int(11) NOT NULL,
   `eel_code` varchar(50) NOT NULL,
   `rent_date` date NOT NULL,
   `return_date` date NOT NULL,
   `amount` float NOT NULL,
   `status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rent_history`
+--
+
+INSERT INTO `rent_history` (`id`, `challan_no`, `rent_details_id`, `eel_code`, `rent_date`, `return_date`, `amount`, `status`) VALUES
+(70, 'RCH-CW-001', 42, 'AC-01', '2024-02-01', '2024-02-05', 15000, 'Rented'),
+(71, 'RCH-CW-001', 43, 'AC-02', '2024-02-01', '2024-02-05', 15000, 'Rented'),
+(72, 'RCH-CW-001', 43, 'AC-02', '2024-02-05', '2024-02-07', 2000, 'Rented');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rent_money_receipt`
+--
+
+CREATE TABLE `rent_money_receipt` (
+  `id` int(11) NOT NULL,
+  `bill_no` varchar(50) NOT NULL,
+  `rent_id` int(11) NOT NULL,
+  `bill_date` date NOT NULL,
+  `challan_no` varchar(50) NOT NULL,
+  `client_name` int(11) NOT NULL,
+  `project_name` int(11) NOT NULL,
+  `eel_code` varchar(50) NOT NULL,
+  `amount` float NOT NULL,
+  `payment_type` varchar(20) NOT NULL,
+  `bank_name` varchar(50) NOT NULL,
+  `bank_branch` varchar(50) NOT NULL,
+  `bank_cheque_no` varchar(50) NOT NULL,
+  `bank_cheque_date` date NOT NULL,
+  `created_at` date NOT NULL,
+  `created_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -9832,7 +10008,7 @@ INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `material_id`, `mate
 
 CREATE TABLE `rlp_info` (
   `id` int(11) NOT NULL,
-  `rlp_no` varchar(100) NOT NULL,
+  `equips_rlp_no` varchar(100) NOT NULL,
   `rlp_user_id` int(11) UNSIGNED NOT NULL,
   `rlp_user_office_id` varchar(500) NOT NULL,
   `priority` tinyint(4) NOT NULL,
@@ -9861,7 +10037,7 @@ CREATE TABLE `rlp_info` (
 -- Dumping data for table `rlp_info`
 --
 
-INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_warehouse`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `totalamount`, `rlp_status`, `is_viewd`, `is_ns`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
+INSERT INTO `rlp_info` (`id`, `equips_rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_warehouse`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `totalamount`, `rlp_status`, `is_viewd`, `is_ns`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
 (1, 'RLP-ENG-HEA-2024-02-001', 3368, 'admin@saifpowertec.com', 2, '2024-02-08 12:00:00', 1, 11, 21, 3, 'admin@saifpowertec.com', NULL, '', NULL, 'Okay', 29700, 1, 0, 0, 3368, '2024-02-08 04:50:31', 3359, '2024-08-02 09:51:18', 0);
 
 -- --------------------------------------------------------
@@ -10857,7 +11033,11 @@ INSERT INTO `userlog` (`id`, `userId`, `username`, `role_id`, `employee_id`, `us
 (530, 616, 'Tarafder Md. Ruhul Saif', 16, '', 0x3a3a31, '2024-02-08 03:55:28'),
 (531, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 03:55:57'),
 (532, 3359, 'Alauddin Ahmed', 19, '', 0x3a3a31, '2024-02-08 03:56:43'),
-(533, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 03:57:14');
+(533, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 03:57:14'),
+(534, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 04:19:03'),
+(535, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 04:20:14'),
+(536, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 07:34:36'),
+(537, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-11 04:00:36');
 
 -- --------------------------------------------------------
 
@@ -11070,6 +11250,41 @@ ALTER TABLE `equipments`
 --
 ALTER TABLE `equipment_assign`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `equips_rlp_acknowledgement`
+--
+ALTER TABLE `equips_rlp_acknowledgement`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rlp_info_id` (`equips_rlp_info_id`);
+
+--
+-- Indexes for table `equips_rlp_delete_history`
+--
+ALTER TABLE `equips_rlp_delete_history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rlp_info_id` (`equips_rlp_info_id`);
+
+--
+-- Indexes for table `equips_rlp_details`
+--
+ALTER TABLE `equips_rlp_details`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rlp_info_id` (`equips_rlp_info_id`);
+
+--
+-- Indexes for table `equips_rlp_info`
+--
+ALTER TABLE `equips_rlp_info`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rlp_user_id` (`rlp_user_id`);
+
+--
+-- Indexes for table `equips_rlp_remarks_history`
+--
+ALTER TABLE `equips_rlp_remarks_history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rlp_info_id` (`equips_rlp_info_id`);
 
 --
 -- Indexes for table `inspaction`
@@ -11416,6 +11631,12 @@ ALTER TABLE `rent_history`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `rent_money_receipt`
+--
+ALTER TABLE `rent_money_receipt`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `rlp_access_chain`
 --
 ALTER TABLE `rlp_access_chain`
@@ -11578,13 +11799,13 @@ ALTER TABLE `buildings`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `client_balance`
 --
 ALTER TABLE `client_balance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `companies`
@@ -11620,7 +11841,37 @@ ALTER TABLE `equipments`
 -- AUTO_INCREMENT for table `equipment_assign`
 --
 ALTER TABLE `equipment_assign`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1465;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1479;
+
+--
+-- AUTO_INCREMENT for table `equips_rlp_acknowledgement`
+--
+ALTER TABLE `equips_rlp_acknowledgement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1409;
+
+--
+-- AUTO_INCREMENT for table `equips_rlp_delete_history`
+--
+ALTER TABLE `equips_rlp_delete_history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `equips_rlp_details`
+--
+ALTER TABLE `equips_rlp_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1503;
+
+--
+-- AUTO_INCREMENT for table `equips_rlp_info`
+--
+ALTER TABLE `equips_rlp_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=389;
+
+--
+-- AUTO_INCREMENT for table `equips_rlp_remarks_history`
+--
+ALTER TABLE `equips_rlp_remarks_history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=827;
 
 --
 -- AUTO_INCREMENT for table `inspaction`
@@ -11944,25 +12195,31 @@ ALTER TABLE `rental_project`
 -- AUTO_INCREMENT for table `rents`
 --
 ALTER TABLE `rents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `rent_bill`
 --
 ALTER TABLE `rent_bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `rent_details`
 --
 ALTER TABLE `rent_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `rent_history`
 --
 ALTER TABLE `rent_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
+--
+-- AUTO_INCREMENT for table `rent_money_receipt`
+--
+ALTER TABLE `rent_money_receipt`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `rlp_access_chain`
@@ -12082,7 +12339,7 @@ ALTER TABLE `tb_logsheet`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=534;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=538;
 
 --
 -- AUTO_INCREMENT for table `users`
