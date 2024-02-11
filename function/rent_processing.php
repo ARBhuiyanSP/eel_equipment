@@ -180,24 +180,21 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == "wo_update_execute")
     
     echo json_encode($feedback);
 }
-if (isset($_POST['invoice_create']) && !empty($_POST['invoice_create'])) {
-	
-        /*********************************************************************** 
-		 *	Insert Data Into inv_challan Table:
-        */ 
+/* if (isset($_POST['invoice_create']) && !empty($_POST['invoice_create'])) {
+
         $id				= $_POST['id'];
-        $rent_id				= $_POST['rent_id'];
-        $bill_no			= $_POST['bill_no'];
-        $bill_date		= $_POST['bill_date'];
+        //$rent_id		= $_POST['rent_id'];
+        $invoice_no		= $_POST['invoice_no'];
+        $invoice_date	= $_POST['invoice_date'];
         $client_id		= $_POST['client_id'];
-        $project_id		= $_POST['project_id'];
-        $challan_no        	= $_POST['challan_no'];
+        //$project_id		= $_POST['project_id'];
+       // $challan_no     = $_POST['challan_no'];
         $amount        	= $_POST['amount'];
-        $rent_id        	= $_POST['rent_id'];
-        $invoiceable_amount        	= $_POST['invoiceable_amount'];
+        $rent_id        = $_POST['rent_id'];
+        $invoiceable_amount	= $_POST['invoiceable_amount'];
         $deposit_amount     = $_POST['deposit_amount'];
         $due_amount        	= $_POST['due_amount'];
-        $cb_remarks        = $_POST['remarks'];
+        $cb_remarks        	= $_POST['remarks'];
 			
 
 			
@@ -217,21 +214,19 @@ if (isset($_POST['invoice_create']) && !empty($_POST['invoice_create'])) {
 		$created_at			=	date("Y-d-m");
 		$created_by			=	$_SESSION['logged']['user_id'];
 		
-		/* $query2 = "INSERT INTO `client_balance` (`ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`,`created_at`,`created_by`) VALUES ('$mr_no', '$cb_date', '$client_id', '$project_id', '$amount', '0', '$cb_method', '$bank_name', '$bank_branch', '$bank_cheque_no', '$bank_cheque_date', '$cb_remarks','$created_at','$created_by')";
-        $conn->query($query2); */
 		
-		$query8 = "INSERT INTO `rent_bill` (`bill_no`, `rent_id`, `bill_date`, `challan_no`, `client_name`, `project_name`, `amount`, `deposit_amount`, `due_amount`, `status`, `created_at`, `created_by`) VALUES ('$bill_no','$rent_id','$bill_date','$challan_no','$client_id', '$project_id','$amount','0','$amount','Pending','$created_at','$created_by')";
+		$query8 = "INSERT INTO `rent_invoice` (`invoice_no`, `rent_id`, `invoice_date`, `challan_no`, `client_name`, `project_name`, `amount`, `deposit_amount`, `due_amount`, `status`, `created_at`, `created_by`) VALUES ('$invoice_no','$rent_id','$invoice_date','$challan_no','$client_id', '','$amount','0','$amount','Pending','$created_at','$created_by')";
         $conn->query($query8);
 		
-		header("location: rent_list.php");
+		header("location: invoice_list.php");
 		exit();
     
 }
-
+ */
 
 if (isset($_POST['mr_create']) && !empty($_POST['mr_create'])) {
 	
-        /*********************************************************************** 
+/*********************************************************************** 
 		 *	Insert Data Into inv_challan Table:
         */ 
         $id				= $_POST['id'];

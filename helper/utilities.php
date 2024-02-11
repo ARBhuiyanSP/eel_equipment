@@ -948,7 +948,7 @@ function get_mcsl_no($prefix="MCSL", $formater_length=3){
     return $year."-".$month."-".$divName.'-'.$prefix.'-'.$finalRLPNo;
 }
 
-function get_invoice_no($prefix="INV", $formater_length=3){
+/* function get_invoice_no($prefix="INV", $formater_length=3){
     global $conn;
     
     //$division_id    =   $_SESSION['logged']['branch_id'];
@@ -959,7 +959,7 @@ function get_invoice_no($prefix="INV", $formater_length=3){
     
     $year       =   date("Y");
     $month      =   date("m");
-    $sql        = "SELECT count('id') as total FROM `rent_bill` WHERE 1=1";
+    $sql        = "SELECT count('id') as total FROM `rent_invoice` WHERE 1=1";
     $result     = $conn->query($sql);
     $total_row  =   $result->fetch_object()->total;
     
@@ -970,7 +970,7 @@ function get_invoice_no($prefix="INV", $formater_length=3){
     $depName    = replace_dashes(getDepartmentNameById($department_id));
     
     return $divName.'-'.$prefix.'-'.$finalRLPNo;
-}
+} */
 
 function get_mr_bill_no($prefix="MR", $formater_length=3){
     global $conn;

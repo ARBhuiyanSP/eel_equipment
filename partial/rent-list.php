@@ -8,7 +8,7 @@ if (isset($rentListData) && !empty($rentListData)) {
         <table id="rlp_list_table" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Challan No</th>
+                    <th>Invoice  No</th>
                     <th>Request Date</th>
                     <th>Equipments</th>
                     <th>Project</th>
@@ -40,12 +40,12 @@ if (isset($rentListData) && !empty($rentListData)) {
                         <td><?php echo (isset($adata->due_amount) && !empty($adata->due_amount) ? $adata->due_amount : ''); ?> </td>
                         <td>
                             
-                            <a title="Edit RLP" class="btn btn-sm btn-success" href="rent_invoice.php?id=<?php echo $adata->challan_no; ?>"> Gate Pass</a>
+                            <a title="Edit RLP" class="btn btn-sm btn-success" href="rent_invoice.php?id=<?php echo $adata->challan_no; ?>"> Invoice</a>
 							<?php if($adata->status == 'Rented'){ ?>
                             <a title="Edit RLP" class="btn btn-sm btn-danger" href="rent_details.php?id=<?php echo $adata->challan_no; ?>">Return/Extend</a>
                             <?php } ?>
 							<?php if($adata->bill_status != 'Paid'){ ?>
-                            <a title="Edit RLP" class="btn btn-sm btn-info" href="invoice_create.php?id=<?php echo $adata->id; ?>"> Invoice</a>
+                            <a title="Edit RLP" class="btn btn-sm btn-info" href="mr_create.php?id=<?php echo $adata->id; ?>"> Collection</a>
                             <?php } ?>
 							
                                                     

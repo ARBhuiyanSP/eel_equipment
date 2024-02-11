@@ -394,11 +394,18 @@ footer.sticky-footer{
           <i class="fas fa-fw fa-server"></i> Rent
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="rentDropdown">
-            <a class="dropdown-item" href="rent.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Rent Bill Entry</span></a>
+            <a class="dropdown-item" href="rent.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Rent/Bill Entry</span></a>
             <a class="dropdown-item" href="rent_list.php">
                 <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
-                <span class="sub_menu_text_design"> Rent Bill List</span>
+                <span class="sub_menu_text_design"> Rent/Bill List</span>
             </a> 
+			
+			<!-- <a class="dropdown-item" href="invoice_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Invoice Entry</span></a>
+			<a class="dropdown-item" href="invoice_list.php">
+                <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
+                <span class="sub_menu_text_design"> Invoice List</span>
+            </a>  -->
+			
 			<a class="dropdown-item" href="bill_collection.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Bill Collection Entry</span></a>
             <a class="dropdown-item" href="mr_list.php">
                 <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>

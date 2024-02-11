@@ -46,14 +46,14 @@ $result = mysqli_query($conn, $query);
 								<td><?php echo $rowDetails["challan_no"]; ?></td>
 							  </tr>
 							  <tr>
-									<th> Invoice Date:</th>
+									<th>Invoice Date:</th>
 									<td>
 										<?php echo date("jS F Y", strtotime($rowDetails['date']));  
 										?>
 									</td>
 								</tr>
 							  <tr>
-									<th> Invoice Print Date:</th>
+									<th>Invoice Print Date:</th>
 									<td>
 										<?php echo date("jS F Y");  
 										?>
@@ -62,7 +62,7 @@ $result = mysqli_query($conn, $query);
 							</table>
 						</div>
 					</div>
-					<center><h5> INVOICE </h5></center>
+					<center><h5>INVOICE</h5></center>
 					<div class="row">
 						<div class="col-sm-12">
 							<table class="table table-bordered" id="material_receive_list"> 
