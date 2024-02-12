@@ -400,6 +400,11 @@ footer.sticky-footer{
                 <span class="sub_menu_text_design"> Rent/Bill List</span>
             </a> 
 			
+			<a class="dropdown-item" href="extend_rent_date.php">
+                <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
+                <span class="sub_menu_text_design"> Extend Rent date</span>
+            </a> 
+			
 			<!-- <a class="dropdown-item" href="invoice_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Invoice Entry</span></a>
 			<a class="dropdown-item" href="invoice_list.php">
                 <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>

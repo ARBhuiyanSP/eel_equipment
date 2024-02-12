@@ -10,34 +10,53 @@ $result = mysqli_query($conn, $query);
  ?>
 <div class="container-fluid">
     <!-- Breadcrumbs-->
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="#">Supplier Filters</a>
-        </li>
-        <li class="breadcrumb-item active">List</li>
-    </ol>
     <!-- receive search start here -->
-	<div class="row">
+	
 		<?php 
 		$queryDetails = "SELECT * FROM `rents` WHERE `challan_no`='$id'";  
 		$resultDetails = mysqli_query($conn, $queryDetails);
 		$rowDetails = mysqli_fetch_array($resultDetails);
 		?>
-		<div class="col-sm-6">	
-			<img src="images/spl.png" height="60px;"/>
-			<p>
-			<span>Khawaja Tower (5th Floor) </br>95, Mohakhali, C/A Bir Uttam AK Khandakar Rd</br> Dhaka - 1212</span></p></div>
-		<div class="col-sm-6">
-			<table class="table table-bordered">
-			  <tr>
-				<th>Internal Memo No:</th>
-				<td><?php echo $rowDetails["challan_no"]; ?></td>
-			  </tr>
-			  <tr>
-					<th>Date:</th>
-					<td><?php echo $rowDetails["date"]; ?></td>
-				</tr>
-			</table>
+
+	<center><h5>Equipment's Rent Extend Form</h5></center>
+
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="form-group">
+				<label>Pre. Challan No</label>  
+				<input type="text" name="pre_challan_no" class="form-control" id="" value="<?php echo $rowDetails["challan_no"]; ?>" readonly />  
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="form-group">
+				<label>Pre. Challan Date</label>  
+				<input type="text" name="pre_challan_date" class="form-control" id="" value="<?php echo $rowDetails["date"]; ?>" readonly />  
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="form-group">
+				<label>Challan No</label>  
+				<?php
+					if ($_SESSION['logged']['user_type'] == 'whm') {
+						$warehouse_id = $_SESSION['logged']['warehouse_id'];
+						$sql = "SELECT * FROM inv_warehosueinfo WHERE `id`='$warehouse_id'";
+						$result = mysqli_query($conn, $sql);
+						$row = mysqli_fetch_array($result);
+						$short_name = $row['short_name'];
+						$rentCode = 'RCH-' . $short_name;
+					} else {
+						$rentCode = 'RCH-CW-';
+					}
+					?>
+					<input type="text" name="challan_no" id="issue_id" class="form-control" value="<?php echo getDefaultCategoryCodeByWarehouseT('rents', 'challan_no', '03d', '001', $rentCode) ?>" readonly>
+					<input type="hidden" name="issue_no" id="issue_no" value="<?php echo getDefaultCategoryCodeByWarehouseT('rents', 'challan_no', '03d', '001', $rentCode) ?>">  
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="form-group">
+				<label>Challan Date</label>  
+				<input type="text" name="challan_date" class="form-control" id="rent_date" value="<?php echo $rowDetails["date"]; ?>" />  
+			</div>
 		</div>
 	</div>
 	<center><h5>Rented Equipment List</h5></center>
@@ -48,7 +67,8 @@ $result = mysqli_query($conn, $query);
 				<th>EEL Code</th>  
 				<th style="width:10%;">Rent Date</th>  
 				<th style="width:10%;">Return Date</th>  
-				<th style="width:20%;text-align:right;">Action</th>  
+				<th style="width:10%;">Extended Date</th>    
+				<th style="width:10%;">Extended Amount</th>    
 		   </tr>  
 		   <?php  
 		   while($row = mysqli_fetch_array($result))  
@@ -59,22 +79,33 @@ $result = mysqli_query($conn, $query);
 				<td><?php echo $row["eel_code"]; ?></td>  
 				<td><?php echo $row["rent_date"]; ?></td>  
 				<td><?php echo $row["extended_date"]; ?></td>  
-				<td style="text-align:right;">
-					<?php 
-					if($row["status"]=='Rented'){
-					?>
-					<input type="button" name="edit" value="Extend date" id="<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm edit_data" />
-					<input type="button" name="view" value="Return" id="<?php echo $row["id"]; ?>" class="btn btn-warning btn-sm rent_data" />
-					<?php }else{ ?>
-					<input type="button" value="Returned" class="btn btn-success btn-sm" disabled />
-					<?php } ?>
-					
-				</td>  
-		   </tr>  
+				<td><input type="" class="form-control" id="ex_return_date<?php echo $row["id"];?>" value="" /></td>  
+				<td><input type="" class="form-control" value="" /></td>  
+				  
+		   </tr>
+			 <script>
+				$(function () {
+					$("#ex_return_date<?php echo $row["id"];?>").datepicker({
+						inline: true,
+						dateFormat: "yy-mm-dd",
+						yearRange: "-50:+10",
+						changeYear: true,
+						changeMonth: true
+					});
+				});
+			</script>		   
 		   <?php  
 		   }  
 		   ?>  
-	  </table>  
+	  </table> 
+		<div class="row">
+		<div class="col-md-12 col-sm-12">
+			<div class="form-group">
+				<label>.</label>  
+				<input type="submit" name="submit" class="btn btn-success btn-block" id="" value="Submit" class="form-control" />  
+			</div>
+		</div>
+		</div>
  </div>
     <!-- end receive search -->
 
