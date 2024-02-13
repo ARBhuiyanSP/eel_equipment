@@ -198,7 +198,6 @@ if(isset($_GET['submit'])){
 						<tr>
 							<th>Date</th>
 							<th>Ref no</th>
-							<th>Payment Type</th>
 							<th>Debit</th>
 							<th>Credit</th>
 							<th>Balance</th>
@@ -221,7 +220,6 @@ if(isset($_GET['submit'])){
 						<tr style="background-color:#E9ECEF;">
 							<td><?php echo date("jS F Y", strtotime($from_date));?></td>
 							<td colspan="2">Opening Balance</td>
-							<td>0</td>
 							<td><?php echo $opening_stock; ?></td>
 							<td><?php echo $opening_stock; ?></td>
 						</tr>
@@ -243,7 +241,6 @@ if(isset($_GET['submit'])){
 						<tr style="background-color:#E9ECEF;">
 							<td><?php echo date("jS F Y", strtotime($row['cb_date']));?></td>
 							<td><?php echo $row['ref_id']; ?></td>
-							<td><?php echo $row['cb_remarks']; ?></td>
 							<td><?php echo $row['cb_dr_amount']; ?></td>
 							<td><?php echo $row['cb_cr_amount']; ?></td>
 							
