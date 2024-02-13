@@ -67,6 +67,7 @@ function get_rent_list_action_data($row){
 	//$view_url = 'logsheet_view.php?no='.$row["voucher_id"];
 	$view_url = 'rent_view.php?id='.$row["voucher_id"];
     $invoice_url = 'rent_invoice.php?id='.$row["challan_no"];
+    $gatepass_url = 'rent_gatepass.php?id='.$row["challan_no"];
     $status = $row["status"];
     //$status = $row['status'];
     $bill_status = $row['bill_status'];
@@ -75,8 +76,8 @@ function get_rent_list_action_data($row){
 		
 	$action = "";
 							
-	$action.='<span><a title="Details View" class="btn btn-sm btn-success" href="'.$invoice_url.'">
-                                <span class="fa fa-eye"> <b> Invoice</b></span>
+	$action.='<span><a title="Details View" class="btn btn-sm btn-success" href="'.$gatepass_url.'">
+                                <span class="fa fa-eye"> <b> Gatepass</b></span>
        
                      </a></span>';
 	

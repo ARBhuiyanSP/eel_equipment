@@ -405,16 +405,16 @@ footer.sticky-footer{
                 <span class="sub_menu_text_design"> Extend Rent date</span>
             </a> 
 			
-			<!-- <a class="dropdown-item" href="invoice_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Invoice Entry</span></a>
+			<a class="dropdown-item" href="invoice_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Invoice Entry</span></a>
 			<a class="dropdown-item" href="invoice_list.php">
                 <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
                 <span class="sub_menu_text_design"> Invoice List</span>
-            </a>  -->
+            </a>
 			
-			<a class="dropdown-item" href="bill_collection.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Bill Collection Entry</span></a>
+			<a class="dropdown-item" href="bill_collection.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Bill Collection Entry/MR Entry</span></a>
             <a class="dropdown-item" href="mr_list.php">
                 <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
-                <span class="sub_menu_text_design"> Bill Collection List</span>
+                <span class="sub_menu_text_design"> Bill Collection List/MR List</span>
             </a> 
 
         </div>

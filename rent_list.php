@@ -13,13 +13,13 @@ include 'header.php';
         <li class="breadcrumb-item">
             <a href="dashboard.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active"> RLP List</li>
+        <li class="breadcrumb-item active"> Rent List</li>
     </ol>
     <!-- DataTables Example -->
     <div class="card mb-3">
         <div class="card-header">
-            <i class="fas fa-table"></i> RLP List
-            <a href="rlp_create.php" style="float:right"><i class="fas fa-plus"></i> Create New<a>
+            <i class="fas fa-table"></i> Rent List
+            <a href="rent.php" style="float:right"><i class="fas fa-plus"></i> Create New<a>
         </div>
         <div class="card-body">
                         <?php include 'partial/rent-list.php'; ?>

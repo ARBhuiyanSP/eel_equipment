@@ -18,7 +18,7 @@ include 'header.php';
     <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i> Invoice Create
-            <a href="mr_list.php" style="float:right"><i class="fas fa-plus"></i> List<a>
+            <a href="invoice_list.php" style="float:right"><i class="fas fa-plus"></i> List<a>
         </div>
         <div class="card-body">
             <form action="#" method="post" name="add_name" id="add_name">  
@@ -26,8 +26,8 @@ include 'header.php';
 					<div class="col-sm-7">
 						<div class="row">
 							<?php
-							$mr_id=$_GET['no'];
-							$sql = "select * FROM `rent_invoice` WHERE `id`='$mr_id'";
+							$mr_id=$_GET['id'];
+							$sql = "select * FROM `rents` WHERE `id`='$mr_id'";
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_array($result);
 							?>
@@ -35,9 +35,9 @@ include 'header.php';
 							<div class="col-sm-12">
 								<table class="table table-condensed table-hover table-bordered">
 									<tr>
-										<?php $mrrno    =   get_mr_bill_no(); ?>
-										<td>Invoice No# <input type="text" name="mr_no" class="form-control" value="<?php echo $mrrno; ?>" readonly ></td>
-										<td>Invoice Date# <input name="mr_date" type="text" class="form-control" id="fromdate" value="<?php echo date("Y-m-d"); ?>" size="" autocomplete="off" required /></td>
+										<?php $mrrno    =   get_invoice_no(); ?>
+										<td>Invoice No# <input type="text" name="invoice_no" class="form-control" value="<?php echo $mrrno; ?>" readonly ></td>
+										<td>Invoice Date# <input name="invoice_date" type="text" class="form-control" id="fromdate" value="<?php echo date("Y-m-d"); ?>" size="" autocomplete="off" required /></td>
 									</tr>
 								</table>
 							</div>
@@ -54,22 +54,22 @@ include 'header.php';
 				</div>
 				<div class="row" style="">
 					
-					<div class="col-xs-2">
+					<div class="col-xs-3">
 						<div class="form-group">
 							<label for="id">Challan No</label>
-							<input name="invoice_no" id="invoice_no" class="form-control" type="text" value="<?php echo $row['challan_no']; ?>" readonly />
+							<input name="" id="" class="form-control" type="text" value="<?php echo $row['challan_no']; ?>" readonly />
 						</div>
 					</div>
-					<div class="col-xs-2">
+					<div class="col-xs-3">
 						<div class="form-group">
-							<label for="id">Total Amount</label>
-							<input class="form-control" type="text" value="<?php echo $row['amount']; ?>" readonly />
+							<label for="id">Challan Amount</label>
+							<input class="form-control" type="text" value="<?php echo $row['grandtotal']; ?>" readonly />
 						</div>
 					</div>
 					
 					<div class="col-xs-2">
 						<div class="form-group">
-							<label for="id">Receiveable Amount</label>
+							<label for="id">Invoiceable Amount</label>
 							<input type="text" id="id-1" name="due_amount" value="<?php echo $row['due_amount']; ?>"  class="form-control" readonly >
 						</div>
 					</div>
@@ -77,58 +77,17 @@ include 'header.php';
 							<input type="hidden" name="id" value="<?php echo $row['id']; ?>" >
 					<div class="col-xs-2">
 						<div class="form-group">
-							<label for="id">Receive Amount<span class="reqr"> ***</span></label>
+							<label for="id">Invoice Amount<span class="reqr"> ***</span></label>
 							<input type="number" step=".01" min="1.0" max="<?php echo $row['due_amount']; ?>" autocomplete="off" name="amount" id="id-2" class="form-control" required>
 						</div>
 					</div>
-					<div class="col-xs-1">
+					<div class="col-xs-2">
 						<div class="form-group">
-							<label for="id">Net Receiveable</label>
+							<label for="id">Net Invoiceable</label>
 							<input type="text" autocomplete="off" id="id-3" class="form-control" readonly >
 						</div>
 					</div>
-					<!---------------------Bank Dynamic Form Start---------------------->
 					
-					<div class="col-sm-3">
-						<label>Payment Method</label>
-						<select class="form-control" name="cb_method" id="switch">
-							<option value="cash">Cash</option>
-							<option value="cheque">Cheque</option>
-						</select>
-					</div>
-					
-					
-					<div id="cheque-dropdown" style="display:none;width: 100%;">
-						<div class="col-sm-3">
-							<div class="form-group">
-								<label for="id">Select Bank Name<span class="reqr"> is required***</span></label>
-								<select class="form-control" name="bank_name" id="cheque">
-									<option value=""></option>
-									<option value="Dhaka Bank">Dhaka Bank</option>
-									<option value="UCB Bank">UCB Bank</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="form-group">
-								<label for="id">Branch<span class="reqr"> is required***</span></label>
-								<input type="text" autocomplete="off" name="bank_branch" class="form-control" >
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="form-group">
-								<label for="id">Cheque No<span class="reqr"> is required***</span></label>
-								<input type="text" autocomplete="off" name="bank_cheque_no" class="form-control" >
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="form-group">
-								<label for="id">Cheque Date<span class="reqr"> is required***</span></label>
-								<input type="text" autocomplete="off" name="bank_cheque_date" id="start_date" class="form-control" >
-							</div>
-						</div>
-					</div>
-					<!---------------------Bank Dynamic Form End---------------------->
 					</div>
 				</div>
 				<div class="row" style="padding-top:10px;">
@@ -140,7 +99,7 @@ include 'header.php';
 					</div>
 					<div class="col-xs-12">
 						<div class="form-group">
-							<input type="submit" name="mr_create" id="submit" class="btn btn-block btn-info" style="width:100%;" value="Generate Bill/Money Receipt" />  
+							<input type="submit" name="invoice_create" id="submit" class="btn btn-block btn-info" style="width:100%;" value="Generate Bill/Money Receipt" />  
 						</div>
 					</div>
 				</div>

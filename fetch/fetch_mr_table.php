@@ -67,7 +67,7 @@ while($row = mysqli_fetch_array($result))
 function get_logsheet_list_action_data($row){
 	//$edit_url = 'receive_edit.php?edit_id='.$row["transfer_id"];
     
-    $view_url = 'bill_view.php?no='.$row["voucher_id"];
+    $view_url = 'mr_view.php?no='.$row["voucher_id"];
     $action = "";
 	
 

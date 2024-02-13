@@ -30,9 +30,14 @@ include 'header.php';
 					</div>
 					<?php 
 					$id = $_GET['no'];
-					$query = "SELECT * FROM rent_invoice where `id`='$id' ORDER BY id DESC";  
+					$query = "SELECT * FROM rent_bill where `id`='$id' ORDER BY id DESC";  
 					$result = mysqli_query($conn, $query);
 					$row = mysqli_fetch_array($result);
+
+							$challan_no = $row['challan_no'];
+							$queryDetails = "SELECT * FROM `rents` WHERE `challan_no`='$challan_no'";  
+							$resultDetails = mysqli_query($conn, $queryDetails);
+							$rowDetails = mysqli_fetch_array($resultDetails);
 					?>
 					<div class="row">
 						<div class="col-sm-6">	
@@ -41,33 +46,37 @@ include 'header.php';
 						<div class="col-sm-6">
 							<table class="table table-bordered">
 							  <tr>
-								<th>Challan No:</th>
-								<td><?php echo $row["challan_no"]; ?></td>
+								<th>MR No:</th>
+								<td><?php echo $row["bill_no"]; ?></td>
 							  </tr>
 							  <tr>
-								<th>Invoice No:</th>
-								<td><?php echo $row["invoice_no"]; ?></td>
-							  </tr>
-							  <tr>
-									<th>Invoice Date:</th>
+									<th>MR Date:</th>
 									<td>
-										<?php echo date("jS F Y", strtotime($row['invoice_date']));  
+										<?php echo date("jS F Y", strtotime($row['bill_date']));  
 										?>
 									</td>
 								</tr>
+							  <tr>
+								<th>Challan No:</th>
+								<td><?php echo $rowDetails["challan_no"]; ?></td>
+							  </tr>
+							  <tr>
+								<th>Invoice No:</th>
+								<td><?php echo getInvoiceNoByID($row["invoice_id"]); ?></td>
+							  </tr>
 							</table>
 						</div>
 					</div>
-					<center><h5>INVOICE</h5></center>
+					<center><h5>Money Receipt</h5></center>
 					<div class="row">
 						<div class="col-sm-12">
 							<table class="table table-bordered" id="material_receive_list"> 
 								<tr>
 									<td style="width:50%">
 										<b>To [Client Info]</b></br>
-										<b><?php echo getNameByIdAndTable('clients',$row["client_name"]); ?></b></br>
-										<?php echo getProjectNameById($row["project_name"]); ?></br>
-										<?php echo getProjectAddressById($row["project_name"]); ?>
+										<b><?php echo getNameByIdAndTable('clients',$rowDetails["client_name"]); ?></b></br>
+										<?php echo getProjectNameById($rowDetails["project_name"]); ?></br>
+										<?php echo getProjectAddressById($rowDetails["project_name"]); ?>
 									</td>
 									<td></td>
 								</tr>
@@ -83,23 +92,23 @@ include 'header.php';
 						   </tr>  
 						   <?php
 							$id = $_GET['no'];
-							$queryData = "SELECT * FROM `rent_invoice` WHERE `id`='$id' ORDER BY id DESC";  
+							$queryData = "SELECT * FROM `rent_bill` WHERE `id`='$id' ORDER BY id DESC";  
 							$resultData = mysqli_query($conn, $queryData);
 							//$rowData = mysqli_fetch_array($resultData);
 							   while($rowData = mysqli_fetch_array($resultData))  
 							   {  
 						   ?>  
-						   <tr>   
+						   <tr>  
 								<td>
 									<?php 
-									$rent_id = $rowData['rent_id'];
+									$rent_id = $rowDetails['id'];
 									$rent_details    =   getRentDetailsData($rent_id);   
 									$rent_info       =   $rent_details['rents'];
 									$rent_details    =   $rent_details['rent_details'];
 					
 										foreach($rent_details as $dataDetails){ echo $dataDetails->eel_code.','; }
 									?>
-								</td>     
+								</td>      
 								<td><?php echo $row["amount"]; ?></td>    
 						   </tr>  
 						   <?php  

@@ -29,23 +29,25 @@ include 'header.php';
 								<td width="30%">
 									<div class="form-group">
 										<label for="id">Client name</label>
-										<select name="client_name" id="client" class="form-control material_select_2" required >
-											<option value="">Select Client</option>
+										<select name="client_name" id="client" class="form-control material_select_2">
+											<option>Select Client</option>
 											<?php 
-											$sql	= "SELECT t1.client_name,t2.id,t2.name FROM `rents` AS t1
-												INNER JOIN clients AS t2 ON t1.client_name=t2.id
-												WHERE 1=1 AND t1.client_name = t2.id GROUP BY t1.client_name";
+											$sql	= "select * from `clients` ORDER BY `id` ASC";
 											$result = mysqli_query($conn, $sql);
 											while($row=mysqli_fetch_array($result))
 												{
-												if($_GET['client_name'] == $row['id']){
-												$selected	= 'selected';
-												}else{
-												$selected	= '';
-												}
 											?>
-											<option value="<?php echo $row['id'] ?>" <?php echo $selected; ?>><?php echo $row['name'] ?></option>
+											<option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
 											<?php } ?>
+										</select>
+									</div>
+								</td>
+								<td width="30%">
+									<div class="form-group">
+										<label for="id">Challan No</label>
+										<select class="form-control material_select_2" name="challan_no" id="project">
+											<option value="">select project</option>
+
 										</select>
 									</div>
 								</td>
@@ -56,10 +58,10 @@ include 'header.php';
 										<button type="submit" name="submit" class="form-control btn btn-primary">Create Invoice</button>
 									</div>
 								</td>
-								<td width="30%">
+								<!-- <td width="30%">
 									<div class="form-group">
 										<label for="id">To Date</label>
-										<input type="text" class="form-control" name="to_date" id="rlpdate" value="<?php if(isset($_GET['to_date'])){ echo $_GET['to_date']; } ?>" />
+										<input type="text" class="form-control" name="to_date" id="rlpdate" value="<?php //if(isset($_GET['to_date'])){ echo $_GET['to_date']; } ?>" />
 									</div>
 								</td>
 								
@@ -69,7 +71,7 @@ include 'header.php';
 										<button type="submit" name="ledgersubmit" class="form-control btn btn-success">Client Ledger</button>
 									</div>
 								</td>
-								<td width="30%"></td>
+								<td width="30%"></td> -->
 							</tr>
 						</tbody>
 					</table>
@@ -77,72 +79,82 @@ include 'header.php';
 			</form>
 			<?php
 			if(isset($_GET['submit'])){
-				$client_name = $_GET['client_name'];
-				$sqlch = "select * FROM `rents` WHERE `client_name`='$client_name'";
+				$client_name 	= $_GET['client_name'];
+				$challan_no 	= $_GET['challan_no'];
+				$sqlch = "select * FROM `rents` WHERE `challan_no`='$challan_no'";
 				$resultch = mysqli_query($conn, $sqlch);
 				$rowch = mysqli_fetch_array($resultch);
 			?>
 			<form action="#" method="post" name="add_name" id="add_name">  
 				<div class="row">
-					<?php
-					$mr_id=$rowch['id'];
-					$sql = "SELECT t1.date,t1.client_name,t2.id,t2.name,t2.address,SUM(t1.grandtotal) as total,SUM(t3.amount) as invoiced FROM `rents` AS t1
-						INNER JOIN clients AS t2 ON t1.client_name=t2.id
-						INNER JOIN rent_invoice AS t3 ON t1.client_name=t3.client_name
-						WHERE 1=1 AND t1.client_name = $client_name";
-					$result = mysqli_query($conn, $sql);
-					$row = mysqli_fetch_array($result);
-					?>
-					
-					<div class="col-sm-5">
-						<span><b>Client Name : <?php echo getNameByIdAndTable('clients',$row['client_name']); ?></b></span></br>
-						<span>Client Address : <?php echo $row['address']; ?></span>
-					</div>
-					<div class="col-sm-7" style="border:1px solid gray;border-radius:5px;padding:20px;">
-						<h3>Client Invoice</h3>
+					<div class="col-sm-7">
 						<div class="row">
+							<?php
+							$challan_no 	= $_GET['challan_no'];
+							$sql = "select * FROM `rents` WHERE `challan_no`='$challan_no'";
+							$result = mysqli_query($conn, $sql);
+							$row = mysqli_fetch_array($result);
+							?>
+							
+							<div class="col-sm-12">
+								<table class="table table-condensed table-hover table-bordered">
+									<tr>
+										<?php $mrrno    =   get_invoice_no(); ?>
+										<td>Invoice No# <input type="text" name="invoice_no" class="form-control" value="<?php echo $mrrno; ?>" readonly ></td>
+										<td>Invoice Date# <input name="invoice_date" type="text" class="form-control" id="fromdate" value="<?php echo date("Y-m-d"); ?>" size="" autocomplete="off" required /></td>
+									</tr>
+								</table>
+							</div>
+							
 							<input type="hidden" name="client_id" value="<?php echo $row['client_name']; ?>"/>
+							<input type="hidden" name="project_id" value="<?php echo $row['project_name']; ?>"/>
+							<input type="hidden" name="challan_no" value="<?php echo $row['challan_no']; ?>"/>
+							<input type="hidden" name="rent_id" value="<?php echo $row['id']; ?>"/>
 						</div>
 					</div>
-					
-					<input type="hidden" name="client_id" value="<?php echo $row['client_name']; ?>"/>
-						
+					<div class="col-sm-5">
+						<h3 style="border:1px solid gray;border-radius:5px;padding:20px;text-align:center;">Client Invoice</h3>
+					</div>
 				</div>
 				<div class="row" style="">
-					<?php $mrrno    =   get_invoice_no(); ?>
-					<div class="col-xs-2">
+					
+					<div class="col-xs-3">
 						<div class="form-group">
-							<label for="id">Invoice No</label>
-							<input type="text" name="invoice_no" class="form-control" value="<?php echo $mrrno; ?>" readonly >
+							<label for="id">Challan No</label>
+							<input name="" id="" class="form-control" type="text" value="<?php echo $row['challan_no']; ?>" readonly />
 						</div>
 					</div>
-					<div class="col-xs-2">
+					<div class="col-xs-3">
 						<div class="form-group">
-							<label for="id">Invoice Date</label>
-							<input name="invoice_date" type="text" class="form-control" id="fromdate" value="<?php echo date("Y-m-d"); ?>" size="" autocomplete="off" required />
+							<label for="id">Challan Amount</label>
+							<input class="form-control" type="text" value="<?php echo $row['grandtotal']; ?>" readonly />
 						</div>
 					</div>
 					
 					<div class="col-xs-2">
 						<div class="form-group">
 							<label for="id">Invoiceable Amount</label>
-							<?php $invoiceable = $row['total'] - $row['invoiced']; ?>
-							<input type="text" id="id-1" name="invoiceable_amount" value="<?php echo $invoiceable; ?>"  class="form-control" readonly >
+							<input type="text" id="id-1" name="due_amount" value="<?php echo $row['due_amount']; ?>"  class="form-control" readonly >
 						</div>
 					</div>
+							<input type="hidden" name="deposit_amount" value="<?php echo $row['deposit_amount']; ?>" >
 							<input type="hidden" name="id" value="<?php echo $row['id']; ?>" >
-					<div class="col-xs-3">
+					<div class="col-xs-2">
 						<div class="form-group">
 							<label for="id">Invoice Amount<span class="reqr"> ***</span></label>
-							<input type="number" step=".01" min="1.0" max="<?php echo $invoiceable; ?>" autocomplete="off" name="amount" id="id-2" class="form-control" required>
+							<input type="number" step=".01" min="1.0" max="<?php echo $row['due_amount']; ?>" autocomplete="off" name="amount" id="id-2" class="form-control" required>
 						</div>
 					</div>
-					<div class="col-xs-3">
+					<div class="col-xs-2">
 						<div class="form-group">
 							<label for="id">Net Invoiceable</label>
 							<input type="text" autocomplete="off" id="id-3" class="form-control" readonly >
 						</div>
 					</div>
+					
+					</div>
+				</div>
+				<div class="row" style="padding-top:10px;">
 					<div class="col-xs-12">
 						<div class="form-group">
 							<label>Remarks</label>
@@ -151,9 +163,8 @@ include 'header.php';
 					</div>
 					<div class="col-xs-12">
 						<div class="form-group">
-							<input type="submit" name="invoice_create" id="submit" class="btn btn-block btn-info" style="width:100%;" value="Generate Client Invoice" />  
+							<input type="submit" name="invoice_create" id="submit" class="btn btn-block btn-info" style="width:100%;" value="Generate Bill/Money Receipt" />  
 						</div>
-					</div>
 					</div>
 				</div>
 			</form>
@@ -176,7 +187,7 @@ include 'header.php';
 					<center>
 						<p>
 							<img src="images/Saif_Engineering_Logo_165X72.png" height="100px;"/><br>
-							<span>Client Ledger Report</span><br>
+							<span>Client Invoice Ledger Report</span><br>
 							<span><?php echo getNameByIdAndTable('clients',$client_id); ?></span><br>
 							Till  <span class="dtext"><?php echo date("jS F Y", strtotime($to_date));?> </span><br>
 						</p>

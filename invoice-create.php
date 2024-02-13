@@ -12,22 +12,72 @@ include 'header.php';
         <li class="breadcrumb-item">
             <a href="dashboard.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active"> Rent List</li>
+        <li class="breadcrumb-item active"> Rent Bill Collection</li>
     </ol>
     <!-- DataTables Example -->
     <div class="card mb-3">
         <div class="card-header">
-            <i class="fas fa-table"></i> Invoice Create
-            <a href="mr_list.php" style="float:right"><i class="fas fa-plus"></i> List<a>
+            <i class="fas fa-table"></i> Rent Bill Collection Form
+            <a href="mr_list.php" style="float:right"><i class="fas fa-plus"></i> Bill List<a>
         </div>
         <div class="card-body">
-            <form action="#" method="post" name="add_name" id="add_name">  
+			<form class="form-horizontal" action="" id="warehouse_stock_search_form" method="GET">
+				<div class="table-responsive">          
+					<table class="table table-borderless search-table">
+						<tbody>
+							<tr>  
+								<td width="30%">
+									<div class="form-group">
+										<label for="id">Client name</label>
+										<select name="client_name" id="client" class="form-control material_select_2">
+											<option>Select Client</option>
+											<?php 
+											$sql	= "select * from `clients` ORDER BY `id` ASC";
+											$result = mysqli_query($conn, $sql);
+											while($row=mysqli_fetch_array($result))
+												{
+											?>
+											<option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+											<?php } ?>
+										</select>
+									</div>
+								</td>
+								<td width="30%">
+									<div class="form-group">
+										<label for="id">Invoice No</label>
+										<select class="form-control material_select_2" name="challan_no" id="project">
+											<option value="">select project</option>
+
+										</select>
+									</div>
+								</td>
+								
+								<td width="10%">
+									<div class="form-group">
+										<label for="todate">.</label>
+										<button type="submit" name="submit" class="form-control btn btn-primary">Search</button>
+									</div>
+								</td>
+								<td width="30%"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</form>
+			<?php
+			if(isset($_GET['submit'])){
+				$challan_no = $_GET['challan_no'];
+							$sqlch = "select * FROM `rents` WHERE `challan_no`='$challan_no'";
+							$resultch = mysqli_query($conn, $sqlch);
+							$rowch = mysqli_fetch_array($resultch);
+			?>
+			<form action="#" method="post" name="add_name" id="add_name">  
 				<div class="row">
 					<div class="col-sm-7">
 						<div class="row">
 							<?php
-							$mr_id=$_GET['no'];
-							$sql = "select * FROM `rent_invoice` WHERE `id`='$mr_id'";
+							$mr_id=$rowch['id'];
+							$sql = "select * FROM `rents` WHERE `id`='$mr_id'";
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_array($result);
 							?>
@@ -36,8 +86,8 @@ include 'header.php';
 								<table class="table table-condensed table-hover table-bordered">
 									<tr>
 										<?php $mrrno    =   get_mr_bill_no(); ?>
-										<td>Invoice No# <input type="text" name="mr_no" class="form-control" value="<?php echo $mrrno; ?>" readonly ></td>
-										<td>Invoice Date# <input name="mr_date" type="text" class="form-control" id="fromdate" value="<?php echo date("Y-m-d"); ?>" size="" autocomplete="off" required /></td>
+										<td>Bill/MR No# <?php echo $mrrno; ?><input type="hidden" name="mr_no" value="<?php echo $mrrno; ?>"></td>
+										<td>Bill/MR Date# <input name="mr_date" type="text" class="form-control" id="fromdate" value="<?php echo date("Y-m-d"); ?>" size="" autocomplete="off" required /></td>
 									</tr>
 								</table>
 							</div>
@@ -49,21 +99,21 @@ include 'header.php';
 						</div>
 					</div>
 					<div class="col-sm-5">
-						<h3 style="border:1px solid gray;border-radius:5px;padding:20px;text-align:center;">Client Invoice</h3>
+						<h3 style="border:1px solid gray;border-radius:5px;padding:20px;text-align:center;">Bill/Money Receipt</h3>
 					</div>
 				</div>
 				<div class="row" style="">
 					
 					<div class="col-xs-2">
 						<div class="form-group">
-							<label for="id">Challan No</label>
+							<label for="id">Invoice No</label>
 							<input name="invoice_no" id="invoice_no" class="form-control" type="text" value="<?php echo $row['challan_no']; ?>" readonly />
 						</div>
 					</div>
 					<div class="col-xs-2">
 						<div class="form-group">
-							<label for="id">Total Amount</label>
-							<input class="form-control" type="text" value="<?php echo $row['amount']; ?>" readonly />
+							<label for="id">Invoice Amount</label>
+							<input class="form-control" type="text" value="<?php echo $row['grandtotal']; ?>" readonly />
 						</div>
 					</div>
 					
@@ -145,57 +195,38 @@ include 'header.php';
 					</div>
 				</div>
 			</form>
-        </div>
+			<?php } ?>
+		</div>
     </div>
 
 </div>
-<!-- /.container-fluid -->
-<?php include 'footer.php' ?>
-
 <script>
-$(function () {    
-  get_rent_data_table();
-})
+$(document).ready(function() {
+			$("#client").on('change', function() {
+				var clientid = $(this).val();
 
-function get_rent_data_table(){
-
-  let project_id   = '';
-  let sub_project_id   = '';
-    //getDataTablelogsheetList call from  grid_management.php
-    var url       =   baseUrl + "function/grid_management.php?process_type=getDataTableRentList";
-//logsheet_list_table  reference logsheet-list.php
-    var userListDataTable   =   $('#rent_list_table').DataTable({
-            "processing": true,
-            "serverSide": true,
-            "ajax": {
-                url:url,
-                type:'POST',
-                dataType:'json',
-                data: {
-                    project_id		: project_id,
-                    sub_project_id	: sub_project_id
-                }
-            },
-            "aoColumnDefs": [
-                { "bSortable": false, "aTargets": [ -1, 2, 3 ] }
-            ],
-            "lengthMenu": [[10, 100, 250, -1], [10,100, 250,"All"]]
-        });
-
-
-}
-
-
-
-
+				$.ajax({
+					method: "POST",
+					url: "response2.php",
+					data: {
+						id: clientid
+					},
+					datatype: "html",
+					success: function(data) {
+						$("#project").html(data);
+					}
+				});
+			});
+		});
+</script>
+<script>
 $(function () {
   $("#id-1, #id-2").keyup(function () {
     $("#id-3").val(+$("#id-1").val() - +$("#id-2").val());
   });
 });
 </script>
-
-					<script>
+<script>
 					$("#switch").change(function () {
 					  switch($("#switch").val()) {
 						case "cheque":
@@ -208,3 +239,5 @@ $(function () {
 					  }
 					})
 					</script>
+<!-- /.container-fluid -->
+<?php include 'footer.php' ?>

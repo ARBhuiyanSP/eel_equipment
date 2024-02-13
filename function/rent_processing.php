@@ -180,17 +180,16 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == "wo_update_execute")
     
     echo json_encode($feedback);
 }
-/* if (isset($_POST['invoice_create']) && !empty($_POST['invoice_create'])) {
+if (isset($_POST['invoice_create']) && !empty($_POST['invoice_create'])) {
 
         $id				= $_POST['id'];
-        //$rent_id		= $_POST['rent_id'];
+        $rent_id		= $_POST['rent_id'];
         $invoice_no		= $_POST['invoice_no'];
         $invoice_date	= $_POST['invoice_date'];
         $client_id		= $_POST['client_id'];
-        //$project_id		= $_POST['project_id'];
-       // $challan_no     = $_POST['challan_no'];
+       $project_id		= $_POST['project_id'];
+       $challan_no     = $_POST['challan_no'];
         $amount        	= $_POST['amount'];
-        $rent_id        = $_POST['rent_id'];
         $invoiceable_amount	= $_POST['invoiceable_amount'];
         $deposit_amount     = $_POST['deposit_amount'];
         $due_amount        	= $_POST['due_amount'];
@@ -215,14 +214,14 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == "wo_update_execute")
 		$created_by			=	$_SESSION['logged']['user_id'];
 		
 		
-		$query8 = "INSERT INTO `rent_invoice` (`invoice_no`, `rent_id`, `invoice_date`, `challan_no`, `client_name`, `project_name`, `amount`, `deposit_amount`, `due_amount`, `status`, `created_at`, `created_by`) VALUES ('$invoice_no','$rent_id','$invoice_date','$challan_no','$client_id', '','$amount','0','$amount','Pending','$created_at','$created_by')";
-        $conn->query($query8);
+		$query8 = "INSERT INTO `rent_invoice` (`invoice_no`, `rent_id`, `invoice_date`, `challan_no`, `client_name`, `project_name`, `amount`, `deposit_amount`, `due_amount`, `status`, `created_at`, `created_by`) VALUES ('$invoice_no','$rent_id','$invoice_date','$challan_no','$client_id', '$project_id','$amount','0','$amount','Pending','$created_at','$created_by')";
+		$conn->query($query8);
 		
 		header("location: invoice_list.php");
 		exit();
     
 }
- */
+ 
 
 if (isset($_POST['mr_create']) && !empty($_POST['mr_create'])) {
 	
@@ -259,7 +258,8 @@ if (isset($_POST['mr_create']) && !empty($_POST['mr_create'])) {
 			$updated_at			=	date("Y-d-m");;
 			$updated_by			=	$_SESSION['logged']['user_id'];
 		
-			$query3 = "UPDATE `rents` SET `deposit_amount`='$newDeposit_amount',`due_amount`='$newDue_amount',`bill_status`='$newStatus',`updated_at`='$updated_at',`updated_by`='$updated_by' WHERE `id`='$id'";
+			/* $query3 = "UPDATE `rents` SET `deposit_amount`='$newDeposit_amount',`due_amount`='$newDue_amount',`bill_status`='$newStatus',`updated_at`='$updated_at',`updated_by`='$updated_by' WHERE `id`='$id'"; */
+			$query3 = "UPDATE `rent_invoice` SET `deposit_amount`='$newDeposit_amount',`due_amount`='$newDue_amount',`status`='$newStatus',`updated_at`='$updated_at',`updated_by`='$updated_by' WHERE `id`='$id'";
 			$conn->query($query3); 
 			
 		$created_at			=	date("Y-d-m");
@@ -268,7 +268,8 @@ if (isset($_POST['mr_create']) && !empty($_POST['mr_create'])) {
 		$query2 = "INSERT INTO `client_balance` (`ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`,`created_at`,`created_by`) VALUES ('$mr_no', '$cb_date', '$client_id', '$project_id', '$amount', '0', '$cb_method', '$bank_name', '$bank_branch', '$bank_cheque_no', '$bank_cheque_date', '$cb_remarks','$created_at','$created_by')";
         $conn->query($query2);
 		
-		$query8 = "INSERT INTO `rent_bill` (`bill_no`, `rent_id`, `bill_date`, `challan_no`, `client_name`, `project_name`,`eel_code`, `amount`, `payment_type`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `created_at`, `created_by`) VALUES ('$mr_no','$id','$cb_date','$challan_no','$client_id', '$project_id','','$amount','$cb_method','$bank_name','$bank_branch','$bank_cheque_no','$bank_cheque_date','$created_at','$created_by')";
+		/* $query8 = "INSERT INTO `rent_bill` (`bill_no`, `rent_id`, `bill_date`, `challan_no`, `client_name`, `project_name`,`eel_code`, `amount`, `payment_type`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `created_at`, `created_by`) VALUES ('$mr_no','$id','$cb_date','$challan_no','$client_id', '$project_id','','$amount','$cb_method','$bank_name','$bank_branch','$bank_cheque_no','$bank_cheque_date','$created_at','$created_by')"; */
+		$query8 = "INSERT INTO `rent_bill` (`bill_no`, `invoice_id`, `bill_date`, `challan_no`, `client_name`, `project_name`,`eel_code`, `amount`, `payment_type`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `created_at`, `created_by`) VALUES ('$mr_no','$id','$cb_date','$challan_no','$client_id', '$project_id','','$amount','$cb_method','$bank_name','$bank_branch','$bank_cheque_no','$bank_cheque_date','$created_at','$created_by')";
         $conn->query($query8);
 		
 		header("location: mr_list.php");

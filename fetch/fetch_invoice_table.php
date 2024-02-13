@@ -67,7 +67,7 @@ function get_invoice_list_action_data($row){
 	//$edit_url = 'receive_edit.php?edit_id='.$row["transfer_id"];
     
     $view_url = 'bill_view.php?no='.$row["voucher_id"];
-    $collection_url = 'bill_view.php?no='.$row["voucher_id"];
+    $collection_url = 'mr_create.php?no='.$row["voucher_id"];
     $action = "";
 	
 

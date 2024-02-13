@@ -948,7 +948,7 @@ function get_mcsl_no($prefix="MCSL", $formater_length=3){
     return $year."-".$month."-".$divName.'-'.$prefix.'-'.$finalRLPNo;
 }
 
-/* function get_invoice_no($prefix="INV", $formater_length=3){
+function get_invoice_no($prefix="INV", $formater_length=3){
     global $conn;
     
     //$division_id    =   $_SESSION['logged']['branch_id'];
@@ -967,10 +967,10 @@ function get_mcsl_no($prefix="MCSL", $formater_length=3){
     $finalRLPNo = sprintf('%0' . $formater_length . 'd', $nextRLP);
     //$divName    = replace_dashes(getDivisionNameById($division_id));
     $divName    = 'EEL';
-    $depName    = replace_dashes(getDepartmentNameById($department_id));
+    //$depName    = replace_dashes(getDepartmentNameById($department_id));
     
     return $divName.'-'.$prefix.'-'.$finalRLPNo;
-} */
+} 
 
 function get_mr_bill_no($prefix="MR", $formater_length=3){
     global $conn;
@@ -1967,6 +1967,17 @@ function getMaterialNameByIdAndTableandId($table,$id)
     $name   =   '';
     if ($result->num_rows > 0) {
         $name   =   $result->fetch_object()->material_description;
+    }
+    return $name;
+}
+function getInvoiceNoByID($id)
+{
+    global $conn;
+    $sql = "SELECT `invoice_no` FROM `rent_invoice` WHERE `id`='$id'";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        $name   =   $result->fetch_object()->invoice_no;
     }
     return $name;
 }

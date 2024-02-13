@@ -26,8 +26,8 @@ include 'header.php';
 					<div class="col-sm-7">
 						<div class="row">
 							<?php
-							$mr_id=$_GET['no'];
-							$sql = "select * FROM `rent_invoice` WHERE `id`='$mr_id'";
+							$mr_id=$_GET['id'];
+							$sql = "select * FROM `rents` WHERE `id`='$mr_id'";
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_array($result);
 							?>
@@ -62,8 +62,8 @@ include 'header.php';
 					</div>
 					<div class="col-xs-2">
 						<div class="form-group">
-							<label for="id">Total Amount</label>
-							<input class="form-control" type="text" value="<?php echo $row['amount']; ?>" readonly />
+							<label for="id">Challan Amount</label>
+							<input class="form-control" type="text" value="<?php echo $row['grandtotal']; ?>" readonly />
 						</div>
 					</div>
 					
