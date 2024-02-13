@@ -133,7 +133,7 @@ include 'header.php';
 					<div class="col-xs-2">
 						<div class="form-group">
 							<label for="id">Invoiced Amount</label>
-							<input type="text" id="id-1" name="" value="<?php echo $row['deposit_amount']; ?>"  class="form-control" readonly >
+							<input type="text" id="" name="" value="<?php echo $row['deposit_amount']; ?>"  class="form-control" readonly >
 						</div>
 					</div>
 					
