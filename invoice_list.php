@@ -32,8 +32,9 @@
 									?>
 								</select>
 							</th>
-							<th> Total Amount</th>
-							<th> Due Amount</th>
+							<th> Invoice Amount</th>
+							<th> Received Amount</th>
+							<th> Invoice Due Amount</th>
 							<th>Action</th>
 						</tr>
 					</thead>

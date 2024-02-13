@@ -62,7 +62,7 @@ include 'header.php';
 					</div>
 					<div class="col-xs-2">
 						<div class="form-group">
-							<label for="id">Total Amount</label>
+							<label for="id">invoice Amount</label>
 							<input class="form-control" type="text" value="<?php echo $row['amount']; ?>" readonly />
 						</div>
 					</div>

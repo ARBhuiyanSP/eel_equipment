@@ -2,7 +2,7 @@
 	<thead>
 		<th width="65%">Equipment<span class="reqfield"> *</span></th>
 		<th width="15%">Rate<span class="reqfield"> *</span></th>
-		<th width="15%">Amount</th>
+		<th width="15%">Contract/Rent Amount</th>
 		<th></th>
 	</thead>
 	<tbody>

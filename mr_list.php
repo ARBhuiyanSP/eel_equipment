@@ -9,7 +9,7 @@
     <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i>
-            Equipment Logsheet List
+            Money Receipt List
 			<a href="bill_collection.php" style="float:right"><i class="fas fa-plus"></i> New Entry<a>
 		</div>
         <div class="card-body">
@@ -17,9 +17,9 @@
 				<table id="mr_data_list" class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th>Bill Date</th>
-							<th>Invoice NO</th>
-							<th>Bill No</th>
+							<th>MR Date</th>
+							<th>Challan NO</th>
+							<th>MR No</th>
 							<th>
 								<select name="project_id" id="project_id" class="form-control select2">
 									<option value="">Project name</option>

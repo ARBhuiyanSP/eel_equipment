@@ -3,7 +3,7 @@
 session_start();
 include('../connection/connect.php');
 include('../helper/utilities.php');
-$column = array("rent_invoice.id", "rent_invoice.invoice_no", "rent_invoice.invoice_date", "rent_invoice.client_name", "clients.name", "rent_invoice.amount", "rent_invoice.due_amount");
+$column = array("rent_invoice.id", "rent_invoice.invoice_no", "rent_invoice.invoice_date", "rent_invoice.client_name", "clients.name", "rent_invoice.amount","rent_invoice.deposit_amount", "rent_invoice.due_amount");
 
 $query = "
  SELECT *,rent_invoice.id as voucher_id FROM rent_invoice 
@@ -22,6 +22,7 @@ if(isset($_POST["search"]["value"]))
  $query .= 'OR rent_invoice.invoice_no LIKE "%'.$_POST["search"]["value"].'%" ';
  $query .= 'OR rent_invoice.amount LIKE "%'.$_POST["search"]["value"].'%" ';
  $query .= 'OR clients.name LIKE "%'.$_POST["search"]["value"].'%" ';
+ $query .= 'OR rent_invoice.deposit_amount LIKE "%'.$_POST["search"]["value"].'%" ';
  $query .= 'OR rent_invoice.due_amount LIKE "%'.$_POST["search"]["value"].'%") ';
 }
 
@@ -57,6 +58,7 @@ while($row = mysqli_fetch_array($result))
  $sub_array[] = $row["invoice_no"];
  $sub_array[] = $row["name"];
  $sub_array[] = $row["amount"];
+ $sub_array[] = $row["deposit_amount"];
  $sub_array[] = $row["due_amount"];
  
  $sub_array[] = $actionData;

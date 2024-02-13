@@ -46,7 +46,7 @@ include 'header.php';
 									<div class="form-group">
 										<label for="id">Challan No</label>
 										<select class="form-control material_select_2" name="challan_no" id="project">
-											<option value="">select project</option>
+											<option value="">select Challan</option>
 
 										</select>
 									</div>
@@ -118,16 +118,22 @@ include 'header.php';
 				</div>
 				<div class="row" style="">
 					
-					<div class="col-xs-3">
+					<div class="col-xs-2">
 						<div class="form-group">
 							<label for="id">Challan No</label>
 							<input name="" id="" class="form-control" type="text" value="<?php echo $row['challan_no']; ?>" readonly />
 						</div>
 					</div>
-					<div class="col-xs-3">
+					<div class="col-xs-2">
 						<div class="form-group">
-							<label for="id">Challan Amount</label>
+							<label for="id">Contract Amount</label>
 							<input class="form-control" type="text" value="<?php echo $row['grandtotal']; ?>" readonly />
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<div class="form-group">
+							<label for="id">Invoiced Amount</label>
+							<input type="text" id="id-1" name="" value="<?php echo $row['deposit_amount']; ?>"  class="form-control" readonly >
 						</div>
 					</div>
 					

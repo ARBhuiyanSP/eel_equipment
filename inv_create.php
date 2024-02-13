@@ -62,7 +62,7 @@ include 'header.php';
 					</div>
 					<div class="col-xs-3">
 						<div class="form-group">
-							<label for="id">Challan Amount</label>
+							<label for="id">Contract/Rent Amount</label>
 							<input class="form-control" type="text" value="<?php echo $row['grandtotal']; ?>" readonly />
 						</div>
 					</div>
@@ -70,7 +70,7 @@ include 'header.php';
 					<div class="col-xs-2">
 						<div class="form-group">
 							<label for="id">Invoiceable Amount</label>
-							<input type="text" id="id-1" name="due_amount" value="<?php echo $row['due_amount']; ?>"  class="form-control" readonly >
+							<input type="text" id="id-1" name="due_amount" value="<?php echo $row['due_amount']; ?>"  class="form-control" >
 						</div>
 					</div>
 							<input type="hidden" name="deposit_amount" value="<?php echo $row['deposit_amount']; ?>" >
