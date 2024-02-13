@@ -18,7 +18,7 @@ include 'header.php';
     <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i> Note Sheet Create
-            <a href="rlp_approve_chain_create.php" style="float:right"><i class="fas fa-list"></i> Create New<a>
+            <a href="notesheets_list.php" style="float:right"><i class="fas fa-list"></i> List<a>
         </div>
         <div class="card-body">
                         <?php include 'partial/rlp_notesheet.php'; ?>

@@ -12,14 +12,10 @@ include 'header.php';
         <li class="breadcrumb-item">
             <a href="dashboard.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active"> RLP List</li>
+        <li class="breadcrumb-item active"> Notesheet List</li>
     </ol>
     <!-- DataTables Example -->
     <div class="card mb-3">
-        <div class="card-header">
-            <i class="fas fa-table"></i> RLP List
-            <a href="rlp_create.php" style="float:right"><i class="fas fa-plus"></i> Create New<a>
-        </div>
         <div class="card-body">
                         <?php include 'partial/notesheet_list2.php'; ?>
                     </div>
