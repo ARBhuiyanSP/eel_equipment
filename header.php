@@ -411,7 +411,7 @@ footer.sticky-footer{
                 <span class="sub_menu_text_design"> Invoice List</span>
             </a>
 			
-			<a class="dropdown-item" href="bill_collection.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Bill Collection Entry/MR Entry</span></a>
+			<a class="dropdown-item" href="invoice_list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Bill Collection Entry/MR Entry</span></a>
             <a class="dropdown-item" href="mr_list.php">
                 <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
                 <span class="sub_menu_text_design"> Bill Collection List/MR List</span>
