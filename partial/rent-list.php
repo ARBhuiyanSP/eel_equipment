@@ -13,6 +13,7 @@ if (isset($rentListData) && !empty($rentListData)) {
                     <th>Equipments</th>
                     <th>Project</th>
                     <th>Total Amount</th>
+                    <th>Deposit Amount</th>
                     <th>Due Amount</th>
                     <th width="25%">Action</th>
                 </tr>
@@ -38,6 +39,7 @@ if (isset($rentListData) && !empty($rentListData)) {
                         <td><?php echo (isset($adata->project_name) && !empty($adata->project_name) ? getProjectNameById($adata->project_name) : 'No data'); ?></td>
                        
                         <td><?php echo (isset($adata->grandtotal) && !empty($adata->grandtotal) ? $adata->grandtotal : ''); ?> </td>
+                        <td><?php echo (isset($adata->deposit_amount) && !empty($adata->deposit_amount) ? $adata->deposit_amount : ''); ?> </td>
                         <td><?php echo (isset($adata->due_amount) && !empty($adata->due_amount) ? $adata->due_amount : ''); ?> </td>
                         <td>
                             
