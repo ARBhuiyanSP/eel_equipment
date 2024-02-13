@@ -43,7 +43,7 @@ if (isset($rentListData) && !empty($rentListData)) {
                             
                             <a title="Edit RLP" class="btn btn-sm btn-success" href="rent_gatepass.php?id=<?php echo $adata->challan_no; ?>" style="font-size:10px;"> Gatepass</a>
 							<?php if($adata->status == 'Rented'){ ?>
-                            <a title="Edit RLP" class="btn btn-sm btn-danger" href="extend_rent_date.php?id=<?php echo $adata->challan_no; ?>" style="font-size:10px;">Return/Extend</a>
+                            <a title="Edit RLP" class="btn btn-sm btn-danger" href="rent_details.php?id=<?php echo $adata->challan_no; ?>" style="font-size:10px;">Return/Extend</a>
                             <?php } ?>
 							
 					

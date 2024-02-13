@@ -114,8 +114,8 @@ if (isset($_POST['rent_entry']) && !empty($_POST['rent_entry'])) {
     /*
     *  Insert Data Into inv_supplierbalance Table:
     */
-   $query3 = "INSERT INTO `client_balance`(`ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`, `created_at`, `created_by`) VALUES ('$challan_no','$date','$client_name','$project_name','$paid_amount','$grandtotal','','','','','','','$created_at','$created_by')";
-    $result2 = $conn->query($query3);
+ /*   $query3 = "INSERT INTO `client_balance`(`ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`, `created_at`, `created_by`) VALUES ('$challan_no','$date','$client_name','$project_name','$paid_amount','$grandtotal','','','','','','','$created_at','$created_by')";
+    $result2 = $conn->query($query3); */
 	
 	
     
@@ -216,6 +216,10 @@ if (isset($_POST['invoice_create']) && !empty($_POST['invoice_create'])) {
 		
 		$query8 = "INSERT INTO `rent_invoice` (`invoice_no`, `rent_id`, `invoice_date`, `challan_no`, `client_name`, `project_name`, `amount`, `deposit_amount`, `due_amount`, `status`, `created_at`, `created_by`) VALUES ('$invoice_no','$rent_id','$invoice_date','$challan_no','$client_id', '$project_id','$amount','0','$amount','Pending','$created_at','$created_by')";
 		$conn->query($query8);
+		
+		
+		$query3 = "INSERT INTO `client_balance`(`ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`, `created_at`, `created_by`) VALUES ('$invoice_no','$invoice_date','$client_id','$project_id','0','$amount','','','','','','','$created_at','$created_by')";
+		$result2 = $conn->query($query3);
 		
 		header("location: invoice_list.php");
 		exit();

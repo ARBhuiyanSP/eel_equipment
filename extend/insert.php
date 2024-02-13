@@ -28,14 +28,14 @@ include '../includes/login_process.php';
 			$query = "UPDATE `rent_details` SET `extended_date`='$ex_return_date',`total_days`= `total_days` + '$ex_days',`amount`= `amount` + '$ex_amount' WHERE `id`='".$_POST["id"]."'";
 			$conn->query($query);
 			
-			$query5 = "UPDATE `rents` SET `total_rent_amount`= `total_rent_amount` + '$ex_amount',`grandtotal`= `grandtotal` + '$ex_amount',`due_amount`= `due_amount` + '$ex_amount' WHERE `challan_no`='".$_POST["ex_challan_no"]."'";
+			$query5 = "UPDATE `rents` SET `total_rent_amount`= `total_rent_amount` + '$ex_amount',`grandtotal`= `grandtotal` + '$ex_amount',`due_amount`= `due_amount` + '$ex_amount',`bill_status`='Pending' WHERE `challan_no`='".$_POST["ex_challan_no"]."'";
 			$conn->query($query5);
 		   
 			$query2 = "insert into `rent_history` values('', '".$_POST["ex_challan_no"]."','".$_POST["id"]."','".$_POST["ex_eel_code"]."','$return_date','$ex_return_date','$ex_amount','Rented')";
 			$conn->query($query2);
 			
-			$query3 = "insert into `client_balance` values('', '".$_POST["ex_challan_no"]."', '$ex_return_date', '$ex_client_name', '$ex_project_name', '', '$ex_amount', '', '', '', '', '', '', '$created_at', '$created_by', '', '')";
-			$conn->query($query3);
+			/* $query3 = "insert into `client_balance` values('', '".$_POST["ex_challan_no"]."', '$ex_return_date', '$ex_client_name', '$ex_project_name', '', '$ex_amount', '', '', '', '', '', '', '$created_at', '$created_by', '', '')";
+			$conn->query($query3); */
 				
            $message = 'Data Updated';  
       }  
