@@ -9,13 +9,6 @@ $result = mysqli_query($conn, $query);
 			
  ?>
 <div class="container-fluid">
-    <!-- Breadcrumbs-->
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="#">Supplier Filters</a>
-        </li>
-        <li class="breadcrumb-item active">List</li>
-    </ol>
     <!-- receive search start here -->
 	<div class="row">
 		<?php 
