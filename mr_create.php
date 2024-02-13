@@ -60,7 +60,7 @@ include 'header.php';
 							<input name="invoice_no" id="invoice_no" class="form-control" type="text" value="<?php echo $row['challan_no']; ?>" readonly />
 						</div>
 					</div>
-					<div class="col-xs-2">
+					<div class="col-xs-1">
 						<div class="form-group">
 							<label for="id">invoice Amount</label>
 							<input class="form-control" type="text" value="<?php echo $row['amount']; ?>" readonly />
@@ -74,7 +74,7 @@ include 'header.php';
 					</div>
 					<div class="col-xs-2">
 						<div class="form-group">
-							<label for="id">Receiveable Amount</label>
+							<label for="id">Receiveable Amount [Due]</label>
 							<input type="text" id="id-1" name="due_amount" value="<?php echo $row['due_amount']; ?>"  class="form-control" readonly >
 						</div>
 					</div>
@@ -94,7 +94,7 @@ include 'header.php';
 					</div>
 					<!---------------------Bank Dynamic Form Start---------------------->
 					
-					<div class="col-sm-3">
+					<div class="col-xs-2">
 						<label>Payment Method</label>
 						<select class="form-control" name="cb_method" id="switch">
 							<option value="cash">Cash</option>
