@@ -49,7 +49,7 @@ include 'header.php';
 						</div>
 					</div>
 					<div class="col-sm-5">
-						<h3 style="border:1px solid gray;border-radius:5px;padding:20px;text-align:center;">Client Invoice</h3>
+						<h3 style="border:1px solid gray;border-radius:5px;padding:20px;text-align:center;">Client Money Receipt</h3>
 					</div>
 				</div>
 				<div class="row" style="">
