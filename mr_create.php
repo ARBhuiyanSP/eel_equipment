@@ -69,7 +69,7 @@ include 'header.php';
 					<div class="col-xs-2">
 						<div class="form-group">
 							<label for="id">Received Amount</label>
-							<input type="text" id="id-1" name="due_amount" value="<?php echo $row['deposit_amount']; ?>"  class="form-control" readonly >
+							<input type="text" id="" name="due_amount" value="<?php echo $row['deposit_amount']; ?>"  class="form-control" readonly >
 						</div>
 					</div>
 					<div class="col-xs-2">
