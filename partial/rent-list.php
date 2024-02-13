@@ -11,6 +11,7 @@ if (isset($rentListData) && !empty($rentListData)) {
                     <th>Invoice  No</th>
                     <th>Request Date</th>
                     <th>Equipments</th>
+                    <th>Client</th>
                     <th>Project</th>
                     <th>Contract Amount</th>
                     <th>Invoiced Amount</th>
@@ -36,7 +37,9 @@ if (isset($rentListData) && !empty($rentListData)) {
                         <td><?php  foreach($rent_details as $dataDetails){ echo $dataDetails->eel_code.','; }?></td>
 						
                    
-                       
+                        <td><?php echo (isset($adata->client_name) && !empty($adata->client_name) ? getNameByIdAndTable('clients',$adata->client_name) : 'No data'); ?>
+						</td>
+						
                         <td><?php echo (isset($adata->project_name) && !empty($adata->project_name) ? getProjectNameById($adata->project_name) : 'No data'); ?></td>
                        
                         <td><?php echo (isset($adata->grandtotal) && !empty($adata->grandtotal) ? $adata->grandtotal : ''); ?> </td>
