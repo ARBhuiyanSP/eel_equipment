@@ -1,5 +1,5 @@
 <?php
-$rlpListData = getRLPListData();
+$rlpListData = getRLPListDataW();
 
 
 if (isset($rlpListData) && !empty($rlpListData)) {
@@ -38,60 +38,58 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                     $approve_url =   "function/rlp_process.php?process_type=rlp_dh_common_update_execute";
                 }
                 foreach ($rlpListData as $adata) {
-					
-					$rlp_id = $adata->id;
-					$rlp_details    =   getRlpDetailsData($rlp_id);   
+					$rlp_details    =   getRlpDetailsData($adata['id']);   
 					$rlp_info       =   $rlp_details['rlp_info'];
 					$rlp_details    =   $rlp_details['rlp_details'];
                     ?>
                     <tr id="row_id_<?php echo $adata->id; ?>">
                         <td><?php echo ++$sl; ?> </td>
                         <td>
-                            <div title="RLP quick view" onclick="rlp_quick_view('<?php echo $adata->id ?>');" style="cursor: pointer;padding: 2% 2%; font-weight: bold; background-color: <?php echo get_status_color($adata->rlp_status); ?>">
+                            <div title="RLP quick view" onclick="rlp_quick_view('<?php echo $adata['id'] ?>');" style="cursor: pointer;padding: 2% 2%; font-weight: bold; background-color: <?php echo get_status_color($adata['rlp_status']); ?>">
                                 <span>
-                                    <?php echo (isset($adata->rlp_no) && !empty($adata->rlp_no) ? $adata->rlp_no : 'No data'); ?>
+                                    <?php echo (isset($adata['rlp_no']) && !empty($adata['rlp_no']) ? $adata['rlp_no'] : 'No data'); ?>
                                 </span>
                             </div>
                         </td>
-                        <td><?php echo (isset($adata->request_date) && !empty($adata->request_date) ? human_format_date($adata->created_at) : 'No data'); ?></td>
+                        <td><?php echo (isset($adata['request_date']) && !empty($adata['request_date']) ? human_format_date($adata['request_date']) : 'No data'); ?></td>
 						
                         <td><?php  foreach($rlp_details as $dataDetails){ echo $dataDetails->purpose.','; }?></td>
 						
-                        <td><?php echo (isset($adata->rlp_user_id) && !empty($adata->rlp_user_id) ? getUserNameByUserId($adata->rlp_user_id) : 'No data'); ?></td>
-                        <td><?php echo (isset($adata->request_project) && !empty($adata->request_project) ? getProjectNameById($adata->request_project) : 'No data'); ?></td>
+                        <td><?php echo (isset($adata['created_by']) && !empty($adata['created_by']) ? getUserNameByUserId($adata['created_by']) : 'No data'); ?></td>
+                        <td><?php echo (isset($adata['request_project']) && !empty($adata['request_project']) ? getProjectNameById($adata['request_project']) : 'No data'); ?></td>
                        
                         <td>
-                            <div style="padding: 2% 10%; font-weight: bold; background-color: <?php echo get_status_color($adata->rlp_status); ?>">
-                                <?php echo get_status_name($adata->rlp_status); ?>
+                            <div style="padding: 2% 10%; font-weight: bold; background-color: <?php echo get_status_color($adata['rlp_status']); ?>">
+                                <?php echo get_status_name($adata['rlp_status']); ?>
                             </div>
                         </td>
                         <td>
                             
-                            <a title="Edit RLP" class="btn btn-sm btn-info" href="rlp_update.php?rlp_id=<?php echo $adata->id; ?>">
+                            <a title="Edit RLP" class="btn btn-sm btn-info" href="rlp_update.php?rlp_id=<?php echo $adata['id']; ?>">
                                 <span class="fa fa-eye"> Details</span>
                             </a>
                             
-							<?php if(check_permission('rlp-approve') && get_status_name($adata->rlp_status)!='Approve'){ ?>
-                            <a title="Delete RLP" class="btn btn-sm btn-success" href="javascript:void(0)" onclick="commonApproveOperation('<?php echo $approve_url ?>', '<?php echo $adata->id ?>', '<?php echo $_SESSION['logged']['user_id'] ?>');">
+							<?php if(check_permission('rlp-approve') && get_status_name($adata['rlp_status'])!='Approve'){ ?>
+                            <a title="Delete RLP" class="btn btn-sm btn-success" href="javascript:void(0)" onclick="commonApproveOperation('<?php echo $approve_url ?>', '<?php echo $adata['id'] ?>', '<?php echo $_SESSION['logged']['user_id'] ?>');">
                                 <span class="fa fa-check"> Approve</span>
                             </a>
 							<?php } ?>
                            
                             
-                            <?php if(get_status_name($adata->rlp_status)=='Approve' && $adata->is_ns==0){ ?>
-                            <a title="Make Notesheet" class="btn btn-sm btn-info" href="rlp_notesheet.php?rlp_id=<?php echo $adata->id; ?>">
+                            <?php if(get_status_name($adata['rlp_status'])=='Approve' && $adata['is_ns']=='0'){ ?>
+                            <a title="Make Notesheet" class="btn btn-sm btn-info" href="rlp_notesheet.php?rlp_id=<?php echo $adata['id']; ?>">
                                 <span class="fa fa-sticky-note-o"> Notesheet</span>
                             </a>
                             <?php } ?>
                             
                             <?php //if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
-                            <a title="Print RLP History" class="btn btn-sm btn-info bg-olive" href="rlp_view.php?rlp_id=<?php echo $adata->id; ?>">
+                            <a title="Print RLP History" class="btn btn-sm btn-info bg-olive" href="rlp_view.php?rlp_id=<?php echo $adata['id']; ?>">
                                 <span class="fa fa-info-circle"> History</span>
                             </a>
                             <?php //} ?>  
 
                             
-                            <a title="Print RLP" class="btn btn-sm btn-info bg-blue" href="rlp_print.php?rlp_id=<?php echo $adata->id; ?>">
+                            <a title="Print RLP" class="btn btn-sm btn-info bg-blue" href="rlp_print.php?rlp_id=<?php echo $adata['id']; ?>">
                                 <span class="fa fa-print"> Print</span>
                             </a>
                                                     

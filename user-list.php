@@ -18,7 +18,6 @@ include 'header.php';
     <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i> User List
-			<a href="user_entry.php" style="float:right"><i class="fas fa-list"></i> User Add<a>
 		</div>
         <div class="card-body">
             <!--here your code will go-->
@@ -32,7 +31,7 @@ include 'header.php';
 										<th> User Name</th>
 										<th> Office ID</th>
 										<th> Email</th>
-										<th> Project Name</th>
+										<th> Location / Warehouse Name</th>
 										<th> Type/Role</th>
 										<th>Action</th>
 									</tr>
@@ -48,7 +47,7 @@ include 'header.php';
 										<td><?php echo $data['name']; ?></td>
 										<td><?php echo $data['office_id']; ?></td>
 										<td><?php echo $data['email']; ?></td>
-										<td><?php echo getProjectNameById($data['project_id']) ?></td>
+										<td><?php echo getWarehouseNameById($data['warehouse_id']) ?></td>
 										<td>
 											<?php 
 											$dataresult =   getDataRowByTableAndId('roles', $data['role_id']);

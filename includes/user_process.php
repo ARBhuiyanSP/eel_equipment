@@ -43,16 +43,10 @@
 
 
   if (isset($_POST['user_update_submit']) && !empty($_POST['user_update_submit'])) {
-    if (empty($_POST["first_name"])) {
-        $emailErr = "email is required";
+    if (empty($_POST["name"])) {
+        $emailErr = "name is required";
       } else {
-        $first_name = $_POST["first_name"]; 
-      }
-
-      if (empty($_POST["last_name"])) {
-        $emailErr = "email is required";
-      } else {
-        $last_name = $_POST["last_name"]; 
+        $name = $_POST["name"]; 
       }
 
 
@@ -69,7 +63,7 @@
     $id = $_POST["id"];
 
     //insert
-    $queryUser = "UPDATE `users` SET `first_name`='$first_name',`last_name`='$last_name',`warehouse_id`='$warehouse_id',`role_id`='$role_id',`email`='$email' WHERE `id`='$id'";
+    $queryUser = "UPDATE `users` SET `warehouse_id`='$warehouse_id',`role_id`='$role_id',`name`='$name',`email`='$email' WHERE `id`='$id'";
     $result = $conn->query($queryUser);
 
 

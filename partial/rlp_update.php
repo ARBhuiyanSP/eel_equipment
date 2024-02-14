@@ -126,18 +126,22 @@
 	</div>
     <!-- /.row -->
     <?php
-    $role       =   get_role_group_short_name();
+    //$role       =   get_role_group_short_name();
+	$role_id            =   $_SESSION['logged']['role_id'];    
+    $role         =   get_role_shortcode_by_role_id($role_id);
     
     if(is_super_admin($currentUserId)){
         include 'rlp_update_view_sa.php';
-    }elseif($role    ==  "member"){
-        include 'rlp_update_view_member.php';
-    }elseif($role    ==  "dh"){
+    }elseif($role    ==  "sa"){
+        include 'rlp_update_view_sa.php';
+    }elseif($role    ==  "ak"){
         include 'rlp_update_view_dh.php';
     }elseif($role    ==  "ab"){
         include 'rlp_update_view_ab.php';
+    }elseif($role    ==  "mb"){
+        include 'rlp_update_view_member.php';
     }else{
-        include 'rlp_update_view_dh.php';
+        include 'rlp_update_view_ab.php';
     }
     ?>
 </section>

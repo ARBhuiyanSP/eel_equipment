@@ -431,7 +431,12 @@ footer.sticky-footer{
     </ul>
 	
 	
-	<div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" style="color:#000;"><?php echo $_SESSION['logged']['user_name']; ?>-[<?php echo $_SESSION['logged']['user_name']; ?>]</div>
+	<div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" style="color:#000;"><?php echo $_SESSION['logged']['user_name']; ?>-[<?php echo $_SESSION['logged']['user_name']; 
+	
+	?>]
+	<?php $role_id            =   $_SESSION['logged']['role_id'];    
+    echo $role_name          =   get_role_shortcode_by_role_id($role_id);?>
+	</div>
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">

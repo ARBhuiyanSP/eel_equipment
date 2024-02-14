@@ -144,6 +144,61 @@ function update_supplier_details(){
 }
 
 // get rlp list data depends on user:
+
+function getRLPListDataW(){
+    $user_id            =   $_SESSION['logged']['user_id'];
+    $warehouse_id            =   $_SESSION['logged']['warehouse_id'];
+    $role_id            =   $_SESSION['logged']['role_id'];    
+    $role_name          =   get_role_shortcode_by_role_id($role_id);
+	
+	if($role_name == 'sa'){
+			$listData   =   [];
+            // get others rlp for approval:
+            $listData1   = getRlpInfoAcknowledgeData($user_id);
+            // get own RLp:
+			
+			$sql      = '* FROM `rlp_info` WHERE 1=1 ORDER BY created_at DESC ';
+           
+            $listData   = getTableDataListByTableName($sql);
+	}else if($role_name == 'ak'){
+			$listData   =   [];
+            // get others rlp for approval:
+            $listData1   = getRlpInfoAcknowledgeData($user_id);
+            // get own RLp:
+			
+			$sql      = 'a1.id,a1.rlp_no,a1.rlp_status,a2.rlp_info_id,a2.user_id                                         
+							FROM `rlp_info` as a1 
+							INNER JOIN  `rlp_acknowledgement` as a2 ON a1.id=a2.rlp_info_id
+							WHERE 1=1 AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY a1.created_at DESC ';
+           
+            $listData   = getTableDataListByTableName($sql);
+			
+	}else if($role_name == 'mb'){
+			$listData   =   [];
+            // get others rlp for approval:
+            $listData1   = getRlpInfoAcknowledgeData($user_id);
+            // get own RLp:
+			
+			$sql      = '* FROM `rlp_info` WHERE 1=1 AND created_by='.$user_id.' ORDER BY created_at DESC ';
+           
+            $listData   = getTableDataListByTableName($sql);
+			
+	}else if($role_name == 'ab'){
+			$listData   =   [];
+            // get others rlp for approval:
+            $listData1   = getRlpInfoAcknowledgeData($user_id);
+            // get own RLp:
+			
+			$sql      = 'a1.id as id,a1.rlp_no as rlp_no,a1.rlp_status as rlp_status,a2.rlp_info_id as rlp_info_id,a2.user_id as user_id,a1.request_date as request_date,a1.request_project as request_project,a1.created_by as created_by,a1.is_ns as is_ns                                        
+							FROM `rlp_info` as a1 
+							INNER JOIN  `rlp_acknowledgement` as a2 ON a1.id=a2.rlp_info_id
+							WHERE 1=1 AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY a1.created_at DESC ';
+           
+            $listData   = getTableDataListByTableName($sql);
+	}
+    return $listData;
+}
+
 function getRLPListData(){
     $user_id            =   $_SESSION['logged']['user_id'];
     $role       =   get_role_group_short_name();
@@ -155,14 +210,14 @@ function getRLPListData(){
             $dataType   = 'obj';
             $listData   = getTableDataByTableName($table, $order, $column, $dataType);
             break;
-        case 'member':
+        case 'mb':
             $table      = 'rlp_info WHERE is_delete = 0 AND rlp_user_id = '.$user_id;
             $order      = 'DESC';
             $column     = 'created_at';
             $dataType   = 'obj';
             $listData   = getTableDataByTableName($table, $order, $column, $dataType);
             break;
-        case 'dh':
+        case 'ab':
             $listData   =   [];
             // get others rlp for approval:
             $listData1   = getRlpInfoAcknowledgeData($user_id);

@@ -35,17 +35,11 @@ $resultUser = $conn->query($queryUser);
                     <div class="row" id="div1" style="">
                         <div class="col-xs-3">
                             <div class="form-group">
-                                <label>First Name</label>
-                                <input type="text" name="first_name" id="first_name" class="form-control" value="<?php echo $userData->first_name; ?>" required >
-                                <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" >
+                                <label>Name</label>
+                                <input type="text" name="name" id="name" class="form-control" value="<?php echo $userData->name; ?>" required >
                             </div>
                         </div>
-						<div class="col-xs-3">
-                            <div class="form-group">
-                                <label>Last Name</label>
-                                <input type="text" name="last_name" id="last_name" class="form-control" value="<?php echo $userData->last_name; ?>" required >
-                            </div>
-                        </div>
+						<input type="hidden" name="id" id="name" class="form-control" value="<?php echo $userData->id; ?>" required >
 						<div class="col-xs-3">
                             <div class="form-group">
                                 <label>Email</label>
