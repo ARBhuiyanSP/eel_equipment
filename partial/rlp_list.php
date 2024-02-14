@@ -76,7 +76,7 @@ if (isset($rlpListData) && !empty($rlpListData)) {
 							<?php } ?>
                            
                             
-                            <?php if(get_status_name($adata['rlp_status'])=='Approve' && $adata['is_ns']=='0'){ ?>
+                            <?php if(get_status_name($adata['rlp_status'])=='Approve' && $adata['is_ns']=='0' && $role_name == 'sa'){ ?>
                             <a title="Make Notesheet" class="btn btn-sm btn-info" href="rlp_notesheet.php?rlp_id=<?php echo $adata['id']; ?>">
                                 <span class="fa fa-sticky-note-o"> Notesheet</span>
                             </a>

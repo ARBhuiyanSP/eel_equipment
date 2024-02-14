@@ -400,26 +400,42 @@ function get_notesheets_list_action_data($data){
 
 /////////////////////
 if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableWorkordersList'){
+	 session_start(); 
 	
+	
+	global $conn;
 //getDataTablelogsheetList call from  footer.php var url getDataTablePatientList
     include "../connection/connect.php";
     include "../helper/utilities.php";
+
   
-    
+  
+  $warehouse_id 	=   $_SESSION['logged']['warehouse_id'];
+	$role_id		=   $_SESSION['logged']['role_id'];    
+    $role_name		=   get_role_shortcode_by_role_id($role_id);
+	
     $request    =   $_REQUEST;
     $col        =   array(
-            0   =>  'wo_no',
-            1   =>  'notesheet_no',
-            2   =>  'rlp_no',
-            3   =>  'supplier_name'
+            0   =>  'created_at',
+            1   =>  'wo_no',
+            2   =>  'notesheet_no',
+            3   =>  'rlp_no',
+            4   =>  'request_warehouse',
+            5   =>  'supplier_name'
         );  
 		//create column like table in database
         //rlp_utilities.php
-    $totalData= getDataRowByTable('workorders');
+    $totalData= getDataRowByTable('workorders_master');
     
     $totalFilter=$totalData;
+	 //Search
+	if($role_name == 'sa'){
+		$sql ="SELECT * FROM workorders_master WHERE 1=1";
+	}else{
+		$sql ="SELECT * FROM workorders_master WHERE 1=1 AND request_warehouse=$warehouse_id";
+	}
     //Search
-    $sql ="SELECT * FROM workorders WHERE 1=1 GROUP BY wo_no";
+   //$sql ="SELECT * FROM workorders_master WHERE 1=1 AND request_warehouse=$warehouse_id";
     //$sql ="SELECT equipments.name,equipments.eel_code,equipments.capacity,equipments.makeby,equipments.model, projects.project_name,equipments.present_condition FROM equipments INNER JOIN projects ON equipments.project_id=projects.id WHERE 1=1";
     if(!empty($request['search']['value'])){
         $sql.=" AND wo_no Like '%".$request['search']['value']."%' ";
@@ -430,6 +446,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableWorkord
     }
 
     $totalData=getTotalRowBySQL($sql);
+	
     //Order
     $sql.=" ORDER BY ".$col[$request['order'][0]['column']]."   ".$request['order'][0]['dir']."  LIMIT ".
         $request['start']."  ,".$request['length']."  ";
@@ -448,9 +465,11 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableWorkord
             $subdata = array();
             $subdata[] = $adata->id; //id
 			
+            $subdata[] = (isset($adata->created_at) && !empty($adata->created_at) ? human_format_date($adata->created_at) : 'No data');
             $subdata[] = (isset($adata->wo_no) && !empty($adata->wo_no) ? $adata->wo_no : 'No data');
             $subdata[] = (isset($adata->notesheet_no) && !empty($adata->notesheet_no) ? $adata->notesheet_no : 'No data');
             $subdata[] = (isset($adata->rlp_no) && !empty($adata->rlp_no) ? $adata->rlp_no : 'No data');
+            $subdata[] = (isset($adata->request_warehouse) && !empty($adata->request_warehouse) ? getWarehouseNameById($adata->request_warehouse) : 'No data');
             $subdata[] = (isset($adata->supplier_name) && !empty($adata->supplier_name) ? $adata->supplier_name : 'No data');
 
             //$subdata[] = (isset($adata->project_id) && !empty($adata->project_id) ? $adata->project_id : 'No data');
@@ -493,6 +512,18 @@ function get_workorders_list_action_data($data){
 
     return $action;
 
+}
+
+function get_role_shortcode_by_role_id($role_id){
+    global $conn;
+    $table  = "roles";
+    $sql    = "SELECT short_name FROM $table WHERE id=$role_id";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        $name   =   $result->fetch_object()->short_name;
+    }
+    return $name;
 }
 
 ///////////////////////

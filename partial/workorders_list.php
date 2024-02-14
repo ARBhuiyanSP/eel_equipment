@@ -17,9 +17,11 @@ table.list-table-custom-style tr td{
 				<tr>
                     <th>#</th>
                     <!-- <th>Requisition No</th> -->
+                    <th>Work Order Date</th>
                     <th>Work Order No</th>
                     <th>Notesheet No</th>
                     <th>RLP No</th>
+                    <th>Location / Warehouse</th>
                     <th>Supplier</th>
                     <th style="background-color: #3C8DBC;color: #fff;" width="25%">Action</th>
                 </tr>

@@ -227,6 +227,59 @@ function update_supplier_details(){
 } */
 
 // get rlp list data depends on user:
+function getNotesheetListDataW(){
+    $user_id            =   $_SESSION['logged']['user_id'];
+    $warehouse_id            =   $_SESSION['logged']['warehouse_id'];
+    $role_id            =   $_SESSION['logged']['role_id'];    
+    $role_name          =   get_role_shortcode_by_role_id($role_id);
+    if($role_name == 'sa'){
+			$listData   =   [];
+            // get others rlp for approval:
+            $listData1   = getNotesheetAcknowledgeData($user_id);
+            // get own RLp:
+			
+			$sql      = '* FROM `notesheets_master` WHERE 1=1 ORDER BY created_at DESC ';
+           
+            $listData   = getTableDataListByTableName($sql);
+	}else if($role_name == 'ak'){
+			$listData   =   [];
+            // get others rlp for approval:
+            $listData1   = getNotesheetAcknowledgeData($user_id);
+            // get own RLp:
+			
+			$sql      = 'a1.id,a1.notesheet_no,a1.notesheet_status,a2.notesheet_id,a2.user_id                                         
+							FROM `notesheets_master` as a1 
+							INNER JOIN  `notesheet_acknowledgement` as a2 ON a1.id=a2.notesheet_id
+							WHERE 1=1 AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY a1.created_at DESC ';
+           
+            $listData   = getTableDataListByTableName($sql);
+			
+	}else if($role_name == 'mb'){
+			$listData   =   [];
+            // get others rlp for approval:
+            $listData1   = getNotesheetAcknowledgeData($user_id);
+            // get own RLp:
+			
+			$sql      = '* FROM `notesheets_master` WHERE 1=1 AND request_warehouse='.$warehouse_id.' ORDER BY created_at DESC ';
+           
+            $listData   = getTableDataListByTableName($sql);
+			
+	}else if($role_name == 'ab'){
+			$listData   =   [];
+            // get others rlp for approval:
+            $listData1   = getNotesheetAcknowledgeData($user_id);
+            // get own RLp:
+			
+			$sql      = 'a1.id as id,a1.notesheet_no as notesheet_no,a1.notesheet_status as notesheet_status,a2.notesheet_id as notesheet_id,a2.user_id as user_id,a1.request_date as request_date,a1.request_project as request_project,a1.created_by as created_by,a1.is_wo as is_wo                                        
+							FROM `notesheets_master` as a1 
+							INNER JOIN  `notesheet_acknowledgement` as a2 ON a1.id=a2.notesheet_id
+							WHERE 1=1 AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY a1.created_at DESC ';
+           
+            $listData   = getTableDataListByTableName($sql);
+	}
+    return $listData;
+}
+// get rlp list data depends on user:
 function getNotesheetListData(){
     $user_id            =   $_SESSION['logged']['user_id'];
     $role       =   get_notesheet_role_group_short_name();
