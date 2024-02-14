@@ -40,22 +40,22 @@ body {
                 <div class="card-body">
                     <form id="login_form" name="login_form" method="post">
                         <div class="form-group">
-                            <label for="inputEmail">Email address</label>
-                            <input type="text" id="email" name="email" class="form-control" placeholder="Email address" autocomplete="off">
-                            <?php if (isset($_SESSION['error_message']['email_empty']) && !empty($_SESSION['error_message']['email_empty'])) { ?>
+                            <label for="inputEmail">User ID</label>
+                            <input type="text" id="office_id" name="office_id" class="form-control" placeholder="Office ID" autocomplete="off">
+                            <?php if (isset($_SESSION['error_message']['user_id_empty']) && !empty($_SESSION['error_message']['user_id_empty'])) { ?>
                                 <div class="alert alert-warning">
-                                    <strong>Warning!</strong> <?php echo $_SESSION['error_message']['email_empty']; ?>
+                                    <strong>Warning!</strong> <?php echo $_SESSION['error_message']['user_id_empty']; ?>
                                 </div>
                                 <?php
-                                unset($_SESSION['error_message']['email_empty']);
+                                unset($_SESSION['error_message']['user_id_empty']);
                             }
                             ?>
-                            <?php if (isset($_SESSION['error_message']['email_valid']) && !empty($_SESSION['error_message']['email_valid'])) { ?>
+                            <?php if (isset($_SESSION['error_message']['user_id_valid']) && !empty($_SESSION['error_message']['user_id_valid'])) { ?>
                                 <div class="alert alert-warning">
-                                    <strong>Warning!</strong> <?php echo $_SESSION['error_message']['email_valid']; ?>
+                                    <strong>Warning!</strong> <?php echo $_SESSION['error_message']['user_id_valid']; ?>
                                 </div>
                                 <?php
-                                unset($_SESSION['error_message']['email_valid']);
+                                unset($_SESSION['error_message']['user_id_valid']);
                             }
                             ?>
                         </div>

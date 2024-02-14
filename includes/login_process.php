@@ -2,15 +2,12 @@
 if (isset($_POST['login_submit']) && !empty($_POST['login_submit'])) { 
     $error_status   =   false;
     $error_string   =   [];
-    if(isset($_POST['email']) && !empty($_POST['email'])){
-        $email      =   $_POST['email'];
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $error_status                   =   true;
-            $error_string['email_valid']    =   'Invalid format and please re-enter valid email';
-        }
+    if(isset($_POST['office_id']) && !empty($_POST['office_id'])){
+        $office_id      =   $_POST['office_id'];
+        
     }else{
         $error_status                   =   true;
-        $error_string['email_empty']    =   'Email is reqiored.';
+        $error_string['user_id_empty']    =   'user id is reqiored.';
     }
     if(isset($_POST['password']) && !empty($_POST['password'])){
         $password      =   mysqli_real_escape_string($conn, $_POST['password']);
@@ -28,16 +25,14 @@ if (isset($_POST['login_submit']) && !empty($_POST['login_submit'])) {
         header("location: index.php");
         exit();
     }else{
-        $emailsql    = "SELECT * FROM users where email='$email'";
+        $emailsql    = "SELECT * FROM users where office_id='$office_id'";
         $result = $conn->query($emailsql);
         if ($result->num_rows > 0) {
-            $passsql    = "SELECT * FROM users where email='$email' AND password='$password'";
+            $passsql    = "SELECT * FROM users where office_id='$office_id' AND password='$password'";
             $presult = $conn->query($passsql);
             if ($presult->num_rows > 0) {
                 $row        	=   $presult->fetch_object();
                 $name      	=   $row->name;
-                $lname      	=   $row->last_name;
-                $lname      	=   $row->last_name;
                 $user_id    	=   $row->id;
                 $user_type		=   $row->user_type;
                 $role_id      =   $row->role_id;
@@ -89,7 +84,7 @@ mysqli_query($conn,"insert into userlog(userId,username,role_id,userIp) values('
             }
         }else{
             $error_status   =   true;
-            $_SESSION['error_message']['email_valid']    =   'Invalid email';
+            $_SESSION['error_message']['user_id_valid']    =   'Invalid User id';
             $_SESSION['error']                           =   "Login credential was not correct.";
             header("location: index.php");
             exit();

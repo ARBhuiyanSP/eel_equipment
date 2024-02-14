@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2024 at 12:01 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 7.4.33
+-- Generation Time: Feb 14, 2024 at 11:51 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.2.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -33,7 +34,7 @@ CREATE TABLE `branch` (
   `name` varchar(100) NOT NULL,
   `short_name` varchar(15) NOT NULL,
   `division_address` varchar(5000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `branch`
@@ -69,7 +70,7 @@ CREATE TABLE `buildings` (
   `package_id` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,7 @@ CREATE TABLE `chart_data_column` (
   `month` varchar(10) NOT NULL,
   `sale` int(3) NOT NULL,
   `profit` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -95,20 +96,22 @@ CREATE TABLE `clients` (
   `address` varchar(500) NOT NULL,
   `phone` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `status` tinyint(11) NOT NULL DEFAULT 1,
   `created_at` date NOT NULL DEFAULT current_timestamp(),
   `created_by` varchar(50) NOT NULL,
   `updated_at` date DEFAULT NULL,
   `updated_by` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `clients`
 --
 
-INSERT INTO `clients` (`id`, `name`, `address`, `phone`, `email`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(9, 'Tradfly International', 'Dhaka', 123456, 'tf@gmail.com', '2024-02-06', '', NULL, ''),
-(10, 'PALASH', 'MIRPUR', 1787686742, '', '2024-02-07', '', NULL, ''),
-(11, 'ABC International', 'Dhaka', 123456789, '--@---.---', '2024-02-08', '', NULL, '');
+INSERT INTO `clients` (`id`, `name`, `address`, `phone`, `email`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(12, 'Saif Powertec Ltd', 'Khawaja Tower (5th Floor), 95, Mohakhali, C/A Bir Uttam AK Khandakar Rd, Dhaka -1212', 2147483647, 'info@saifpowertec.com', 1, '2024-02-14', '', NULL, ''),
+(13, 'Bangladesh Border Gard', 'Bangladesh', 123456789, 'bb@gmail.com', 1, '2024-02-14', '', NULL, ''),
+(14, 'Bangladesh Railway', 'Bangladesh', 123456789, 'br@gmail.com', 1, '2024-02-14', '', NULL, ''),
+(15, 'Jolshiri', '---', 0, '', 1, '2024-02-14', '', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -134,16 +137,7 @@ CREATE TABLE `client_balance` (
   `created_by` varchar(30) NOT NULL,
   `updated_at` date DEFAULT NULL,
   `updated_by` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `client_balance`
---
-
-INSERT INTO `client_balance` (`id`, `ref_id`, `cb_date`, `client_id`, `project_id`, `cb_dr_amount`, `cb_cr_amount`, `cb_method`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `cb_remarks`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(84, 'RCH-CW-001', '2024-02-11', '9', '41', 500, 29500, '', '', '', '', '0000-00-00', '', '2024-02-11', '3368', NULL, ''),
-(85, 'RCH-CW-001', '2024-02-07', '9', '41', 0, 2000, '', '', '', '', '0000-00-00', '', '2024-02-11', '3368', '0000-00-00', ''),
-(86, 'EEL-MR-004', '2024-02-11', '9', '41', 1000, 0, 'cash', '', '', '', '0000-00-00', 'ok', '2024-11-02', '3368', NULL, '');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -155,7 +149,7 @@ CREATE TABLE `companies` (
   `id` int(11) NOT NULL,
   `company_name` varchar(255) NOT NULL,
   `company_address` varchar(5000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `companies`
@@ -182,7 +176,7 @@ INSERT INTO `companies` (`id`, `company_name`, `company_address`) VALUES
 CREATE TABLE `country` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `country`
@@ -212,7 +206,7 @@ CREATE TABLE `department` (
   `branch_name` varchar(350) NOT NULL COMMENT 'temprary purpose',
   `name` varchar(650) NOT NULL,
   `short_name` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `department`
@@ -243,7 +237,7 @@ INSERT INTO `department` (`id`, `company_id`, `branch_id`, `branch_name`, `name`
 CREATE TABLE `designations` (
   `id` int(11) NOT NULL,
   `name` varchar(650) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `designations`
@@ -523,26 +517,26 @@ CREATE TABLE `equipments` (
   `status` varchar(100) NOT NULL,
   `created_at` varchar(100) NOT NULL,
   `updated_at` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `equipments`
 --
 
 INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_date`, `name`, `eel_code`, `origin`, `capacity`, `makeby`, `model`, `year_manufacture`, `inventory_sl_no`, `engine_model`, `engine_sl_no`, `present_location`, `present_location_type`, `present_condition`, `price`, `qr_image`, `assign_status`, `inspaction_date`, `incharge`, `superintend`, `coo_admin`, `remarks`, `status`, `created_at`, `updated_at`) VALUES
-(1162, '12', 'Own', '2023-12-20', 'Air Compressor', 'AC-01', 'CHINA', '7 bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021439', '48T-C80', '78941393', '41', 'Rental', 'Running', 0, ' ', 'assigned', '2024-02-07', ' ', ' ', ' ', 'ok', 'Rented', '2023-12-20 12:51:05', '2024-02-06 07:01:31'),
-(1163, '3', 'Own', '2023-12-20', 'Air Compressor', 'AC-02', 'CHINA', '7 Bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021440', '4BT.9-C80', '78941394', '41', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'ok', 'Rented', '2023-12-20 12:51:50', '2024-02-06 07:11:32'),
-(1164, '12', 'Own', '0000-00-00', 'Air Compressor', 'AC-03', 'China', ' ', 'LOCAL', 'YL100L12', '2020', ' ', ' ', ' ', '42', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2022-12-14', '2022-12-14 05:38:01'),
-(1165, '3', 'Own', '0000-00-00', 'Air Compressor', 'AC-04', 'China', ' ', 'LOCAL', ' ', '2020', ' ', ' ', ' ', '42', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2022-12-14', '2022-12-14 05:38:01'),
-(1166, '5', 'Own', '0000-00-00', 'Air Compressor', 'AC-05', 'China', ' ', 'LOCAL', ' ', '2021', ' ', ' ', ' ', '41', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2022-12-14', '2022-12-14 05:38:01'),
+(1162, '12', 'Own', '2023-12-20', 'Air Compressor', 'AC-01', 'CHINA', '7 bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021439', '48T-C80', '78941393', '12', 'Own', 'Running', 0, ' ', 'assigned', '2024-02-05', ' ', ' ', ' ', 'ok', 'Rented', '2023-12-20 12:51:05', '2024-02-06 07:01:31'),
+(1163, '3', 'Own', '2023-12-20', 'Air Compressor', 'AC-02', 'CHINA', '7 Bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021440', '4BT.9-C80', '78941394', '42', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'ok', 'Rented', '2023-12-20 12:51:50', '2024-02-06 07:11:32'),
+(1164, '12', 'Own', '0000-00-00', 'Air Compressor', 'AC-03', 'China', ' ', 'LOCAL', 'YL100L12', '2020', ' ', ' ', ' ', '43', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
+(1165, '3', 'Own', '0000-00-00', 'Air Compressor', 'AC-04', 'China', ' ', 'LOCAL', ' ', '2020', ' ', ' ', ' ', '43', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', 'Rented', '2022-12-14', '2022-12-14 05:38:01'),
+(1166, '5', 'Own', '0000-00-00', 'Air Compressor', 'AC-05', 'China', ' ', 'LOCAL', ' ', '2021', ' ', ' ', ' ', '42', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2022-12-14', '2022-12-14 05:38:01'),
 (1167, '11', 'Own', '0000-00-00', 'Air Compressor', 'AC-06', 'China', ' ', 'LOCAL', ' ', '2021', ' ', ' ', ' ', '11', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
-(1168, '3', 'Own', '2023-12-20', 'Amphibious Hy. Excavator', 'Ex. Am-01', 'MALAYSIA', '0.33 m3 ,9M', 'Ultratex', 'TAKEUCHI TB285CH', '2019', '1058003818', 'ATNV98-APTB', 'T1695', '3', 'Own', 'Breakdown', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'Maintenance, chain Drive ,Drive motor needed.', ' ', '2023-12-20 12:32:56', '2022-12-14 05:38:01'),
+(1168, '3', 'Own', '2023-12-20', 'Amphibious Hy. Excavator', 'Ex. Am-01', 'MALAYSIA', '0.33 m3 ,9M', 'Ultratex', 'TAKEUCHI TB285CH', '2019', '1058003818', 'ATNV98-APTB', 'T1695', '42', 'Own', 'Breakdown', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'Maintenance, chain Drive ,Drive motor needed.', '', '2023-12-20 12:32:56', '2022-12-14 05:38:01'),
 (1169, '23', 'Own', '2023-11-29', 'Amphibious Hy. Excavator', 'Ex. Am-02', 'MALAYSIA', '0.33 m3 ,9M', 'Ultratex', 'TAKEUCHI TB285CH', '2019', ' ', 'ATNV98-APTB', ' ', '3', 'Own', 'Idle', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'Chottogram city', ' ', '2023-11-29 02:50:24', '2022-12-14 05:38:01'),
 (1170, '15', 'Own', '0000-00-00', 'Asphalt Plant', 'ASP-01', 'China', '120t/h', 'TTM', 'LB1500', '2019', ' ', ' ', ' ', '15', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
 (1171, '16', 'Own', '0000-00-00', 'Backhoe Loader', 'BL-01', 'Indian', '0.25m3', 'CASE', '770EXMAGNUM', '2018', 'NKJ770EMJJKH01332', ' ', '8045.45.735-249601', '16', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
 (1172, '16', 'Own', '2023-11-29', 'Backhoe Loader', 'BL-02', 'INDIA', '0.25m3', 'CASE', '770EXMAGNUM', '2018', 'NKJ770EMJJKH01333', ' ', '8045.45.735-248258', '16', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 03:16:43', '2022-12-14 05:38:01'),
-(1173, '7', 'Own', '0000-00-00', 'Bull Dozer', 'BD-01', 'USA', '20000 KG', 'POWER PLUS', 'D65EX-15', '2018', 'CCND65EX118101218', 'SC11CB184G2B1REACAT3306B(L)', 'C9186000891', '19', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2022-12-14', '2022-12-14 05:38:01'),
-(1174, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-02', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160-3', '2018', '02WP9SL0973012', 'WD109178', 'N/A', '12', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2023-12-20 01:30:55', '2022-12-14 05:38:01'),
+(1173, '7', 'Own', '0000-00-00', 'Bull Dozer', 'BD-01', 'USA', '20000 KG', 'POWER PLUS', 'D65EX-15', '2018', 'CCND65EX118101218', 'SC11CB184G2B1REACAT3306B(L)', 'C9186000891', '1', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
+(1174, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-02', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160-3', '2018', '02WP9SL0973012', 'WD109178', 'N/A', '1', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2023-12-20 01:30:55', '2022-12-14 05:38:01'),
 (1175, '11', 'Own', '2023-12-28', 'Bull Dozer', 'BD-03', 'CHINA', '4.50M3', 'LIUGONG', 'CLGB160C', '2019', 'LGCB160CPKC006577', 'WD10G178E25', '1219D002221', '3', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2023-12-28 12:27:10', '2022-12-14 05:38:01'),
 (1176, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-04', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041CL0003198', 'WD10G178E25', '1220E003771', '27', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'CUTTING EDGE NEED', ' ', '2023-12-20 01:39:14', '2022-12-14 05:38:01'),
 (1177, '5', 'Own', '0000-00-00', 'Bull Dozer', 'BD-05', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041EL0003197', 'WD10G178E25', '1220G004116', '1', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2022-12-14', '2022-12-14 05:38:01'),
@@ -553,7 +547,7 @@ INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_d
 (1182, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-10', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041TL0003204', 'WD10G178E25', '1220G004560', '28', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'Maresha', ' ', '2023-12-20 01:39:43', '2022-12-14 05:38:01'),
 (1183, '1', 'Own', '2023-12-28', 'Bull Dozer', 'BD-11', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041AL0003180', 'WD10G178E25', '1220D003268', '34', 'Own', 'Running', 0, ' ', 'assigned', '2023-11-01', ' ', ' ', ' ', 'ENGINE OVERHAULING NEED', 'breakdown', '2023-12-28 12:56:23', '2022-12-14 05:38:01'),
 (1184, '7', 'Own', '0000-00-00', 'Bull Dozer', 'BD-12', 'China', '4.50M3', 'ZOOMLION', 'ZD160S-3', '2020', 'ZMTZD041CL0003203', 'WD10G178E25', '1220G004731', '1', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
-(1185, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-13', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160-3', '2020', 'ZMTZD040KL0003407', 'WD10G178E25', '1220D003290', '29', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'Ramor', ' ', '2023-12-20 01:40:27', '2022-12-14 05:38:01'),
+(1185, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-13', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160-3', '2020', 'ZMTZD040KL0003407', 'WD10G178E25', '1220D003290', '25', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'Ramor', '', '2023-12-20 01:40:27', '2022-12-14 05:38:01'),
 (1186, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-14', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160-3', '2020', 'ZMTZD040CL0003409', 'WD10G178E25', '1220D003280', '27', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'NEED  HYDRAULIC COOLER,TRACK LINK,BUSH PIN', ' ', '2023-12-20 01:41:00', '2022-12-14 05:38:01'),
 (1187, '23', 'Own', '2023-12-20', 'Bull Dozer', 'BD-15', 'CHINA', '4.50M3', 'ZOOMLION', 'ZD160-3', '2020', 'ZMTZD040JL0003408', 'WD10G178E25', '1220D003287', '27', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'NEED DRIVE SEAL LINKAGE', ' ', '2023-12-20 01:41:33', '2022-12-14 05:38:01'),
 (1188, '12', 'Own', '2023-12-20', 'Bitumin Distributor', 'BT. D -01', 'CHINA', '6 Ton', 'SINO', 'H3W47', '2019', 'LEZADIEC2KF006582', 'ZZ1168G47150', '2019A010', '3', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:13:03', '2022-12-14 05:38:01'),
@@ -571,7 +565,7 @@ INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_d
 (1200, '11', 'Own', '2023-12-28', 'Dump Truck (Ten Wheel)', 'DT-02', 'CHINA', '16m3', 'SINO', 'ZZ3168G3615', '2018', 'LZZ5ELND6JD476462', '(SINO)WD615.69', 'E 181107029967', '37', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:03:11', '2022-12-14 05:38:01'),
 (1201, '15', 'Own', '0000-00-00', 'Dump Truck (Six wheel)', 'DT-03', 'China', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC5JF006912', 'YC4E160-34', 'E3714JY0007', '15', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:01'),
 (1202, '3', 'Own', '2023-11-29', 'Dump Truck (Six wheel)', 'DT-04', 'CHINA', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC5JF006911', 'YC4E160-33', 'E3714JY0006', '3', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'Tyre needed', ' ', '2023-11-29 12:42:45', '2022-12-14 05:38:01'),
-(1203, '16', 'Own', '0000-00-00', 'Dump Truck (Six Wheel)', 'DT-05', 'China', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC5JF006913', 'YC4E160-33', 'E3714JY0008', '16', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:38:38'),
+(1203, '16', 'Own', '0000-00-00', 'Dump Truck (Six Wheel)', 'DT-05', 'China', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC5JF006913', 'YC4E160-33', 'E3714JY0008', '41', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', '', '2022-12-14', '2022-12-14 05:38:38'),
 (1204, '3', 'Own', '2023-12-20', 'Dump Truck (Six wheel)', 'DT-06', 'CHINA', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC5JF006915', 'YC4E160-37', 'E3714JY0009', '3', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'Tyre needed', ' ', '2023-12-20 12:29:06', '2022-12-14 05:38:38'),
 (1205, '11', 'Own', '2023-11-29', 'Dump Truck (Six wheel)', 'DT-07', 'CHINA', '10m3', 'SINO', 'ZZ257N33647', '2018', 'LEZAD1EC6JF006910', '(SINO) YC4E 160-33', 'E 3714JY0005', '11', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 12:45:26', '2022-12-14 05:38:38'),
 (1206, '3', 'Own', '2023-12-20', 'Dump Truck (Six Wheel)', 'DT-08', 'CHINA', '10m3', 'SINO', 'ZZ3168G3615', '2018', 'LEZAD1EC6JF006910', 'YC4E160-33', 'E3714JY0005', '3', 'Own', 'Idle', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'Tyre needed', ' ', '2023-12-20 12:29:50', '2022-12-14 05:38:38'),
@@ -809,7 +803,7 @@ INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_d
 (1437, '3', 'Own', '2023-12-28', 'Double cabin pick-up', 'DHAKA METRO THA-13 6397', '249', 'not known', 'MAHINDRA', 'not known', 'not known', '', '', '', '3', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 11:42:53', ''),
 (1438, '37', 'Own', '2023-12-28', 'Crawler crane (hydraulic hammer driver)', 'not set yet', '244', 'not known', 'LIEBHERR', 'HS 895 HD', '2021', '', '', '', '37', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 11:57:22', ''),
 (1439, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6470', '241', '2930 KG', 'Dyna', 'N/A', '2014', '', '', '', '1', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:37:36', ''),
-(1440, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6668', '241', '2915 kg', 'Dyna', 'NA', '2011', '', '', '', '1', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:39:14', ''),
+(1440, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6668', '241', '2915 kg', 'Dyna', 'NA', '2011', '', '', '', '42', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:39:14', ''),
 (1441, '37', 'Own', '2023-12-28', 'Double cabin pickup', 'not known', '241', 'NA', 'HILAX', 'NA', 'NA', '', '', '', '37', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:40:44', ''),
 (1442, '37', 'Own', '2023-12-28', 'Double cabin pick-up', '13-6296', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '42', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', '', '', '2023-12-28 12:42:04', ''),
 (1443, '37', 'Own', '2023-12-28', 'Double cabin pick up', '13-9034', '249', 'NA', 'MAHINDRA', 'NA', 'NA', '', '', '', '42', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', 'Steering box motor problem', '', '2023-12-28 12:43:35', ''),
@@ -828,26 +822,26 @@ CREATE TABLE `equipment_assign` (
   `assign_date` date NOT NULL,
   `refund_date` varchar(100) NOT NULL,
   `remarks` varchar(5000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `equipment_assign`
 --
 
 INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `refund_date`, `remarks`) VALUES
-(886, 'AC-01', '12', '2023-12-20', '2024-02-11 09:44:40', ''),
-(887, 'AC-02', '3', '2023-12-20', '2024-02-11 09:44:40', ''),
-(888, 'AC-03', '12', '0000-00-00', '2024-02-11 06:40:57', ''),
-(889, 'AC-04', '3', '0000-00-00', '2024-02-11 07:18:22', ''),
-(890, 'AC-05', '5', '0000-00-00', '2024-02-11 08:28:59', ''),
+(886, 'AC-01', '12', '2023-12-20', '', ''),
+(887, 'AC-02', '3', '2023-12-20', '', ''),
+(888, 'AC-03', '12', '0000-00-00', '', ''),
+(889, 'AC-04', '3', '0000-00-00', '', ''),
+(890, 'AC-05', '5', '0000-00-00', '', ''),
 (891, 'AC-06', '11', '0000-00-00', '', ''),
 (892, 'Ex. Am-01', '3', '2023-12-20', '', ''),
 (893, 'Ex. Am-02', '3', '2023-11-29', '', ''),
 (894, 'ASP-01', '15', '0000-00-00', '', ''),
 (895, 'BL-01', '16', '0000-00-00', '', ''),
 (896, 'BL-02', '16', '2023-11-29', '', ''),
-(897, 'BD-01', '1', '0000-00-00', '2024-02-08 05:12:18', ''),
-(898, 'BD-02', '27', '2023-12-20', '2024-02-08 05:12:18', ''),
+(897, 'BD-01', '1', '0000-00-00', '', ''),
+(898, 'BD-02', '27', '2023-12-20', '', ''),
 (899, 'BD-03', '37', '2023-12-28', '', ''),
 (900, 'BD-04', '27', '2023-12-20', '', ''),
 (901, 'BD-05', '5', '0000-00-00', '', ''),
@@ -1115,11 +1109,9 @@ INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `
 (1163, '13-6470', '37', '2023-12-28', '', ''),
 (1164, '13-6668', '37', '2023-12-28', '', ''),
 (1165, 'not known', '37', '2023-12-28', '', ''),
-(1166, '13-6296', '37', '2023-12-28', '2024-02-11 07:18:22', ''),
+(1166, '13-6296', '37', '2023-12-28', '', ''),
 (1167, '13-9034', '37', '2023-12-28', '', ''),
-(1168, 'B-01', '37', '2023-12-28', '', ''),
-(1477, 'AC-01', '41', '2024-02-11', '', ''),
-(1478, 'AC-02', '41', '2024-02-11', '', '');
+(1168, 'B-01', '37', '2023-12-28', '', '');
 
 -- --------------------------------------------------------
 
@@ -1138,14 +1130,7 @@ CREATE TABLE `equips_rlp_acknowledgement` (
   `is_visible` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=not visible; 1= visible',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `equips_rlp_acknowledgement`
---
-
-INSERT INTO `equips_rlp_acknowledgement` (`id`, `equips_rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(1408, 1, 3359, 1, 0, '2024-02-08 10:13:48', NULL, 0, 3368, NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1158,7 +1143,7 @@ CREATE TABLE `equips_rlp_delete_history` (
   `equips_rlp_info_id` int(11) NOT NULL,
   `deleted_by` int(11) NOT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1182,14 +1167,7 @@ CREATE TABLE `equips_rlp_details` (
   `supplier` text DEFAULT NULL,
   `details_remarks` text DEFAULT NULL,
   `is_ns` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `equips_rlp_details`
---
-
-INSERT INTO `equips_rlp_details` (`id`, `equips_rlp_info_id`, `item_des`, `material_id`, `equipments_name`, `part_no`, `purpose`, `quantity`, `unit`, `unit_price`, `amount`, `estimated_price`, `supplier`, `details_remarks`, `is_ns`) VALUES
-(1, 1, NULL, '', 'Air Compressor', '', 'CWLP Project', '10', '', 0, 0, NULL, NULL, NULL, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1222,14 +1200,7 @@ CREATE TABLE `equips_rlp_info` (
   `updated_by` int(11) DEFAULT NULL,
   `updated_at` datetime NOT NULL,
   `is_delete` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `equips_rlp_info`
---
-
-INSERT INTO `equips_rlp_info` (`id`, `equips_rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_warehouse`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `totalamount`, `rlp_status`, `is_viewd`, `is_ns`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
-(1, 'E-RLP-ENG-HEA-2024-02-001', 3368, 'admin@saifpowertec.com', 1, '2024-02-08 12:00:00', 1, 11, 21, 3, 'admin@saifpowertec.com', NULL, '', NULL, 'Urgent need', 0, 5, 0, 0, 3368, '2024-02-08 10:13:48', NULL, '0000-00-00 00:00:00', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1243,7 +1214,7 @@ CREATE TABLE `equips_rlp_remarks_history` (
   `user_id` int(11) NOT NULL,
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1256,10 +1227,10 @@ CREATE TABLE `history` (
   `type_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `entity_id` int(10) UNSIGNED DEFAULT NULL,
-  `icon` varchar(191) DEFAULT NULL,
-  `class` varchar(191) DEFAULT NULL,
-  `text` varchar(191) NOT NULL,
-  `assets` text DEFAULT NULL,
+  `icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `class` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `assets` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1272,7 +1243,7 @@ CREATE TABLE `history` (
 
 CREATE TABLE `history_types` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1289,7 +1260,16 @@ CREATE TABLE `inspaction` (
   `ins_date` varchar(100) NOT NULL,
   `status` varchar(100) NOT NULL,
   `remarks` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `inspaction`
+--
+
+INSERT INTO `inspaction` (`id`, `eel_code`, `ins_date`, `status`, `remarks`) VALUES
+(3, 'AC-01', '2024-02-01', 'ok', 'All OK'),
+(4, 'AC-01', '2024-02-02', 'breakdown', 'Filter Problem'),
+(5, 'AC-01', '2024-02-05', 'ok', 'Okay');
 
 -- --------------------------------------------------------
 
@@ -1301,7 +1281,7 @@ CREATE TABLE `inv_designation` (
   `id` int(11) NOT NULL,
   `des_id` varchar(100) NOT NULL,
   `designation` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1318,7 +1298,7 @@ CREATE TABLE `inv_employee` (
   `department` varchar(100) NOT NULL,
   `designation` varchar(100) NOT NULL,
   `group` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `inv_employee`
@@ -7268,9 +7248,9 @@ INSERT INTO `inv_employee` (`id`, `employeeid`, `name`, `company`, `division`, `
 
 CREATE TABLE `inv_ga_listunit` (
   `id` int(11) NOT NULL,
-  `lunit_id` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `lunit_name` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `lunit_id` varchar(10) CHARACTER SET utf8 NOT NULL,
+  `lunit_name` varchar(25) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -7290,7 +7270,7 @@ CREATE TABLE `inv_invoice` (
   `debit` varchar(100) NOT NULL,
   `credit` varchar(100) NOT NULL,
   `status` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -7307,8 +7287,8 @@ CREATE TABLE `inv_issue` (
   `use_in` varchar(30) NOT NULL,
   `no_of_material` int(11) NOT NULL,
   `total_amount` float NOT NULL,
-  `remarks` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `project_id` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `remarks` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `project_id` varchar(25) CHARACTER SET utf8 NOT NULL,
   `warehouse_id` varchar(100) NOT NULL,
   `issued_by` varchar(100) NOT NULL,
   `approval_status` tinyint(1) NOT NULL DEFAULT 0,
@@ -7316,7 +7296,7 @@ CREATE TABLE `inv_issue` (
   `approved_at` datetime DEFAULT NULL,
   `approval_remarks` longtext NOT NULL,
   `issue_image` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -7326,9 +7306,9 @@ CREATE TABLE `inv_issue` (
 
 CREATE TABLE `inv_issuedetail` (
   `id` int(11) NOT NULL,
-  `issue_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `issue_id` varchar(15) CHARACTER SET utf8 NOT NULL,
   `issue_date` date NOT NULL,
-  `material_id` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `material_id` varchar(30) CHARACTER SET utf8 NOT NULL,
   `material_name` varchar(100) NOT NULL,
   `unit` varchar(100) NOT NULL,
   `issue_qty` float NOT NULL,
@@ -7341,7 +7321,7 @@ CREATE TABLE `inv_issuedetail` (
   `building_id` varchar(100) NOT NULL,
   `approval_status` tinyint(1) NOT NULL DEFAULT 0,
   `is_manual_code_edit` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'for checking manual code update'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -7352,7 +7332,7 @@ CREATE TABLE `inv_issuedetail` (
 CREATE TABLE `inv_item_unit` (
   `id` int(11) NOT NULL,
   `unit_name` varchar(400) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `inv_item_unit`
@@ -7380,11 +7360,11 @@ INSERT INTO `inv_item_unit` (`id`, `unit_name`) VALUES
 CREATE TABLE `inv_material` (
   `id` int(11) NOT NULL,
   `material_id_code` varchar(100) DEFAULT NULL,
-  `material_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `material_sub_id` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `material_id` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
+  `material_sub_id` varchar(25) CHARACTER SET utf8 DEFAULT NULL,
   `material_level3_id` int(11) DEFAULT NULL,
   `material_level4_id` int(11) DEFAULT NULL,
-  `material_description` varchar(75) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `material_description` varchar(75) CHARACTER SET utf8 DEFAULT NULL,
   `spec` varchar(100) NOT NULL,
   `location` varchar(30) NOT NULL,
   `type` varchar(100) NOT NULL,
@@ -7392,7 +7372,7 @@ CREATE TABLE `inv_material` (
   `avg_con_sump` int(11) DEFAULT NULL,
   `lead_time` int(11) DEFAULT NULL,
   `re_order_level` int(11) NOT NULL,
-  `qty_unit` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `qty_unit` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
   `op_balance_qty` int(11) NOT NULL,
   `op_balance_val` int(11) NOT NULL,
   `chk_print` int(11) DEFAULT NULL,
@@ -7404,7 +7384,7 @@ CREATE TABLE `inv_material` (
   `part_no` varchar(100) NOT NULL,
   `current_balance` float NOT NULL,
   `is_manual_code_edit` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'for checking manual code update '
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `inv_material`
@@ -7818,8 +7798,8 @@ INSERT INTO `inv_material` (`id`, `material_id_code`, `material_id`, `material_s
 
 CREATE TABLE `inv_materialbalance` (
   `id` int(11) NOT NULL,
-  `mb_ref_id` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `mb_materialid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `mb_ref_id` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `mb_materialid` varchar(25) CHARACTER SET utf8 NOT NULL,
   `material_name` int(11) NOT NULL,
   `material_category` int(11) NOT NULL,
   `eel_code` varchar(50) NOT NULL,
@@ -7829,11 +7809,11 @@ CREATE TABLE `inv_materialbalance` (
   `mbout_qty` float NOT NULL,
   `mbout_val` float NOT NULL,
   `mbprice` float NOT NULL,
-  `mbtype` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `mbtype` varchar(30) CHARACTER SET utf8 NOT NULL,
   `mbserial` float NOT NULL,
-  `mbserial_id` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `mbunit_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `jvno` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `mbserial_id` varchar(10) CHARACTER SET utf8 NOT NULL,
+  `mbunit_id` varchar(15) CHARACTER SET utf8 NOT NULL,
+  `jvno` varchar(25) CHARACTER SET utf8 NOT NULL,
   `part_no` varchar(200) DEFAULT NULL,
   `project_id` varchar(100) NOT NULL,
   `warehouse_id` varchar(100) NOT NULL,
@@ -7841,7 +7821,7 @@ CREATE TABLE `inv_materialbalance` (
   `building_id` varchar(100) NOT NULL,
   `approval_status` tinyint(1) NOT NULL DEFAULT 0,
   `is_manual_code_edit` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'for checking manual code update	'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -7851,10 +7831,10 @@ CREATE TABLE `inv_materialbalance` (
 
 CREATE TABLE `inv_materialcategory` (
   `id` int(11) NOT NULL,
-  `material_sub_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `category_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `material_sub_description` varchar(75) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `material_sub_id` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
+  `category_id` varchar(15) CHARACTER SET utf8 NOT NULL,
+  `material_sub_description` varchar(75) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -7864,16 +7844,16 @@ CREATE TABLE `inv_materialcategory` (
 
 CREATE TABLE `inv_materialcategorysub` (
   `id` int(11) NOT NULL,
-  `category_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `category_id` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
   `parent_id` int(11) NOT NULL,
   `_order` float NOT NULL,
-  `category_description` varchar(75) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `stock_acct_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `category_description` varchar(75) CHARACTER SET utf8 DEFAULT NULL,
+  `stock_acct_id` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
   `chk_sbalance` int(11) DEFAULT NULL,
-  `consumption_ac` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `consumption_ac` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
   `same_level` tinyint(4) NOT NULL,
   `has_child` tinyint(4) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `inv_materialcategorysub`
@@ -7899,7 +7879,7 @@ CREATE TABLE `inv_material_level3` (
   `category_id` varchar(15) NOT NULL,
   `category_sub_id` varchar(15) NOT NULL,
   `material_level3_description` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -7914,7 +7894,7 @@ CREATE TABLE `inv_material_level4` (
   `category_sub_id` varchar(15) NOT NULL,
   `level3_id` varchar(15) NOT NULL,
   `material_level4_description` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -7932,7 +7912,7 @@ CREATE TABLE `inv_material_partno_detail` (
   `updated_by` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `inv_material_partno_detail`
@@ -8428,7 +8408,7 @@ CREATE TABLE `inv_product_price` (
   `cerated_by` varchar(15) NOT NULL,
   `updated_at` date NOT NULL,
   `updated_by` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -8438,24 +8418,24 @@ CREATE TABLE `inv_product_price` (
 
 CREATE TABLE `inv_receive` (
   `id` int(11) NOT NULL,
-  `mrr_no` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `mrr_no` varchar(25) CHARACTER SET utf8 NOT NULL,
   `mrr_date` date DEFAULT NULL,
-  `purchase_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `receive_acct_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `supplier_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `purchase_id` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `receive_acct_id` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
+  `supplier_id` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
   `postedtogl` int(11) DEFAULT NULL,
   `vat_challan_no` varchar(100) NOT NULL,
-  `remarks` varchar(180) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `receive_type` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `remarks` varchar(180) CHARACTER SET utf8 DEFAULT NULL,
+  `receive_type` varchar(25) CHARACTER SET utf8 DEFAULT NULL,
   `project_id` varchar(100) NOT NULL,
   `warehouse_id` varchar(100) DEFAULT NULL,
-  `receive_unit_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `receive_unit_id` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
   `chk_year_end` int(11) DEFAULT NULL,
   `receive_total` float DEFAULT NULL,
   `no_of_material` float DEFAULT NULL,
   `challanno` varchar(500) DEFAULT NULL,
   `challan_date` date NOT NULL,
-  `jv_no` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `jv_no` varchar(25) CHARACTER SET utf8 DEFAULT NULL,
   `part_no` varchar(200) DEFAULT NULL,
   `requisitionno` varchar(500) DEFAULT NULL,
   `requisition_date` datetime DEFAULT NULL,
@@ -8465,7 +8445,7 @@ CREATE TABLE `inv_receive` (
   `approved_at` datetime DEFAULT NULL,
   `approval_remarks` longtext NOT NULL,
   `mrr_image` varchar(10000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -8475,8 +8455,8 @@ CREATE TABLE `inv_receive` (
 
 CREATE TABLE `inv_receivedetail` (
   `id` int(11) NOT NULL,
-  `mrr_no` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `material_id` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `mrr_no` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `material_id` varchar(25) CHARACTER SET utf8 NOT NULL,
   `material_name` varchar(100) NOT NULL,
   `material_category` int(11) NOT NULL,
   `unit_id` int(11) DEFAULT NULL,
@@ -8484,13 +8464,13 @@ CREATE TABLE `inv_receivedetail` (
   `unit_price` float NOT NULL,
   `sl_no` int(11) NOT NULL,
   `total_receive` float NOT NULL,
-  `rd_serial_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `rd_serial_id` varchar(20) CHARACTER SET utf8 NOT NULL,
   `part_no` varchar(200) DEFAULT NULL,
   `project_id` varchar(100) NOT NULL,
   `warehouse_id` varchar(1000) NOT NULL,
   `approval_status` tinyint(1) NOT NULL DEFAULT 0,
   `is_manual_code_edit` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'for checking manual code update'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -8502,13 +8482,13 @@ CREATE TABLE `inv_return` (
   `id` int(11) NOT NULL,
   `return_id` varchar(25) NOT NULL,
   `return_date` date NOT NULL,
-  `remarks` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `project_id` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `remarks` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `project_id` varchar(25) CHARACTER SET utf8 NOT NULL,
   `warehouse_id` varchar(100) NOT NULL,
   `package_id` varchar(100) NOT NULL,
   `building_id` varchar(100) NOT NULL,
   `approval_status` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -8518,9 +8498,9 @@ CREATE TABLE `inv_return` (
 
 CREATE TABLE `inv_returndetail` (
   `id` int(11) NOT NULL,
-  `return_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `return_id` varchar(15) CHARACTER SET utf8 NOT NULL,
   `return_date` date NOT NULL,
-  `material_id` varchar(9) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `material_id` varchar(9) CHARACTER SET utf8 NOT NULL,
   `material_name` varchar(100) NOT NULL,
   `unit` varchar(100) NOT NULL,
   `return_qty` float NOT NULL,
@@ -8528,7 +8508,7 @@ CREATE TABLE `inv_returndetail` (
   `part_no` varchar(200) NOT NULL,
   `project_id` varchar(100) NOT NULL,
   `warehouse_id` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -8542,7 +8522,7 @@ CREATE TABLE `inv_serviceinvoice` (
   `job_card_no` varchar(100) NOT NULL,
   `service_name` varchar(2000) NOT NULL,
   `amount` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8552,19 +8532,19 @@ CREATE TABLE `inv_serviceinvoice` (
 
 CREATE TABLE `inv_supplier` (
   `id` int(11) NOT NULL,
-  `supplier_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `supplier_company` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `supplier_address` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `supplier_city` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `supplier_country` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `contact_person` varchar(75) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `sposition` varchar(75) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `supplier_phone` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `supplier_id` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `supplier_company` varchar(120) CHARACTER SET utf8 NOT NULL,
+  `supplier_address` varchar(150) CHARACTER SET utf8 NOT NULL,
+  `supplier_city` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `supplier_country` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `contact_person` varchar(75) CHARACTER SET utf8 NOT NULL,
+  `sposition` varchar(75) CHARACTER SET utf8 NOT NULL,
+  `supplier_phone` varchar(18) CHARACTER SET utf8 NOT NULL,
   `supplier_op_balance` float NOT NULL,
   `supplier_type` varchar(100) NOT NULL,
   `material_type` varchar(100) NOT NULL,
-  `cc` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `cc` varchar(20) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -8574,23 +8554,16 @@ CREATE TABLE `inv_supplier` (
 
 CREATE TABLE `inv_supplierbalance` (
   `id` int(11) NOT NULL,
-  `sb_ref_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sb_ref_id` varchar(15) CHARACTER SET utf8 NOT NULL,
   `warehouse_id` varchar(100) NOT NULL,
   `sb_date` date NOT NULL,
-  `sb_supplier_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sb_supplier_id` varchar(15) CHARACTER SET utf8 NOT NULL,
   `sb_dr_amount` float NOT NULL,
   `sb_cr_amount` float NOT NULL,
-  `sb_remark` varchar(175) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `sb_partac_id` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sb_remark` varchar(175) CHARACTER SET utf8 NOT NULL,
+  `sb_partac_id` varchar(25) CHARACTER SET utf8 NOT NULL,
   `approval_status` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `inv_supplierbalance`
---
-
-INSERT INTO `inv_supplierbalance` (`id`, `sb_ref_id`, `warehouse_id`, `sb_date`, `sb_supplier_id`, `sb_dr_amount`, `sb_cr_amount`, `sb_remark`, `sb_partac_id`, `approval_status`) VALUES
-(26, 'OP', '', '2024-02-08', 'SID-003', 0, 0, 'Opening balance', 'OP', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -8613,7 +8586,7 @@ CREATE TABLE `inv_technicianinfo` (
   `emg_rel` varchar(100) NOT NULL,
   `emg_tel` varchar(100) NOT NULL,
   `emg_mob` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8635,7 +8608,7 @@ CREATE TABLE `inv_tranferdetail` (
   `outwarehouse` varchar(100) NOT NULL,
   `inproject` varchar(20) NOT NULL,
   `outproject` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8653,7 +8626,7 @@ CREATE TABLE `inv_tranferdetail_temp` (
   `type` varchar(100) NOT NULL,
   `inwarehouse` varchar(100) NOT NULL,
   `outwarehouse` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8677,7 +8650,7 @@ CREATE TABLE `inv_transfermaster` (
   `created_by` varchar(50) NOT NULL,
   `updated_at` date NOT NULL,
   `updated_by` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8692,7 +8665,7 @@ CREATE TABLE `inv_transfermaster_temp` (
   `from_warehouse` varchar(100) NOT NULL,
   `to_warehouse` varchar(100) NOT NULL,
   `remarks` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8704,7 +8677,7 @@ CREATE TABLE `inv_voucher` (
   `id` int(11) NOT NULL,
   `voucher_id` varchar(100) NOT NULL,
   `voucher_date` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8719,7 +8692,7 @@ CREATE TABLE `inv_voucherdetails` (
   `voucher_type` varchar(100) NOT NULL,
   `voucher_details` varchar(5000) NOT NULL,
   `amount` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8731,7 +8704,7 @@ CREATE TABLE `inv_voucher_cat` (
   `id` int(11) NOT NULL,
   `voucher_id` varchar(100) NOT NULL,
   `voucher_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8742,7 +8715,7 @@ CREATE TABLE `inv_voucher_cat` (
 CREATE TABLE `inv_warehosueinfo` (
   `id` int(11) NOT NULL,
   `warehouse_id` varchar(100) NOT NULL,
-  `name` varchar(75) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `name` varchar(75) CHARACTER SET utf8 NOT NULL,
   `short_name` varchar(100) NOT NULL,
   `project_id` varchar(100) NOT NULL,
   `address` varchar(1000) NOT NULL,
@@ -8751,7 +8724,7 @@ CREATE TABLE `inv_warehosueinfo` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `inv_warehosueinfo`
@@ -8810,7 +8783,7 @@ CREATE TABLE `items` (
   `created_at` int(11) DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -8826,7 +8799,7 @@ CREATE TABLE `item_details` (
   `item_code` varchar(400) NOT NULL,
   `description` text NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8854,7 +8827,7 @@ CREATE TABLE `maintenance` (
   `updated_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_by` varchar(100) NOT NULL,
   `updated_by` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8878,7 +8851,7 @@ CREATE TABLE `maintenance_cost` (
   `created_by` varchar(20) NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_by` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8897,7 +8870,7 @@ CREATE TABLE `maintenance_details` (
   `part_no` varchar(50) NOT NULL,
   `project_id` int(11) NOT NULL,
   `warehouse_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -8911,7 +8884,7 @@ CREATE TABLE `maintenance_mechanic` (
   `mechanic_name` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_by` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8930,7 +8903,7 @@ CREATE TABLE `maintenance_other_cost` (
   `warehouse_id` int(11) NOT NULL,
   `created_at` date NOT NULL DEFAULT current_timestamp(),
   `created_by` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -8952,7 +8925,7 @@ CREATE TABLE `maintenance_spare_parts` (
   `warehouse_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_by` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -8962,21 +8935,21 @@ CREATE TABLE `maintenance_spare_parts` (
 
 CREATE TABLE `materialbalance` (
   `id` int(11) NOT NULL,
-  `mb_ref_id` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `mb_materialid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `mb_ref_id` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `mb_materialid` varchar(25) CHARACTER SET utf8 NOT NULL,
   `mb_date` date NOT NULL,
   `mbin_qty` float NOT NULL,
   `mbin_val` float NOT NULL,
   `mbout_qty` float NOT NULL,
   `mbout_val` float NOT NULL,
   `mbprice` float NOT NULL,
-  `mbtype` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `mbtype` varchar(30) CHARACTER SET utf8 NOT NULL,
   `mbserial` float NOT NULL,
-  `mbserial_id` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `mbunit_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `jvno` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `mbserial_id` varchar(10) CHARACTER SET utf8 NOT NULL,
+  `mbunit_id` varchar(15) CHARACTER SET utf8 NOT NULL,
+  `jvno` varchar(25) CHARACTER SET utf8 NOT NULL,
   `part_no` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -8986,9 +8959,9 @@ CREATE TABLE `materialbalance` (
 
 CREATE TABLE `menus` (
   `id` int(10) UNSIGNED NOT NULL,
-  `type` enum('backend','frontend') NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `items` text DEFAULT NULL,
+  `type` enum('backend','frontend') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `items` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_by` int(10) UNSIGNED NOT NULL,
   `updated_by` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -9004,7 +8977,7 @@ CREATE TABLE `menus` (
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(191) NOT NULL,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -9016,9 +8989,9 @@ CREATE TABLE `migrations` (
 
 CREATE TABLE `modules` (
   `id` int(10) UNSIGNED NOT NULL,
-  `view_permission_id` varchar(191) NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `url` varchar(191) DEFAULT NULL COMMENT 'view_route',
+  `view_permission_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'view_route',
   `created_by` int(10) UNSIGNED NOT NULL,
   `updated_by` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -9052,15 +9025,7 @@ CREATE TABLE `notesheets` (
   `status` varchar(15) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_by` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `notesheets`
---
-
-INSERT INTO `notesheets` (`id`, `notesheet_no`, `notesheet_id`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
-(237, 'NS-2024-02-ENG-Mec-001', 80, 'RLP-ENG-HEA-2024-02-001', 'Test Notesheet', '', '', '', '', '', '256', '', 'Pics', '10', '1500', '15000.00', '', 'Created', '2024-02-08 04:53:50', 3368),
-(238, 'NS-2024-02-ENG-Mec-001', 80, 'RLP-ENG-HEA-2024-02-001', 'Test Notesheet', '', '', '', '', '', '275', '', 'Pics', '5', '1450', '7250.00', '', 'Created', '2024-02-08 04:53:50', 3368);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9101,14 +9066,7 @@ CREATE TABLE `notesheets_master` (
   `updated_at` datetime NOT NULL,
   `updated_by` datetime NOT NULL,
   `is_delete` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `notesheets_master`
---
-
-INSERT INTO `notesheets_master` (`id`, `notesheet_no`, `rlp_no`, `request_project`, `request_warehouse`, `subject`, `ns_info`, `supplier_name`, `supplier_id`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `discount`, `total_afterdiscount`, `grand_total`, `remarks`, `terms_condition`, `status`, `notesheet_status`, `is_viewd`, `is_wo`, `attached_file`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_delete`) VALUES
-(80, 'NS-2024-02-ENG-Mec-001', 'RLP-ENG-HEA-2024-02-001', 21, 3, 'Test Notesheet', 'NS-0001', '3', 'SID-003', '', '', '', '', 0, 22250, 0, 0, 0, 22250, 22250, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days after receiving the work order.</li>\r\n\r\n							<li>Mode of payment: After 45 days from the date of bill Submission.</li>\r\n\r\n							<li>The above rate includes VAT, AIT & other Taxes.</li>\r\n\r\n							<li>Transport & Courier costs will be charged by Buyers.</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 1, '', '2024-02-08 04:53:50', 3368, '2024-08-02 09:55:41', '0000-00-00 00:00:00', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9128,7 +9086,7 @@ CREATE TABLE `notesheet_access_chain` (
   `created_at` datetime NOT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `notesheet_access_chain`
@@ -9154,17 +9112,7 @@ CREATE TABLE `notesheet_acknowledgement` (
   `is_visible` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=not visible; 1= visible',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `notesheet_acknowledgement`
---
-
-INSERT INTO `notesheet_acknowledgement` (`id`, `notesheet_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(552, 80, 3360, 1, 6, '2024-02-08 04:53:50', '2024-02-08 09:54:25', 1, 3368, 3360),
-(553, 80, 3361, 2, 6, '2024-02-08 09:54:25', '2024-02-08 09:54:51', 1, 3368, 3361),
-(554, 80, 3359, 3, 6, '2024-02-08 09:54:51', '2024-02-08 09:55:19', 1, 3368, 3359),
-(555, 80, 616, 4, 1, '2024-02-08 09:55:19', '2024-02-08 09:55:40', 1, 3368, 616);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9178,17 +9126,7 @@ CREATE TABLE `notesheet_remarks_history` (
   `user_id` int(11) NOT NULL,
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `notesheet_remarks_history`
---
-
-INSERT INTO `notesheet_remarks_history` (`id`, `notesheet_id`, `user_id`, `remarks`, `remarks_date`) VALUES
-(245, 80, 3360, 'Okay', '2024-02-08 09:54:25'),
-(246, 80, 3361, 'Okay', '2024-02-08 09:54:51'),
-(247, 80, 3359, 'Okay', '2024-02-08 09:55:19'),
-(248, 80, 616, 'Go Ahead', '2024-02-08 09:55:41');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9200,7 +9138,7 @@ CREATE TABLE `notesheet_roles_group` (
   `id` int(11) NOT NULL,
   `name` varchar(450) NOT NULL,
   `details` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `notesheet_roles_group`
@@ -9219,7 +9157,7 @@ INSERT INTO `notesheet_roles_group` (`id`, `name`, `details`) VALUES
 
 CREATE TABLE `notifications` (
   `id` int(10) UNSIGNED NOT NULL,
-  `message` varchar(191) NOT NULL,
+  `message` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `type` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 - Dashboard , 2 - Email , 3 - Both',
   `is_read` tinyint(1) NOT NULL DEFAULT 0,
@@ -9258,7 +9196,7 @@ CREATE TABLE `orders` (
   `due` float NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
@@ -9282,7 +9220,7 @@ CREATE TABLE `packages` (
   `short_name` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9292,13 +9230,13 @@ CREATE TABLE `packages` (
 
 CREATE TABLE `pages` (
   `id` int(10) UNSIGNED NOT NULL,
-  `title` varchar(191) NOT NULL,
-  `page_slug` varchar(191) NOT NULL,
-  `description` text DEFAULT NULL,
-  `cannonical_link` varchar(191) DEFAULT NULL,
-  `seo_title` varchar(191) DEFAULT NULL,
-  `seo_keyword` varchar(191) DEFAULT NULL,
-  `seo_description` text DEFAULT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `page_slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cannonical_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_keyword` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_by` int(10) UNSIGNED NOT NULL,
   `updated_by` int(10) UNSIGNED DEFAULT NULL,
@@ -9319,7 +9257,7 @@ CREATE TABLE `parent_category` (
   `parent_code` varchar(400) NOT NULL,
   `description` text NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9328,8 +9266,8 @@ CREATE TABLE `parent_category` (
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(191) NOT NULL,
-  `token` varchar(191) NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -9341,9 +9279,9 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `permissions` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `display_name` varchar(191) NOT NULL,
-  `permission_category` varchar(60) NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `permission_category` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sort` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_by` int(11) DEFAULT NULL,
@@ -9496,7 +9434,19 @@ INSERT INTO `permission_role` (`id`, `permission_id`, `role_id`) VALUES
 (301, 6, 5),
 (302, 21, 5),
 (303, 60, 6),
-(304, 42, 5);
+(304, 42, 5),
+(305, 60, 2),
+(306, 1, 2),
+(307, 58, 2),
+(308, 30, 2),
+(309, 29, 2),
+(310, 28, 2),
+(311, 27, 2),
+(312, 22, 2),
+(313, 21, 2),
+(314, 15, 2),
+(315, 14, 2),
+(316, 13, 2);
 
 -- --------------------------------------------------------
 
@@ -9537,7 +9487,7 @@ CREATE TABLE `plant_and_equipment` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -9548,7 +9498,7 @@ CREATE TABLE `plant_and_equipment` (
 CREATE TABLE `present_condition` (
   `id` int(11) NOT NULL,
   `name` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `present_condition`
@@ -9568,7 +9518,7 @@ CREATE TABLE `priority_details` (
   `name` varchar(250) NOT NULL,
   `color_code` varchar(350) NOT NULL,
   `show_order` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `priority_details`
@@ -9597,7 +9547,7 @@ CREATE TABLE `products` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -9621,7 +9571,7 @@ CREATE TABLE `product_movement` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -9639,7 +9589,7 @@ CREATE TABLE `product_movement_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -9659,52 +9609,49 @@ CREATE TABLE `projects` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `projects`
 --
 
 INSERT INTO `projects` (`id`, `code`, `project_name`, `address`, `type`, `client_id`, `created_by`, `updated_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'P-001', 'Payra Project', '72, Mohakhali C/A, (8th Floor), Rupayan Center, Dhaka-1212, Bangladesh.\r\nTel. : (88-02) 9825705, 9891562, 9891597, 9856358-9,\r\n9857902, 9852454, 9854423,\r\nFax: (88-02) 9855949, \r\nWeb:www.saifpowertecltd.com', 'Own', 2, 1, NULL, '2019-02-10 08:09:28', '2019-04-09 03:46:55', NULL),
-(3, 'P-003', 'PCT,Ctg', '72, Mohakhali C/A, (8th Floor), Rupayan Center, Dhaka-1212, Bangladesh.\r\nTel. : (88-02) 9825705, 9891562, 9891597, 9856358-9,\r\n9857902, 9852454, 9854423,\r\nFax: (88-02) 9855949, \r\nWeb:www.saifpowertecltd.com', 'Own', 2, 1, NULL, '2019-02-10 09:05:36', '2019-05-12 13:09:34', NULL),
-(4, '04', 'NCT,Ctg', 'test', 'Own', 2, 5, NULL, '2019-05-12 13:14:45', '2019-05-12 13:14:45', NULL),
-(5, '03', 'Bhashanchor', ',', 'Own', 2, 5, NULL, '2019-05-14 07:54:29', '2019-05-14 07:54:29', NULL),
-(6, '04', 'Karnophuli', NULL, 'Own', 2, 5, NULL, '2019-05-14 07:55:39', '2019-05-14 07:55:39', NULL),
-(7, '05', 'Payra Port', NULL, 'Own', 2, 5, NULL, '2019-05-14 07:56:11', '2019-05-14 07:56:11', NULL),
-(9, '07', 'Shirajgonj', NULL, 'Own', 2, 5, NULL, '2019-05-14 08:03:14', '2019-05-14 08:03:14', NULL),
-(10, '08', 'Raozan Road', NULL, 'Own', 2, 5, NULL, '2019-05-14 08:05:55', '2019-05-14 08:05:55', NULL),
-(11, '10', 'Mongla Port Project', NULL, 'Own', 2, 5, NULL, '2019-05-25 17:38:21', '2019-05-25 17:38:21', NULL),
-(12, NULL, 'CWLP', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(14, NULL, 'MPA', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(15, NULL, 'Gohira', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(16, NULL, 'MCC', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(17, NULL, 'Pubail', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(18, NULL, 'Maxon Power', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(19, NULL, 'Dredging', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(20, NULL, 'Netrokonah', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(21, 'P-000', 'Head Office', 'Khawaja Tower[13th Floor], 95 Bir Uttam A.K Khandokar Road, Mohakhali C/A, Dhaka-1212, Bangladesh', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(22, '', 'Mymensingh city corporation', 'Mymensingh ', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(23, NULL, 'Rental Site', NULL, 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(24, NULL, 'Dhaka Air Port', 'Dhaka Air Port', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(25, NULL, 'Jolshiri', 'Jolshiri', 'Rental', 2, NULL, NULL, NULL, NULL, NULL),
-(26, NULL, 'Jamuna Rail Bridge', 'Jamuna Rail Bridge', 'Rental', 2, NULL, NULL, NULL, NULL, NULL),
-(27, NULL, 'Khagrachori,Udoypur', 'Khagrachori,Udoypur', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(28, NULL, 'Khagrachori,Marisha', 'Khagrachori,Marisha', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(29, NULL, 'Bandarban, Naikhoanchori', 'Bandarban, Naikhoanchori', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(30, NULL, 'Bandarban, Chimbuk', 'Bandarban, Chimbuk', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(31, NULL, 'Solar land, Sirajgonj', 'Solar land, Sirajgonj', 'Own', 2, NULL, NULL, NULL, NULL, NULL),
-(32, '101', 'Mongla BNS Project', NULL, 'Own', 2, 5, NULL, '2019-05-25 17:38:21', '2019-05-25 17:38:21', NULL),
-(33, '102', 'Jessore Coal Project', '', 'Own', 2, 5, NULL, '2019-05-12 13:14:45', '2019-05-12 13:14:45', NULL),
-(34, '103', 'kishorganj', '', 'Own', 2, 5, NULL, '2019-05-12 13:14:45', '2019-05-12 13:14:45', NULL),
-(35, '104', 'Narayanganj,Fatulla', '', 'Own', 2, 1, NULL, '2019-02-10 09:05:36', '2019-05-12 13:09:34', NULL),
-(36, '105', 'Potia,CTG', '', 'Own', 2, 1, NULL, '2019-02-10 09:05:36', '2019-05-12 13:09:34', NULL),
-(37, '106', 'Mongla jetty project', '', 'Own', 2, 5, NULL, '2019-05-12 13:14:45', '2019-05-12 13:14:45', NULL),
-(38, '03', 'Afcons infras, Ashuganj', ',', 'Own', 2, 5, NULL, '2019-05-14 07:54:29', '2019-05-14 07:54:29', NULL),
-(39, NULL, 'Construction of Bangladesh Border Road', '-', 'Rental', 2, NULL, NULL, NULL, NULL, NULL),
-(40, 'PR-019', 'monirs project', 'adasdasdas', 'Rental', 8, NULL, NULL, NULL, NULL, NULL),
-(41, 'PR-020', 'Trad Flaza', 'Dhaka', 'Rental', 9, NULL, NULL, NULL, NULL, NULL),
-(42, 'PR-021', 'ABC INTERNATIONAL', 'MIRPUR', 'Own', 10, NULL, NULL, NULL, NULL, NULL);
+(1, 'P-001', 'Payra Project', '72, Mohakhali C/A, (8th Floor), Rupayan Center, Dhaka-1212, Bangladesh.\r\nTel. : (88-02) 9825705, 9891562, 9891597, 9856358-9,\r\n9857902, 9852454, 9854423,\r\nFax: (88-02) 9855949, \r\nWeb:www.saifpowertecltd.com', 'Own', 12, 1, NULL, '2019-02-10 08:09:28', '2019-04-09 03:46:55', NULL),
+(3, 'P-003', 'PCT,Ctg', '72, Mohakhali C/A, (8th Floor), Rupayan Center, Dhaka-1212, Bangladesh.\r\nTel. : (88-02) 9825705, 9891562, 9891597, 9856358-9,\r\n9857902, 9852454, 9854423,\r\nFax: (88-02) 9855949, \r\nWeb:www.saifpowertecltd.com', 'Own', 12, 1, NULL, '2019-02-10 09:05:36', '2019-05-12 13:09:34', NULL),
+(4, '04', 'NCT,Ctg', 'test', 'Own', 12, 5, NULL, '2019-05-12 13:14:45', '2019-05-12 13:14:45', NULL),
+(5, '03', 'Bhashanchor', ',', 'Own', 12, 5, NULL, '2019-05-14 07:54:29', '2019-05-14 07:54:29', NULL),
+(6, '04', 'Karnophuli', NULL, 'Own', 12, 5, NULL, '2019-05-14 07:55:39', '2019-05-14 07:55:39', NULL),
+(7, '05', 'Payra Port', NULL, 'Own', 12, 5, NULL, '2019-05-14 07:56:11', '2019-05-14 07:56:11', NULL),
+(9, '07', 'Shirajgonj', NULL, 'Own', 12, 5, NULL, '2019-05-14 08:03:14', '2019-05-14 08:03:14', NULL),
+(10, '08', 'Raozan Road', NULL, 'Own', 12, 5, NULL, '2019-05-14 08:05:55', '2019-05-14 08:05:55', NULL),
+(11, '10', 'Mongla Port Project', NULL, 'Own', 12, 5, NULL, '2019-05-25 17:38:21', '2019-05-25 17:38:21', NULL),
+(12, NULL, 'CWLP', NULL, 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(14, NULL, 'MPA', NULL, 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(15, NULL, 'Gohira', NULL, 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(16, NULL, 'MCC', NULL, 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(17, NULL, 'Pubail', NULL, 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(18, NULL, 'Maxon Power', NULL, 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(19, NULL, 'Dredging', NULL, 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(20, NULL, 'Netrokonah', NULL, 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(21, 'P-000', 'Head Office', 'Khawaja Tower[13th Floor], 95 Bir Uttam A.K Khandokar Road, Mohakhali C/A, Dhaka-1212, Bangladesh', 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(22, '', 'Mymensingh city corporation', 'Mymensingh ', 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(23, NULL, 'Rental Site', NULL, 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(24, NULL, 'Dhaka Air Port', 'Dhaka Air Port', 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(25, NULL, 'Jolshiri', 'Jolshiri', 'Rental', 15, NULL, NULL, NULL, NULL, NULL),
+(26, NULL, 'Jamuna Rail Bridge', 'Jamuna Rail Bridge', 'Rental', 14, NULL, NULL, NULL, NULL, NULL),
+(27, NULL, 'Khagrachori,Udoypur', 'Khagrachori,Udoypur', 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(28, NULL, 'Khagrachori,Marisha', 'Khagrachori,Marisha', 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(29, NULL, 'Bandarban, Naikhoanchori', 'Bandarban, Naikhoanchori', 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(30, NULL, 'Bandarban, Chimbuk', 'Bandarban, Chimbuk', 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(31, NULL, 'Solar land, Sirajgonj', 'Solar land, Sirajgonj', 'Own', 12, NULL, NULL, NULL, NULL, NULL),
+(32, '101', 'Mongla BNS Project', NULL, 'Own', 12, 5, NULL, '2019-05-25 17:38:21', '2019-05-25 17:38:21', NULL),
+(33, '102', 'Jessore Coal Project', '', 'Own', 12, 5, NULL, '2019-05-12 13:14:45', '2019-05-12 13:14:45', NULL),
+(34, '103', 'kishorganj', '', 'Own', 12, 5, NULL, '2019-05-12 13:14:45', '2019-05-12 13:14:45', NULL),
+(35, '104', 'Narayanganj,Fatulla', '', 'Own', 12, 1, NULL, '2019-02-10 09:05:36', '2019-05-12 13:09:34', NULL),
+(36, '105', 'Potia,CTG', '', 'Own', 12, 1, NULL, '2019-02-10 09:05:36', '2019-05-12 13:09:34', NULL),
+(37, '106', 'Mongla jetty project', '', 'Own', 12, 5, NULL, '2019-05-12 13:14:45', '2019-05-12 13:14:45', NULL),
+(38, '03', 'Afcons infras, Ashuganj', ',', 'Own', 12, 5, NULL, '2019-05-14 07:54:29', '2019-05-14 07:54:29', NULL),
+(39, NULL, 'Construction of Bangladesh Border Road', '-', 'Rental', 13, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -9720,7 +9667,7 @@ CREATE TABLE `project_type` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -9739,7 +9686,7 @@ CREATE TABLE `rental_project` (
   `created_by` varchar(20) NOT NULL,
   `updated_at` date NOT NULL,
   `updated_by` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -9767,14 +9714,7 @@ CREATE TABLE `rents` (
   `created_by` varchar(20) NOT NULL,
   `updated_at` date DEFAULT NULL,
   `updated_by` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `rents`
---
-
-INSERT INTO `rents` (`id`, `date`, `client_name`, `project_name`, `ref_no`, `challan_no`, `total_rent_amount`, `discount`, `grandtotal`, `deposit_amount`, `due_amount`, `from_project`, `from_warehouse`, `status`, `bill_status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(25, '2024-02-11', '9', '41', 'Atiq', 'RCH-CW-001', 32000, 500, 31500, 1500, 30000, 0, 0, 'Rented', 'Pending', '2024-02-11', '3368', '2024-11-02', '3368');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -9785,7 +9725,7 @@ INSERT INTO `rents` (`id`, `date`, `client_name`, `project_name`, `ref_no`, `cha
 CREATE TABLE `rent_bill` (
   `id` int(11) NOT NULL,
   `bill_no` varchar(50) NOT NULL,
-  `rent_id` int(11) NOT NULL,
+  `invoice_id` int(11) NOT NULL,
   `bill_date` date NOT NULL,
   `challan_no` varchar(50) NOT NULL,
   `client_name` int(11) NOT NULL,
@@ -9799,17 +9739,7 @@ CREATE TABLE `rent_bill` (
   `bank_cheque_date` date NOT NULL,
   `created_at` date NOT NULL,
   `created_by` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `rent_bill`
---
-
-INSERT INTO `rent_bill` (`id`, `bill_no`, `rent_id`, `bill_date`, `challan_no`, `client_name`, `project_name`, `eel_code`, `amount`, `payment_type`, `bank_name`, `bank_branch`, `bank_cheque_no`, `bank_cheque_date`, `created_at`, `created_by`) VALUES
-(3, 'EEL-MR-003', 23, '2024-02-11', 'RCH-CW-001', 10, 42, '', 5000, 'cash', '', '', '', '0000-00-00', '2024-11-02', '3368'),
-(4, 'EEL-MR-004', 23, '2024-02-11', 'RCH-CW-001', 10, 42, '', 295000, 'cash', '', '', '', '0000-00-00', '2024-11-02', '3368'),
-(5, 'EEL-MR-005', 24, '2024-02-11', 'RCH-CW-002', 9, 41, '', 654, 'cash', '', '', '', '0000-00-00', '2024-11-02', '3368'),
-(6, 'EEL-MR-004', 25, '2024-02-11', 'RCH-CW-001', 9, 41, '', 1000, 'cash', '', '', '', '0000-00-00', '2024-11-02', '3368');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -9830,15 +9760,7 @@ CREATE TABLE `rent_details` (
   `total_days` int(11) NOT NULL,
   `amount` float NOT NULL,
   `status` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `rent_details`
---
-
-INSERT INTO `rent_details` (`id`, `rent_id`, `client_name`, `project_name`, `challan_no`, `eel_code`, `rent_date`, `return_date`, `extended_date`, `total_days`, `amount`, `status`) VALUES
-(42, 25, 9, 41, 'RCH-CW-001', 'AC-01', '2024-02-01', '2024-02-05', '2024-02-05', 4, 15000, 'Rented'),
-(43, 25, 9, 41, 'RCH-CW-001', 'AC-02', '2024-02-01', '2024-02-05', '2024-02-07', 6, 17000, 'Rented');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -9855,16 +9777,31 @@ CREATE TABLE `rent_history` (
   `return_date` date NOT NULL,
   `amount` float NOT NULL,
   `status` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `rent_history`
+-- Table structure for table `rent_invoice`
 --
 
-INSERT INTO `rent_history` (`id`, `challan_no`, `rent_details_id`, `eel_code`, `rent_date`, `return_date`, `amount`, `status`) VALUES
-(70, 'RCH-CW-001', 42, 'AC-01', '2024-02-01', '2024-02-05', 15000, 'Rented'),
-(71, 'RCH-CW-001', 43, 'AC-02', '2024-02-01', '2024-02-05', 15000, 'Rented'),
-(72, 'RCH-CW-001', 43, 'AC-02', '2024-02-05', '2024-02-07', 2000, 'Rented');
+CREATE TABLE `rent_invoice` (
+  `id` int(11) NOT NULL,
+  `invoice_no` varchar(50) NOT NULL,
+  `rent_id` int(11) NOT NULL,
+  `invoice_date` date NOT NULL,
+  `challan_no` varchar(50) NOT NULL,
+  `client_name` varchar(100) NOT NULL,
+  `project_name` varchar(100) NOT NULL,
+  `amount` float NOT NULL,
+  `deposit_amount` float NOT NULL,
+  `due_amount` float NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `created_by` varchar(100) NOT NULL,
+  `updated_at` date NOT NULL DEFAULT current_timestamp(),
+  `updated_by` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -9889,7 +9826,7 @@ CREATE TABLE `rent_money_receipt` (
   `bank_cheque_date` date NOT NULL,
   `created_at` date NOT NULL,
   `created_by` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -9909,7 +9846,7 @@ CREATE TABLE `rlp_access_chain` (
   `created_at` datetime NOT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `rlp_access_chain`
@@ -9945,14 +9882,7 @@ CREATE TABLE `rlp_acknowledgement` (
   `is_visible` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=not visible; 1= visible',
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `rlp_acknowledgement`
---
-
-INSERT INTO `rlp_acknowledgement` (`id`, `rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(1406, 1, 3359, 1, 1, '2024-02-08 04:50:31', '2024-02-08 09:51:18', 1, 3368, 3359);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9965,7 +9895,7 @@ CREATE TABLE `rlp_delete_history` (
   `rlp_info_id` int(11) NOT NULL,
   `deleted_by` int(11) NOT NULL,
   `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -9989,16 +9919,7 @@ CREATE TABLE `rlp_details` (
   `supplier` text DEFAULT NULL,
   `details_remarks` text DEFAULT NULL,
   `is_ns` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `rlp_details`
---
-
-INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `material_id`, `material_name`, `part_no`, `purpose`, `quantity`, `unit`, `unit_price`, `amount`, `estimated_price`, `supplier`, `details_remarks`, `is_ns`) VALUES
-(1, 1, NULL, '01-77', '256', '34C3429', 'AC-01', '10', '20', 1500, 15000, NULL, NULL, NULL, 1),
-(2, 1, NULL, '01-95', '275', 'C271050', 'AC-02', '5', '20', 2500, 12500, NULL, NULL, NULL, 1),
-(3, 1, NULL, '01-03', '18', '(LF-3349)/VG6100007005', 'BD-01', '20', '20', 110, 2200, NULL, NULL, NULL, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10008,7 +9929,7 @@ INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `material_id`, `mate
 
 CREATE TABLE `rlp_info` (
   `id` int(11) NOT NULL,
-  `equips_rlp_no` varchar(100) NOT NULL,
+  `rlp_no` varchar(100) NOT NULL,
   `rlp_user_id` int(11) UNSIGNED NOT NULL,
   `rlp_user_office_id` varchar(500) NOT NULL,
   `priority` tinyint(4) NOT NULL,
@@ -10031,14 +9952,7 @@ CREATE TABLE `rlp_info` (
   `updated_by` int(11) DEFAULT NULL,
   `updated_at` datetime NOT NULL,
   `is_delete` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `rlp_info`
---
-
-INSERT INTO `rlp_info` (`id`, `equips_rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_warehouse`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `totalamount`, `rlp_status`, `is_viewd`, `is_ns`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
-(1, 'RLP-ENG-HEA-2024-02-001', 3368, 'admin@saifpowertec.com', 2, '2024-02-08 12:00:00', 1, 11, 21, 3, 'admin@saifpowertec.com', NULL, '', NULL, 'Okay', 29700, 1, 0, 0, 3368, '2024-02-08 04:50:31', 3359, '2024-08-02 09:51:18', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10052,14 +9966,7 @@ CREATE TABLE `rlp_remarks_history` (
   `user_id` int(11) NOT NULL,
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `rlp_remarks_history`
---
-
-INSERT INTO `rlp_remarks_history` (`id`, `rlp_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
-(826, 1, 3359, 'Go Ahead', '2024-02-08 09:51:18');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10072,7 +9979,7 @@ CREATE TABLE `roles` (
   `name` varchar(400) NOT NULL,
   `short_name` varchar(250) NOT NULL,
   `show_order` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `roles`
@@ -10116,7 +10023,7 @@ CREATE TABLE `roles_group` (
   `id` int(11) NOT NULL,
   `name` varchar(450) NOT NULL,
   `details` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `roles_group`
@@ -10149,11 +10056,11 @@ CREATE TABLE `role_user` (
 --
 
 CREATE TABLE `sessions` (
-  `id` varchar(191) NOT NULL,
+  `id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `ip_address` varchar(45) DEFAULT NULL,
-  `user_agent` text DEFAULT NULL,
-  `payload` text NOT NULL,
+  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payload` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_activity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -10165,36 +10072,36 @@ CREATE TABLE `sessions` (
 
 CREATE TABLE `settings` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(600) DEFAULT NULL,
-  `logo` varchar(191) DEFAULT NULL,
-  `favicon` varchar(191) DEFAULT NULL,
-  `seo_title` varchar(191) DEFAULT NULL,
-  `seo_keyword` text DEFAULT NULL,
-  `seo_description` text DEFAULT NULL,
-  `company_contact` varchar(191) DEFAULT NULL,
-  `company_address` text DEFAULT NULL,
-  `from_name` varchar(191) DEFAULT NULL,
-  `from_email` varchar(191) DEFAULT NULL,
-  `facebook` varchar(191) DEFAULT NULL,
-  `linkedin` varchar(191) DEFAULT NULL,
-  `twitter` varchar(191) DEFAULT NULL,
-  `google` varchar(191) DEFAULT NULL,
-  `copyright_text` varchar(191) DEFAULT NULL,
-  `footer_text` varchar(191) DEFAULT NULL,
-  `terms` text DEFAULT NULL,
-  `disclaimer` text DEFAULT NULL,
-  `google_analytics` text DEFAULT NULL,
-  `home_video1` varchar(191) DEFAULT NULL,
-  `home_video2` varchar(191) DEFAULT NULL,
-  `home_video3` varchar(191) DEFAULT NULL,
-  `home_video4` varchar(191) DEFAULT NULL,
-  `explanation1` varchar(191) DEFAULT NULL,
-  `explanation2` varchar(191) DEFAULT NULL,
-  `explanation3` varchar(191) DEFAULT NULL,
-  `explanation4` varchar(191) DEFAULT NULL,
-  `values` text DEFAULT NULL,
-  `data_type` varchar(100) DEFAULT NULL,
-  `post_type` varchar(100) DEFAULT NULL,
+  `name` varchar(600) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `favicon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_keyword` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `company_contact` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `company_address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `from_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `from_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `google` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `copyright_text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `footer_text` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `terms` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `disclaimer` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `google_analytics` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `home_video1` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `home_video2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `home_video3` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `home_video4` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `explanation1` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `explanation2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `explanation3` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `explanation4` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `values` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `data_type` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `post_type` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -10208,10 +10115,10 @@ CREATE TABLE `settings` (
 CREATE TABLE `social_logins` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `provider` varchar(32) NOT NULL,
-  `provider_id` varchar(191) NOT NULL,
-  `token` varchar(191) DEFAULT NULL,
-  `avatar` varchar(191) DEFAULT NULL,
+  `provider` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `avatar` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -10226,7 +10133,7 @@ CREATE TABLE `state` (
   `id` int(11) NOT NULL,
   `country_id` int(11) NOT NULL,
   `state` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `state`
@@ -10252,7 +10159,7 @@ CREATE TABLE `status_details` (
   `id` int(11) NOT NULL,
   `name` varchar(350) NOT NULL,
   `bg_color` varchar(450) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `status_details`
@@ -10300,7 +10207,7 @@ CREATE TABLE `sttable` (
   `location` varchar(80) NOT NULL,
   `photo` varchar(1000) NOT NULL,
   `status` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -10315,7 +10222,7 @@ CREATE TABLE `sub_category` (
   `name` varchar(600) NOT NULL,
   `description` text NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10329,7 +10236,7 @@ CREATE TABLE `sub_projects` (
   `name` varchar(500) NOT NULL,
   `address` varchar(5000) NOT NULL,
   `status` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sub_projects`
@@ -10355,7 +10262,7 @@ CREATE TABLE `suppliers` (
   `supplier_op_balance` varchar(100) NOT NULL,
   `supplier_type` varchar(100) NOT NULL,
   `material_type` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `suppliers`
@@ -10374,14 +10281,14 @@ INSERT INTO `suppliers` (`id`, `code`, `name`, `address`, `contact_person`, `sup
 
 CREATE TABLE `supplier_payment` (
   `id` int(11) NOT NULL,
-  `voucherid` varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `voucherid` varchar(15) CHARACTER SET latin1 NOT NULL,
   `voucherdate` date NOT NULL,
-  `supplierid` varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `paymenttype` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `supplierid` varchar(15) CHARACTER SET latin1 NOT NULL,
+  `paymenttype` varchar(25) CHARACTER SET latin1 NOT NULL,
   `amount` double NOT NULL,
-  `remarks` varchar(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `remarks` varchar(500) CHARACTER SET latin1 NOT NULL,
   `sp_photo` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10396,7 +10303,7 @@ CREATE TABLE `tbl_customer` (
   `City` varchar(250) NOT NULL,
   `PostalCode` varchar(30) NOT NULL,
   `Country` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -10420,7 +10327,7 @@ CREATE TABLE `tb_billpayment` (
   `check_date` varchar(100) NOT NULL,
   `job_card_no` varchar(100) NOT NULL,
   `remarks` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10437,7 +10344,7 @@ CREATE TABLE `tb_ledger` (
   `remarks` longtext NOT NULL,
   `debit` varchar(100) NOT NULL,
   `credit` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10461,7 +10368,7 @@ CREATE TABLE `tb_logsheet` (
   `disealltr` int(11) NOT NULL,
   `engineoil` int(11) NOT NULL,
   `greasing` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -10480,7 +10387,7 @@ CREATE TABLE `temp_product_receive_data` (
   `unit_price` float NOT NULL DEFAULT 0,
   `project_id` int(11) NOT NULL,
   `project_to_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -10496,7 +10403,7 @@ CREATE TABLE `userlog` (
   `employee_id` varchar(20) NOT NULL,
   `userIp` varbinary(16) NOT NULL,
   `loginTime` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `userlog`
@@ -11034,10 +10941,61 @@ INSERT INTO `userlog` (`id`, `userId`, `username`, `role_id`, `employee_id`, `us
 (531, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 03:55:57'),
 (532, 3359, 'Alauddin Ahmed', 19, '', 0x3a3a31, '2024-02-08 03:56:43'),
 (533, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 03:57:14'),
-(534, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 04:19:03'),
-(535, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 04:20:14'),
-(536, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-08 07:34:36'),
-(537, 3368, 'Super Admin', 5, '', 0x3a3a31, '2024-02-11 04:00:36');
+(534, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-08 04:39:19'),
+(535, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-08 06:24:34'),
+(536, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-08 06:38:44'),
+(537, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-08 07:24:45'),
+(538, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-11 06:04:20'),
+(539, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-11 06:49:32'),
+(540, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-11 08:49:43'),
+(541, 3361, 'Md Mahfuz Rahman Sarkar', 11, '', 0x3130332e35342e33362e39, '2024-02-11 09:55:29'),
+(542, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-11 10:20:47'),
+(543, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-11 10:37:18'),
+(544, 3361, 'Md Mahfuz Rahman Sarkar', 11, '', 0x3130332e35342e33362e39, '2024-02-12 04:36:39'),
+(545, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-12 09:02:14'),
+(546, 3361, 'Md Mahfuz Rahman Sarkar', 11, '', 0x3130332e35342e33362e39, '2024-02-12 09:19:19'),
+(547, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-12 09:21:20'),
+(548, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-12 09:35:49'),
+(549, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-12 09:37:32'),
+(550, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 03:52:23'),
+(551, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 04:23:48'),
+(552, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 05:57:12'),
+(553, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 06:34:44'),
+(554, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 06:43:50'),
+(555, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 08:31:23'),
+(556, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 08:32:23'),
+(557, 3359, 'Alauddin Ahmed', 19, '', 0x3130332e35342e33362e39, '2024-02-13 08:32:31'),
+(558, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 08:33:11'),
+(559, 3360, 'Farhad Hossain Bhuiya', 3, '', 0x3130332e35342e33362e39, '2024-02-13 08:34:07'),
+(560, 3361, 'Md Mahfuz Rahman Sarkar', 11, '', 0x3130332e35342e33362e39, '2024-02-13 08:34:35'),
+(561, 3359, 'Alauddin Ahmed', 19, '', 0x3130332e35342e33362e39, '2024-02-13 08:34:54'),
+(562, 616, 'Tarafder Md. Ruhul Saif', 16, '', 0x3130332e35342e33362e39, '2024-02-13 08:35:13'),
+(563, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 08:35:32'),
+(564, 3359, 'Alauddin Ahmed', 19, '', 0x3130332e35342e33362e39, '2024-02-13 08:36:21'),
+(565, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 08:36:34'),
+(566, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 08:49:52'),
+(567, 3357, 'Zakir Hossain', 2, '', 0x3130332e35342e33362e39, '2024-02-13 09:27:28'),
+(568, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 09:27:43'),
+(569, 3357, 'Zakir Hossain', 2, '', 0x3130332e35342e33362e39, '2024-02-13 09:28:38'),
+(570, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 09:30:35'),
+(571, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 10:30:34'),
+(572, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 10:48:52'),
+(573, 3357, 'Zakir Hossain', 2, '', 0x3130332e35342e33362e39, '2024-02-13 10:52:57'),
+(574, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 11:02:58'),
+(575, 3359, 'Alauddin Ahmed', 19, '', 0x3130332e35342e33362e39, '2024-02-13 11:16:58'),
+(576, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 11:18:07'),
+(577, 3360, 'Farhad Hossain Bhuiya', 3, '', 0x3130332e35342e33362e39, '2024-02-13 11:20:17'),
+(578, 3361, 'Md Mahfuz Rahman Sarkar', 11, '', 0x3130332e35342e33362e39, '2024-02-13 11:21:25'),
+(579, 3359, 'Alauddin Ahmed', 19, '', 0x3130332e35342e33362e39, '2024-02-13 11:23:58'),
+(580, 616, 'Tarafder Md. Ruhul Saif', 16, '', 0x3130332e35342e33362e39, '2024-02-13 11:24:34'),
+(581, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 11:25:07'),
+(582, 3359, 'Alauddin Ahmed', 19, '', 0x3130332e35342e33362e39, '2024-02-13 11:27:03'),
+(583, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 11:27:24'),
+(584, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-13 11:39:09'),
+(585, 3357, 'Zakir Hossain', 2, '', 0x3130332e35342e33362e39, '2024-02-14 04:47:53'),
+(586, 3357, 'Zakir Hossain', 2, '', 0x3130332e35342e33362e39, '2024-02-14 08:34:50'),
+(587, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-14 08:35:03'),
+(588, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-14 10:19:26');
 
 -- --------------------------------------------------------
 
@@ -11051,18 +11009,18 @@ CREATE TABLE `users` (
   `department_id` int(11) DEFAULT NULL,
   `project_id` int(11) NOT NULL,
   `warehouse_id` int(11) NOT NULL,
-  `office_id` varchar(550) DEFAULT NULL,
+  `office_id` varchar(550) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `role_id` int(11) DEFAULT NULL,
-  `type` varchar(50) NOT NULL,
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `store_id` int(11) NOT NULL,
-  `designation` varchar(650) DEFAULT NULL,
-  `role_name` varchar(250) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `contact_number` varchar(100) DEFAULT NULL,
-  `profile_image` varchar(650) DEFAULT NULL,
-  `signature_image` varchar(550) DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
+  `designation` varchar(650) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `role_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact_number` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_image` varchar(650) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `signature_image` varchar(550) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_password_changed` tinyint(1) NOT NULL DEFAULT 0,
   `is_status` tinyint(1) NOT NULL DEFAULT 1,
   `created_by` int(11) NOT NULL,
@@ -11079,8 +11037,8 @@ INSERT INTO `users` (`id`, `branch_id`, `department_id`, `project_id`, `warehous
 (1, 1, 11, 21, 3, 'SA-000001', 1, '', 0, '10', 'sa', 'Super Admin', 'sa@rlp.com', NULL, '', '1669634775not_approve.png', '55587a910882016321201e6ebbc9f595', 1, 1, 0, '2020-03-16 09:03:06', 3368, '2023-11-19 21:18:57'),
 (84, 1, 7, 5, 9, 'ENG-000096', 15, '', 0, '42', '', 'Md. Abdullah-al-mamun', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
 (328, 1, 11, 21, 3, 'ENG-000363', 8, 'user', 0, '8', 'g6', 'Md. Jalil Khan Noyan', '123456', NULL, NULL, NULL, 'b6748aff5e69907e77e08ce1a02ac8c2', 1, 1, 0, NULL, 1, '2022-12-15 05:21:08'),
-(374, 1, 11, 22, 28, 'ENG-000409', 8, 'user', 0, '83', 'g6', 'Md. Ayub Ali', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-11-30 21:49:08'),
-(396, 1, 11, 12, 11, 'ENG-000431', 5, 'user', 0, '92', 'g8', 'Md. Liton Mridha', '123456', NULL, NULL, NULL, 'a18065c5d2488eda24b1bf708aaca255', 1, 1, 0, NULL, 1, '2022-11-30 21:07:40'),
+(374, 1, 11, 22, 28, 'ENG-000409', 1, 'user', 0, '83', 'g6', 'Md. Ayub Ali', 'aali@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-11-30 21:49:08'),
+(396, 1, 11, 12, 11, 'ENG-000431', 1, 'user', 0, '92', 'g8', 'Md. Liton Mridha', '123456', NULL, NULL, NULL, 'a18065c5d2488eda24b1bf708aaca255', 1, 1, 0, NULL, 1, '2022-11-30 21:07:40'),
 (614, 5, 26, 0, 0, 'SPL-000001', 20, '', 0, '112', 'g19', 'Tarafder Md. Ruhul Amin', '123456', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-02-22 16:56:47'),
 (615, 5, 26, 0, 0, 'SPL-000002', 21, '', 0, '113', '', 'Tarafder Nigar Sultana', '', NULL, NULL, NULL, 'e522c42d71cb28e5811cc071cffce26c', 0, 1, 0, NULL, NULL, NULL),
 (616, 6, 42, 0, 0, 'SPL-000004', 16, '', 0, '29', 'g18', 'Tarafder Md. Ruhul Saif', 's@gmail.com', NULL, NULL, '1670756283saif-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-12-10 22:58:03'),
@@ -11090,22 +11048,23 @@ INSERT INTO `users` (`id`, `branch_id`, `department_id`, `project_id`, `warehous
 (3351, 1, 11, 21, 3, 'ENG-001010', 2, 'user', 0, '8', 'g7', 'MD. Nahid Hasan Shawon', 'nahid.hasan@e-enggltd.com', NULL, NULL, '1701318859Capture.PNG', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-09-10 18:09:55', 1, '2023-11-30 04:34:19'),
 (3352, 1, 11, 11, 26, 'ENG-000555', 2, 'user', 0, '36', 'g7', 'Shahadat Hossain', 'sh@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 17:26:10', NULL, NULL),
 (3353, 1, 12, 11, 26, 'SPHL-000017', 3, 'user', 0, '18', 'g10', 'Hasan Tareq', 'ht@gmail.com', NULL, NULL, NULL, '13968d941558106b161c9ab1f233d0c8', 1, 1, 0, '2022-11-05 17:27:41', NULL, NULL),
-(3354, 1, 12, 12, 11, 'ENG-000665', 3, 'user', 0, '18', 'g10', 'Masud Alam', 'ma@gmail.com', NULL, NULL, NULL, '08f35e3dab180a76c6ed91fe707e374a', 1, 1, 0, '2022-11-05 17:28:47', NULL, NULL),
-(3355, 1, 11, 11, 26, 'ENG-000759', 2, 'user', 0, '36', 'g7', 'Myin uddin', 'mu@gmail.com', NULL, NULL, '1673172279Myin-uddin.png', '21ef05aed5af92469a50b35623d52101', 1, 1, 0, '2022-11-05 17:29:55', 1, '2023-01-07 22:04:39'),
+(3354, 1, 12, 12, 11, 'ENG-000665', 2, 'user', 0, '18', 'g10', 'Masud Alam', 'ma@gmail.com', NULL, NULL, NULL, '08f35e3dab180a76c6ed91fe707e374a', 1, 1, 0, '2022-11-05 17:28:47', NULL, NULL),
+(3355, 1, 11, 11, 26, 'ENG-000759', 1, 'user', 0, '36', 'g7', 'Myin uddin', 'mu@gmail.com', NULL, NULL, '1673172279Myin-uddin.png', '21ef05aed5af92469a50b35623d52101', 1, 1, 0, '2022-11-05 17:29:55', 1, '2023-01-07 22:04:39'),
 (3356, 1, 12, 3, 34, 'ENG-000829', 3, 'user', 0, '18', 'g10', 'MD Rasel Alam', 'ra@gmail.com', NULL, NULL, '1673169677rasel-alom.png', 'c33367701511b4f6020ec61ded352059', 1, 1, 0, '2022-11-05 17:30:48', 1, '2023-01-07 21:21:17'),
 (3357, 1, 12, 5, 9, 'ENG-000842', 2, 'user', 0, '36', 'g7', 'Zakir Hossain', 'zh@gmail.com', NULL, NULL, '1673163868zakir-bashanchar.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-05 17:31:40', 1, '2023-01-07 19:44:28'),
-(3358, 1, 12, 22, 28, 'ENG-000867', 17, 'user', 0, '16', 'g15', 'Azhar Mahmud', 'am@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 17:33:10', NULL, NULL),
-(3359, 1, 11, 21, 3, 'ENG-001003', 19, '', 0, '109', 'g16', 'Alauddin Ahmed', 'aa@gmail.com', NULL, NULL, '1670756206alauddin-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-23 22:03:43', 3368, '2023-11-23 06:40:22'),
+(3358, 1, 12, 22, 28, 'ENG-000867', 9, 'user', 0, '16', 'g15', 'Azhar Mahmud', 'am@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 17:33:10', NULL, NULL),
+(3359, 1, 11, 21, 3, 'ENG-001003', 3, '', 0, '109', 'g16', 'Alauddin Ahmed', 'aa@gmail.com', NULL, NULL, '1670756206alauddin-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-23 22:03:43', 3368, '2023-11-23 06:40:22'),
 (3360, 1, 11, 21, 3, 'ENG-000056', 3, '', 0, '8', 'g10', 'Farhad Hossain Bhuiya', 'rupom.e-eengineering@gmail.com', NULL, NULL, '1670756230forhad-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-28 04:37:09', 1, '2022-12-10 22:57:10'),
-(3361, 1, 3, 21, 3, 'ENG-000058', 11, '', 0, '134', 'g13', 'Md Mahfuz Rahman Sarkar', 'mrs@gmail.com', NULL, NULL, '1670756260mahfuz-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-28 04:48:15', 3368, '2023-11-27 23:03:34'),
+(3361, 1, 3, 21, 3, 'ENG-000058', 11, '', 0, '134', 'g13', 'Md Mahfuz Rahman Sarkar', 'mahfuz@eel.com', NULL, NULL, '1670756260mahfuz-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-28 04:48:15', 3368, '2023-11-27 23:03:34'),
 (3362, 1, 11, 11, 26, 'ENG-000316', 2, 'user', 0, '66', 'g7', 'Kamrul', 'k@gmail.com', NULL, NULL, '1673157875kamrul-hasan-mongla.png', 'bbdf56e2fbd1dbb503ceb433bed825ca', 1, 1, 0, '2022-11-30 21:14:38', 1, '2023-01-08 06:04:35'),
 (3363, 5, 32, 21, 3, 'SPL-007009', 14, 'user', 0, '30', 'g12', 'Nazmul Karim', 'nk@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-12-11 23:02:45', NULL, NULL),
-(3364, 1, 12, 11, 26, 'ENG-000204', 3, 'user', 0, '18', 'g10', 'Aryan Khan Md Saifullah', 'ak@gmail.com', NULL, NULL, '1673158014Aryan-Khan-Md-Saifullah.png', 'e268bde125bae2c61d8d1c84b471c334', 1, 1, 0, '2022-12-26 21:16:03', 1, '2023-01-08 06:06:54'),
+(3364, 1, 12, 11, 26, 'ENG-000204', 2, 'user', 0, '18', 'g10', 'Aryan Khan Md Saifullah', 'ak@gmail.com', NULL, NULL, '1673158014Aryan-Khan-Md-Saifullah.png', 'e268bde125bae2c61d8d1c84b471c334', 1, 1, 0, '2022-12-26 21:16:03', 1, '2023-01-08 06:06:54'),
 (3365, 1, 11, 0, 0, 'ENG-000654', 3, 'user', 0, '30', 'g10', 'Rezoyan Mahabub', 'rm@gmail.com', NULL, NULL, '1673166278Rezoyan-Mahabub.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2023-01-01 19:17:26', 1, '2023-01-07 20:24:53'),
-(3366, 1, 12, 0, 0, 'ENG-000474', 3, '', 0, '67', 'g10', 'MD Mokhlesur Rahman', 'mr@gmail.com', NULL, NULL, '1674711812md-mokhlesur-rahman_page-0001.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2023-01-26 05:32:36', 1, '2023-01-26 05:43:32'),
-(3367, 1, 11, 3, 34, 'ENG-001244', 2, 'user', 0, '2', 'g7', 'Saidul  Islam', 'si@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2023-02-22 04:57:32', NULL, NULL),
+(3366, 1, 12, 0, 28, 'ENG-000474', 2, '', 0, '67', 'g10', 'MD Mokhlesur Rahman', 'mr@gmail.com', NULL, NULL, '1674711812md-mokhlesur-rahman_page-0001.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2023-01-26 05:32:36', 1, '2023-01-26 05:43:32'),
+(3367, 1, 11, 3, 34, 'ENG-001244', 1, 'user', 0, '2', 'g7', 'Saidul  Islam', 'si@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2023-02-22 04:57:32', NULL, NULL),
 (3368, 1, 11, 21, 3, 'admin@saifpowertec.com', 5, '', 0, '10', 'sa', 'Super Admin', 'admin@saifpowertec.com', NULL, '', '1669634775not_approve.png', '77420bb74cf785398911d47854a2bfab', 1, 1, 0, '2020-03-16 09:03:06', 1, '2022-11-27 23:26:15'),
-(3369, 1, 9, 21, 3, 'ENG-001260', 5, '', 0, '8', 'g8', 'Afra', 'afra@gmail.com', NULL, NULL, NULL, 'fcea920f7412b5da7be0cf42b8c93759', 1, 1, 0, '2023-11-19 21:20:52', NULL, NULL);
+(3369, 1, 9, 21, 3, 'ENG-001260', 5, '', 0, '8', 'g8', 'Afra', 'afra@gmail.com', NULL, NULL, NULL, 'fcea920f7412b5da7be0cf42b8c93759', 1, 1, 0, '2023-11-19 21:20:52', NULL, NULL),
+(3370, 1, 11, 21, 3, 'jobaer@88i.com', 5, '', 0, '10', 'sa', 'Super Admin', 'jobaer@88i.com', NULL, '', '1669634775not_approve.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2020-03-16 09:03:06', 1, '2022-11-27 23:26:15');
 
 -- --------------------------------------------------------
 
@@ -11136,15 +11095,7 @@ CREATE TABLE `workorders` (
   `is_mrr` tinyint(4) NOT NULL DEFAULT 0,
   `created_at` date NOT NULL,
   `created_by` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `workorders`
---
-
-INSERT INTO `workorders` (`id`, `wo_no`, `ns_details_id`, `notesheet_no`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `is_mrr`, `created_at`, `created_by`) VALUES
-(105, '2024-02-ENG-WO-001', 237, 'NS-2024-02-ENG-Mec-001', 'RLP-ENG-HEA-2024-02-001', 'Test Work Order', 'ABC International', 'Dhaka', '---', '123456789', '', '256', '', 'Pics', '10', '1500', '15000.00', '', 'Created', 0, '2024-02-08', 3368),
-(106, '2024-02-ENG-WO-001', 238, 'NS-2024-02-ENG-Mec-001', 'RLP-ENG-HEA-2024-02-001', 'Test Work Order', 'ABC International', 'Dhaka', '---', '123456789', '', '275', '', 'Pics', '5', '1450', '7250.00', '', 'Created', 0, '2024-02-08', 3368);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -11177,14 +11128,7 @@ CREATE TABLE `workorders_master` (
   `created_by` int(20) NOT NULL,
   `updated_by` int(11) NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `workorders_master`
---
-
-INSERT INTO `workorders_master` (`id`, `wo_no`, `request_project`, `request_warehouse`, `notesheet_no`, `rlp_no`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `grand_total`, `remarks`, `status`, `created_at`, `created_by`, `updated_by`, `updated_at`) VALUES
-(41, '2024-02-ENG-WO-001', 21, 3, 'NS-2024-02-ENG-Mec-001', 'RLP-ENG-HEA-2024-02-001', 'Test Work Order', 'Q-001', 'ABC International', 'Dhaka', '---', '123456789', '', 0, 22250, 0, 0, 22250, '', '1', '2024-02-08', 3368, 3359, '2024-08-02 04:56:51');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -11631,6 +11575,12 @@ ALTER TABLE `rent_history`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `rent_invoice`
+--
+ALTER TABLE `rent_invoice`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `rent_money_receipt`
 --
 ALTER TABLE `rent_money_receipt`
@@ -11799,13 +11749,13 @@ ALTER TABLE `buildings`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `client_balance`
 --
 ALTER TABLE `client_balance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT for table `companies`
@@ -11841,7 +11791,7 @@ ALTER TABLE `equipments`
 -- AUTO_INCREMENT for table `equipment_assign`
 --
 ALTER TABLE `equipment_assign`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1479;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1485;
 
 --
 -- AUTO_INCREMENT for table `equips_rlp_acknowledgement`
@@ -11877,7 +11827,7 @@ ALTER TABLE `equips_rlp_remarks_history`
 -- AUTO_INCREMENT for table `inspaction`
 --
 ALTER TABLE `inspaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `inv_designation`
@@ -11925,7 +11875,7 @@ ALTER TABLE `inv_material`
 -- AUTO_INCREMENT for table `inv_materialbalance`
 --
 ALTER TABLE `inv_materialbalance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2800;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2816;
 
 --
 -- AUTO_INCREMENT for table `inv_materialcategory`
@@ -11961,19 +11911,19 @@ ALTER TABLE `inv_material_partno_detail`
 -- AUTO_INCREMENT for table `inv_product_price`
 --
 ALTER TABLE `inv_product_price`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `inv_receive`
 --
 ALTER TABLE `inv_receive`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `inv_receivedetail`
 --
 ALTER TABLE `inv_receivedetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `inv_return`
@@ -12003,7 +11953,7 @@ ALTER TABLE `inv_supplier`
 -- AUTO_INCREMENT for table `inv_supplierbalance`
 --
 ALTER TABLE `inv_supplierbalance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `inv_technicianinfo`
@@ -12015,7 +11965,7 @@ ALTER TABLE `inv_technicianinfo`
 -- AUTO_INCREMENT for table `inv_tranferdetail`
 --
 ALTER TABLE `inv_tranferdetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `inv_tranferdetail_temp`
@@ -12027,7 +11977,7 @@ ALTER TABLE `inv_tranferdetail_temp`
 -- AUTO_INCREMENT for table `inv_transfermaster`
 --
 ALTER TABLE `inv_transfermaster`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `inv_transfermaster_temp`
@@ -12063,37 +12013,37 @@ ALTER TABLE `inv_warehosueinfo`
 -- AUTO_INCREMENT for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `maintenance_cost`
 --
 ALTER TABLE `maintenance_cost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=416;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=421;
 
 --
 -- AUTO_INCREMENT for table `maintenance_details`
 --
 ALTER TABLE `maintenance_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `maintenance_mechanic`
 --
 ALTER TABLE `maintenance_mechanic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=484;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=490;
 
 --
 -- AUTO_INCREMENT for table `maintenance_other_cost`
 --
 ALTER TABLE `maintenance_other_cost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `maintenance_spare_parts`
 --
 ALTER TABLE `maintenance_spare_parts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=931;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=937;
 
 --
 -- AUTO_INCREMENT for table `materialbalance`
@@ -12105,13 +12055,13 @@ ALTER TABLE `materialbalance`
 -- AUTO_INCREMENT for table `notesheets`
 --
 ALTER TABLE `notesheets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
 
 --
 -- AUTO_INCREMENT for table `notesheets_master`
 --
 ALTER TABLE `notesheets_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `notesheet_access_chain`
@@ -12123,13 +12073,13 @@ ALTER TABLE `notesheet_access_chain`
 -- AUTO_INCREMENT for table `notesheet_acknowledgement`
 --
 ALTER TABLE `notesheet_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=556;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=564;
 
 --
 -- AUTO_INCREMENT for table `notesheet_remarks_history`
 --
 ALTER TABLE `notesheet_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
 
 --
 -- AUTO_INCREMENT for table `notesheet_roles_group`
@@ -12159,7 +12109,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `permission_role`
 --
 ALTER TABLE `permission_role`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=305;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=317;
 
 --
 -- AUTO_INCREMENT for table `present_condition`
@@ -12183,7 +12133,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `rental_project`
@@ -12195,25 +12145,31 @@ ALTER TABLE `rental_project`
 -- AUTO_INCREMENT for table `rents`
 --
 ALTER TABLE `rents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `rent_bill`
 --
 ALTER TABLE `rent_bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `rent_details`
 --
 ALTER TABLE `rent_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `rent_history`
 --
 ALTER TABLE `rent_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+
+--
+-- AUTO_INCREMENT for table `rent_invoice`
+--
+ALTER TABLE `rent_invoice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `rent_money_receipt`
@@ -12231,7 +12187,7 @@ ALTER TABLE `rlp_access_chain`
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
 --
 ALTER TABLE `rlp_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1407;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1411;
 
 --
 -- AUTO_INCREMENT for table `rlp_delete_history`
@@ -12255,7 +12211,7 @@ ALTER TABLE `rlp_info`
 -- AUTO_INCREMENT for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=827;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=829;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -12333,31 +12289,31 @@ ALTER TABLE `tb_ledger`
 -- AUTO_INCREMENT for table `tb_logsheet`
 --
 ALTER TABLE `tb_logsheet`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6048;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6053;
 
 --
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=538;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=589;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3370;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3371;
 
 --
 -- AUTO_INCREMENT for table `workorders`
 --
 ALTER TABLE `workorders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT for table `workorders_master`
 --
 ALTER TABLE `workorders_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
