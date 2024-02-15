@@ -123,14 +123,7 @@ footer.sticky-footer{
              <?php    } ?>
             
 			
-			<?php
-            
-                if(check_permission('material-list')){ ?>
-                    <a class="dropdown-item" href="material.php">
-                <i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
-                <span class="sub_menu_text_design"> Material</span>
-            </a>
-             <?php    } ?>
+			<?php if(check_permission('material-list')){ ?><a class="dropdown-item" href="material.php"><?php } ?>
 			 
              <?php
             
@@ -226,13 +219,13 @@ footer.sticky-footer{
 				
 			<?php } ?>
 			
-			<?php if(check_permission('data-backup')){ ?>
+			<?php //if(check_permission('data-backup')){ ?>
 				
 					<a class="nav-link" href="data_backup.php" style="color: #000;">
 						<i class="fa fa-database" aria-hidden="true" style=""></i>
 						<span>Data Backup</span></a>
 				
-			<?php } ?>
+			<?php //} ?>
 
 			<?php if(check_permission('log-history')){ ?>
 				
@@ -254,6 +247,7 @@ footer.sticky-footer{
           <!--<a class="dropdown-item" href="#">Activity Log</a>-->
         </div>
       </li>
+	  <?php if(check_permission('material-receive-list')){ ?>
 	  <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-truck"></i> Receive
@@ -262,60 +256,52 @@ footer.sticky-footer{
                <?php if(check_permission('material-receive-add')){ ?>
 			<a class="dropdown-item" href="receive_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">Receive Entry</span></a>
 			<?php } ?>
+			
+			<?php if(check_permission('material-receive-list')){ ?>
 			<a class="dropdown-item" href="receive-list.php"><i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">Receive List</span></a>
-		   
-          <!--<a class="dropdown-item" href="#">Settings</a>-->
-          <!--<a class="dropdown-item" href="#">Activity Log</a>-->
+		    <?php } ?>
         </div>
       </li>
-	  <!-- <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-server"></i> issue
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-               <?php //if(check_permission('material-receive-add')){ ?>
-			<a class="dropdown-item" href="issue_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">Material issue</span></a>
-			<?php //} ?>
-			<a class="dropdown-item" href="issue-list.php"><i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">Issue List</span></a>
-		   
-         <a class="dropdown-item" href="#">Settings</a>
-         <a class="dropdown-item" href="#">Activity Log</a>
-        </div>
-      </li> -->
-	  
+	  <?php } ?>
+        <?php if(check_permission('material-receive-list')){ ?>
+		<li class="nav-item dropdown no-arrow">
+			<a class="nav-link dropdown-toggle" href="#" id="TransferDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
+			  <i class="fas fa-fw fa-server"></i> Transfer
+			</a>
+			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="TransferDropdown">
+				<?php if(check_permission('material-receive-add')){ ?>
+				<a class="dropdown-item" href="transfer_entry.php">
+					<i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i>
+					<span class="sub_menu_text_design"> Transfer Entry</span>
+				</a> 
+				<?php } ?>
+				<?php if(check_permission('material-receive-add')){ ?>
+				<a class="dropdown-item" href="transfer_list.php">
+					<i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
+					<span class="sub_menu_text_design"> Transfer List</span>
+				</a> 
+				<?php } ?>
+			</div>
+      </li>
+		<?php } ?>
+		
+		
         <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="TransferDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
-          <i class="fas fa-fw fa-server"></i> Transfer
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="TransferDropdown">
-            <a class="dropdown-item" href="transfer_entry.php">
-                <i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i>
-                <span class="sub_menu_text_design"> Transfer Entry</span>
-            </a> 
-            <a class="dropdown-item" href="transfer_list.php">
-                <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
-                <span class="sub_menu_text_design"> Transfer List</span>
-            </a> 
-            
-        </div>
-      </li>
-	  
-        <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="rlpDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
-          <i class="fas fa-fw fa-server"></i> RLP
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="rlpDropdown">
-            <a class="dropdown-item" href="rlp_create.php">
-                <i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i>
-                <span class="sub_menu_text_design"> RLP Entry</span>
-            </a> 
-            <a class="dropdown-item" href="rlp_list.php">
-                <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
-                <span class="sub_menu_text_design"> RLP List</span>
-            </a> 
-            
-        </div>
-      </li>
+			<a class="nav-link dropdown-toggle" href="#" id="rlpDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
+			  <i class="fas fa-fw fa-server"></i> RLP
+			</a>
+			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="rlpDropdown">
+				<a class="dropdown-item" href="rlp_create.php">
+					<i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i>
+					<span class="sub_menu_text_design"> RLP Entry</span>
+				</a> 
+				<a class="dropdown-item" href="rlp_list.php">
+					<i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
+					<span class="sub_menu_text_design"> RLP List</span>
+				</a> 
+				
+			</div>
+		</li>
       
          <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="noteSheetDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
