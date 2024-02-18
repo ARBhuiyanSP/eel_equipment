@@ -45,6 +45,12 @@
 								}
 							}
 						?>
+						
+						
+						<div class="col-xs-12">
+							<input type="checkbox" id="checkAll"/>
+							<label for="Check All" style="padding-left:5px;color:#F11C24;font-weight:bold;"> Check All</label>
+						</div>
                         <div class="col-xs-12">
                            <?PHP 
                              foreach ($rearrange as $key=> $data) {
@@ -78,5 +84,11 @@
     </div>
 
 </div>
+
+<script>
+$("#checkAll").change(function () {
+      $("input:checkbox").prop('checked', $(this).prop("checked"));
+});
+</script>
 <!-- /.container-fluid -->
 <?php include 'footer.php' ?>
