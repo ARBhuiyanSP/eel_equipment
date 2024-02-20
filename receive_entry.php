@@ -38,17 +38,15 @@
                         <div class="col-xs-2">
                             <div class="form-group">
                                 <label>MRR No</label>
-                                <?php if($_SESSION['logged']['user_type'] == 'whm')
-                                    {
+                                <?php 
+                                        $project_id   =   $_SESSION['logged']['project_id'];
                                         $warehouse_id   =   $_SESSION['logged']['warehouse_id'];
                                         $sql    =   "SELECT * FROM inv_warehosueinfo WHERE `id`='$warehouse_id'";
                                         $result = mysqli_query($conn, $sql);
                                         $row=mysqli_fetch_array($result);
                                         $short_name = $row['short_name'];
                                         $mrrcode= 'MRR-'.$short_name;
-                                    } else{
-                                        $mrrcode= 'MRR-CW';
-                                    }
+                                    
                                 ?>
                                 <input type="text" name="mrr_no" id="mrr_no" class="form-control" readonly="readonly" value="<?php echo getDefaultCategoryCodeByWarehouse('inv_receive', 'mrr_no', '03d', '001', $mrrcode) ?>">
                                 <input type="hidden" name="receive_no" id="receive_no" value="<?php echo getDefaultCategoryCodeByWarehouse('inv_receive', 'mrr_no', '03d', '001', $mrrcode) ?>">
@@ -116,13 +114,13 @@
                                 <input type="text" name="supplier_id" id="supplier_id" class="form-control" readonly required>
                             </div>
                         </div>
-						<div class="col-xs-2">
+						<!-- <div class="col-xs-2">
                             <div class="form-group">
                                 <label>Project</label>
                                 <select class="form-control material_select_2" id="project_id" name="request_project" required >
 									<option value="">Select</option>
 									<?php
-									$projectsData = getTableDataByTableName('projects');
+									/* $projectsData = getTableDataByTableName('projects');
 									;
 									if (isset($projectsData) && !empty($projectsData)) {
 										foreach ($projectsData as $data) {
@@ -130,7 +128,7 @@
 											<option value="<?php echo $data['id']; ?>"><?php echo $data['project_name']; ?></option>
 											<?php
 										}
-									}
+									} */
 									?>
 								</select>
                             </div>
@@ -141,7 +139,7 @@
                                 <select class="form-control material_select_2" id="warehouse_id" name="request_warehouse" required >
                                     <option value="">Select</option>
 									<?php
-                                    $projectsData = getTableDataByTableName('inv_warehosueinfo');
+                                    /* $projectsData = getTableDataByTableName('inv_warehosueinfo');
                                     ;
                                     if (isset($projectsData) && !empty($projectsData)) {
                                         foreach ($projectsData as $data) {
@@ -149,11 +147,25 @@
                                             <option value="<?php echo $data['id']; ?>"><?php echo $data['name']; ?></option>
                                             <?php
                                         }
-                                    }
+                                    } */
                                     ?>
                                 </select>
                             </div>
-                        </div>
+                        </div> --->
+						<div class="col-xs-2">
+							<div class="form-group">
+								<label>Project</label>
+								<input type="text" class="form-control" name="" value="<?php echo getProjectNameById($project_id) ?>" readonly />
+								<input type="hidden" name="request_project" value="<?php echo $project_id; ?>" />
+							</div>
+						</div>
+						<div class="col-xs-2">
+							<div class="form-group">
+								<label>Warehouse</label>
+								<input type="text" class="form-control" name="" value="<?php echo getWarehouseNameById($warehouse_id) ?>" readonly />
+								<input type="hidden" name="request_warehouse" value="<?php echo $warehouse_id; ?>" />
+							</div>
+						</div>
                     </div>
                     <div class="row" id="div1"  style="">
                         <div class="table-responsive">

@@ -55,7 +55,7 @@
                            <?PHP 
                              foreach ($rearrange as $key=> $data) {
                                 ?>
-                                <div class="col-md-12"><h5 style="background-color:#F7F7F7;"><?php echo $key; ?></h5></div>
+                                <div class="col-md-12"><h5 style="background-color:#F7F7F7;padding-left:23px;text"><?php echo $key; ?></h5></div>
                                 <?php
                                 foreach($data as $key_val){ ?>
                                     <div class="col-xs-3">
