@@ -28,19 +28,11 @@ display:none;
             <i class="fas fa-table"></i>
             Opening Balance Maintenece</div>
         <div class="card-body">
-           
-		   
-                        
-						
-						
-						
-						
-<div>
-    <form name="add_name" action="" method="post" id="opening_entry_form" onsubmit="showFormIsProcessing('opening_entry_form');">
-        <div class="col-xs-4" style="background-color:#007BFF;color:#fff;">
-			<div class="form-group">
-				<label>Opening Stock Entry Date</label>
-				<?php 
+			<form name="add_name" action="" method="post" id="opening_entry_form" onsubmit="showFormIsProcessing('opening_entry_form');">
+				<div class="col-xs-4" style="background-color:#007BFF;color:#fff;">
+					<div class="form-group">
+						<label>Opening Stock Entry Date</label>
+						<?php 
 							$warehouse_id	=	$_SESSION['logged']['warehouse_id'];
 							$sqlop			=	"SELECT * FROM inv_materialbalance WHERE `mbtype`='OP' AND `warehouse_id`='$warehouse_id';";
 							$resultop		=	mysqli_query($conn, $sqlop);
@@ -59,31 +51,30 @@ display:none;
 								$validation		=	'';
 								$op_id			=	'op_date';
 							}
-				?>
-				<input type="text" autocomplete="off" name="op_date" id="<?php echo $op_id; ?>" class="form-control datepicker" value="<?php echo $op_date; ?>" <?php echo $validation; ?>>
-			</div>
-		</div>
-		<table class="table table-condensed table-hover table-bordered">
-				<thead>
-					<tr style="background-color:#007BFF;color:#fff;">
-						<th width="10%">Category</th>
-						<th width="10%">Sub Category</th>
-						<th width="10%">Material Code</th>
-						<th width="20%">Material Name</th>
-						<th width="15%">Part No</th>
-						<th width="15%">Spec</th>
-						<th width="10%">Unit</th>
-						<th width="10%">OP Stock</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-						
-						$sql	=	"SELECT * FROM inv_material  GROUP BY `material_id`";
-						$result = mysqli_query($conn, $sql);
-						while($row=mysqli_fetch_array($result))
-						{
-					?>
+						?>
+						<input type="text" autocomplete="off" name="op_date" id="<?php echo $op_id; ?>" class="form-control datepicker" value="<?php echo $op_date; ?>" <?php echo $validation; ?>>
+					</div>
+				</div>
+				<table class="table table-condensed table-hover table-bordered">
+					<thead>
+						<tr style="background-color:#007BFF;color:#fff;">
+							<th width="10%">Category</th>
+							<th width="5%">Code</th>
+							<th width="20%">Material Name</th>
+							<th width="15%">Part No</th>
+							<th width="15%">Spec</th>
+							<th width="5%">Unit</th>
+							<th width="10%">OP Stock</th>
+							<th width="10%">OP Value</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+							$sql	=	"SELECT * FROM inv_material  GROUP BY `material_id`";
+							$result = mysqli_query($conn, $sql);
+							while($row=mysqli_fetch_array($result))
+							{
+						?>
 						<tr style="background-color:#b6d7fa;">
 							<td>
 								<?php 
@@ -104,7 +95,6 @@ display:none;
 							{ ?>
 						
 						<tr>
-							<td></td>
 							<td></td>
 							<td><input class="form-control" name="material_id_code[]" id="material_id_code" type="text" value="<?php echo $rowmat['material_id_code']; ?>" readonly /></td>
 							
@@ -145,28 +135,24 @@ display:none;
 							?>
 							
 							<td><input class="form-control" name="op_balance_qty[]" id="op_balance_qty" type="text" value="<?php echo $mbin_qty; ?>" <?php echo $validation; ?> /></td>
-						</tr>
-						<?php } 
-						
 							
-						} 
-						?>
+							<td><input class="form-control" name="op_balance_val[]" id="op_balance_val" type="text" value="<?php echo $mbin_val; ?>" <?php echo $validation; ?> /></td>
+						</tr>
+						<?php }  }  ?>
 					</tbody>
-			</table>
-					<?php $project_id	= $_SESSION['logged']['project_id']; ?>
-					<input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
-					<?php $warehouse_id	= $_SESSION['logged']['warehouse_id']; ?>
-					<input type="hidden" name="warehouse_id" value="<?php echo $warehouse_id; ?>">
-			<div class="col-xs-12">
-				<div class="form-group">
-					<input type="submit" name="<?php echo $submit_name; ?>" id="submit" class="btn btn-block btn-info" style="" value="SAVE DATA" <?php echo $submit; ?>/>    
+				</table>
+				<?php $project_id	= $_SESSION['logged']['project_id']; ?>
+				<input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
+				<?php $warehouse_id	= $_SESSION['logged']['warehouse_id']; ?>
+				<input type="hidden" name="warehouse_id" value="<?php echo $warehouse_id; ?>">
+				<div class="col-xs-12">
+					<div class="form-group">
+						<input type="submit" name="<?php echo $submit_name; ?>" id="submit" class="btn btn-block btn-info" style="" value="SAVE DATA" <?php echo $submit; ?>/>    
+					</div>
 				</div>
-			</div>
-    </form>
-</div>
+			</form>
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
 <?php include 'footer.php' ?>

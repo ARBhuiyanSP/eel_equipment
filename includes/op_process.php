@@ -9,14 +9,14 @@
  * 4. inv_supplierbalance (Store single row)
  * *****************************************************************************
  */
-if (isset($_POST['receive_submit']) && !empty($_POST['receive_submit'])) {
+if (isset($_POST['opening_submit']) && !empty($_POST['opening_submit'])) {
 	
 	// check duplicate:
-	$mrr_no		= $_POST['mrr_no'];
-    $table		= 'inv_receive';
-    $where		= "mrr_no='$mrr_no'";
-    if(isset($_POST['receive_update_submit']) && !empty($_POST['receive_update_submit'])){
-        $notWhere   =   "id!=".$_POST['receive_update_submit'];
+	$op_no		= $_POST['op_no'];
+    $table		= 'inv_op';
+    $where		= "op_no='$op_no'";
+    if(isset($_POST['op_update_submit']) && !empty($_POST['op_update_submit'])){
+        $notWhere   =   "id!=".$_POST['op_update_submit'];
         $duplicatedata = isDuplicateData($table, $where, $notWhere);
     }else{
         $duplicatedata = isDuplicateData($table, $where);
@@ -35,22 +35,13 @@ if (isset($_POST['receive_submit']) && !empty($_POST['receive_submit'])) {
         /*
          *  Insert Data Into inv_receivedetail Table:
         */ 
-        $mrr_date           = $_POST['mrr_date'];
-        $mrr_no             = $_POST['mrr_no'];
-        $purchase_id        = $_POST['wo_no'];
-        //$Purchase_date      = $_POST['Purchase_date'];
-        $challan_no         = $_POST['challan_no'];
-        $challan_date       = $_POST['challan_date'];
-        $requisition_no     = $_POST['requisition_no'];
-        //$requisition_date   = $_POST['requisition_date'];
-        //$supplier_name      = $_POST['supplier_name'];
-        $supplier_id        = $_POST['supplier_id'];
+        $op_date           = $_POST['op_date'];
+        $op_no             = $_POST['op_no'];
         $project_id			= $_POST['request_project'];
         $warehouse_id		= $_POST['request_warehouse'];
 
 
         $material_name      = $_POST['material_name'][$count];
-        $ns_details_id      = $_POST['ns_details_id'][$count];
         $material_id        = $_POST['material_id'][$count];
         $unit               = $_POST['unit'][$count];
         $part_no            = $_POST['part_no'][$count];
@@ -68,28 +59,12 @@ if (isset($_POST['receive_submit']) && !empty($_POST['receive_submit'])) {
         $approved_by            = '';        
         $approved_at            = '';        
         $approval_remarks		= '';  
-		
-		
-		/* if (is_uploaded_file($_FILES['file']['tmp_name'])) 
-		{
-			$temp_file=$_FILES['file']['tmp_name'];
-			$mrr_image=time().$_FILES['file']['name'];
-			$q = move_uploaded_file($temp_file,"images/".$mrr_image);
-		} */
-				
-
-		
-		
                
-        $query = "INSERT INTO `inv_receivedetail` (`mrr_no`,`material_id`,`material_name`,`unit_id`,`receive_qty`,`unit_price`,`sl_no`,`total_receive`,`part_no`,`project_id`,`warehouse_id`,`approval_status`) VALUES ('$mrr_no','$material_id','$material_name','$unit','$quantity','$unit_price','1','$totalamount','$part_no','$project_id','$warehouse_id','$approval_status')";
+        $query = "INSERT INTO `inv_opdetail` (`op_no`,`material_id`,`material_name`,`unit_id`,`receive_qty`,`unit_price`,`sl_no`,`total_receive`,`part_no`,`project_id`,`warehouse_id`,`approval_status`) VALUES ('$op_no','$material_id','$material_name','$unit','$quantity','$unit_price','1','$totalamount','$part_no','$project_id','$warehouse_id','$approval_status')";
         $conn->query($query);
 		
 		$lastinsertedId =  mysqli_insert_id($conn);
 		
-		
-		
-		$queryUpdateNs = "UPDATE `workorders` SET `is_mrr`='1' WHERE `ns_details_id` = '$ns_details_id'";
-        $conn->query($queryUpdateNs);
 		
 		
 		/* print_r($lastinsertedId);
@@ -98,19 +73,19 @@ if (isset($_POST['receive_submit']) && !empty($_POST['receive_submit'])) {
         /*
          *  Insert Data Into inv_materialbalance Table:
         */
-        $mb_ref_id      = $mrr_no;
+        $mb_ref_id      = $op_no;
         $mb_materialid  = $material_id;
-        $mb_date        = $mrr_date;
+        $mb_date        = $op_date;
         $mbin_qty       = $quantity;
         $mbin_val       = $totalamount;
         $mbout_qty      = 0;
         $mbout_val      = 0;
         $mbprice        = $unit_price;
-        $mbtype         = 'Receive';
+        $mbtype         = 'OP';
         $mbserial       = '1.1';
         $mbunit_id      = $project_id;
         $mbserial_id    = 0;
-        $jvno           = $mrr_no;  
+        $jvno           = $op_no;  
 		//$created_at 	= date();		
         
         $query_inmb = "INSERT INTO `inv_materialbalance` (`mb_ref_id`,`mb_materialid`,`material_name`,`mb_date`,`mbin_qty`,`mbin_val`,`mbout_qty`,`mbout_val`,`mbprice`,`mbtype`,`mbserial`,`mbserial_id`,`mbunit_id`,`jvno`,`part_no`,`project_id`,`warehouse_id`,`approval_status`) VALUES ('$mb_ref_id','$mb_materialid','$material_name','$mb_date','$mbin_qty','$mbin_val','$mbout_qty','$mbout_val','$mbprice','$mbtype','$mbserial','$mbunit_id','$unit','$jvno','$part_no','$project_id','$warehouse_id','$approval_status')";
@@ -128,12 +103,12 @@ if (isset($_POST['receive_submit']) && !empty($_POST['receive_submit'])) {
     /*
     *  Insert Data Into inv_receive Table:
     */
-    $query2 = "INSERT INTO `inv_receive` (`mrr_no`,`mrr_date`,`purchase_id`,`receive_acct_id`,`supplier_id`,`postedtogl`,`remarks`,`receive_type`,`project_id`,`warehouse_id`,`receive_unit_id`,`receive_total`,`no_of_material`,`challanno`,`challan_date`,`part_no`,`requisitionno`,`received_by`,`approval_status`,`approved_by`,`approved_at`,`approval_remarks`,`mrr_image`) VALUES ('$mrr_no','$mrr_date','$purchase_id','6-14-010','$supplier_id','0','$remarks','Credit','$project_id','$warehouse_id','1','$receive_total','$no_of_material','$challan_no','$challan_date','$part_no','$requisition_no','$received_by','$approval_status','$approved_by','$approved_at','$approval_remarks','$mrr_image')";
+    $query2 = "INSERT INTO `inv_receive` (`op_no`,`op_date`,`purchase_id`,`receive_acct_id`,`supplier_id`,`postedtogl`,`remarks`,`receive_type`,`project_id`,`warehouse_id`,`receive_unit_id`,`receive_total`,`no_of_material`,`challanno`,`challan_date`,`part_no`,`requisitionno`,`received_by`,`approval_status`,`approved_by`,`approved_at`,`approval_remarks`,`mrr_image`) VALUES ('$op_no','$op_date','$purchase_id','6-14-010','$supplier_id','0','$remarks','Credit','$project_id','$warehouse_id','1','$receive_total','$no_of_material','$challan_no','$challan_date','$part_no','$requisition_no','$received_by','$approval_status','$approved_by','$approved_at','$approval_remarks','$mrr_image')";
     $result2 = $conn->query($query2);    
     /*
     *  Insert Data Into inv_supplierbalance Table:
     */
-   $query3 = "INSERT INTO `inv_supplierbalance` (`sb_ref_id`,`warehouse_id`,`sb_date`,`sb_supplier_id`,`sb_dr_amount`,`sb_cr_amount`,`sb_remark`,`sb_partac_id`,`approval_status`) VALUES ('$mrr_no','$warehouse_id','$mrr_date','$supplier_id','0','$receive_total','$remarks','$mrr_no','$approval_status')";
+   $query3 = "INSERT INTO `inv_supplierbalance` (`sb_ref_id`,`warehouse_id`,`sb_date`,`sb_supplier_id`,`sb_dr_amount`,`sb_cr_amount`,`sb_remark`,`sb_partac_id`,`approval_status`) VALUES ('$op_no','$warehouse_id','$op_date','$supplier_id','0','$receive_total','$remarks','$op_no','$approval_status')";
     $result2 = $conn->query($query3);
 	
 	
@@ -146,7 +121,7 @@ if (isset($_POST['receive_submit']) && !empty($_POST['receive_submit'])) {
 
 }
 
-function getReceiveDataDetailsById($id){
+function getOpeningDataDetailsById($id){
     global $conn;
     $receieves      =   "";
     $receiveDetails =   "";
@@ -158,7 +133,7 @@ function getReceiveDataDetailsById($id){
     if ($result1->num_rows > 0) {
         $receieves = $result1->fetch_object();
         // get receive details data
-        $table                  =   'inv_receivedetail where mrr_no='."'$receieves->mrr_no'";
+        $table                  =   'inv_receivedetail where op_no='."'$receieves->op_no'";
         $order                  =   'DESC';
         $column                 =   'receive_qty';
         $dataType               =   'obj';
@@ -190,23 +165,23 @@ if(isset($_POST['receive_update_submit']) && !empty($_POST['receive_update_submi
     $receive_total      =   0;
     $no_of_material     =   0;
     $edit_id            =   $_POST['edit_id'];
-    $mrr_no             =   $_POST['mrr_no'];
+    $op_no             =   $_POST['op_no'];
     
 	
-	$queryedit	= "SELECT `approval_status` FROM `inv_receive` WHERE `mrr_no`='$mrr_no'";
+	$queryedit	= "SELECT `approval_status` FROM `inv_receive` WHERE `op_no`='$op_no'";
     $result		=	$conn->query($queryedit);
 	$row		=	mysqli_fetch_assoc($result);
 	if($row['approval_status'] == 0){
 		
 		// first delete all from inv_receivedetail; 
-		$delsql    = "DELETE FROM inv_receivedetail WHERE mrr_no='$mrr_no'";
+		$delsql    = "DELETE FROM inv_receivedetail WHERE op_no='$op_no'";
 		$conn->query($delsql);
 		// first delete all from inv_materialbalance; 
-		$delsq2    = "DELETE FROM inv_materialbalance WHERE mb_ref_id='$mrr_no'";
+		$delsq2    = "DELETE FROM inv_materialbalance WHERE mb_ref_id='$op_no'";
 		$conn->query($delsq2);
 		
 		for ($count = 0; $count < count($_POST['quantity']); $count++) {
-			$mrr_date           = $_POST['mrr_date'];        
+			$op_date           = $_POST['op_date'];        
 			$purchase_id        = $_POST['purchase_id'];
 			$Purchase_date      = $_POST['Purchase_date'];
 			$challan_no         = $_POST['challan_no'];
@@ -245,14 +220,14 @@ if(isset($_POST['receive_update_submit']) && !empty($_POST['receive_update_submi
 			}
 			
 
-			$query = "INSERT INTO `inv_receivedetail` (`mrr_no`,`material_id`,`material_name`,`unit_id`,`receive_qty`,`unit_price`,`sl_no`,`total_receive`,`part_no`,`project_id`,`warehouse_id`) VALUES ('$mrr_no','$material_id','$material_name','$unit','$quantity','$unit_price','1','$totalamount','$part_no','$project_id','$warehouse_id')";
+			$query = "INSERT INTO `inv_receivedetail` (`op_no`,`material_id`,`material_name`,`unit_id`,`receive_qty`,`unit_price`,`sl_no`,`total_receive`,`part_no`,`project_id`,`warehouse_id`) VALUES ('$op_no','$material_id','$material_name','$unit','$quantity','$unit_price','1','$totalamount','$part_no','$project_id','$warehouse_id')";
 			$conn->query($query);
 			/*
 			 *  Insert Data Into inv_materialbalance Table:
 			*/
-			$mb_ref_id      = $mrr_no;
+			$mb_ref_id      = $op_no;
 			$mb_materialid  = $material_id;
-			$mb_date        = $mrr_date;
+			$mb_date        = $op_date;
 			$mbin_qty       = $quantity;
 			$mbin_val       = $totalamount;
 			$mbout_qty      = 0;
@@ -262,7 +237,7 @@ if(isset($_POST['receive_update_submit']) && !empty($_POST['receive_update_submi
 			$mbserial       = '1.1';
 			$mbunit_id      = $project_id;
 			$mbserial_id    = 0;
-			$jvno           = $mrr_no;
+			$jvno           = $op_no;
 			$part_no        = $part_no;        
 			
 			$query_inmb = "INSERT INTO `inv_materialbalance` (`mb_ref_id`,`mb_materialid`,`mb_date`,`mbin_qty`,`mbin_val`,`mbout_qty`,`mbout_val`,`mbprice`,`mbtype`,`mbserial`,`mbserial_id`,`mbunit_id`,`jvno`,`part_no`,`project_id`,`warehouse_id`) VALUES ('$mb_ref_id','$mb_materialid','$mb_date','$mbin_qty','$mbin_val','$mbout_qty','$mbout_val','$mbprice','$mbtype','$mbserial','$mbunit_id','$mbserial_id','$jvno','$part_no','$project_id','$warehouse_id')";
@@ -271,7 +246,7 @@ if(isset($_POST['receive_update_submit']) && !empty($_POST['receive_update_submi
 		/*
 			*  Update Data Into inv_receive Table:
 		*/
-		$query2    = "UPDATE `inv_receive` SET `mrr_no`='$mrr_no',`mrr_date`='$mrr_date',`purchase_id`='$purchase_id',`receive_acct_id`='16-001-001',`supplier_id`='$supplier_id',`postedtogl`='0',`vat_challan_no`='$vat_challan_no',`remarks`='$remarks',`receive_type`='Credit',`project_id`='$project_id',`warehouse_id`='$warehouse_id',`receive_unit_id`='1',`receive_total`='$receive_total',`no_of_material`='$no_of_material',`challanno`='$challan_no',`challan_date`='$challan_date',`requisitionno`='$requisition_no',`requisition_date`='$requisition_date' ,`mrr_image`='$mrr_image' WHERE `id`='$edit_id'";
+		$query2    = "UPDATE `inv_receive` SET `op_no`='$op_no',`op_date`='$op_date',`purchase_id`='$purchase_id',`receive_acct_id`='16-001-001',`supplier_id`='$supplier_id',`postedtogl`='0',`vat_challan_no`='$vat_challan_no',`remarks`='$remarks',`receive_type`='Credit',`project_id`='$project_id',`warehouse_id`='$warehouse_id',`receive_unit_id`='1',`receive_total`='$receive_total',`no_of_material`='$no_of_material',`challanno`='$challan_no',`challan_date`='$challan_date',`requisitionno`='$requisition_no',`requisition_date`='$requisition_date' ,`mrr_image`='$mrr_image' WHERE `id`='$edit_id'";
 		$result2 = $conn->query($query2);
 		
 		
@@ -280,7 +255,7 @@ if(isset($_POST['receive_update_submit']) && !empty($_POST['receive_update_submi
 		/*
 			*  Update Data Into inv_supplierbalance Table:
 		*/
-		$query4    = "UPDATE `inv_supplierbalance` SET `sb_ref_id`='$mrr_no',`warehouse_id`='$warehouse_id',`sb_date`='$mrr_date',`sb_supplier_id`='$supplier_id',`sb_dr_amount`='0',`sb_cr_amount`='$receive_total',`sb_remark`='$remarks',`sb_partac_id`='$mrr_no' WHERE `sb_ref_id`='$mrr_no'";
+		$query4    = "UPDATE `inv_supplierbalance` SET `sb_ref_id`='$op_no',`warehouse_id`='$warehouse_id',`sb_date`='$op_date',`sb_supplier_id`='$supplier_id',`sb_dr_amount`='0',`sb_cr_amount`='$receive_total',`sb_remark`='$remarks',`sb_partac_id`='$op_no' WHERE `sb_ref_id`='$op_no'";
 		$result2 = $conn->query($query4);
 		
 		$_SESSION['success']    =   "Receive UPDATE process have been successfully updated.";
@@ -301,38 +276,38 @@ if (isset($_POST['receive_approve_submit']) && !empty($_POST['receive_approve_su
          *  Update Data Into inv_receive Table:
         */ 
        
-        $mrr_no					= $_POST['mrr_no']; 
+        $op_no					= $_POST['op_no']; 
         $approval_status		= $_POST['approval_status'];       
         $approved_by            = $_SESSION['logged']['user_id'];       
         $approved_at            = $_POST['approved_at'];        
         $approval_remarks		= $_POST['approval_remarks'];       
                
-        $query = "UPDATE `inv_receive` SET `approval_status`='$approval_status',`approved_by`='$approved_by',`approved_at`='$approved_at',`approval_remarks`='$approval_remarks' WHERE `mrr_no`='$mrr_no'";
+        $query = "UPDATE `inv_receive` SET `approval_status`='$approval_status',`approved_by`='$approved_by',`approved_at`='$approved_at',`approval_remarks`='$approval_remarks' WHERE `op_no`='$op_no'";
         $conn->query($query);
 		
 		
 		/*
          *  Update Data Into inv_receivedetail Table:
         */      
-        $query2 = "UPDATE `inv_receivedetail` SET `approval_status`='$approval_status' WHERE `mrr_no`='$mrr_no'";
+        $query2 = "UPDATE `inv_receivedetail` SET `approval_status`='$approval_status' WHERE `op_no`='$op_no'";
         $conn->query($query2);
 		
 		/*
          *  Update Data Into inv_materialbalance Table:
         */      
-        $query3 = "UPDATE `inv_materialbalance` SET `approval_status`='$approval_status' WHERE `mb_ref_id`='$mrr_no'";
+        $query3 = "UPDATE `inv_materialbalance` SET `approval_status`='$approval_status' WHERE `mb_ref_id`='$op_no'";
         $conn->query($query3);
 		
 		/*
          *  Update Data Into inv_supplierbalance Table:
         */      
-        $query3 = "UPDATE `inv_supplierbalance` SET `approval_status`='$approval_status' WHERE `sb_ref_id`='$mrr_no'";
+        $query3 = "UPDATE `inv_supplierbalance` SET `approval_status`='$approval_status' WHERE `sb_ref_id`='$op_no'";
         $conn->query($query3);
 		
 		
 
     $_SESSION['success']    =   "MRR Approve have been successfully completed.";
-    header("location: receive_approve.php?no=$mrr_no");
+    header("location: receive_approve.php?no=$op_no");
     exit();
 }
 

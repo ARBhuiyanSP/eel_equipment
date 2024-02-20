@@ -123,8 +123,13 @@ footer.sticky-footer{
              <?php    } ?>
             
 			
-			<?php if(check_permission('material-list')){ ?><a class="dropdown-item" href="material.php"><?php } ?>
-			 
+			<?php if(check_permission('material-list')){ ?>
+<a class="dropdown-item" href="material.php">
+                <i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
+                <span class="sub_menu_text_design"> Material</span>
+            </a>
+			<?php } ?>
+			  
              <?php
             
                 if(check_permission('unit-list')){ ?>
@@ -235,18 +240,34 @@ footer.sticky-footer{
 				
 			<?php } ?>
 			 
-			<?php if(check_permission('opening-stock-list')){ ?>
+			<?php //if(check_permission('opening-stock-list')){ ?>
 				
-					<a class="nav-link" href="opening_balance.php" style="color: #000;">
+					<!-- <a class="nav-link" href="opening_balance.php" style="color: #000;">
 						<i class="fa fa-key" aria-hidden="true" style=""></i>
-						<span>OP Entry</span></a>
+						<span>OP Entry</span></a> --->
 				
-			<?php } ?>
+			<?php //} ?>
 		   
           <!--<a class="dropdown-item" href="#">Settings</a>-->
           <!--<a class="dropdown-item" href="#">Activity Log</a>-->
         </div>
       </li>
+	  <?php if(check_permission('opening-stock-list')){ ?>
+	  <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
+          <i class="fas fa-fw fa-truck"></i> OP Stock
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+               <?php if(check_permission('material-receive-add')){ ?>
+			<a class="dropdown-item" href="op_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">OP Entry</span></a>
+			<?php } ?>
+			
+			<?php if(check_permission('opening-stock-list')){ ?>
+			<a class="dropdown-item" href="op-list.php"><i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">OP List</span></a>
+		    <?php } ?>
+        </div>
+      </li>
+	  <?php } ?>
 	  <?php if(check_permission('material-receive-list')){ ?>
 	  <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">

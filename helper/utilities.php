@@ -2194,7 +2194,40 @@ function getDefaultCategoryCodeByWarehouseT($table, $fieldName, $modifier, $defa
 //     }
 //     return $final_array;
 // }
-
+function get_op_product_with_category($graterThanZero=0)
+{
+    $final_array = [];
+    global $conn;
+    $sql = "SELECT * FROM inv_materialcategorysub order by category_description asc";
+    $presult = $conn->query($sql);
+    if ($presult->num_rows > 0) {
+		while ($cat = $presult->fetch_object()) {
+			$parent_id      = $cat->id;
+			$parent_name    = $cat->category_description;
+			$msql           = " SELECT * FROM inv_material where 1=1 AND material_id=$parent_id ";
+			
+			if($graterThanZero <= 0){
+				$msql           .=" AND op_balance_qty <= 0 ";
+			}
+			$msql           .=" order by material_id_code asc ";
+			$mresult = $conn->query($msql);
+			
+			if ($mresult->num_rows > 0) {
+				while ($material    = $mresult->fetch_object()) {
+					$final_array[]  = [
+						'id'             => $material->id,
+						'parent_item_id' => $material->material_id,
+						'item_code'      => $material->material_id_code,
+						'part_no'        => $material->part_no,
+						'spec'           => $material->spec,
+						'material_name'  => $material->material_description . ' (' . $parent_name . ')',
+					];
+				}
+			}
+        }
+    }
+    return $final_array;
+}
 
 function get_product_with_category($graterThanZero=0)
 {
