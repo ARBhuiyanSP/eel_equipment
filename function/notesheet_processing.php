@@ -247,7 +247,7 @@ function getNotesheetListDataW(){
             $listData1   = getNotesheetAcknowledgeData($user_id);
             // get own RLp:
 			
-			$sql      = 'a1.id,a1.notesheet_no,a1.notesheet_status,a2.notesheet_id,a2.user_id                                         
+			$sql      = 'a1.id,a1.notesheet_no,a1.notesheet_status,a1.is_wo,a2.notesheet_id,a2.user_id                                         
 							FROM `notesheets_master` as a1 
 							INNER JOIN  `notesheet_acknowledgement` as a2 ON a1.id=a2.notesheet_id
 							WHERE 1=1 AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY a1.created_at DESC ';
@@ -270,7 +270,7 @@ function getNotesheetListDataW(){
             $listData1   = getNotesheetAcknowledgeData($user_id);
             // get own RLp:
 			
-			$sql      = 'a1.id as id,a1.notesheet_no as notesheet_no,a1.notesheet_status as notesheet_status,a2.notesheet_id as notesheet_id,a2.user_id as user_id,a1.request_date as request_date,a1.request_project as request_project,a1.created_by as created_by,a1.is_wo as is_wo                                        
+			$sql      = 'a1.id,a1.notesheet_no,a1.notesheet_status,a1.is_wo,a2.notesheet_id,a2.user_id                                         
 							FROM `notesheets_master` as a1 
 							INNER JOIN  `notesheet_acknowledgement` as a2 ON a1.id=a2.notesheet_id
 							WHERE 1=1 AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY a1.created_at DESC ';

@@ -48,8 +48,15 @@
 			</div>
 			<div class="col-xs-2">
 				<div class="form-group">
-					<label for="id">Requisition No.</label>
-					<input type="text" name="requisition_no" id="requisition_no" value="<?php echo $wo_info->rlp_no; ?>" class="form-control" readonly>
+					<label for="id">Notesheet No.</label>
+					<input type="text" name="ns_no" id="ns_no" value="<?php echo $wo_info->notesheet_no; ?>" class="form-control" readonly>
+					<!-- <input type="text" id="requisition_no" name="requisition_no" class="form-control" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required></input> -->
+				</div>
+			</div>
+			<div class="col-xs-2">
+				<div class="form-group">
+					<label for="id">RLP No.</label>
+					<input type="text" name="rlp_no" id="rlp_no" value="<?php echo $wo_info->rlp_no; ?>" class="form-control" readonly>
 					<!-- <input type="text" id="requisition_no" name="requisition_no" class="form-control" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required></input> -->
 				</div>
 			</div>

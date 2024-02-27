@@ -429,7 +429,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableWorkord
     
     $totalFilter=$totalData;
 	 //Search
-	if($role_name == 'sa'){
+	if($role_name == 'sa' || $role_name == 'ab'){
 		$sql ="SELECT * FROM workorders_master WHERE 1=1";
 	}else{
 		$sql ="SELECT * FROM workorders_master WHERE 1=1 AND request_warehouse=$warehouse_id";
