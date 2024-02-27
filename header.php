@@ -113,7 +113,7 @@ footer.sticky-footer{
     <ul class="navbar-nav ml-auto ml-md-0">
 	  <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
-          <i class="fas fa-fw fa-cog"></i> Master Setup
+          <i class="fas fa-fw fa-cog"></i> Master
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <?php if(check_permission('category-list')){ ?>
@@ -253,22 +253,24 @@ footer.sticky-footer{
           <!--<a class="dropdown-item" href="#">Activity Log</a>-->
         </div>
       </li>
-	  <?php if(check_permission('opening-stock-list')){ ?>
+	  <?php //if(check_permission('material-receive-add')){ ?>
 	  <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-truck"></i> OP Stock
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-               <?php if(check_permission('material-receive-add')){ ?>
+               <?php //if(check_permission('material-receive-add')){ ?>
 			<a class="dropdown-item" href="op_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">OP Entry</span></a>
-			<?php } ?>
+			<?php //} ?>
 			
-			<?php if(check_permission('opening-stock-list')){ ?>
+			<?php //if(check_permission('opening-stock-list')){ ?>
 			<a class="dropdown-item" href="op-list.php"><i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">OP List</span></a>
-		    <?php } ?>
+			
+			<a class="dropdown-item" href="op_sheet.php"><i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">OP View</span></a>
+		    <?php //} ?>
         </div>
       </li>
-	  <?php } ?>
+	  <?php //} ?>
 	  <?php if(check_permission('material-receive-list')){ ?>
 	  <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
