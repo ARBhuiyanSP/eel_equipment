@@ -1,11 +1,10 @@
 <?php 
 include 'header.php';
-include 'includes/op_process.php';
  ?>
-<?php if(!check_permission('material-receive-add')){ 
+<?php/*  if(!check_permission('material-receive-add')){ 
         include("404.php");
         exit();
- } ?>
+ } */ ?>
 <!-- Left Sidebar End -->
 <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
 <!--<link href="css/form-entry.css" rel="stylesheet">-->

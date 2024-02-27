@@ -25,8 +25,6 @@ if (isset($_POST['opening_submit']) && !empty($_POST['opening_submit'])) {
 		$status     =   'error';
 		$_SESSION['warning']    =   "Operation faild. Duplicate data found..!";
     }else{
-			
-	
 	
 	$receive_total      =   0;
     $no_of_material     =   0;
@@ -97,24 +95,20 @@ if (isset($_POST['opening_submit']) && !empty($_POST['opening_submit'])) {
 		/*
 		*  update inv_material current_balance:
 		*/
-		$queryBal = "UPDATE `inv_material` SET `current_balance`=current_balance + $mbin_qty WHERE `material_id_code` = '$mb_materialid'";
+		$queryBal = "UPDATE `inv_material` SET `op_balance_qty`=op_balance_qty + $mbin_qty, `current_balance`=current_balance + $mbin_qty WHERE `material_id_code` = '$mb_materialid'";
 		$conn->query($queryBal); 
 		}
     /*
     *  Insert Data Into inv_receive Table:
     */
-    $query2 = "INSERT INTO `inv_receive` (`op_no`,`op_date`,`purchase_id`,`receive_acct_id`,`supplier_id`,`postedtogl`,`remarks`,`receive_type`,`project_id`,`warehouse_id`,`receive_unit_id`,`receive_total`,`no_of_material`,`challanno`,`challan_date`,`part_no`,`requisitionno`,`received_by`,`approval_status`,`approved_by`,`approved_at`,`approval_remarks`,`mrr_image`) VALUES ('$op_no','$op_date','$purchase_id','6-14-010','$supplier_id','0','$remarks','Credit','$project_id','$warehouse_id','1','$receive_total','$no_of_material','$challan_no','$challan_date','$part_no','$requisition_no','$received_by','$approval_status','$approved_by','$approved_at','$approval_remarks','$mrr_image')";
+    $query2 = "INSERT INTO `inv_op` (`op_no`,`op_date`,`remarks`,`receive_type`,`project_id`,`warehouse_id`,`receive_total`,`no_of_material`,`received_by`,`approval_status`,`approved_by`,`approved_at`,`approval_remarks`) VALUES ('$op_no','$op_date','$remarks','Credit','$project_id','$warehouse_id','$receive_total','$no_of_material','$received_by','$approval_status','$approved_by','$approved_at','$approval_remarks')";
     $result2 = $conn->query($query2);    
-    /*
-    *  Insert Data Into inv_supplierbalance Table:
-    */
-   $query3 = "INSERT INTO `inv_supplierbalance` (`sb_ref_id`,`warehouse_id`,`sb_date`,`sb_supplier_id`,`sb_dr_amount`,`sb_cr_amount`,`sb_remark`,`sb_partac_id`,`approval_status`) VALUES ('$op_no','$warehouse_id','$op_date','$supplier_id','0','$receive_total','$remarks','$op_no','$approval_status')";
-    $result2 = $conn->query($query3);
+   
 	
 	
     
-    $_SESSION['success']    =   "Receive process have been successfully completed.";
-    header("location: receive-list.php");
+    $_SESSION['success']    =   "OP process have been successfully completed.";
+    header("location: op-list.php");
     exit();
 	}
 		

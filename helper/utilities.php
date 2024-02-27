@@ -2198,16 +2198,17 @@ function get_op_product_with_category($graterThanZero=0)
 {
     $final_array = [];
     global $conn;
+	$warehouse_id    =    $_SESSION['logged']['warehouse_id'];
     $sql = "SELECT * FROM inv_materialcategorysub order by category_description asc";
     $presult = $conn->query($sql);
     if ($presult->num_rows > 0) {
 		while ($cat = $presult->fetch_object()) {
 			$parent_id      = $cat->id;
 			$parent_name    = $cat->category_description;
-			$msql           = " SELECT * FROM inv_material where 1=1 AND material_id=$parent_id ";
+			$msql           = " SELECT * FROM `inv_material` WHERE material_id_code NOT in ( SELECT material_id_code FROM `inv_material` a1 INNER JOIN `inv_materialbalance` a2 ON a1.material_id_code=a2.mb_materialid WHERE 1=1 AND a2.mbtype ='OP' AND a2.warehouse_id='$warehouse_id')";
 			
 			if($graterThanZero <= 0){
-				$msql           .=" AND op_balance_qty <= 0 ";
+				//$msql           .=" AND op_balance_qty <= 0 ";
 			}
 			$msql           .=" order by material_id_code asc ";
 			$mresult = $conn->query($msql);
@@ -2220,7 +2221,7 @@ function get_op_product_with_category($graterThanZero=0)
 						'item_code'      => $material->material_id_code,
 						'part_no'        => $material->part_no,
 						'spec'           => $material->spec,
-						'material_name'  => $material->material_description . ' (' . $parent_name . ')',
+						'material_name'  => $material->material_description,
 					];
 				}
 			}

@@ -35,6 +35,7 @@ include 'function/rent_processing.php';
 include 'includes/user_process.php';
 include 'includes/order_process.php';
 include 'includes/role_process.php';
+include 'includes/op_process.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -252,7 +253,22 @@ footer.sticky-footer{
           <!--<a class="dropdown-item" href="#">Activity Log</a>-->
         </div>
       </li>
-	  
+	  <?php if(check_permission('opening-stock-list')){ ?>
+	  <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
+          <i class="fas fa-fw fa-truck"></i> OP Stock
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+               <?php if(check_permission('material-receive-add')){ ?>
+			<a class="dropdown-item" href="op_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">OP Entry</span></a>
+			<?php } ?>
+			
+			<?php if(check_permission('opening-stock-list')){ ?>
+			<a class="dropdown-item" href="op-list.php"><i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design">OP List</span></a>
+		    <?php } ?>
+        </div>
+      </li>
+	  <?php } ?>
 	  <?php if(check_permission('material-receive-list')){ ?>
 	  <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
