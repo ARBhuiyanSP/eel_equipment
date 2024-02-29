@@ -118,7 +118,8 @@
 							
                             <input type="hidden" class="form-control" name="item[]" id="" value="<?php echo (isset($data->material_name) && !empty($data->material_name) ? $data->material_name : ""); ?>" readonly >
 							
-                            <td><?php echo $data->purpose; ?></td>
+							<td><input type="text" class="form-control" name="purpose[]" id="purpose" value="<?php echo $data->purpose;
+								echo (isset($data->purpose) && !empty($data->purpose) ? $data->purpose : ''); ?>" readonly ></td>
                             <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="quantity[]" id="quantity_<?php echo $data->id; ?>" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" required ></td>
                             <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="unit_price[]" id="unit_price_<?php echo $data->id; ?>" value="" required ></td>
                             <td>

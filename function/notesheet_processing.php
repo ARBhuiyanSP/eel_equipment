@@ -168,6 +168,7 @@ function execute_notesheet_details_table($notesheet_id){
         $quantity	= (isset($_POST['quantity'][$count]) && !empty($_POST['quantity'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['quantity'][$count])) : '');
         $unit_price	= (isset($_POST['unit_price'][$count]) && !empty($_POST['unit_price'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_price'][$count])) : '');
         $total	= (isset($_POST['total'][$count]) && !empty($_POST['total'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['total'][$count])) : '');        
+        $purpose = (isset($_POST['purpose'][$count]) && !empty($_POST['purpose'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['purpose'][$count])) : '');  
         $remarks= (isset($_POST['remarks'][$count]) && !empty($_POST['remarks'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'][$count])) : '');  
 		$no_of_material     = $no_of_material+$quantity;
         $dataParam     =   [
@@ -186,6 +187,7 @@ function execute_notesheet_details_table($notesheet_id){
             'quantity'	 	=>  $quantity,
             'unit_price' 	=>  $unit_price,
             'total' 	 	=>  $total,
+            'purpose' 	 	=>  $purpose,
             'remarks'		=>  $remarks,
             'status'		=>  'Created',
 			'created_at'	=>  date('Y-m-d h:i:s'),

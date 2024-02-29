@@ -9,10 +9,10 @@
         <li class="breadcrumb-item">
             <a href="#">Reports</a>
         </li>
-        <li class="breadcrumb-item active">Material Receive Report</li>
+        <li class="breadcrumb-item active">Notesheet Details Report</li>
     </ol>
     <!-- receive search start here -->
-    <?php include 'search/receive_report_search_test.php'; ?>
+    <?php include 'search/notesheet_details_search.php'; ?>
     <!-- end receive search -->
 
 
