@@ -191,7 +191,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'item'){
     $material_level4_id =   mysqli_real_escape_string($conn, $_POST['material_level4_id'] ?? 0);
     $item_code          =   mysqli_real_escape_string($conn, $_POST['item_code']);
     $name               =   mysqli_real_escape_string($conn, htmlentities($_POST['name']));
-    $part_no            =   mysqli_real_escape_string($conn, $_POST['part_no']);
+    $part_no            =   mysqli_real_escape_string($conn, htmlentities($_POST['part_no']));
     $spec               =   mysqli_real_escape_string($conn, htmlentities($_POST['spec']));
     $location           =   mysqli_real_escape_string($conn, $_POST['location']);
     $qty_unit           =   mysqli_real_escape_string($conn, $_POST['qty_unit']);
