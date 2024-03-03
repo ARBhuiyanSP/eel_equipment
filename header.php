@@ -210,17 +210,18 @@ footer.sticky-footer{
 			 
 			 <?php if(check_permission('user-list')){ ?>
 				
-					<a class="dropdown-item" href="user-list.php">
-						<i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
-						<span class="sub_menu_text_design">Users</span></a>
+				<a class="dropdown-item" href="user-list.php">
+					<i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
+					<span class="sub_menu_text_design">Users</span>
+				</a>
 				
 			<?php } ?>
 			
 			<?php //if(check_permission('data-backup')){ ?>
-				
-					<a class="dropdown-item" href="data_backup.php">
-						<i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
-						<span class="sub_menu_text_design">Data Backup</span></a>
+				<a class="dropdown-item" href="data_backup.php">
+					<i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
+					<span class="sub_menu_text_design">Data Backup</span>
+				</a>
 				
 			<?php //} ?>
 
@@ -229,7 +230,6 @@ footer.sticky-footer{
 					<a class="dropdown-item" href="log-history.php">
 						<i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
 						<span class="sub_menu_text_design">Log History</span></a>
-				
 			<?php } ?>
 		   
           <!--<a class="dropdown-item" href="#">Settings</a>-->
