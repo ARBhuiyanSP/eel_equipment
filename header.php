@@ -203,51 +203,34 @@ footer.sticky-footer{
             
                 if(check_permission('role-list')){ ?>
                     <a class="dropdown-item" href="notesheet_approve_chain_list.php">
-                <i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
-                <span class="sub_menu_text_design"> Notesheet Approval Chain</span>
-            </a>
+						<i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
+						<span class="sub_menu_text_design"> NS Approval Chain</span>
+					</a>
              <?php    } ?>
-		   
-          <!--<a class="dropdown-item" href="#">Settings</a>-->
-          <!--<a class="dropdown-item" href="#">Activity Log</a>-->
-        </div>
-      </li>
-	  <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
-          <i class="fas fa-fw fa-tachometer-alt"></i> Settings
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-               <?php if(check_permission('user-list')){ ?>
+			 
+			 <?php if(check_permission('user-list')){ ?>
 				
-					<a class="nav-link" href="user-list.php">
-						<i class="fa fa-users" aria-hidden="true" style="color: #000;"></i>
-						<span style="color: #000;">Users</span></a>
+					<a class="dropdown-item" href="user-list.php">
+						<i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
+						<span class="sub_menu_text_design">Users</span></a>
 				
 			<?php } ?>
 			
 			<?php //if(check_permission('data-backup')){ ?>
 				
-					<a class="nav-link" href="data_backup.php" style="color: #000;">
-						<i class="fa fa-database" aria-hidden="true" style=""></i>
-						<span>Data Backup</span></a>
+					<a class="dropdown-item" href="data_backup.php">
+						<i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
+						<span class="sub_menu_text_design">Data Backup</span></a>
 				
 			<?php //} ?>
 
 			<?php if(check_permission('log-history')){ ?>
 				
-					<a class="nav-link" href="log-history.php" style="color: #000;">
-						<i class="fa fa-key" aria-hidden="true" style=""></i>
-						<span>Log History</span></a>
+					<a class="dropdown-item" href="log-history.php">
+						<i class="fa fa-bullseye" aria-hidden="true" style="color: #007BFF;"></i>
+						<span class="sub_menu_text_design">Log History</span></a>
 				
 			<?php } ?>
-			 
-			<?php //if(check_permission('opening-stock-list')){ ?>
-				
-					<!-- <a class="nav-link" href="opening_balance.php" style="color: #000;">
-						<i class="fa fa-key" aria-hidden="true" style=""></i>
-						<span>OP Entry</span></a> --->
-				
-			<?php //} ?>
 		   
           <!--<a class="dropdown-item" href="#">Settings</a>-->
           <!--<a class="dropdown-item" href="#">Activity Log</a>-->
