@@ -79,7 +79,9 @@
                 <tbody>
                     <?php
 						$sl =   1;
+						$total = 0;
                         foreach($rlp_details as $data){
+							$total += $data->amount;
                     ?>
                     <tr>
                         <td><?php echo $sl++; ?></td>
@@ -91,7 +93,11 @@
                     </tr>
                         <?php } ?>
 					<tr>
-                        <td colspan="6"><?php echo $rlp_info->user_remarks; ?></td>
+                        <td colspan="5" style="text-align:right;"><b>Total</b></td>
+                        <td><?php echo $total;  ?></td>
+                    </tr>
+					<tr>
+                        <td colspan="6"><?php echo $rlp_info->user_remarks;  ?></td>
                     </tr>
                 </tbody>
             </table>

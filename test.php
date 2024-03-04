@@ -1,9 +1,11 @@
 <?php
-
-$str = "'Shut up 1'";
-$replacements = array("'", "Inch ");
-$nstr = str_replace($replacements, "'", $str);
-echo $nstr;
+$string = " 1'*2\" pipe";
+$replacements = ["'" => " feet", "*" => " x", "\"" => " inch"];
+$string = implode(" ", array_map(function($word) use($replacements) {
+    return isset($replacements[$word]) ? $replacements[$word] : $word;
+}, explode(" ", $string)));
+echo $string;
+/* string 'tell you me want to get it wrong' (length=32) */
 
 exit();
 

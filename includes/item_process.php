@@ -190,6 +190,12 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'item'){
     $material_level3_id =   mysqli_real_escape_string($conn, $_POST['material_level3_id'] ?? 0);
     $material_level4_id =   mysqli_real_escape_string($conn, $_POST['material_level4_id'] ?? 0);
     $item_code          =   mysqli_real_escape_string($conn, $_POST['item_code']);
+	
+	/* $nameVal = mysqli_real_escape_string($conn, $_POST['name']);
+	// Using str_replace() function
+	$nameStr = str_replace("*", " x ", $nameVal);
+    $name               =   mysqli_real_escape_string($conn, htmlentities($nameStr)); */
+	
     $name               =   mysqli_real_escape_string($conn, htmlentities($_POST['name']));
     $part_no            =   mysqli_real_escape_string($conn, htmlentities($_POST['part_no']));
     $spec               =   mysqli_real_escape_string($conn, htmlentities($_POST['spec']));
