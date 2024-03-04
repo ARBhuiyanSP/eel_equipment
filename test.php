@@ -1,5 +1,12 @@
 <?php
 
+$str = "'Shut up 1'";
+$replacements = array("'", "Inch ");
+$nstr = str_replace($replacements, "'", $str);
+echo $nstr;
+
+exit();
+
 echo convertNumberToWords(2856.80);
 
 

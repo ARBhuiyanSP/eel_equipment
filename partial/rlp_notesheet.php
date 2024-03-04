@@ -94,7 +94,8 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Item Description</th>
+                            <th>Item Name</th>
+                            <th>Part No</th>
                             <th>Purpose of Purchase</th>
                             <th width="10%">Quantity</th>
                             <th width="10%">Unit Price</th>
@@ -115,6 +116,7 @@
 							
                             <td><input type="text" class="form-control" name="" id="" value="<?php $dataresult =   getDataRowByTableAndId('inv_material', $data->material_name);
 								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : ''); ?>" readonly ></td>
+							<td><input type="text" class="form-control" name="" id="" value="<?php echo (isset($data->part_no) && !empty($data->part_no) ? $data->part_no : ""); ?>" readonly ></td>
 							
                             <input type="hidden" class="form-control" name="item[]" id="" value="<?php echo (isset($data->material_name) && !empty($data->material_name) ? $data->material_name : ""); ?>" readonly >
 							
