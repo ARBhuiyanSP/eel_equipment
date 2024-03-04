@@ -204,7 +204,8 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'item'){
     $material_min_stock =   mysqli_real_escape_string($conn, $_POST['material_min_stock']);
     // check duplicate:
     $table = 'inv_material';
-    $where = "material_id=".$parent_id." and material_sub_id='$sub_item_id' and material_level3_id='$material_level3_id' and material_level4_id='$material_level4_id' and material_id_code='$item_code' and material_description='$name'";
+    //$where = "material_id=".$parent_id." and material_sub_id='$sub_item_id' and material_level3_id='$material_level3_id' and material_level4_id='$material_level4_id' and material_id_code='$item_code' and material_description='$name'";
+    $where = "material_description='$name' AND spec='$spec' AND part_no='$part_no'";
     if(isset($_POST['material_update_id']) && !empty($_POST['material_update_id'])){
         $notWhere   =   "id!=".$_POST['material_update_id'];
         $duplicatedata = isDuplicateData($table, $where, $notWhere);
