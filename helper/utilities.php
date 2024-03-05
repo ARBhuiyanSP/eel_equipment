@@ -880,7 +880,8 @@ function get_table_primary_id($table){
     
     $year       =   date("Y");
     $month      =   date("m");
-    $sql        = "SELECT count('id') as total FROM rlp_info WHERE YEAR(created_at) = '$year' AND MONTH(created_at) = $month AND is_delete=0 AND request_project=$project_id";
+    //$sql        = "SELECT count('id') as total FROM rlp_info WHERE YEAR(created_at) = '$year' AND MONTH(created_at) = $month AND is_delete=0 AND request_project=$project_id";
+    $sql        = "SELECT count('id') as total FROM rlp_info WHERE YEAR(created_at) = '$year' AND MONTH(created_at) = $month AND is_delete=0";
     $result     = $conn->query($sql);
     $total_row  =   $result->fetch_object()->total;
     
@@ -897,7 +898,7 @@ function get_table_primary_id($table){
     
     //return $prefix."-".$year."-".$month."-".$divName.'-'.$proName.'-'.$finalRLPNo;
     //return $prefix."-".$divName."-".$proName."-".$year.'-'.$month.'-'.$finalRLPNo;
-    return $prefix."-".$divName."-".$proName."-".$year.'-'.$month.'-'.$finalRLPNo;
+    return $prefix."-".$divName."-".$year.'-'.$month.'-'.$finalRLPNo;
 }  
 function get_notesheet_no($prefix="NS", $formater_length=3){
     global $conn;

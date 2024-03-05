@@ -69,7 +69,8 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Item Description</th>
+                        <th>Item Name</th>
+                        <th>Part No</th>
                         <th>Purpose of Purchase</th>
                         <th>Quantity</th>
                         <th>Unit price</th>
@@ -86,6 +87,7 @@
                     <tr>
                         <td><?php echo $sl++; ?></td>
                         <td><?php echo getMaterialNameByIdAndTableandId('inv_material',$data->material_name); ?></td>
+                        <td><?php echo $data->part_no; ?></td>
                         <td><?php echo $data->purpose; ?></td>
                         <td><?php echo $data->quantity; ?></td>
                         <td><?php echo $data->unit_price; ?></td>
@@ -93,11 +95,11 @@
                     </tr>
                         <?php } ?>
 					<tr>
-                        <td colspan="5" style="text-align:right;"><b>Total</b></td>
+                        <td colspan="6" style="text-align:right;"><b>Total</b></td>
                         <td><?php echo $total;  ?></td>
                     </tr>
 					<tr>
-                        <td colspan="6"><?php echo $rlp_info->user_remarks;  ?></td>
+                        <td colspan="7"><?php echo $rlp_info->user_remarks;  ?></td>
                     </tr>
                 </tbody>
             </table>
