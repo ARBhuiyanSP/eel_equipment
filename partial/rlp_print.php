@@ -73,6 +73,7 @@
                         <th>Part No</th>
                         <th>Purpose of Purchase</th>
                         <th>Quantity</th>
+                        <th>Unit</th>
                         <th>Unit price</th>
                         <th>Amount</th>
                     </tr>
@@ -90,16 +91,20 @@
                         <td><?php echo $data->part_no; ?></td>
                         <td><?php echo $data->purpose; ?></td>
                         <td><?php echo $data->quantity; ?></td>
+						<td><?php 
+								$dataresult =   getDataRowByTableAndId('inv_item_unit', $data->unit);
+								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->unit_name : '');
+								?></td>
                         <td><?php echo $data->unit_price; ?></td>
                         <td><?php echo $data->amount; ?></td>
                     </tr>
                         <?php } ?>
 					<tr>
-                        <td colspan="6" style="text-align:right;"><b>Total</b></td>
+                        <td colspan="7" style="text-align:right;"><b>Total</b></td>
                         <td><?php echo $total;  ?></td>
                     </tr>
 					<tr>
-                        <td colspan="7"><?php echo $rlp_info->user_remarks;  ?></td>
+                        <td colspan="8"><?php echo $rlp_info->user_remarks;  ?></td>
                     </tr>
                 </tbody>
             </table>
