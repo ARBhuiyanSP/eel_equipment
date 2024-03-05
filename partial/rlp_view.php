@@ -56,8 +56,9 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Item Description</th>
-                        <th>Purpose of Purchase</th>
+                        <th>Item Name</th>
+                        <th>Part No</th>
+                        <th>Purpose </th>
                         <th>Quantity</th>
                         <th>Unit</th>
                         <th>Estimated Price</th>
@@ -71,9 +72,13 @@
                     <tr>
                         <td><?php echo $sl++; ?></td>
                         <td><?php echo getMaterialNameByIdAndTableandId('inv_material',$data->material_name); ?></td>
+                        <td><?php echo $data->part_no; ?></td>
                         <td><?php echo $data->purpose; ?></td>
                         <td><?php echo $data->quantity; ?></td>
-                        <td><?php echo $data->unit; ?></td>
+                        <td><?php 
+								$dataresult =   getDataRowByTableAndId('inv_item_unit', $data->unit);
+								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->unit_name : '');
+								?></td>
                         <td><?php if ($data->unit_price > 0){echo $data->unit_price;}else{echo '-';} ?></td>
                     </tr>
                         <?php } ?>
