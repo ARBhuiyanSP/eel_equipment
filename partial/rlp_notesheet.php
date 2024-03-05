@@ -136,7 +136,7 @@
                                 </div>
                             </td>
                             <?php if ($key == 0) { ?>
-                            <td></td>
+                            <td><button type="button" name="remove" id="<?php echo $data->id; ?>" class="btn btn_remove" style="background-color:#f26522;color:#ffffff;">X</button></td>
                     <?php } else { ?>
                             <td><button type="button" name="remove" id="<?php echo $data->id; ?>" class="btn btn_remove" style="background-color:#f26522;color:#ffffff;">X</button></td>
                     <?php } ?>
