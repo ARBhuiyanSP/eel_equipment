@@ -108,6 +108,35 @@
                     </tr>
                 </tbody>
             </table>
+			<div class="row">
+				<div class="col-md-6 col-sm-6"></div>
+				<div class="col-md-6 col-sm-6">
+					<table class="table table-striped table-bordered">
+						<tr>
+							<td><b>Other Cost Name</b></td>
+							<td><b>Amount</b></td>
+						</tr>
+						<?php 
+							$totalOtherCost = 0;
+							$rlp_info_id = $rlp_info->id;
+							$sqlother	=	"select * from `rlp_other_cost` where `rlp_info_id`='$rlp_info_id'";
+							$resultother = mysqli_query($conn, $sqlother);
+							while ($rowother = mysqli_fetch_array($resultother)) {
+								$totalOtherCost += $rowother['oc_amount'];
+								
+						?>
+						<tr>
+							<td><?php echo $rowother['oc_name']; ?></td>
+							<td><?php echo $rowother['oc_amount']; ?></td>
+						</tr>
+						<?php } ?>
+						<tr>
+							<td style="text-align:right;"><b>Total</b></td>
+							<td><?php echo $totalOtherCost; ?></td>
+						</tr>
+					</table>
+				</div>
+			</div>
         </div>
         <!-- /.col -->
     </div>

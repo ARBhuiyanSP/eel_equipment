@@ -1,6 +1,6 @@
 <table class="table table-bordered" id="dynamic_fieldoc">
 	<thead>
-		<th width="55%">Cost Name<span class="reqfield"> *</span></th>
+		<th width="55%">Other Cost Name<span class="reqfield"> *</span></th>
 		<th width="15%">Qty<span class="reqfield"> *</span></th>
 		<th width="15%">Rate<span class="reqfield"> *</span></th>
 		<th width="15%">Amount</th>

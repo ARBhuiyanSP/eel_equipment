@@ -17,6 +17,7 @@ if (isset($_POST['rlp_create']) && !empty($_POST['rlp_create'])){
         * *****************************rlp_details table operation********************
         */    
         $rlp_details_response  =   execute_rlp_details_table($rlp_info_id);
+		$rlp_details_response  =   execute_other_rlp_cost_table($rlp_info_id);
         
         $ackParam['acknowledge_user']   =   $_POST['assign_users_order'];
         $ackParam['rlp_info_id']        =   $rlp_info_id;
@@ -72,6 +73,45 @@ function execute_rlp_info_table(){
     
     $response   =   saveData("rlp_info", $dataParam);
     return $response;
+}
+
+function execute_other_rlp_cost_table($rlp_info_id){
+    global $conn;
+    /*
+     * *****************************rrr_details table operation********************
+     */
+	 $no_of_oc     =   0;
+    for($count 		= 0; $count<count($_POST['oc_name']); $count++){
+        //$m_cost_id		= (isset($_POST['m_cost_id']) && !empty($_POST['m_cost_id']) ? trim(mysqli_real_escape_string($conn,$_POST['m_cost_id'])) : "");
+		
+        $oc_name		= (isset($_POST['oc_name'][$count]) && !empty($_POST['oc_name'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['oc_name'][$count])) : '');
+		
+        $oc_qty			= (isset($_POST['quantityoc'][$count]) && !empty($_POST['quantityoc'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['quantityoc'][$count])) : '');
+		
+        $oc_unit_price	= (isset($_POST['unit_priceoc'][$count]) && !empty($_POST['unit_priceoc'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_priceoc'][$count])) : '');
+		
+        $oc_amount		= (isset($_POST['totalamountoc'][$count]) && !empty($_POST['totalamountoc'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['totalamountoc'][$count])) : '');
+		$project_id		= (isset($_POST['request_project']) && !empty($_POST['request_project']) ? trim(mysqli_real_escape_string($conn,$_POST['request_project'])) : "");
+    $warehouse_id		= (isset($_POST['request_warehouse']) && !empty($_POST['request_warehouse']) ? trim(mysqli_real_escape_string($conn,$_POST['request_warehouse'])) : "");
+		
+		$no_of_oc     = $no_of_oc+$oc_name;
+        $dataParam     =   [
+            //'id'                =>  get_table_next_primary_id('rlp_details'),
+            //'m_cost_id'		=>  $m_cost_id,
+			'rlp_info_id'       =>  $rlp_info_id,
+            'oc_name'		=>  $oc_name,
+            'oc_qty'		=>  $oc_qty,
+            'oc_unit_price'	=>  $oc_unit_price,
+            'oc_amount'		=>  $oc_amount,
+            'project_id'		=>  $project_id,
+            'warehouse_id'		=>  $warehouse_id,
+            
+			'created_at'	=>  date('Y-m-d h:i:s'),
+			'created_by'	=>  $_SESSION['logged']['user_id']
+        ];
+    
+        saveData("rlp_other_cost", $dataParam);
+    }
 }
 
 function execute_rlp_details_table($rlp_info_id){
