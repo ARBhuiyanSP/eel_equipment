@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2024 at 06:46 AM
+-- Generation Time: Mar 13, 2024 at 07:17 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.2.22
 
@@ -660,7 +660,7 @@ INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_d
 (1295, '11', 'Own', '2023-12-28', 'Excavator (LB-04)', 'Ex-10', 'CHINA', '0.4m3', 'LIUGONG', 'CLG925E', '2019', 'CLG925EZVKE067380', 'B5.9-C', '22275757', '37', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:18:52', '2022-12-14 05:40:09'),
 (1296, '11', 'Own', '2023-12-28', 'Excavator', 'Ex-11', 'KOREA', '0.92', 'DOOSAN', 'DX225LCA', '2020', 'DHKCEBDXAL0001728', 'DB58TI8', '39584', '37', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:17:48', '2022-12-14 05:40:09'),
 (1297, '12', 'Own', '2023-12-28', 'Excavator (LB-05)', 'Ex-12', 'KOREA', '0.64', 'DOOSAN', 'DX300LCA-SLR', '2020', 'DHKCECAOVL0008576', 'DE08TI8', '75169', '35', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:55:34', '2022-12-14 05:40:09'),
-(1298, '16', 'Own', '0000-00-00', 'Excavator ', 'Ex-13', 'China', '0.3m3', 'DOOSAN', 'DX75-5B', '2020', 'DXCCEABCKL0028201', '4TNV98-EXSDB10', '61158A', '12', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:09'),
+(1298, '16', 'Own', '0000-00-00', 'Excavator', 'Ex-13', 'CHINA', '0.3m3', 'DOOSAN', 'DX75-5B', '2020', 'DXCCEABCKL0028201', '4TNV98-EXSDB10', '61158A', '44', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2024-02-27 07:32:22'),
 (1299, '16', 'Own', '0000-00-00', 'Excavator ', 'Ex-14', 'China', '0.3m3', 'DOOSAN', 'DX75-5B', '2020', 'DXCCEABCJL0028202', '4TNV98-EXSDB10', '61159A', '16', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:40:09'),
 (1300, '23', 'Own', '2023-12-28', 'Excavator (LB-06)', 'Ex-15', 'KOREA', '0.51m3', 'DOOSAN', 'DX225LCA', '2020', 'CEBDX002175', 'DB58TI8', '40559', '3', 'Own', 'Idle', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'NEED  LOOKING GLASS,BATTERY', ' ', '2023-12-28 11:38:39', '2022-12-14 05:40:09'),
 (1301, '20', 'Own', '2023-11-29', 'Excavator (LB-07)', 'Ex-16', 'KOREA', '0.51m3', 'DOOSAN', 'DX225LCA', '2020', 'CEBDX002164', 'DB58TI8', '40613', '20', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-11-29 02:44:57', '2022-12-14 05:40:09'),
@@ -742,7 +742,7 @@ INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_d
 (1376, '15', 'Own', '0000-00-00', 'Tractor', 'TT-24', 'Indian', '100CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YJ1179351', ' ', 'S325J34362', '15', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
 (1377, '15', 'Own', '0000-00-00', 'Tractor', 'TT-25', 'Indian', '100CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA66EA7YJ1197262', ' ', 'S325J41664', '15', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
 (1378, '16', 'Own', '2023-12-28', 'Tractor', 'TT-26', 'INDIA', '100 CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YJ1217959', 'S 325', 'S325J95448', '16', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:53:52', '2022-12-14 05:41:19'),
-(1379, '16', 'Own', '0000-00-00', 'Tractor', 'TT-27', 'India', '100 CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YJ1202372', 'S 325', 'S325J70994', '16', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:41:19'),
+(1379, '16', 'Own', '0000-00-00', 'Tractor', 'TT-27', 'CHINA', '100 CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YJ1202372', 'S 325', 'S325J70994', '44', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2024-02-27 07:33:44'),
 (1380, '23', 'Own', '2023-12-20', 'Tractor', 'TT-28', 'CHINA', '10 Ton', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YK1227893', 'simpsons S325', 'S325K17491', '25', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-20 01:44:45', '2022-12-14 05:41:19'),
 (1381, '11', 'Own', '2023-12-28', 'Tractor', 'TT-29', 'INDIA', '100 CFT', 'TAFE', 'TAFE-45DI', '2019', 'MEA5E0E7YK1231527', 'simpsons S325', 'S325K16559', '37', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'm', ' ', '2023-12-28 12:24:16', '2022-12-14 05:41:19'),
 (1382, '11', 'Own', '2023-12-28', 'Tractor', 'TT-30', 'INDIA', '100 CFT', 'TAFE', 'TAFE-45DI', '2018', 'MEA66EA7YJ1202590', 'S325', 'S325J67645', '37', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'FABRICATION WORK NEED', ' ', '2023-12-28 12:25:10', '2022-12-14 05:41:19'),
@@ -793,7 +793,7 @@ INSERT INTO `equipments` (`id`, `project_id`, `equipment_type`, `commissioning_d
 (1427, '16', 'Own', '0000-00-00', 'Wheel Loader', 'WL-08', 'China', '3 Ton', 'LONG KING', 'LG833N', '2019', 'LSH0833NEKA707434', ' ', ' ', '16', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:43:27'),
 (1428, '12', 'Own', '0000-00-00', 'Wheel Loader', 'WL-09', 'Korea', '5 Ton', 'DOOSAN', 'SD300N', '2020', 'CWLCD-020370', 'WD10G220E23', '1220K008511', '12', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2022-12-14', '2022-12-14 05:43:27'),
 (1429, '25', 'Own', '2023-12-20', 'Wheel Loader', 'WL-10', 'CHINA', '5 Ton', 'DOOSAN', 'SD300N', '2020', 'CWLCD-020371', 'WD10G220E23', '1220K008511', '25', 'Rental', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'Rental Site', ' ', '2023-12-20 01:37:01', '2022-12-14 05:43:27'),
-(1430, '11', 'Own', '2023-12-28', 'Wheel Loader', 'WL-11', 'CHINA', '5 Ton', 'DOOSAN', 'SD300N', '2020', 'CWLCD-020372', 'WD10G220E23', '1220K007942', '33', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:16:12', '2022-12-14 05:43:27'),
+(1430, '11', 'Own', '2023-12-28', 'Wheel Loader', 'WL-11', 'CHINA', '5 Ton', 'DOOSAN', 'SD300N', '2020', 'CWLCD-020372', 'WD10G220E23', '1220K007942', 'Select Project', '', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:16:12', '2022-12-14 05:43:27'),
 (1431, '11', 'Own', '2023-12-28', 'Wheel Loader', 'WL-12', 'CHINA', '5 Ton', 'DOOSAN', 'SD300N', '2022', 'DXCCWLLCDHN0020806', 'WD10G220E23', '1221K014001', '37', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', ' ', ' ', '2023-12-28 12:16:38', '2022-12-14 05:43:27'),
 (1432, '3', 'Own', '2023-11-29', 'Wheel Loader', 'WL-13', 'CHINA', '3 Ton', 'LONG KING', 'LG833B', '2011', 'F11010695', 'WP6G125E22', '6B11A000383', '3', 'Own', 'Running', 0, ' ', 'assigned', ' ', ' ', ' ', ' ', 'Tyre and battery needed.', ' ', '2023-11-29 02:55:42', '2022-12-14 05:43:27'),
 (1433, '3', 'Own', '2023-12-28', 'Mobile crane', 'MC-02', '240', '20 T', 'XCMG', 'XCMG', '2018', '', '', '', '3', 'Own', 'Running', 0, '', 'assigned', '', '', '', '', 'LOTS OF PROBLEM', '', '2023-12-28 11:22:20', ''),
@@ -965,7 +965,7 @@ INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `
 (1019, 'Ex-10', '37', '2023-12-28', '', ''),
 (1020, 'Ex-11', '37', '2023-12-28', '', ''),
 (1021, 'Ex-12', '35', '2023-12-28', '', ''),
-(1022, 'Ex-13', '12', '0000-00-00', '', ''),
+(1022, 'Ex-13', '12', '0000-00-00', '2024-02-26', ''),
 (1023, 'Ex-14', '16', '0000-00-00', '', ''),
 (1024, 'Ex-15', '3', '2023-12-28', '', ''),
 (1025, 'Ex-16', '20', '2023-11-29', '', ''),
@@ -1046,7 +1046,7 @@ INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `
 (1100, 'TT-24', '15', '0000-00-00', '', ''),
 (1101, 'TT-25', '15', '0000-00-00', '', ''),
 (1102, 'TT-26', '16', '2023-12-28', '', ''),
-(1103, 'TT-27', '16', '0000-00-00', '', ''),
+(1103, 'TT-27', '16', '0000-00-00', '2024-02-26', ''),
 (1104, 'TT-28', '25', '2023-12-20', '', ''),
 (1105, 'TT-29', '37', '2023-12-28', '', ''),
 (1106, 'TT-30', '37', '2023-12-28', '', ''),
@@ -1097,7 +1097,7 @@ INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `
 (1151, 'WL-08', '16', '0000-00-00', '', ''),
 (1152, 'WL-09', '12', '0000-00-00', '', ''),
 (1153, 'WL-10', '25', '2023-12-20', '', ''),
-(1154, 'WL-11', '33', '2023-12-28', '', ''),
+(1154, 'WL-11', '33', '2023-12-28', '2024-02-20', ''),
 (1155, 'WL-12', '37', '2023-12-28', '', ''),
 (1156, 'WL-13', '3', '2023-11-29', '', ''),
 (1157, 'MC-02', '3', '2023-12-28', '', ''),
@@ -1111,7 +1111,10 @@ INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `assign_date`, `
 (1165, 'not known', '37', '2023-12-28', '', ''),
 (1166, '13-6296', '37', '2023-12-28', '', ''),
 (1167, '13-9034', '37', '2023-12-28', '', ''),
-(1168, 'B-01', '37', '2023-12-28', '', '');
+(1168, 'B-01', '37', '2023-12-28', '', ''),
+(1485, 'WL-11', 'Select Project', '2024-02-20', '', ''),
+(1486, 'Ex-13', '44', '2024-02-26', '', ''),
+(1487, 'TT-27', '44', '2024-02-26', '', '');
 
 -- --------------------------------------------------------
 
@@ -7349,7 +7352,14 @@ INSERT INTO `inv_item_unit` (`id`, `unit_name`) VALUES
 (30, 'Feet'),
 (31, 'Ibs'),
 (32, 'Ltr.'),
-(33, 'Pack');
+(33, 'Pack'),
+(34, 'mm'),
+(35, 'cm'),
+(36, 'inch'),
+(37, 'psi'),
+(38, 'bar'),
+(39, 'Mpa'),
+(40, 'Â°C');
 
 -- --------------------------------------------------------
 
@@ -7612,7 +7622,7 @@ INSERT INTO `inv_material` (`id`, `material_id_code`, `material_id`, `material_s
 (229, '04-121', '48', '0', 0, 0, 'D-Shackle	', '', '', '', 1, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '3 Ton', 0, 0),
 (230, '04-122', '48', '0', 0, 0, 'Lifting Belt	', '', '', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '5 Ton', 0, 0),
 (231, '06-10', '50', '0', 0, 0, 'Welding Rod 	', '', '', '', 5, NULL, NULL, 0, '33', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'Vortic Marine', 0, 0),
-(232, '04-123', '48', '0', 0, 0, 'Rubber Mounting ', '', '', '', 4, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(232, '04-123', '48', '0', 0, 0, 'Rubber Mounting ', '', '', '', 4, NULL, NULL, 0, '20', 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
 (233, '06-11', '50', '0', 0, 0, 'Vibro Hammer Repair', '', '', '', 1, NULL, NULL, 0, '27', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
 (234, '04-124', '48', '0', 0, 0, 'Hydraulic Pipe with socket	', '', '', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'Dia=1 inch, Long=12 feet', 0, 0),
 (235, '04-125', '48', '0', 0, 0, 'Hydraulic Pipe with socket	', '', '', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'Dia=3/4 inch, Long=12 feet', 0, 0),
@@ -7754,7 +7764,7 @@ INSERT INTO `inv_material` (`id`, `material_id_code`, `material_id`, `material_s
 (370, '04-195', '48', '0', 0, 0, 'Battery With Control Module', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '207856 2KLL000835', 0, 0),
 (371, '04-196', '48', '0', 0, 0, 'Alternator ', 'STD', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
 (372, '01-128', '41', '0', 0, 0, 'D O Ring', 'APS', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
-(373, '04-197', '48', '0', 0, 0, 'Clutch plate ', 'APS', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(373, '04-197', '48', '0', 0, 0, 'Clutch plate ', 'Model : 45 DI', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
 (374, '04-198', '48', '0', 0, 0, 'Water Delivery Gate Valve', 'APS', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
 (375, '01-129', '41', '0', 0, 0, 'Hydraulic Filter ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '0009830615', 0, 0),
 (376, '04-199', '48', '0', 0, 0, 'Door Jack', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '1110100013', 0, 0),
@@ -7788,7 +7798,203 @@ INSERT INTO `inv_material` (`id`, `material_id_code`, `material_id`, `material_s
 (404, '04-224', '48', '0', 0, 0, 'M.S Plate', 'Size: 2200MMX2200MX5MM', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
 (405, '01-132', '41', '0', 0, 0, 'Fuel Filter', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '1009805282', 0, 0),
 (406, '01-133', '41', '0', 0, 0, 'Fuel water seperator filter', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '1000424916/LP--420', 0, 0),
-(407, '01-134', '41', '0', 0, 0, 'Filter Element/Engine oil Filter', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '13055724', 0, 0);
+(407, '01-134', '41', '0', 0, 0, 'Filter Element/Engine oil Filter', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '13055724', 0, 0),
+(408, '04-225', '48', '0', 0, 0, ' Double Roler Bearing', '18 Inch', '-', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '22318F', 98, 0),
+(409, '04-226', '48', '0', 0, 0, 'DOUBLE ROLLER BEARING', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '22318E , SKF. CY. T BRITAIN', 0, 0),
+(410, '04-227', '48', '0', 0, 0, 'Driven Plate -12 Inch ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '1500170S0', 0, 0),
+(411, '04-228', '48', '0', 0, 0, 'Joint Socket ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(412, '05-01', '49', '0', 0, 0, 'Hydraulic Hose Pipe ', '3/4 inch', '', '', 0, NULL, NULL, 0, '30', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(413, '04-229', '48', '0', 0, 0, 'cap nut ', '14mm', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(414, '05-02', '49', '0', 0, 0, 'Nipple ', '3/4 inch', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(415, '04-230', '48', '0', 0, 0, 'Hydraulic Hose Pipe', '3/4 inch', '', '', 0, NULL, NULL, 0, '30', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(416, '04-231', '48', '0', 0, 0, 'Nipple ', '1 inch', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(417, '04-232', '48', '0', 0, 0, 'Nipple ', '1/4 inch', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(418, '05-03', '49', '0', 0, 0, 'Radiator Hose Pipe ', '1/2  inch', '', '', 0, NULL, NULL, 0, '30', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(419, '05-04', '49', '0', 0, 0, 'Radiator Repair ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(420, '04-233', '48', '0', 0, 0, 'Shaft use for Bucket', 'Pin Dia 60 mm , Length 19 inch', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(421, '04-234', '48', '0', 0, 0, 'Battery Terminal ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(422, '04-235', '48', '0', 0, 0, 'Clutch Plate', 'Model : 45 DI', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(423, '04-235', '48', '0', 0, 0, 'Clutch Plate', 'Model : 45 DI', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(424, '04-235', '48', '0', 0, 0, 'Clutch Plate', 'Model : 45 DI', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(425, '04-235', '48', '0', 0, 0, 'Clutch Plate', 'Model : 45 DI', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(426, '04-235', '48', '0', 0, 0, 'Clutch Plate', 'Model : 45 DI', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(427, '04-235', '48', '0', 0, 0, 'Clutch Plate', 'Model : 45 DI', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(428, '02-09', '44', '0', 0, 0, 'Power Oil ', '', '', '', 0, NULL, NULL, 0, '32', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(429, '01-135', '41', '0', 0, 0, 'Pen Filter', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(430, '04-241', '48', '0', 0, 0, 'Fly Wheel Cutting ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(431, '04-242', '48', '0', 0, 0, 'Clutch Plate ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '12 inch', 0, 0),
+(432, '04-243', '48', '0', 0, 0, 'Jute', '', '', '', 0, NULL, NULL, 0, '22', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(433, '04-244', '48', '0', 0, 0, 'Sand Paper / Abrasive Paper ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(434, '04-245', '48', '0', 0, 0, 'Sand Paper', 'G-36', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(435, '04-246', '48', '0', 0, 0, 'Sand Paper', 'G-60', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(436, '04-247', '48', '0', 0, 0, 'Sand Paper', 'G-120', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(437, '04-248', '48', '0', 0, 0, 'Sand Paper', 'G-160', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(438, '04-249', '48', '0', 0, 0, 'Sand Paper', 'G-180', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(439, '04-250', '48', '0', 0, 0, 'Sand Paper', 'G-200', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(440, '04-251', '48', '0', 0, 0, 'Sand Paper', 'G-260', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(441, '04-252', '48', '0', 0, 0, 'Sand Paper', 'G-300', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(442, '04-253', '48', '0', 0, 0, 'Sand Paper', 'G-400', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(443, '04-254', '48', '0', 0, 0, 'Sand Paper', 'G-600', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(444, '04-255', '48', '0', 0, 0, 'Sand Paper', 'G-800', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(445, '04-256', '48', '0', 0, 0, 'Sand Paper', 'G-1000', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(446, '04-257', '48', '0', 0, 0, 'Fog Light ', '100w', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '12 v', 0, 0),
+(447, '04-258', '48', '0', 0, 0, 'Fog Light ', '100w', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '24 V', 0, 0),
+(448, '04-259', '48', '0', 0, 0, ' Fog Light Bulb', '100w', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '12 V', 0, 0),
+(449, '04-260', '48', '0', 0, 0, 'Fog Light Bulb', '100w', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '24V', 0, 0),
+(450, '04-261', '48', '0', 0, 0, 'Indicator Light ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '12V', 0, 0),
+(451, '04-262', '48', '0', 0, 0, 'Indicator Light ', '100w', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '24V', 0, 0),
+(452, '04-263', '48', '0', 0, 0, 'Soldering Wire', '63/37', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(453, '04-264', '48', '0', 0, 0, 'Soldering Iron ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(454, '04-265', '48', '0', 0, 0, 'Cable  AWG-[1-15] ', '', '', '', 0, NULL, NULL, 0, '30', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'RM-[0.5-2.5]', 0, 0),
+(455, '04-266', '48', '0', 0, 0, 'Cable  AWG-[15-30] ', '', '', '', 0, NULL, NULL, 0, '30', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'RM-[2.5-10]', 0, 0),
+(456, '04-267', '48', '0', 0, 0, 'Cable  AWG-[15-30] ', '', '', '', 0, NULL, NULL, 0, '30', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'RM-[2.5-25]', 0, 0),
+(457, '04-268', '48', '0', 0, 0, 'Battery Connector /Cable Wire Lug ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(458, '04-269', '48', '0', 0, 0, 'Battery Terminal Clamp ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(459, '04-270', '48', '0', 0, 0, 'Halogen Head Light Bulb ', '100w', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '12v', 0, 0),
+(460, '04-271', '48', '0', 0, 0, 'Halogen Head Light Bulb ', '100w', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '24V', 0, 0),
+(461, '04-272', '48', '0', 0, 0, 'Electric Bulb', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '24V', 0, 0),
+(462, '04-273', '48', '0', 0, 0, 'capacitor ', '&micro;F [2.5-60]', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(463, '04-274', '48', '0', 0, 0, 'Electric Fuse/ Protection Circuit ', 'A[5-85]', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(464, '04-275', '48', '0', 0, 0, 'Airtac Solenoid Valve', '44V310-10/.15-.o8 Mpa', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(465, '04-276', '48', '0', 0, 0, 'Rubber Bearing', '-', '-', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'WG9100680067', 0, 0),
+(466, '04-277', '48', '0', 0, 0, 'Rubber Bearing', '-', '-', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'WG910068068', 0, 0),
+(467, '04-278', '48', '0', 0, 0, 'Tube', '3 ton', 'CWLP', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '12.00-R20', 0, 0),
+(468, '04-279', '48', '0', 0, 0, 'Vibro hammer mounting', '-', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '-', 0, 0),
+(470, '04-280', '48', '0', 0, 0, 'Vibro hammer mounting', '-', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(471, '06-20', '50', '0', 0, 0, 'Tube Nozzle Repair ', '-', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(472, '06-21', '50', '0', 0, 0, 'Radiator Repair', '-', 'CWLP', '', 1, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(473, '04-281', '48', '0', 0, 0, 'Oil Filter', '', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'VG610007005', 0, 0),
+(474, '04-282', '48', '0', 0, 0, 'Tapered Roller Bearing', '-', 'CWLP', '', 1, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '1850087M91', 0, 0),
+(475, '04-282', '48', '0', 0, 0, 'Tapper Roller Bearing', '-', 'CWLP', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '1850087M91', 0, 0),
+(476, '04-284', '48', '0', 0, 0, 'Pneumatic Nipple', '10mm', '', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '-', 0, 0),
+(477, '04-285', '48', '0', 0, 0, 'tube-', '', 'cwlp', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '10.00-20', 0, 0),
+(478, '04-286', '48', '0', 0, 0, 'Bucket Pin ', '60 x 500mm', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(479, '04-287', '48', '0', 0, 0, 'Bucket Pin ', '65 x 500 mm', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(480, '04-288', '48', '0', 0, 0, 'Bucket Pin ', '50 x 400 mm', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(481, '04-289', '48', '0', 0, 0, 'Bucket Pin ', '70 x 600 mm', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(482, '04-290', '48', '0', 0, 0, 'Bucket Pin ', '75 x 650 mm', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(483, '04-291', '48', '0', 0, 0, 'Rubber Bearing ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'WG9100680067', 0, 0),
+(484, '04-292', '48', '0', 0, 0, 'Rubber Bearing ', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'WG9100680068', 0, 0),
+(485, '04-293', '48', '0', 0, 0, 'Hydraulic Hose Pipe 2 ply ', 'psi [2000,3000,4000,............8000]', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '1/2 inch ,1/4 inch ,3/4 inch,1 inch-1/4 inch,1-1/2 inch', 0, 0),
+(486, '04-294', '48', '0', 0, 0, 'Hydraulic Hose Pipe 3ply', 'psi [2000,3000,4000,............8000]', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '1/2inch ,1/4inch ,3/4 inch,1 inch 1-1/4 inch,1-1/2 inch', 0, 0),
+(487, '04-295', '48', '0', 0, 0, 'Hydraulic Hose Pipe 4 ply', 'psi [2000,3000,4000,............8000]', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '1/2 inch ,1/4 inch ,3/4 inch,1 inch1-1/4 inch,1-1/2 inch', 0, 0),
+(488, '04-296', '48', '0', 0, 0, 'Tube 12.00- R20', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(489, '04-297', '48', '0', 0, 0, 'Tyre 12.00- R20', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(490, '04-298', '48', '0', 0, 0, 'Flap 12.00- R20', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(491, '04-299', '48', '0', 0, 0, 'TUBE 10.00-20', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(492, '04-300', '48', '0', 0, 0, 'Flap10.00-20', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(493, '04-301', '48', '0', 0, 0, 'TUBE 8.25-16', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(494, '04-302', '48', '0', 0, 0, 'Tyre 8.25-16', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(495, '04-303', '48', '0', 0, 0, 'Flap 8.25-16', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(496, '04-304', '48', '0', 0, 0, 'TUBE 17.5-25', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(497, '04-305', '48', '0', 0, 0, 'Tyre 17.5-25', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(498, '04-306', '48', '0', 0, 0, 'Tyre  17.5-25', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(499, '04-307', '48', '0', 0, 0, 'Flap 17.5-25', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(500, '04-308', '48', '0', 0, 0, 'TUBE 8.25-20', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(501, '04-309', '48', '0', 0, 0, 'Tyre  8.25-20', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(502, '04-310', '48', '0', 0, 0, 'Flap  8.25-20', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(503, '04-311', '48', '0', 0, 0, 'TUBE 13.6-28', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(504, '04-312', '48', '0', 0, 0, 'Tyre 13.6-28', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(505, '04-313', '48', '0', 0, 0, 'Flap  13.6-28', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(506, '04-314', '48', '0', 0, 0, 'TUBE 600-16', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(507, '04-315', '48', '0', 0, 0, 'Tyre  600-16', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(508, '04-316', '48', '0', 0, 0, 'Flap 600-16', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(509, '04-317', '48', '0', 0, 0, 'TUBE 24.5-25 L-3', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(510, '04-318', '48', '0', 0, 0, 'Tyre 24.5-25 L-3', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(511, '04-319', '48', '0', 0, 0, 'Flap  24.5-25 L-3', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(512, '04-320', '48', '0', 0, 0, 'TUBE 7.50-16', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(513, '04-321', '48', '0', 0, 0, 'Tyre  7.50-16', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(514, '04-322', '48', '0', 0, 0, 'Flap  7.50-16', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(515, '04-323', '48', '0', 0, 0, 'TUBE 6.50-14', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(516, '04-324', '48', '0', 0, 0, 'Tyre  6.50-14', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(517, '04-325', '48', '0', 0, 0, 'Flap 6.50-14', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0),
+(518, '04-326', '48', '0', 0, 0, 'Tyre with Tube (Army beat)', '', '', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '12.00-20', 0, 0),
+(519, '04-327', '48', '0', 0, 0, 'Idler Roller ', '-', 'CWLP', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '16Y-40-03300', 0, 0),
+(520, '04-328', '48', '0', 0, 0, 'Bucket Teeth', '-', 'CWLP', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'SKMI1U3352', 0, 0),
+(521, '04-329', '48', '0', 0, 0, 'Male Female Coupling ', '-', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'HJ003', 0, 0),
+(522, '04-330', '48', '0', 0, 0, 'Lined Friction Disc Assembly', '-', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '1310A06901', 0, 0),
+(523, '04-331', '48', '0', 0, 0, 'Driven plate (F510 Linear)', '1', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '1500170501', 0, 0),
+(524, '04-332', '48', '0', 0, 0, 'Hydraulic Moving Socket Seal', '-', 'CWLP', '', 5, NULL, NULL, 0, '27', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(525, '04-333', '48', '0', 0, 0, 'Hydraulic hose pipe (3/8 inch *8-12 feet)', '-', 'CWLP', '', 2, NULL, NULL, 0, '30', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(526, '04-334', '48', '0', 0, 0, 'Hydraulic Hose Pipe( 1/2 inch*5-8 feet)', '-', 'CWLP', '', 2, NULL, NULL, 0, '30', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(527, '04-335', '48', '0', 0, 0, 'Hydraulic hose pipe (Dia 1 inch * length 2feet-7 feet)', '-', '', '', 2, NULL, NULL, 0, '30', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(528, '04-336', '48', '0', 0, 0, 'Tapper Roller Bearing', '-', 'CWLP', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '32216', 12, 0),
+(529, '04-337', '48', '0', 0, 0, 'Hubs oil seal', '-', 'CWLP', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(530, '04-338', '48', '0', 0, 0, 'Hydraulic hose pipe 3 ply or 4 ply  (1 inch*5-8 feet)', '-', 'CWLP', '', 2, NULL, NULL, 0, '30', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(531, '04-339', '48', '0', 0, 0, 'Hydraulic hoes pipe 4 ply (1 inch*60 inch0', '-', 'CWLP', '', 5, NULL, NULL, 0, '30', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(532, '04-340', '48', '0', 0, 0, 'Hydraulic female connector or socket (1/2 inch)', '-', 'CWLP', '', 5, NULL, NULL, 0, '34', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(533, '04-341', '48', '0', 0, 0, 'Indicator Signal Headlight Switch', '-', '-', '', 2, NULL, NULL, 0, '27', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '-', 0, 0),
+(534, '07-01', '51', '0', 0, 0, 'Clutch Pressure Plate (APS)', '', '', '', 1, NULL, NULL, 0, '27', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'APS', 0, 0),
+(537, '04-342', '48', '0', 0, 0, 'Clutch Release Bearing', '', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(538, '09-01', '53', '0', 0, 0, 'Fooding', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '--', 0, 0),
+(539, '09-02', '53', '0', 0, 0, 'Labour', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '--', 0, 0),
+(540, '09-03', '53', '0', 0, 0, 'Electricity Bill', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '--', 0, 0),
+(541, '09-04', '53', '0', 0, 0, 'water Bill', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '--', 0, 0),
+(542, '09-05', '53', '0', 0, 0, 'Internet Bill', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '--', 0, 0),
+(543, '09-06', '53', '0', 0, 0, 'House Rent', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '--', 0, 0),
+(544, '09-07', '53', '0', 0, 0, 'Logistic and Others', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '--', 0, 0),
+(545, '09-08', '53', '0', 0, 0, 'Temporary Staff Salary', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '--', 0, 0),
+(546, '09-09', '53', '0', 0, 0, 'Printing and Stationary', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '--', 0, 0),
+(547, '09-10', '53', '0', 0, 0, 'Conveyance Bill', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '--', 0, 0),
+(548, '09-11', '53', '0', 0, 0, 'Currier Bill', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '--', 0, 0),
+(549, '08-01', '52', '0', 0, 0, 'T-Handle ', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '1/2 Inch', 0, 0),
+(550, '08-02', '52', '0', 0, 0, 'Socket', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '22 No', 0, 0),
+(551, '08-03', '52', '0', 0, 0, 'Hammer', '12 pound', '--', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '--', 0, 0),
+(552, '04-343', '48', '0', 0, 0, 'Roller bearing ', '-', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '3984/1850087M91', 0, 0),
+(553, '04-344', '48', '0', 0, 0, 'Fuel filter', '-', 'CWLP', '', 5, NULL, NULL, 0, '20', 5, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'FF5135', 1, 0),
+(554, '04-345', '48', '0', 0, 0, 'Oil Filter', '1', 'CWLP', '', 5, NULL, NULL, 0, '20', 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, '278618139902', 2, 0),
+(555, '04-346', '48', '0', 0, 0, 'W/S Filter', '-', 'CWLP', '', 5, NULL, NULL, 0, '20', 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'F 002H20387', 2, 0),
+(556, '04-347', '48', '0', 0, 0, 'Bearing', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '72-75', 0, 0),
+(557, '09-12', '53', '0', 0, 0, 'Hotel Fare', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '--', 0, 0),
+(558, '01-136', '41', '0', 0, 0, 'Fuel Filter', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'B2/925994', 0, 0),
+(559, '01-136', '41', '0', 0, 0, 'Fuel Separator', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '320/A7170', 0, 0),
+(560, '04-348', '48', '0', 0, 0, 'Seal', '--', '--', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(561, '01-138', '41', '0', 0, 0, 'Fuel Filter', '--', '--', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ID320867', 0, 0),
+(562, '01-138', '41', '0', 0, 0, 'Fuel Separator', '--', '--', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ID328310', 0, 0),
+(563, '01-138', '41', '0', 0, 0, 'Fuel Separator', '--', '--', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ID600243', 0, 0),
+(564, '01-138', '41', '0', 0, 0, 'Air Filter Inner', '--', '--', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ID341946', 0, 0),
+(565, '01-138', '41', '0', 0, 0, 'Air Filter Outer', '--', '--', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ID341947', 0, 0),
+(566, '06-22', '50', '0', 0, 0, 'Excavator bucket', '0.5 cubic meter', 'Rental site ( Ashugonja )', '', 1, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(567, '06-23', '50', '0', 0, 0, 'M.S Chequer Plate', '4.5mm', 'Local', '', 1000, NULL, NULL, 0, '22', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '-', 0, 0),
+(568, '06-24', '50', '0', 0, 0, 'Orange paint', 'Marine', 'Local', '', 50, NULL, NULL, 0, '32', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'Deep', 0, 0),
+(569, '06-25', '50', '0', 0, 0, 'Thinner', 'BARGER', 'Local', '', 100, NULL, NULL, 0, '32', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'T-6', 0, 0),
+(570, '17-01', '61', '0', 0, 0, 'Compound Oil', '-', 'Dhaka/CTG', '', 100, NULL, NULL, 0, '21', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '-', 0, 0),
+(571, '01-143', '41', '0', 0, 0, 'Gear Oil filter', 'SAKURA', 'Dhaka', '', 10, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'C-1805', 0, 0),
+(572, '04-349', '48', '0', 0, 0, 'Fuel filter', '-', 'CWLP', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'FS5612', 0, 0),
+(573, '04-349', '48', '0', 0, 0, 'Oil filter', '-', 'CWLP', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'LF670', 0, 0),
+(574, '08-04', '52', '0', 0, 0, 'Star Screw Driver', '--', '00', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(575, '08-04', '52', '0', 0, 0, 'Flat Screw Driver', '--', '00', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(576, '04-351', '48', '0', 0, 0, 'Fanbelt', '--', '00', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '4pk1050', 0, 0),
+(577, '04-351', '48', '0', 0, 0, 'Pad lock', '--', '00', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(578, '04-351', '48', '0', 0, 0, 'Chain link', '--', '00', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(579, '04-354', '48', '0', 0, 0, 'lp Gas', 'Bottol', '00', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP ', 0, 0),
+(580, '04-354', '48', '0', 0, 0, 'oxygen Gas', 'Bottol', '00', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP ', 0, 0),
+(581, '02-10', '44', '0', 0, 0, 'Diesel', '00', '00', '', 0, NULL, NULL, 0, '21', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '00', 0, 0),
+(582, '04-356', '48', '0', 0, 0, 'Emergency site cost for rental  ', '-', 'Rental site ', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'ASP', 0, 0),
+(583, '04-357', '48', '0', 0, 0, 'Engine fan belt', '-', 'CWLP', '', 5, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '8PK -1540/1500/1475/1450/1400/', 0, 0),
+(584, '01-144', '41', '0', 0, 0, 'Fuel filter', '', 'CWLP', '', 1, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'FS5612', 0, 0),
+(585, '01-145', '41', '0', 0, 0, 'Fuel filter', '-', 'CWLP', '', 3, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'FF5018', 0, 0),
+(586, '01-146', '41', '0', 0, 0, 'Oil Filter', '-', 'CWLP', '', 3, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'LF3000', 0, 0),
+(587, '01-146', '41', '0', 0, 0, 'Oil Filter', '-', 'CWLP', '', 3, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'LF3000', 0, 0),
+(588, '01-148', '41', '0', 0, 0, 'Fuel filter', '-', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'FS1280', 0, 0),
+(589, '01-148', '41', '0', 0, 0, 'Fuel filter', '-', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'FS1280', 0, 0),
+(590, '01-150', '41', '0', 0, 0, 'Fuel Water Separator', '-', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'FS1242', 0, 0),
+(591, '01-151', '41', '0', 0, 0, 'Air filter ', '-', 'CWLP', '', 2, NULL, NULL, 0, '27', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'CV20948', 0, 0),
+(592, '01-151', '41', '0', 0, 0, 'Air filter ', '-', 'CWLP', '', 2, NULL, NULL, 0, '27', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'CV20948', 0, 0),
+(593, '01-153', '41', '0', 0, 0, 'Oil Filter', '-', 'CWLP', '', 3, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '40050800093 / LF734', 0, 0),
+(594, '01-153', '41', '0', 0, 0, 'Oil Filter', '-', 'CWLP', '', 3, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '40050800093 / LF734', 0, 0),
+(595, '01-155', '41', '0', 0, 0, 'Fuel filter', '-', 'CWLP', '', 3, NULL, NULL, 0, '27', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '40040300126 / FF5485', 0, 0),
+(596, '01-155', '41', '0', 0, 0, 'Fuel filter', '-', 'CWLP', '', 3, NULL, NULL, 0, '27', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '40040300126 / FF5485', 0, 0),
+(597, '01-157', '41', '0', 0, 0, 'Fuel Water Separator Filter', '-', 'CWLP', '', 3, NULL, NULL, 0, '27', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '40050800063', 0, 0),
+(598, '01-157', '41', '0', 0, 0, 'Fuel Water Separator Filter', '-', 'CWLP', '', 3, NULL, NULL, 0, '27', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '40050800063', 0, 0),
+(599, '01-159', '41', '0', 0, 0, 'Air filter ', '-', 'CWLP', '', 2, NULL, NULL, 0, '23', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'CH11217', 0, 0),
+(600, '01-159', '41', '0', 0, 0, 'Air filter ', '-', 'CWLP', '', 2, NULL, NULL, 0, '23', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'CH11217', 0, 0),
+(601, '01-161', '41', '0', 0, 0, 'Oil Filter', '-', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '320 / 04134', 0, 0),
+(602, '01-162', '41', '0', 0, 0, 'Fuel filter', '-', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '320 / A7170', 0, 0),
+(603, '01-162', '41', '0', 0, 0, 'Fuel filter', '-', 'CWLP', '', 2, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '320 / A7170', 0, 0),
+(604, '01-164', '41', '0', 0, 0, 'Fuel Water Separator Filter', '-', 'CWLP', '', 2, NULL, NULL, 0, '27', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '320 / A7088', 0, 0),
+(605, '01-165', '41', '0', 0, 0, 'Air filter ( Inner + Outer )', '-', 'CWLP', '', 1, NULL, NULL, 0, '23', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'C16400 / CF400', 0, 0),
+(606, '11-01', '55', '0', 0, 0, 'Tyre', '00', '00', '', 0, NULL, NULL, 0, '20', 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '235/75R15', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -7822,6 +8028,26 @@ CREATE TABLE `inv_materialbalance` (
   `approval_status` tinyint(1) NOT NULL DEFAULT 0,
   `is_manual_code_edit` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'for checking manual code update	'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inv_materialbalance`
+--
+
+INSERT INTO `inv_materialbalance` (`id`, `mb_ref_id`, `mb_materialid`, `material_name`, `material_category`, `eel_code`, `mb_date`, `mbin_qty`, `mbin_val`, `mbout_qty`, `mbout_val`, `mbprice`, `mbtype`, `mbserial`, `mbserial_id`, `mbunit_id`, `jvno`, `part_no`, `project_id`, `warehouse_id`, `package_id`, `building_id`, `approval_status`, `is_manual_code_edit`) VALUES
+(2816, 'MRR-CW001', '04-225', 408, 0, '', '2024-02-19', 100, 120000, 0, 0, 1200, 'Receive', 1.1, '21', '20', 'MRR-CW001', '22318F', '21', '3', '', '', 0, 0),
+(2817, '27', '04-225', 408, 0, 'AC-01', '2024-02-19', 0, 0, 2, 2400, 1200, 'maintenance', 1.1, '21', '20', '27', '22318F', '21', '3', '', '', 0, 0),
+(2818, 'OP-WL001', '04-123', 232, 0, '', '2024-03-03', 4, 28000, 0, 0, 7000, 'OP', 1.1, '12', '20', 'OP-WL001', 'ASP', '12', '11', '', '', 0, 0),
+(2819, '421', '04-123', 232, 0, 'Ex-26', '2024-03-04', 0, 0, 4, 0, 0, 'mCost', 1.1, '12', '20', '421', 'ASP', '12', '11', '', '', 0, 0),
+(2820, 'OP-WL002', '04-344', 553, 0, '', '2024-03-05', 5, 2000, 0, 0, 400, 'OP', 1.1, '12', '20', 'OP-WL002', 'FF5135', '12', '11', '', '', 0, 0),
+(2821, 'OP-WL002', '04-345', 554, 0, '', '2024-03-05', 4, 2800, 0, 0, 700, 'OP', 1.1, '12', '20', 'OP-WL002', '278618139902', '12', '11', '', '', 0, 0),
+(2822, 'OP-WL002', '04-346', 555, 0, '', '2024-03-05', 4, 2800, 0, 0, 700, 'OP', 1.1, '12', '20', 'OP-WL002', 'F 002H20387', '12', '11', '', '', 0, 0),
+(2823, '28', '04-344', 553, 0, 'DT-14', '2024-03-05', 0, 0, 2, 800, 400, 'maintenance', 1.1, '12', '20', '28', 'FF5135', '12', '11', '', '', 0, 0),
+(2824, '28', '04-345', 554, 0, 'DT-14', '2024-03-05', 0, 0, 1, 700, 700, 'maintenance', 1.1, '12', '20', '28', '278618139902', '12', '11', '', '', 0, 0),
+(2825, '28', '04-346', 555, 0, 'DT-14', '2024-03-05', 0, 0, 1, 700, 700, 'maintenance', 1.1, '12', '20', '28', 'F 002H20387', '12', '11', '', '', 0, 0),
+(2826, '422', '04-346', 555, 0, 'DT-14', '2024-03-05', 0, 0, 1, 700, 700, 'mCost', 1.1, '12', '20', '422', 'F 002H20387', '12', '11', '', '', 0, 0),
+(2827, '422', '04-345', 554, 0, 'DT-14', '2024-03-05', 0, 0, 1, 700, 700, 'mCost', 1.1, '12', '20', '422', '278618139902', '12', '11', '', '', 0, 0),
+(2828, '422', '04-344', 553, 0, 'DT-14', '2024-03-05', 0, 0, 2, 800, 400, 'mCost', 1.1, '12', '20', '422', 'FF5135', '12', '11', '', '', 0, 0),
+(2829, 'MRR-WL001', '04-336', 528, 0, '', '2024-03-05', 12, 32400, 0, 0, 2700, 'Receive', 1.1, '12', '20', 'MRR-WL001', '32216', '12', '11', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -7865,7 +8091,18 @@ INSERT INTO `inv_materialcategorysub` (`id`, `category_id`, `parent_id`, `_order
 (47, '03-00', 41, 0, 'Oil Filter', NULL, NULL, NULL, 0, 0),
 (48, '04-00', 0, 8, 'Spare Parts', NULL, NULL, NULL, 0, 1),
 (49, '05-00', 48, 9, 'Radiator', NULL, NULL, NULL, 0, 0),
-(50, '06-00', 0, 0, 'Repair & Maintains ', NULL, NULL, NULL, 0, 0);
+(50, '06-00', 0, 0, 'Repair & Maintenance', NULL, NULL, NULL, 0, 0),
+(51, '07-00', 48, 0, 'Clutch pressure plate (ASP)', NULL, NULL, NULL, 0, 0),
+(52, '08-00', 0, 11, 'Tools', NULL, NULL, NULL, 0, 0),
+(53, '09-00', 0, 0, 'Other Expense', NULL, NULL, NULL, 0, 1),
+(54, '10-00', 53, 0, '--', NULL, NULL, NULL, 0, 0),
+(55, '11-00', 0, 0, 'TYRE', NULL, NULL, NULL, 0, 0),
+(56, '12-00', 56, 0, 'Engine Oil', NULL, NULL, NULL, 0, 1),
+(57, '13-00', 0, 0, 'Engine Oil', NULL, NULL, NULL, 0, 0),
+(58, '14-00', 0, 0, 'Hydraulic Oil', NULL, NULL, NULL, 0, 0),
+(59, '15-00', 0, 0, 'Gear Oil', NULL, NULL, NULL, 0, 0),
+(60, '16-00', 0, 0, 'Brake Oil', NULL, NULL, NULL, 0, 0),
+(61, '17-00', 0, 0, 'Lubricant', NULL, NULL, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -8384,7 +8621,280 @@ INSERT INTO `inv_material_partno_detail` (`id`, `inv_material_id`, `material_id_
 (471, 404, '04-224', '', 1, 1, 1, '2024-01-17 00:00:00', '2024-01-17 00:00:00'),
 (472, 405, '01-132', '1009805282', 1, 1, 1, '2024-01-22 00:00:00', '2024-01-22 00:00:00'),
 (473, 406, '01-133', '1000424916/LP--420', 1, 1, 1, '2024-01-22 00:00:00', '2024-01-22 00:00:00'),
-(474, 407, '01-134', '13055724', 1, 1, 1, '2024-01-22 00:00:00', '2024-01-22 00:00:00');
+(474, 407, '01-134', '13055724', 1, 1, 1, '2024-01-22 00:00:00', '2024-01-22 00:00:00'),
+(475, 408, '04-225', '22318F', 1, 1, 1, '2024-02-19 00:00:00', '2024-02-19 00:00:00'),
+(476, 409, '04-226', '22318E , SKF. CY. T BRITAIN', 1, 1, 1, '2024-02-20 00:00:00', '2024-02-20 00:00:00'),
+(477, 410, '04-227', '1500170S0', 1, 1, 1, '2024-02-27 00:00:00', '2024-02-27 00:00:00'),
+(478, 411, '04-228', '', 1, 1, 1, '2024-02-27 00:00:00', '2024-02-27 00:00:00'),
+(479, 412, '05-01', '', 1, 1, 1, '2024-02-27 00:00:00', '2024-02-27 00:00:00'),
+(480, 413, '04-229', '', 1, 1, 1, '2024-02-27 00:00:00', '2024-02-27 00:00:00'),
+(481, 414, '05-02', '', 1, 1, 1, '2024-02-27 00:00:00', '2024-02-27 00:00:00'),
+(482, 415, '04-230', '', 1, 1, 1, '2024-02-27 00:00:00', '2024-02-27 00:00:00'),
+(483, 416, '04-231', '', 1, 1, 1, '2024-02-27 00:00:00', '2024-02-27 00:00:00'),
+(484, 417, '04-232', '', 1, 1, 1, '2024-02-27 00:00:00', '2024-02-27 00:00:00'),
+(485, 418, '05-03', '', 1, 1, 1, '2024-02-27 00:00:00', '2024-02-27 00:00:00'),
+(486, 419, '05-04', '', 1, 1, 1, '2024-02-27 00:00:00', '2024-02-27 00:00:00'),
+(487, 420, '04-233', '', 1, 1, 1, '2024-02-27 00:00:00', '2024-02-27 00:00:00'),
+(488, 421, '04-234', '', 1, 1, 1, '2024-02-27 00:00:00', '2024-02-27 00:00:00'),
+(489, 0, '04-197', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(490, 0, '04-197', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(491, 0, '04-197', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(492, 422, '04-235', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(493, 424, '04-235', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(494, 423, '04-235', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(495, 425, '04-235', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(496, 426, '04-235', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(497, 427, '04-235', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(498, 428, '02-09', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(499, 429, '01-135', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(500, 430, '04-241', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(501, 431, '04-242', '12\'\'', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(502, 432, '04-243', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(503, 433, '04-244', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(504, 434, '04-245', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(505, 435, '04-246', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(506, 436, '04-247', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(507, 437, '04-248', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(508, 438, '04-249', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(509, 439, '04-250', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(510, 440, '04-251', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(511, 441, '04-252', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(512, 442, '04-253', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(513, 443, '04-254', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(514, 444, '04-255', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(515, 445, '04-256', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(516, 446, '04-257', '12 v', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(517, 447, '04-258', '24 V', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(518, 448, '04-259', '12 V', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(519, 449, '04-260', '24V', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(520, 450, '04-261', '12V', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(521, 451, '04-262', '24V', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(522, 452, '04-263', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(523, 453, '04-264', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(524, 454, '04-265', 'RM-[0.5-2.5]', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(525, 455, '04-266', 'RM-[2.5-10]', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(526, 456, '04-267', 'RM-[2.5-25]', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(527, 457, '04-268', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(528, 458, '04-269', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(529, 459, '04-270', '12v', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(530, 460, '04-271', '24V', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(531, 461, '04-272', '24V', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(532, 462, '04-273', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(533, 463, '04-274', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(534, 464, '04-275', '', 1, 1, 1, '2024-02-29 00:00:00', '2024-02-29 00:00:00'),
+(535, 465, '04-276', 'WG9100680067', 1, 1, 1, '2024-03-02 00:00:00', '2024-03-02 00:00:00'),
+(536, 466, '04-277', 'WG910068068', 1, 1, 1, '2024-03-02 00:00:00', '2024-03-02 00:00:00'),
+(537, 467, '04-278', '12.00-R20', 1, 1, 1, '2024-03-02 00:00:00', '2024-03-02 00:00:00'),
+(538, 468, '04-279', '-', 1, 1, 1, '2024-03-02 00:00:00', '2024-03-02 00:00:00'),
+(539, 469, '', '', 1, 1, 1, '2024-03-02 00:00:00', '2024-03-02 00:00:00'),
+(540, 470, '04-280', '', 1, 1, 1, '2024-03-02 00:00:00', '2024-03-02 00:00:00'),
+(541, 471, '06-20', '', 1, 1, 1, '2024-03-02 00:00:00', '2024-03-02 00:00:00'),
+(542, 472, '06-21', '', 1, 1, 1, '2024-03-02 00:00:00', '2024-03-02 00:00:00'),
+(543, 473, '04-281', 'VG610007005', 1, 1, 1, '2024-03-02 00:00:00', '2024-03-02 00:00:00'),
+(544, 474, '04-282', '1850087M91', 1, 1, 1, '2024-03-02 00:00:00', '2024-03-02 00:00:00'),
+(545, 475, '04-282', '1850087M91', 1, 1, 1, '2024-03-02 00:00:00', '2024-03-02 00:00:00'),
+(546, 476, '04-284', '-', 1, 1, 1, '2024-03-02 00:00:00', '2024-03-02 00:00:00'),
+(547, 477, '04-285', '10.00-20', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(548, 478, '04-286', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(549, 479, '04-287', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(550, 480, '04-288', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(551, 481, '04-289', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(552, 482, '04-290', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(553, 483, '04-291', 'WG9100680067', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(554, 484, '04-292', 'WG9100680068', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(555, 485, '04-293', '1/2\'\' ,1/4\'\' ,3/4\'\',1\'\'1-1/4\'\',1-1/2\'\'', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(556, 486, '04-294', '1/2\'\' ,1/4\'\' ,3/4\'\',1\'\'1-1/4\'\',1-1/2\'\'', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(557, 487, '04-295', '1/2\'\' ,1/4\'\' ,3/4\'\',1\'\'1-1/4\'\',1-1/2\'\'', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(558, 488, '04-296', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(559, 489, '04-297', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(560, 490, '04-298', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(561, 491, '04-299', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(562, 492, '04-300', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(563, 493, '04-301', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(564, 494, '04-302', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(565, 495, '04-303', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(566, 496, '04-304', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(567, 497, '04-305', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(568, 498, '04-306', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(569, 499, '04-307', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(570, 500, '04-308', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(571, 501, '04-309', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(572, 502, '04-310', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(573, 503, '04-311', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(574, 504, '04-312', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(575, 505, '04-313', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(576, 506, '04-314', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(577, 507, '04-315', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(578, 508, '04-316', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(579, 509, '04-317', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(580, 510, '04-318', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(581, 511, '04-319', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(582, 512, '04-320', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(583, 513, '04-321', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(584, 514, '04-322', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(585, 515, '04-323', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(586, 516, '04-324', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(587, 517, '04-325', '', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(588, 518, '04-326', '12.00-20', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(589, 519, '04-327', '16Y-40-03300', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(590, 520, '04-328', 'SKMI1U3352', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(591, 521, '04-329', 'HJ003', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(592, 522, '04-330', '1310A06901', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(593, 523, '04-331', '1500170501', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(594, 524, '04-332', 'ASP', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00');
+INSERT INTO `inv_material_partno_detail` (`id`, `inv_material_id`, `material_id_code`, `part_no`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(595, 525, '04-333', 'ASP', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(596, 526, '04-334', 'ASP', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(597, 527, '04-335', 'ASP', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(598, 528, '04-336', '32216', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(599, 529, '04-337', 'ASP', 1, 1, 1, '2024-03-03 00:00:00', '2024-03-03 00:00:00'),
+(600, 530, '04-338', 'ASP', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(601, 531, '04-339', 'ASP', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(602, 0, '04-335', 'ASP', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(603, 532, '04-340', 'ASP', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(604, 533, '04-341', '-', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(605, 534, '07-01', 'APS', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(606, 535, '07-01', 'APS', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(607, 536, '04-342', '-', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(608, 537, '04-342', 'ASP', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(609, 0, '04-284', '-', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(610, 0, '04-284', '-', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(611, 538, '09-01', '--', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(612, 539, '09-02', '--', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(613, 540, '09-03', '--', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(614, 541, '09-03', '--', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(615, 542, '09-03', '--', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(616, 543, '09-03', '--', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(617, 544, '09-03', '--', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(618, 545, '09-03', '--', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(619, 546, '09-03', '--', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(620, 547, '09-03', '--', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(621, 548, '09-03', '--', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(622, 549, '08-01', '1/2 Inch', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(623, 550, '08-01', '22 No', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(624, 551, '08-03', '--', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(625, 552, '04-343', '3984/1850087M91', 1, 1, 1, '2024-03-04 00:00:00', '2024-03-04 00:00:00'),
+(626, 553, '04-344', 'FF5135', 1, 1, 1, '2024-03-05 00:00:00', '2024-03-05 00:00:00'),
+(627, 554, '04-345', '278618139902', 1, 1, 1, '2024-03-05 00:00:00', '2024-03-05 00:00:00'),
+(628, 555, '04-346', 'F 002H20387', 1, 1, 1, '2024-03-05 00:00:00', '2024-03-05 00:00:00'),
+(629, 556, '04-347', '72-75', 1, 1, 1, '2024-03-05 00:00:00', '2024-03-05 00:00:00'),
+(630, 557, '09-12', '--', 1, 1, 1, '2024-03-05 00:00:00', '2024-03-05 00:00:00'),
+(631, 558, '01-136', 'B2/925994', 1, 1, 1, '2024-03-05 00:00:00', '2024-03-05 00:00:00'),
+(632, 559, '01-136', '320/A7170', 1, 1, 1, '2024-03-05 00:00:00', '2024-03-05 00:00:00'),
+(633, 560, '04-348', 'ASP', 1, 1, 1, '2024-03-05 00:00:00', '2024-03-05 00:00:00'),
+(634, 561, '01-138', 'ID320867', 1, 1, 1, '2024-03-05 00:00:00', '2024-03-05 00:00:00'),
+(635, 562, '01-138', 'ID328310', 1, 1, 1, '2024-03-05 00:00:00', '2024-03-05 00:00:00'),
+(636, 563, '01-138', 'ID600243', 1, 1, 1, '2024-03-05 00:00:00', '2024-03-05 00:00:00'),
+(637, 564, '01-138', 'ID341946', 1, 1, 1, '2024-03-05 00:00:00', '2024-03-05 00:00:00'),
+(638, 565, '01-138', 'ID341947', 1, 1, 1, '2024-03-05 00:00:00', '2024-03-05 00:00:00'),
+(639, 566, '06-22', 'ASP', 1, 1, 1, '2024-03-07 00:00:00', '2024-03-07 00:00:00'),
+(640, 567, '06-23', '-', 1, 1, 1, '2024-03-07 00:00:00', '2024-03-07 00:00:00'),
+(641, 568, '06-24', 'Deep', 1, 1, 1, '2024-03-07 00:00:00', '2024-03-07 00:00:00'),
+(642, 569, '06-25', 'T-6', 1, 1, 1, '2024-03-07 00:00:00', '2024-03-07 00:00:00'),
+(643, 570, '17-01', '-', 1, 1, 1, '2024-03-07 00:00:00', '2024-03-07 00:00:00'),
+(644, 571, '01-143', 'C-1805', 1, 1, 1, '2024-03-07 00:00:00', '2024-03-07 00:00:00'),
+(645, 572, '04-349', 'FS5612', 1, 1, 1, '2024-03-07 00:00:00', '2024-03-07 00:00:00'),
+(646, 573, '04-349', 'LF670', 1, 1, 1, '2024-03-07 00:00:00', '2024-03-07 00:00:00'),
+(647, 574, '08-04', 'ASP', 1, 1, 1, '2024-03-09 00:00:00', '2024-03-09 00:00:00'),
+(648, 575, '08-04', 'ASP', 1, 1, 1, '2024-03-09 00:00:00', '2024-03-09 00:00:00'),
+(649, 576, '04-351', '4pk1050', 1, 1, 1, '2024-03-09 00:00:00', '2024-03-09 00:00:00'),
+(650, 577, '04-351', 'ASP', 1, 1, 1, '2024-03-09 00:00:00', '2024-03-09 00:00:00'),
+(651, 578, '04-351', 'ASP', 1, 1, 1, '2024-03-09 00:00:00', '2024-03-09 00:00:00'),
+(652, 579, '04-354', 'ASP ', 1, 1, 1, '2024-03-09 00:00:00', '2024-03-09 00:00:00'),
+(653, 580, '04-354', 'ASP ', 1, 1, 1, '2024-03-09 00:00:00', '2024-03-09 00:00:00'),
+(654, 581, '02-10', '00', 1, 1, 1, '2024-03-09 00:00:00', '2024-03-09 00:00:00'),
+(655, 582, '04-356', 'ASP', 1, 1, 1, '2024-03-09 00:00:00', '2024-03-09 00:00:00'),
+(656, 583, '04-357', '8PK -1540/1500/1475/1450/1400/', 1, 1, 1, '2024-03-09 00:00:00', '2024-03-09 00:00:00'),
+(657, 584, '01-144', 'FS5612', 1, 1, 1, '2024-03-10 00:00:00', '2024-03-10 00:00:00'),
+(658, 585, '01-145', 'FF5018', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(659, 586, '01-146', 'LF3000', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(660, 587, '01-146', 'LF3000', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(661, 588, '01-148', 'FS1280', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(662, 589, '01-148', 'FS1280', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(663, 590, '01-150', 'FS1242', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(664, 591, '01-151', 'CV20948', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(665, 592, '01-151', 'CV20948', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(666, 593, '01-153', '40050800093 / LF734', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(667, 594, '01-153', '40050800093 / LF734', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(668, 595, '01-155', '40040300126 / FF5485', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(669, 596, '01-155', '40040300126 / FF5485', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(670, 597, '01-157', '40050800063', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(671, 598, '01-157', '40050800063', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(672, 599, '01-159', 'CH11217', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(673, 600, '01-159', 'CH11217', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(674, 601, '01-161', '320 / 04134', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(675, 602, '01-162', '320 / A7170', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(676, 603, '01-162', '320 / A7170', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(677, 604, '01-164', '320 / A7088', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(678, 605, '01-165', 'C16400 / CF400', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00'),
+(679, 606, '11-01', '235/75R15', 1, 1, 1, '2024-03-12 00:00:00', '2024-03-12 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inv_op`
+--
+
+CREATE TABLE `inv_op` (
+  `id` int(11) NOT NULL,
+  `op_no` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `op_date` date DEFAULT NULL,
+  `remarks` varchar(180) CHARACTER SET utf8 DEFAULT NULL,
+  `receive_type` varchar(25) CHARACTER SET utf8 DEFAULT NULL,
+  `project_id` varchar(100) NOT NULL,
+  `warehouse_id` varchar(100) DEFAULT NULL,
+  `chk_year_end` int(11) DEFAULT NULL,
+  `receive_total` float DEFAULT NULL,
+  `no_of_material` float DEFAULT NULL,
+  `received_by` varchar(100) NOT NULL,
+  `approval_status` tinyint(1) NOT NULL DEFAULT 0,
+  `approved_by` varchar(100) NOT NULL,
+  `approved_at` datetime DEFAULT NULL,
+  `approval_remarks` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inv_op`
+--
+
+INSERT INTO `inv_op` (`id`, `op_no`, `op_date`, `remarks`, `receive_type`, `project_id`, `warehouse_id`, `chk_year_end`, `receive_total`, `no_of_material`, `received_by`, `approval_status`, `approved_by`, `approved_at`, `approval_remarks`) VALUES
+(31, 'OP-WL001', '2024-03-03', 'NOTE: Vibro hammer EX-26 Purpose', 'Credit', '12', '11', NULL, 28000, 4, '396', 0, '', '0000-00-00 00:00:00', ''),
+(32, 'OP-WL002', '2024-03-05', 'dt-14,15 purpose ', 'Credit', '12', '11', NULL, 7600, 13, '396', 0, '', '0000-00-00 00:00:00', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inv_opdetail`
+--
+
+CREATE TABLE `inv_opdetail` (
+  `id` int(11) NOT NULL,
+  `op_no` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `material_id` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `material_name` varchar(100) NOT NULL,
+  `material_category` int(11) NOT NULL,
+  `unit_id` int(11) DEFAULT NULL,
+  `receive_qty` float NOT NULL,
+  `unit_price` float NOT NULL,
+  `sl_no` int(11) NOT NULL,
+  `total_receive` float NOT NULL,
+  `rd_serial_id` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `part_no` varchar(200) DEFAULT NULL,
+  `project_id` varchar(100) NOT NULL,
+  `warehouse_id` varchar(1000) NOT NULL,
+  `approval_status` tinyint(1) NOT NULL DEFAULT 0,
+  `is_manual_code_edit` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'for checking manual code update'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inv_opdetail`
+--
+
+INSERT INTO `inv_opdetail` (`id`, `op_no`, `material_id`, `material_name`, `material_category`, `unit_id`, `receive_qty`, `unit_price`, `sl_no`, `total_receive`, `rd_serial_id`, `part_no`, `project_id`, `warehouse_id`, `approval_status`, `is_manual_code_edit`) VALUES
+(61, 'OP-WL001', '04-123', '232', 0, 20, 4, 7000, 1, 28000, '', 'ASP', '12', '11', 0, 0),
+(62, 'OP-WL002', '04-344', '553', 0, 20, 5, 400, 1, 2000, '', 'FF5135', '12', '11', 0, 0),
+(63, 'OP-WL002', '04-345', '554', 0, 20, 4, 700, 1, 2800, '', '278618139902', '12', '11', 0, 0),
+(64, 'OP-WL002', '04-346', '555', 0, 20, 4, 700, 1, 2800, '', 'F 002H20387', '12', '11', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -8409,6 +8919,18 @@ CREATE TABLE `inv_product_price` (
   `updated_at` date NOT NULL,
   `updated_by` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `inv_product_price`
+--
+
+INSERT INTO `inv_product_price` (`id`, `from_table_name`, `mrr_no`, `material_id`, `receive_details_id`, `qty`, `price`, `part_no`, `project_id`, `warehouse_id`, `status`, `created_at`, `cerated_by`, `updated_at`, `updated_by`) VALUES
+(60, '', 'MRR-CW001', '04-225', 54, 98, 1200, '22318F', 21, 3, 1, '2024-02-19', '', '0000-00-00', ''),
+(61, '', 'OP-WL001', '04-123', 61, 4, 7000, 'ASP', 12, 11, 1, '2024-03-03', '', '0000-00-00', ''),
+(62, '', 'OP-WL002', '04-344', 62, 1, 400, 'FF5135', 12, 11, 1, '2024-03-05', '', '0000-00-00', ''),
+(63, '', 'OP-WL002', '04-345', 63, 2, 700, '278618139902', 12, 11, 1, '2024-03-05', '', '0000-00-00', ''),
+(64, '', 'OP-WL002', '04-346', 64, 2, 700, 'F 002H20387', 12, 11, 1, '2024-03-05', '', '0000-00-00', ''),
+(65, '', 'MRR-WL001', '04-336', 55, 12, 2700, '32216', 12, 11, 1, '2024-03-05', '', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -8438,6 +8960,8 @@ CREATE TABLE `inv_receive` (
   `jv_no` varchar(25) CHARACTER SET utf8 DEFAULT NULL,
   `part_no` varchar(200) DEFAULT NULL,
   `requisitionno` varchar(500) DEFAULT NULL,
+  `wo_no` varchar(50) NOT NULL,
+  `ns_no` varchar(50) NOT NULL,
   `requisition_date` datetime DEFAULT NULL,
   `received_by` varchar(100) NOT NULL,
   `approval_status` tinyint(1) NOT NULL DEFAULT 0,
@@ -8446,6 +8970,14 @@ CREATE TABLE `inv_receive` (
   `approval_remarks` longtext NOT NULL,
   `mrr_image` varchar(10000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inv_receive`
+--
+
+INSERT INTO `inv_receive` (`id`, `mrr_no`, `mrr_date`, `purchase_id`, `receive_acct_id`, `supplier_id`, `postedtogl`, `vat_challan_no`, `remarks`, `receive_type`, `project_id`, `warehouse_id`, `receive_unit_id`, `chk_year_end`, `receive_total`, `no_of_material`, `challanno`, `challan_date`, `jv_no`, `part_no`, `requisitionno`, `wo_no`, `ns_no`, `requisition_date`, `received_by`, `approval_status`, `approved_by`, `approved_at`, `approval_remarks`, `mrr_image`) VALUES
+(28, 'MRR-CW001', '2024-02-19', '', '6-14-010', 'SID-003', 0, '', 'ok', 'Credit', '21', '3', '1', NULL, 120000, 100, '123', '2024-02-19', NULL, '22318F', 'r01', '', '', NULL, '3368', 0, '', '0000-00-00 00:00:00', '', ''),
+(29, 'MRR-WL001', '2024-03-05', '', '6-14-010', 'SID-022', 0, '', 'WT-02', 'Credit', '12', '11', '1', NULL, 32400, 12, '2969', '2024-03-05', NULL, '32216', '', '', '', NULL, '396', 0, '', '0000-00-00 00:00:00', '', '');
 
 -- --------------------------------------------------------
 
@@ -8471,6 +9003,14 @@ CREATE TABLE `inv_receivedetail` (
   `approval_status` tinyint(1) NOT NULL DEFAULT 0,
   `is_manual_code_edit` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'for checking manual code update'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inv_receivedetail`
+--
+
+INSERT INTO `inv_receivedetail` (`id`, `mrr_no`, `material_id`, `material_name`, `material_category`, `unit_id`, `receive_qty`, `unit_price`, `sl_no`, `total_receive`, `rd_serial_id`, `part_no`, `project_id`, `warehouse_id`, `approval_status`, `is_manual_code_edit`) VALUES
+(54, 'MRR-CW001', '04-225', '408', 0, 20, 100, 1200, 1, 120000, '', '22318F', '21', '3', 0, 0),
+(55, 'MRR-WL001', '04-336', '528', 0, 20, 12, 2700, 1, 32400, '', '32216', '12', '11', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -8564,6 +9104,42 @@ CREATE TABLE `inv_supplierbalance` (
   `sb_partac_id` varchar(25) CHARACTER SET utf8 NOT NULL,
   `approval_status` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inv_supplierbalance`
+--
+
+INSERT INTO `inv_supplierbalance` (`id`, `sb_ref_id`, `warehouse_id`, `sb_date`, `sb_supplier_id`, `sb_dr_amount`, `sb_cr_amount`, `sb_remark`, `sb_partac_id`, `approval_status`) VALUES
+(30, 'MRR-CW001', '3', '2024-02-19', 'SID-003', 0, 120000, 'ok', 'MRR-CW001', 0),
+(31, 'OP', '', '2024-03-03', 'SID-004', 0, 0, 'Opening balance', 'OP', 0),
+(32, 'OP', '', '2024-03-03', 'SID-005', 0, 0, 'Opening balance', 'OP', 0),
+(33, 'OP', '', '2024-03-03', 'SID-006', 0, 0, 'Opening balance', 'OP', 0),
+(34, 'OP', '', '2024-03-03', 'SID-007', 0, 0, 'Opening balance', 'OP', 0),
+(35, 'OP', '', '2024-03-03', 'SID-008', 0, 0, 'Opening balance', 'OP', 0),
+(36, 'OP', '', '2024-03-03', 'SID-009', 0, 0, 'Opening balance', 'OP', 0),
+(37, 'OP', '', '2024-03-03', 'SID-010', 0, 0, 'Opening balance', 'OP', 0),
+(38, 'OP', '', '2024-03-03', 'SID-011', 0, 0, 'Opening balance', 'OP', 0),
+(39, 'OP', '', '2024-03-03', 'SID-012', 0, 0, 'Opening balance', 'OP', 0),
+(40, 'OP', '', '2024-03-03', 'SID-013', 0, 0, 'Opening balance', 'OP', 0),
+(41, 'OP', '', '2024-03-03', 'SID-014', 0, 0, 'Opening balance', 'OP', 0),
+(42, 'OP', '', '2024-03-03', 'SID-015', 0, 0, 'Opening balance', 'OP', 0),
+(43, 'OP', '', '2024-03-03', 'SID-016', 0, 0, 'Opening balance', 'OP', 0),
+(44, 'OP', '', '2024-03-04', 'SID-017', 0, 0, 'Opening balance', 'OP', 0),
+(45, 'OP', '', '2024-03-04', 'SID-018', 0, 0, 'Opening balance', 'OP', 0),
+(46, 'OP', '', '2024-03-04', 'SID-019', 0, 560000, 'Opening balance', 'OP', 0),
+(47, 'OP', '', '2024-03-04', 'SID-020', 0, 560000, 'Opening balance', 'OP', 0),
+(48, 'OP', '', '2024-03-05', 'SID-021', 0, 0, 'Opening balance', 'OP', 0),
+(49, 'OP', '', '2024-03-05', 'SID-022', 0, 0, 'Opening balance', 'OP', 0),
+(50, 'MRR-WL001', '11', '2024-03-05', 'SID-022', 0, 32400, 'WT-02', 'MRR-WL001', 0),
+(51, 'OP', '', '2024-03-06', 'SID-023', 0, 0, 'Opening balance', 'OP', 0),
+(52, 'OP', '', '2024-03-06', 'SID-024', 0, 0, 'Opening balance', 'OP', 0),
+(53, 'OP', '', '2024-03-06', 'SID-025', 0, 0, 'Opening balance', 'OP', 0),
+(54, 'OP', '', '2024-03-07', 'SID-026', 0, 0, 'Opening balance', 'OP', 0),
+(55, 'OP', '', '2024-03-07', 'SID-027', 0, 0, 'Opening balance', 'OP', 0),
+(56, 'OP', '', '2024-03-10', 'SID-028', 0, 0, 'Opening balance', 'OP', 0),
+(57, 'OP', '', '2024-03-12', 'SID-029', 0, 0, 'Opening balance', 'OP', 0),
+(58, 'OP', '', '2024-03-12', 'SID-030', 0, 0, 'Opening balance', 'OP', 0),
+(59, 'OP', '', '2024-03-13', 'SID-031', 0, 0, 'Opening balance', 'OP', 0);
 
 -- --------------------------------------------------------
 
@@ -8829,6 +9405,14 @@ CREATE TABLE `maintenance` (
   `updated_by` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `maintenance`
+--
+
+INSERT INTO `maintenance` (`id`, `maintenance_id`, `project_id`, `equipment_id`, `lastseervice_date`, `lastservice_hrkm`, `schedule_hrkm`, `present_hrkm`, `nextservice_date`, `nextservice_hrkm`, `dueforservice_hrkm`, `typeofservice_hrkm`, `detailsofmaintenance`, `remarks`, `warehouse_id`, `created_date`, `updated_date`, `created_by`, `updated_by`) VALUES
+(27, '', '21', 'AC-01', '2024-02-19', 100, 350, 340, '2024-02-19', 590, 10, 250, '', 'ok', 3, '2024-02-19 06:22:35', '2024-02-19 06:22:35', '', ''),
+(28, '', '12', 'DT-14', '2024-03-05', 86405, 91405, 86405, '2024-04-20', 91405, 5095, 5000, '', '', 11, '2024-03-05 05:12:50', '2024-03-05 05:12:50', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -8853,6 +9437,14 @@ CREATE TABLE `maintenance_cost` (
   `updated_by` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `maintenance_cost`
+--
+
+INSERT INTO `maintenance_cost` (`id`, `m_cost_id`, `eel_code`, `in_time`, `out_time`, `problem_details`, `remarks`, `status`, `project_id`, `warehouse_id`, `certified_by`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(421, '2024-03-EEL-MCSL-001', 'Ex-26', '2024-03-04', '2024-03-04', '', '', 'Created', 12, 11, '', '2024-03-04 04:55:29', '396', '0000-00-00 00:00:00', ''),
+(422, '2024-03-EEL-MCSL-002', 'DT-14', '2024-03-05', '2024-03-05', 'SERVICING  DONE DT-14-14', '', 'Created', 12, 11, '', '2024-03-05 06:20:28', '396', '0000-00-00 00:00:00', '');
+
 -- --------------------------------------------------------
 
 --
@@ -8872,6 +9464,16 @@ CREATE TABLE `maintenance_details` (
   `warehouse_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `maintenance_details`
+--
+
+INSERT INTO `maintenance_details` (`id`, `maintenance_id`, `material_id`, `material_name`, `unit`, `qty`, `price`, `part_no`, `project_id`, `warehouse_id`) VALUES
+(43, '27', '04-225', '408', '20', 2, 1200, '22318F', 21, 3),
+(44, '28', '04-344', '553', '20', 2, 400, 'FF5135', 12, 11),
+(45, '28', '04-345', '554', '20', 1, 700, '278618139902', 12, 11),
+(46, '28', '04-346', '555', '20', 1, 700, 'F 002H20387', 12, 11);
+
 -- --------------------------------------------------------
 
 --
@@ -8885,6 +9487,14 @@ CREATE TABLE `maintenance_mechanic` (
   `created_at` datetime NOT NULL,
   `created_by` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `maintenance_mechanic`
+--
+
+INSERT INTO `maintenance_mechanic` (`id`, `m_cost_id`, `mechanic_name`, `created_at`, `created_by`) VALUES
+(490, '2024-03-EEL-MCSL-001', 'Rajib mia', '2024-03-04 04:55:29', '396'),
+(491, '2024-03-EEL-MCSL-002', 'Ariful ,Rubel', '2024-03-05 06:20:28', '396');
 
 -- --------------------------------------------------------
 
@@ -8904,6 +9514,16 @@ CREATE TABLE `maintenance_other_cost` (
   `created_at` date NOT NULL DEFAULT current_timestamp(),
   `created_by` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `maintenance_other_cost`
+--
+
+INSERT INTO `maintenance_other_cost` (`id`, `m_cost_id`, `oc_name`, `oc_qty`, `oc_unit_price`, `oc_amount`, `project_id`, `warehouse_id`, `created_at`, `created_by`) VALUES
+(18, '2024-03-EEL-MCSL-001', 'Rental site', 4, 7000, 7000, 12, 11, '2024-03-04', '396'),
+(19, '2024-03-EEL-MCSL-002', 'CWLP', 1, 700, 700, 12, 11, '2024-03-05', '396'),
+(20, '2024-03-EEL-MCSL-002', 'CWLP', 1, 700, 700, 12, 11, '2024-03-05', '396'),
+(21, '2024-03-EEL-MCSL-002', 'CWLP', 1, 400, 400, 12, 11, '2024-03-05', '396');
 
 -- --------------------------------------------------------
 
@@ -8926,6 +9546,16 @@ CREATE TABLE `maintenance_spare_parts` (
   `created_at` datetime NOT NULL,
   `created_by` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `maintenance_spare_parts`
+--
+
+INSERT INTO `maintenance_spare_parts` (`id`, `m_cost_id`, `spare_parts_name`, `material_id`, `part_no`, `qty`, `unit`, `rate`, `amount`, `project_id`, `warehouse_id`, `created_at`, `created_by`) VALUES
+(937, '2024-03-EEL-MCSL-001', '232', '04-123', 'ASP', 4, '20', '', '', 12, 11, '2024-03-04 04:55:29', '396'),
+(938, '2024-03-EEL-MCSL-002', '555', '04-346', 'F 002H20387', 1, '20', '700', '700', 12, 11, '2024-03-05 06:20:28', '396'),
+(939, '2024-03-EEL-MCSL-002', '554', '04-345', '278618139902', 1, '20', '700', '', 12, 11, '2024-03-05 06:20:29', '396'),
+(940, '2024-03-EEL-MCSL-002', '553', '04-344', 'FF5135', 2, '20', '400', '800', 12, 11, '2024-03-05 06:20:29', '396');
 
 -- --------------------------------------------------------
 
@@ -9021,11 +9651,85 @@ CREATE TABLE `notesheets` (
   `quantity` varchar(20) NOT NULL,
   `unit_price` varchar(20) NOT NULL,
   `total` varchar(20) NOT NULL,
+  `purpose` varchar(500) NOT NULL,
   `remarks` varchar(500) NOT NULL,
   `status` varchar(15) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_by` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `notesheets`
+--
+
+INSERT INTO `notesheets` (`id`, `notesheet_no`, `notesheet_id`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `purpose`, `remarks`, `status`, `created_at`, `created_by`) VALUES
+(253, 'NS-2024-03-ENG-Mec-001', 87, 'RLP-ENG-CWL-2024-03-001', 'Approval for purchasing Spares for DT-20,22,31DT-20,22,31 [Brand : SINO, Model : ZZ3257N3647A]', '', '', '', '', '', '467', '', 'Pics', '5', '2200', '11000.00', 'DT-20,22,31DT-20,22,31', '', 'Created', '2024-03-04 06:22:46', 3369),
+(254, 'NS-2024-03-ENG-Mec-002', 88, 'RLP-ENG-CWL-2024-02-002', 'Approval for purchasing Driven Disc Assy for TT-27 [Brand : TAFE, Model : TAFE-45DI]', '', '', '', '', '', '134', '', 'Pics', '1', '7400', '7400.00', 'TT-27TT-27', '', 'Created', '2024-03-04 06:27:37', 3369),
+(255, 'NS-2024-03-ENG-Mec-003', 89, 'RLP-ENG-CWL-2024-02-004', 'Approval for purchasing Spares for TT-38 [Brand : TAFE, Model : TAFE5450DI]', '', '', '', '', '', '357', '', 'Pics', '1', '5500', '5500.00', 'TT-38TT-38', '', 'Created', '2024-03-04 06:32:38', 3369),
+(256, 'NS-2024-03-ENG-Mec-003', 89, 'RLP-ENG-CWL-2024-02-004', 'Approval for purchasing Spares for TT-38 [Brand : TAFE, Model : TAFE5450DI]', '', '', '', '', '', '428', '', 'Pics', '2', '450', '900.00', 'TT-38TT-38', '', 'Created', '2024-03-04 06:32:38', 3369),
+(257, 'NS-2024-03-ENG-Mec-003', 89, 'RLP-ENG-CWL-2024-02-004', 'Approval for purchasing Spares for TT-38 [Brand : TAFE, Model : TAFE5450DI]', '', '', '', '', '', '429', '', 'Pics', '2', '30', '60.00', 'TT-38TT-38', '', 'Created', '2024-03-04 06:32:38', 3369),
+(258, 'NS-2024-03-ENG-Mec-003', 89, 'RLP-ENG-CWL-2024-02-004', 'Approval for purchasing Spares for TT-38 [Brand : TAFE, Model : TAFE5450DI]', '', '', '', '', '', '368', '', 'Pics', '2', '25', '50.00', 'TT-38TT-38', '', 'Created', '2024-03-04 06:32:38', 3369),
+(259, 'NS-2024-03-ENG-Mec-004', 90, 'RLP-ENG-PCT-2024-02-001', 'Approval for purchasing of  Dump Truck ( DT-17) Tyre for PCT Yard, Chottogram.', '', '', '', '', '', '54', '', 'Pics', '06', '32200', '193200.00', 'Dump truck-17Dump truck-17', 'MRF Brand', 'Created', '2024-03-04 07:20:16', 328),
+(260, 'NS-2024-03-ENG-Mec-005', 91, 'RLP-ENG-CWL-2024-02-003', 'Approval for purchasing of Engine oil for CWLP Project, Chottogram', '', '', '', '', '', '13', '', 'Pics', '400', '400', '160000.00', 'ALL EQUIPMENTALL EQUIPMENT', 'Kixx Brand,15W40', 'Created', '2024-03-05 06:25:40', 328),
+(261, 'NS-2024-03-ENG-Mec-006', 92, 'RLP-ENG-CWL-2024-02-003', 'Approval for purchasing of Hydraulic Oil for CWLP Project, Chottogram', '', '', '', '', '', '96', '', 'Pics', '410', '260', '106600.00', 'ALL EQUIPMENTALL EQUIPMENT', '', 'Created', '2024-03-05 06:58:10', 328),
+(262, 'NS-2024-03-ENG-Mec-007', 93, 'RLP-ENG-PCT-2024-03-004', 'Approval for purchasing Spares for DT-16 [Brand : EICHER, Model : PRO5025] NA', '', '', '', '', '', '534', '', 'Pics', '1', '8500', '8500.00', 'Dump Truck-16Dump Truck-16', 'For DT-16', 'Created', '2024-03-06 10:49:45', 3369),
+(263, 'NS-2024-03-ENG-Mec-007', 93, 'RLP-ENG-PCT-2024-03-004', 'Approval for purchasing Spares for DT-16 [Brand : EICHER, Model : PRO5025] NA', '', '', '', '', '', '214', '', 'Pics', '1', '17200', '17200.00', 'Dump Truck-16Dump Truck-16', '\'\'', 'Created', '2024-03-06 10:49:45', 3369),
+(264, 'NS-2024-03-ENG-Mec-007', 93, 'RLP-ENG-PCT-2024-03-004', 'Approval for purchasing Spares for DT-16 [Brand : EICHER, Model : PRO5025] NA', '', '', '', '', '', '537', '', 'Pics', '1', '2800', '2800.00', 'Dump Truck-16Dump Truck-16', '\'\'', 'Created', '2024-03-06 10:49:45', 3369),
+(265, 'NS-2024-03-ENG-Mec-007', 93, 'RLP-ENG-PCT-2024-03-004', 'Approval for purchasing Spares for DT-16 [Brand : EICHER, Model : PRO5025] NA', '', '', '', '', '', '544', '', 'Pics', '1', '1000', '1000.00', 'Dump Truck-16Dump Truck-16', '\'\'', 'Created', '2024-03-06 10:49:45', 3369),
+(266, 'NS-2024-03-ENG-Mec-008', 94, 'RLP-ENG-CWL-2024-03-004', 'Approval for purchasing Battery for TT-27,40 [Brand : TAFE, Model : TAFE-45DI & TAFE5450DI]', '', '', '', '', '', '329', '', 'Pics', '2', '11500', '23000.00', 'TT-27,40TT-27,40', 'NX 120-7,12V,80AH,Ignite SMF', 'Created', '2024-03-06 10:57:33', 3369),
+(267, 'NS-2024-03-ENG-Mec-009', 95, 'RLP-ENG-CWL-2024-03-003', 'Approval for purchasing spares fot TT-40 [Brand : TAFE, Model : TAFE 5440DI]', '', '', '', '', '', '202', '', 'Pics', '2', '550', '1100.00', 'TT-40TT-40', '', 'Created', '2024-03-06 11:14:08', 3369),
+(268, 'NS-2024-03-ENG-Mec-009', 95, 'RLP-ENG-CWL-2024-03-003', 'Approval for purchasing spares fot TT-40 [Brand : TAFE, Model : TAFE 5440DI]', '', '', '', '', '', '552', '', 'Pics', '2', '2500', '5000.00', 'TT-40TT-40', '', 'Created', '2024-03-06 11:14:08', 3369),
+(269, 'NS-2024-03-ENG-Mec-009', 95, 'RLP-ENG-CWL-2024-03-003', 'Approval for purchasing spares fot TT-40 [Brand : TAFE, Model : TAFE 5440DI]', '', '', '', '', '', '521', '', 'Pics', '2', '370', '740.00', 'TT-40TT-40', '', 'Created', '2024-03-06 11:14:08', 3369),
+(270, 'NS-2024-03-ENG-Mec-009', 95, 'RLP-ENG-CWL-2024-03-003', 'Approval for purchasing spares fot TT-40 [Brand : TAFE, Model : TAFE 5440DI]', '', '', '', '', '', '244', '', 'Pics', '2', '120', '240.00', 'TT-40TT-40', 'Local purchase .', 'Created', '2024-03-06 11:14:08', 3369),
+(271, 'NS-2024-03-ENG-Mec-009', 95, 'RLP-ENG-CWL-2024-03-003', 'Approval for purchasing spares fot TT-40 [Brand : TAFE, Model : TAFE 5440DI]', '', '', '', '', '', '547', '', 'Pics', '1', '500', '500.00', 'TT-40TT-40', '', 'Created', '2024-03-06 11:14:08', 3369),
+(272, 'NS-2024-03-ENG-Mec-010', 96, 'RLP-ENG-CWL-2024-03-002', 'Approval for purchasing Spares for WT-02 [Brand : TAFE]', '', '', '', '', '', '529', '', 'Pics', '2', '150', '300.00', 'WT-02WT-02', 'Local purchase .', 'Created', '2024-03-06 11:47:17', 3369),
+(273, 'NS-2024-03-ENG-Mec-010', 96, 'RLP-ENG-CWL-2024-03-002', 'Approval for purchasing Spares for WT-02 [Brand : TAFE]', '', '', '', '', '', '303', '', 'Pics', '2', '1550', '3100.00', 'WT-02WT-02', 'WT-02', 'Created', '2024-03-06 11:47:17', 3369),
+(274, 'NS-2024-03-ENG-Mec-010', 96, 'RLP-ENG-CWL-2024-03-002', 'Approval for purchasing Spares for WT-02 [Brand : TAFE]', '', '', '', '', '', '528', '', 'Pics', '2', '2750', '5500.00', 'WT-02WT-02', '\'\'', 'Created', '2024-03-06 11:47:17', 3369),
+(275, 'NS-2024-03-ENG-Mec-011', 97, 'RLP-ENG-PCT-2024-03-005', 'PCT yard Expenses .', '', '', '', '', '', '540', '', 'Pics', '1', '25000', '25000.00', 'PCY Yard ExpensePCY Yard Expense', '', 'Created', '2024-03-06 11:52:53', 3369),
+(276, 'NS-2024-03-ENG-Mec-011', 97, 'RLP-ENG-PCT-2024-03-005', 'PCT yard Expenses .', '', '', '', '', '', '541', '', 'Pics', '2', '5500', '11000.00', 'PCY Yard ExpensePCY Yard Expense', '', 'Created', '2024-03-06 11:52:54', 3369),
+(277, 'NS-2024-03-ENG-Mec-011', 97, 'RLP-ENG-PCT-2024-03-005', 'PCT yard Expenses .', '', '', '', '', '', '542', '', 'Pics', '1', '2000', '2000.00', 'PCY Yard ExpensePCY Yard Expense', '', 'Created', '2024-03-06 11:52:54', 3369),
+(278, 'NS-2024-03-ENG-Mec-011', 97, 'RLP-ENG-PCT-2024-03-005', 'PCT yard Expenses .', '', '', '', '', '', '543', '', 'Pics', '1', '8575', '8575.00', 'PCY Yard ExpensePCY Yard Expense', '', 'Created', '2024-03-06 11:52:54', 3369),
+(279, 'NS-2024-03-ENG-Mec-011', 97, 'RLP-ENG-PCT-2024-03-005', 'PCT yard Expenses .', '', '', '', '', '', '539', '', 'Pics', '4', '600', '2400.00', 'PCY Yard ExpensePCY Yard Expense', '', 'Created', '2024-03-06 11:52:54', 3369),
+(280, 'NS-2024-03-ENG-Mec-011', 97, 'RLP-ENG-PCT-2024-03-005', 'PCT yard Expenses .', '', '', '', '', '', '546', '', 'Pics', '1', '1000', '1000.00', 'PCY Yard ExpensePCY Yard Expense', '', 'Created', '2024-03-06 11:52:54', 3369),
+(281, 'NS-2024-03-ENG-Mec-012', 98, 'RLP-ENG-PCT-2024-03-008', 'Approval for purchasing Filter for DT-17 [Brand : EICHER, Model : PRO5025]', '', '', '', '', '', '18', '', 'Pics', '3', '700', '2100.00', 'Dump Truck-17 Rental site AssugongDump Truck-17 Rental site Assugong', '', 'Created', '2024-03-06 12:12:21', 3369),
+(282, 'NS-2024-03-ENG-Mec-012', 98, 'RLP-ENG-PCT-2024-03-008', 'Approval for purchasing Filter for DT-17 [Brand : EICHER, Model : PRO5025]', '', '', '', '', '', '561', '', 'Pics', '3', '1400', '4200.00', 'Dump Truck-17 Rental site AssugongDump Truck-17 Rental site Assugong', '', 'Created', '2024-03-06 12:12:21', 3369),
+(283, 'NS-2024-03-ENG-Mec-012', 98, 'RLP-ENG-PCT-2024-03-008', 'Approval for purchasing Filter for DT-17 [Brand : EICHER, Model : PRO5025]', '', '', '', '', '', '562', '', 'Pics', '3', '2000', '6000.00', 'Dump Truck-17 Rental site AssugongDump Truck-17 Rental site Assugong', '', 'Created', '2024-03-06 12:12:21', 3369),
+(284, 'NS-2024-03-ENG-Mec-012', 98, 'RLP-ENG-PCT-2024-03-008', 'Approval for purchasing Filter for DT-17 [Brand : EICHER, Model : PRO5025]', '', '', '', '', '', '563', '', 'Pics', '3', '1800', '5400.00', 'Dump Truck-17 Rental site AssugongDump Truck-17 Rental site Assugong', '', 'Created', '2024-03-06 12:12:21', 3369),
+(285, 'NS-2024-03-ENG-Mec-012', 98, 'RLP-ENG-PCT-2024-03-008', 'Approval for purchasing Filter for DT-17 [Brand : EICHER, Model : PRO5025]', '', '', '', '', '', '564', '', 'Pics', '3', '2800', '8400.00', 'Dump Truck-17 Rental site AssugongDump Truck-17 Rental site Assugong', '', 'Created', '2024-03-06 12:12:21', 3369),
+(286, 'NS-2024-03-ENG-Mec-012', 98, 'RLP-ENG-PCT-2024-03-008', 'Approval for purchasing Filter for DT-17 [Brand : EICHER, Model : PRO5025]', '', '', '', '', '', '565', '', 'Pics', '3', '1200', '3600.00', 'Dump Truck-17 Rental site AssugongDump Truck-17 Rental site Assugong', '', 'Created', '2024-03-06 12:12:21', 3369),
+(287, 'NS-2024-03-ENG-Mec-013', 99, 'RLP-ENG-PCT-2024-03-003', 'Approval for purchasing Spares for EX-20 [Brand : Doosan, Model : DX220LCA]', '', '', '', '', '', '520', '', 'Pics', '4', '3000', '12000.00', 'Excavator-20Excavator-20', 'EX-20', 'Created', '2024-03-07 09:39:36', 3369),
+(288, 'NS-2024-03-ENG-Mec-013', 99, 'RLP-ENG-PCT-2024-03-003', 'Approval for purchasing Spares for EX-20 [Brand : Doosan, Model : DX220LCA]', '', '', '', '', '', '397', '', 'Pics', '5', '500', '2500.00', 'Excavator-20Excavator-20', '\'\'', 'Created', '2024-03-07 09:39:36', 3369),
+(289, 'NS-2024-03-ENG-Mec-014', 100, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', '', '', '', '', '', '303', '', 'Pics', '2', '700', '1400.00', 'Tractor -35Tractor -35', 'For TT-35', 'Created', '2024-03-07 09:53:37', 3369),
+(290, 'NS-2024-03-ENG-Mec-014', 100, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', '', '', '', '', '', '556', '', 'Pics', '1', '950', '950.00', 'Tractor -35Tractor -35', '', 'Created', '2024-03-07 09:53:37', 3369),
+(291, 'NS-2024-03-ENG-Mec-014', 100, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', '', '', '', '', '', '560', '', 'Pics', '2', '100', '200.00', 'Tractor -35Tractor -35', '', 'Created', '2024-03-07 09:53:37', 3369),
+(292, 'NS-2024-03-ENG-Mec-014', 100, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', '', '', '', '', '', '547', '', 'Pics', '1', '2000', '2000.00', 'Bulldozer-12Bulldozer-12', 'For Bulldozer-12', 'Created', '2024-03-07 09:53:37', 3369),
+(293, 'NS-2024-03-ENG-Mec-014', 100, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', '', '', '', '', '', '538', '', 'Pics', '1', '1290', '1290.00', 'Bulldozer-12Bulldozer-12', '\'\'', 'Created', '2024-03-07 09:53:37', 3369),
+(294, 'NS-2024-03-ENG-Mec-014', 100, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', '', '', '', '', '', '547', '', 'Pics', '1', '2930', '2930.00', 'Vibrator Roller -01,WL-10Vibrator Roller -01,WL-10', 'For Vibrator Roller -01,WL-10', 'Created', '2024-03-07 09:53:37', 3369),
+(295, 'NS-2024-03-ENG-Mec-014', 100, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', '', '', '', '', '', '538', '', 'Pics', '1', '4045', '4045.00', 'Vibrator Roller -01,WL-10Vibrator Roller -01,WL-10', '\'\'', 'Created', '2024-03-07 09:53:37', 3369),
+(296, 'NS-2024-03-ENG-Mec-014', 100, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', '', '', '', '', '', '557', '', 'Pics', '1', '2800', '2800.00', 'Vibrator Roller -01,WL-10Vibrator Roller -01,WL-10', '\'\'', 'Created', '2024-03-07 09:53:37', 3369),
+(297, 'NS-2024-03-ENG-Mec-014', 100, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', '', '', '', '', '', '547', '', 'Pics', '1', '4110', '4110.00', 'Vibrator Roller -07Vibrator Roller -07', 'For VR-07', 'Created', '2024-03-07 09:53:37', 3369),
+(298, 'NS-2024-03-ENG-Mec-014', 100, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', '', '', '', '', '', '538', '', 'Pics', '1', '1220', '1220.00', 'Vibrator Roller -07Vibrator Roller -07', '\'\'', 'Created', '2024-03-07 09:53:37', 3369),
+(299, 'NS-2024-03-ENG-Mec-014', 100, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', '', '', '', '', '', '547', '', 'Pics', '1', '4930', '4930.00', 'jamuna rail bridge project,Jolsiri Project,Assugong,Progect Different equipment auto electric work purposejamuna rail bridge project,Jolsiri Project,Assugong,Progect Different equipment auto electric work purpose', 'Jamuna rail bridge project,Jolsiri Project,Assugong,Progect Different equipment auto electric work purpose', 'Created', '2024-03-07 09:53:37', 3369),
+(300, 'NS-2024-03-ENG-Mec-014', 100, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', '', '', '', '', '', '538', '', 'Pics', '1', '2955', '2955.00', 'jamuna rail bridge project,Jolsiri Project,Assugong,Progect Different equipment auto electric work purposejamuna rail bridge project,Jolsiri Project,Assugong,Progect Different equipment auto electric work purpose', '\'\'', 'Created', '2024-03-07 09:53:37', 3369),
+(301, 'NS-2024-03-ENG-Mec-014', 100, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', '', '', '', '', '', '557', '', 'Pics', '1', '600', '600.00', 'jamuna rail bridge project,Jolsiri Project,Assugong,Progect Different equipment auto electric work purposejamuna rail bridge project,Jolsiri Project,Assugong,Progect Different equipment auto electric work purpose', '\'\'', 'Created', '2024-03-07 09:53:37', 3369),
+(302, 'NS-2024-03-ENG-Mec-015', 101, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for VR-07[ Brand : JCB, Model : JCB 116DD]', '', '', '', '', '', '558', '', 'Pics', '1', '1300', '1300.00', 'Vibrator Roller -07Vibrator Roller -07', 'For VR-07', 'Created', '2024-03-07 09:58:10', 3369),
+(303, 'NS-2024-03-ENG-Mec-015', 101, 'RLP-ENG-PCT-2024-03-007', 'Approval for purchasing Spares for VR-07[ Brand : JCB, Model : JCB 116DD]', '', '', '', '', '', '559', '', 'Pics', '1', '1300', '1300.00', 'Vibrator Roller -07Vibrator Roller -07', '\'\'', 'Created', '2024-03-07 09:58:10', 3369),
+(304, 'NS-2024-03-ENG-Mec-016', 102, 'RLP-ENG-2024-03-024', 'Approval for purchasing Spare and Conveyance Bill for EX-09 [Brand : LIUGONG, Model : CLG925E]  and Site Equipment\'s.', '', '', '', '', '', '583', '', 'Pics', '5', '1500', '7500.00', 'EX-09EX-09', '', 'Created', '2024-03-10 07:49:55', 3369),
+(305, 'NS-2024-03-ENG-Mec-016', 102, 'RLP-ENG-2024-03-024', 'Approval for purchasing Spare and Conveyance Bill for EX-09 [Brand : LIUGONG, Model : CLG925E]  and Site Equipment\'s.', '', '', '', '', '', '547', '', 'Pics', '1', '6500', '6500.00', 'ALL EQUIPMENTALL EQUIPMENT', 'ALL A EQUIPMENT', 'Created', '2024-03-10 07:49:55', 3369),
+(306, 'NS-2024-03-ENG-Mec-017', 103, 'RLP-ENG-2024-03-022', 'Approval for purchasing Spares for Ex-6 [Brand : XEMG, Model : XE-370PA]', '', '', '', '', '', '409', '', 'Pics', '2', '15000', '30000.00', 'EX-076EX-076', 'For EX-06', 'Created', '2024-03-12 07:38:12', 3369),
+(307, 'NS-2024-03-ENG-Mec-017', 103, 'RLP-ENG-2024-03-022', 'Approval for purchasing Spares for Ex-6 [Brand : XEMG, Model : XE-370PA]', '', '', '', '', '', '547', '', 'Pics', '1', '3000', '3000.00', 'EX-06EX-06', '\'\'', 'Created', '2024-03-12 07:38:12', 3369),
+(308, 'NS-2024-03-ENG-Mec-018', 104, 'RLP-ENG-2024-03-025', 'Approval for purchasing Spares for Ex-26 [Brand : Zoomlion, Model : ZE485E-10]', '', '', '', '', '', '524', '', 'Pics', '12', '1400', '16800.00', 'EX-26EX-26', 'Ex-26', 'Created', '2024-03-12 07:43:34', 3369),
+(309, 'NS-2024-03-ENG-Mec-019', 105, 'RLP-ENG-2024-03-025', 'Approval for purchasing Spares for various  EX-05,06,07,09,26 .', '', '', '', '', '', '525', '', 'Pics', '4', '2100', '8400.00', 'EX-05,06EX-05,06', 'For EX-05,06', 'Created', '2024-03-12 07:51:23', 3369),
+(310, 'NS-2024-03-ENG-Mec-019', 105, 'RLP-ENG-2024-03-025', 'Approval for purchasing Spares for various  EX-05,06,07,09,26 .', '', '', '', '', '', '137', '', 'Pics', '2', '1650', '3300.00', 'EX-26EX-26', 'For EX-26', 'Created', '2024-03-12 07:51:23', 3369),
+(311, 'NS-2024-03-ENG-Mec-019', 105, 'RLP-ENG-2024-03-025', 'Approval for purchasing Spares for various  EX-05,06,07,09,26 .', '', '', '', '', '', '530', '', 'Pics', '1', '1200', '1200.00', 'EX-07EX-07', 'For EX-07', 'Created', '2024-03-12 07:51:23', 3369),
+(312, 'NS-2024-03-ENG-Mec-019', 105, 'RLP-ENG-2024-03-025', 'Approval for purchasing Spares for various  EX-05,06,07,09,26 .', '', '', '', '', '', '287', '', 'Pics', '1', '4000', '4000.00', 'EX-09EX-09', 'For EX-09', 'Created', '2024-03-12 07:51:23', 3369),
+(313, 'NS-2024-03-ENG-Mec-019', 105, 'RLP-ENG-2024-03-025', 'Approval for purchasing Spares for various  EX-05,06,07,09,26 .', '', '', '', '', '', '532', '', 'Pics', '2', '300', '600.00', 'EX-07EX-07', 'For EX-07', 'Created', '2024-03-12 07:51:23', 3369),
+(314, 'NS-2024-03-ENG-Mec-020', 106, 'RLP-ENG-2024-03-023', 'Approval for Emergency Site Cost for all Equipment\'s of CWLP .', '', '', '', '', '', '582', '', 'Pics', '20', '2000', '40000.00', 'ALL EQUIPMENTALL EQUIPMENT', '', 'Created', '2024-03-12 07:55:12', 3369),
+(315, 'NS-2024-03-ENG-Mec-020', 106, 'RLP-ENG-2024-03-023', 'Approval for Emergency Site Cost for all Equipment\'s of CWLP .', '', '', '', '', '', '547', '', 'Pics', '5', '3000', '15000.00', 'ALL EQUIPMENTALL EQUIPMENT', '', 'Created', '2024-03-12 07:55:12', 3369),
+(316, 'NS-2024-03-ENG-Mec-021', 107, 'RLP-ENG-2024-03-021', 'Approval for conveyance bill for EX-19 & EX-25 [Brand : Doosan ,Model : DX220LCA], DT-35[Brand : Sino, Model : 	ZZ3257N3647A]  [Rental Site]', '', '', '', '', '', '547', '', 'Pics', '2 Person', '3000', '6000.00', 'Excavator-15 Rental site Jamuna Rail Bridge projectExcavator-15 Rental site Jamuna Rail Bridge project', 'Excavator-19 Rental site Jamuna Rail Bridge projectExcavator-19 Rental site Jamuna Rail Bridge project', 'Created', '2024-03-12 08:07:26', 3369),
+(317, 'NS-2024-03-ENG-Mec-021', 107, 'RLP-ENG-2024-03-021', 'Approval for conveyance bill for EX-19 & EX-25 [Brand : Doosan ,Model : DX220LCA], DT-35[Brand : Sino, Model : 	ZZ3257N3647A]  [Rental Site]', '', '', '', '', '', '538', '', 'Pics', '2 Person 5 Days', '2500', '5000.00', 'Excavator-15 Rental site Jamuna Rail Bridge projectExcavator-15 Rental site Jamuna Rail Bridge project', '\'\'', 'Created', '2024-03-12 08:07:26', 3369),
+(318, 'NS-2024-03-ENG-Mec-021', 107, 'RLP-ENG-2024-03-021', 'Approval for conveyance bill for EX-19 & EX-25 [Brand : Doosan ,Model : DX220LCA], DT-35[Brand : Sino, Model : 	ZZ3257N3647A]  [Rental Site]', '', '', '', '', '', '548', '', 'Pics', '1', '5500', '5500.00', 'Excavator-15 (280 ltr Hydraulic oil Send Chittagong to Jamuna Rail Bridge Project)Excavator-15 (280 ltr Hydraulic oil Send Chittagong to Jamuna Rail Bridge Project)', 'Excavator-19 (280 ltr Hydraulic oil Send Chittagong to Jamuna Rail Bridge Project)Excavator-15 (280 ltr Hydraulic oil Send Chittagong to Jamuna Rail Bridge Project)', 'Created', '2024-03-12 08:07:26', 3369),
+(319, 'NS-2024-03-ENG-Mec-021', 107, 'RLP-ENG-2024-03-021', 'Approval for conveyance bill for EX-19 & EX-25 [Brand : Doosan ,Model : DX220LCA], DT-35[Brand : Sino, Model : 	ZZ3257N3647A]  [Rental Site]', '', '', '', '', '', '548', '', 'Pics', '1', '1000', '1000.00', 'Excavator-25,Dump truck-35(65 ltr engine oil and filter send Assugong,B-baria)Excavator-25,Dump truck-35(65 ltr engine oil and filter send Assugong,B-baria)', 'Excavator-25,Dump truck-35(65 ltr engine oil and filter send Assugong,B-baria)Excavator-25,Dump truck-35(65 ltr engine oil and filter send Assugong,B-baria)', 'Created', '2024-03-12 08:07:26', 3369);
 
 -- --------------------------------------------------------
 
@@ -9067,6 +9771,33 @@ CREATE TABLE `notesheets_master` (
   `updated_by` datetime NOT NULL,
   `is_delete` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `notesheets_master`
+--
+
+INSERT INTO `notesheets_master` (`id`, `notesheet_no`, `rlp_no`, `request_project`, `request_warehouse`, `subject`, `ns_info`, `supplier_name`, `supplier_id`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `discount`, `total_afterdiscount`, `grand_total`, `remarks`, `terms_condition`, `status`, `notesheet_status`, `is_viewd`, `is_wo`, `attached_file`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_delete`) VALUES
+(87, 'NS-2024-03-ENG-Mec-001', 'RLP-ENG-CWL-2024-03-001', 12, 11, 'Approval for purchasing Spares for DT-20,22,31DT-20,22,31 [Brand : SINO, Model : ZZ3257N3647A]', 'NA', '17', 'SID-017', '', '', '', '', 0, 11000, 0, 0, 0, 11000, 11000, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) day</li>\r\n\r\n							<li>Mode of payment: CASH</li>\r\n\r\n						</ul>\r\n', 'Created', 6, 0, 0, '1709529766IMG-20240303-WA0003.jpg', '2024-03-04 06:22:46', 3369, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(88, 'NS-2024-03-ENG-Mec-002', 'RLP-ENG-CWL-2024-02-002', 12, 11, 'Approval for purchasing Driven Disc Assy for TT-27 [Brand : TAFE, Model : TAFE-45DI]', 'NA', '6', 'SID-006', '', '', '', '', 0, 7400, 0, 0, 0, 7400, 7400, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) day.</li>\r\n\r\n							<li>Mode of payment: Payment should be made in the form of Pay Order/DD/Cheque in favour of \r\n<font color=\"#000000\" style=\"\"><span style=\"background-color: rgb(255, 255, 0);\">\" Metal Parts Limited \",</span></font>Gulshan Model Town Branch.&nbsp;</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 0, '1709530057saif power1-1_240303_155329.pdf', '2024-03-04 06:27:37', 3369, '2024-03-12 07:32:25', '2000-06-16 00:00:00', 0),
+(89, 'NS-2024-03-ENG-Mec-003', 'RLP-ENG-CWL-2024-02-004', 12, 11, 'Approval for purchasing Spares for TT-38 [Brand : TAFE, Model : TAFE5450DI]', 'NA', '7', 'SID-007', '', '', '', '', 0, 6510, 0, 0, 0, 6510, 6510, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days.&nbsp;</li>\r\n\r\n							<li>Mode of payment: CASH</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 0, '', '2024-03-04 06:32:38', 3369, '2024-03-12 07:32:43', '2000-06-16 00:00:00', 0),
+(90, 'NS-2024-03-ENG-Mec-004', 'RLP-ENG-PCT-2024-02-001', 3, 34, 'Approval for purchasing of  Dump Truck ( DT-17) Tyre for PCT Yard, Chottogram.', '2024-02-001', '18', 'SID-018', '', '', '', '', 0, 193200, 0, 0, 0, 193200, 193200, '', '<div><br></div><ul>\r\n\r\n							\r\n\r\n							<li>Delivery of Goods: At the time of receiving&nbsp; Price.</li>\r\n\r\n							<li>Mode of payment: Cash Purchase</li>\r\n\r\n							<li>The above rate excludes VAT, AIT &amp; other Taxes.</li>\r\n\r\n							<li>Transport &amp; Courier costs will be charged by Buyers.</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 0, '1709533216WhatsApp Image 2024-02-27 at 15.35.42.jpeg', '2024-03-04 07:20:16', 328, '2024-03-12 07:32:56', '2000-06-16 00:00:00', 0),
+(91, 'NS-2024-03-ENG-Mec-005', 'RLP-ENG-CWL-2024-02-003', 12, 11, 'Approval for purchasing of Engine oil for CWLP Project, Chottogram', 'RLP-003-02-2024', '19', 'SID-019', '', '', '', '', 0, 160000, 0, 0, 0, 160000, 160000, '', '<ul>\r\n\r\n							<li><span style=\"background-color: transparent; color: inherit; font-size: 1rem;\">Delivery of Goods: Within 03(Three) days after receiving the work order.</span><br></li>\r\n\r\n							<li>Mode of payment: After 45 days from the date of bill Submission.</li>\r\n\r\n							<li>The above rate includes VAT, AIT &amp; other Taxes.</li>\r\n\r\n							<li>Transport &amp; Courier costs will be charged by Sellers.</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 0, '', '2024-03-05 06:25:40', 328, '2024-03-12 07:34:30', '2000-06-16 00:00:00', 0),
+(92, 'NS-2024-03-ENG-Mec-006', 'RLP-ENG-CWL-2024-02-003', 12, 11, 'Approval for purchasing of Hydraulic Oil for CWLP Project, Chottogram', '', '21', 'SID-021', '', '', '', '', 0, 106600, 0, 0, 0, 106600, 106600, '', '<div><br></div><ul>\r\n\r\n							\r\n\r\n							<li>Delivery of Goods: Within 01(One) days after receiving the order.</li>\r\n\r\n							<li>Mode of payment: Cash purchasing at the delivery time.</li>\r\n\r\n							<li>The above rate includes VAT, AIT &amp; other Taxes.</li>\r\n\r\n							<li>Transport &amp; Courier costs will be charged by Buyers.</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 0, '', '2024-03-05 06:58:10', 328, '2024-03-12 07:34:37', '2000-06-16 00:00:00', 0),
+(93, 'NS-2024-03-ENG-Mec-007', 'RLP-ENG-PCT-2024-03-004', 3, 34, 'Approval for purchasing Spares for DT-16 [Brand : EICHER, Model : PRO5025] NA', 'NA', '23', 'SID-023', '', '', '', '', 0, 29500, 0, 0, 0, 29500, 29500, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days .</li>\r\n\r\n							<li>Mode of payment: CASH</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 0, '1709718584New Doc 03-06-2024 1158_240306_120307.pdf', '2024-03-06 10:49:44', 3369, '2024-03-12 07:57:44', '2000-06-16 00:00:00', 0),
+(94, 'NS-2024-03-ENG-Mec-008', 'RLP-ENG-CWL-2024-03-004', 12, 11, 'Approval for purchasing Battery for TT-27,40 [Brand : TAFE, Model : TAFE-45DI & TAFE5450DI]', 'NA', '16', 'SID-016', '', '', '', '', 0, 23000, 0, 0, 0, 23000, 23000, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days .</li>\r\n\r\n							<li>Mode of payment: CASH.</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 0, '1709719053IMG-20240304-WA0002 (002).jpg', '2024-03-06 10:57:33', 3369, '2024-03-12 07:57:54', '2000-06-16 00:00:00', 0),
+(95, 'NS-2024-03-ENG-Mec-009', 'RLP-ENG-CWL-2024-03-003', 12, 11, 'Approval for purchasing spares fot TT-40 [Brand : TAFE, Model : TAFE 5440DI]', 'NA', '6', 'SID-006', '', '', '', '', 0, 7580, 0, 0, 0, 7580, 7580, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days&nbsp;</li>\r\n\r\n							<li>Mode of payment: cash</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 0, '1709720048e engineering03mar24_240306_160513.pdf', '2024-03-06 11:14:08', 3369, '2024-03-12 07:58:02', '2000-06-16 00:00:00', 0),
+(96, 'NS-2024-03-ENG-Mec-010', 'RLP-ENG-CWL-2024-03-002', 12, 11, 'Approval for purchasing Spares for WT-02 [Brand : TAFE]', 'NA', '22', 'SID-022', '', '', '', '', 0, 8900, 0, 0, 0, 8900, 8900, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days.</li>\r\n\r\n							<li>Mode of payment: CASH</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 0, '1709722037IMG-20240304-WA0001 (002).jpg', '2024-03-06 11:47:17', 3369, '2024-03-12 07:58:10', '2000-06-16 00:00:00', 0),
+(97, 'NS-2024-03-ENG-Mec-011', 'RLP-ENG-PCT-2024-03-005', 3, 34, 'PCT yard Expenses .', 'NA', '16', 'SID-016', '', '', '', '', 0, 49975, 0, 0, 0, 49975, 49975, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Mode of payment: CASH</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 0, '', '2024-03-06 11:52:53', 3369, '2024-03-12 07:58:29', '2000-06-16 00:00:00', 0),
+(98, 'NS-2024-03-ENG-Mec-012', 'RLP-ENG-PCT-2024-03-008', 3, 34, 'Approval for purchasing Filter for DT-17 [Brand : EICHER, Model : PRO5025]', 'NA', '25', 'SID-025', '', '', '', '', 0, 29700, 0, 0, 0, 29700, 29700, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days.</li>\r\n\r\n							<li>Mode of payment: cash&nbsp;</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 0, '1709723541filter.jpg', '2024-03-06 12:12:21', 3369, '2024-03-12 08:00:29', '2000-06-16 00:00:00', 0),
+(99, 'NS-2024-03-ENG-Mec-013', 'RLP-ENG-PCT-2024-03-003', 3, 34, 'Approval for purchasing Spares for EX-20 [Brand : Doosan, Model : DX220LCA]', 'NA', '15', 'SID-015', '', '', '', '', 0, 14500, 0, 0, 0, 14500, 14500, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days</li>\r\n\r\n							<li>Mode of payment: cash</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 0, '1709800776New Doc 03-06-2024 1957_240307_143820.pdf', '2024-03-07 09:39:36', 3369, '2024-03-12 08:00:37', '2000-06-16 00:00:00', 0),
+(100, 'NS-2024-03-ENG-Mec-014', 'RLP-ENG-PCT-2024-03-007', 3, 34, 'Approval for purchasing Spares for Various Equipment. [TT-35,BD-12, VR-01,07,WL-10]', 'NA', '26', 'SID-026', '', '', '', '', 0, 29430, 0, 0, 0, 29430, 29430, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days .</li>\r\n\r\n							<li>Mode of payment: CASH</li>\r\n\r\n						</ul>\r\n', 'Created', 6, 0, 0, '1709801617P.jpg', '2024-03-07 09:53:37', 3369, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(101, 'NS-2024-03-ENG-Mec-015', 'RLP-ENG-PCT-2024-03-007', 3, 34, 'Approval for purchasing Spares for VR-07[ Brand : JCB, Model : JCB 116DD]', 'NA', '27', 'SID-027', '', '', '', '', 0, 2600, 0, 0, 0, 2600, 2600, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days.</li>\r\n\r\n							<li>Mode of payment: cash</li>\r\n\r\n						</ul>\r\n', 'Created', 1, 0, 0, '1709801890q.jpg', '2024-03-07 09:58:10', 3369, '2024-03-12 08:00:49', '2000-06-16 00:00:00', 0),
+(102, 'NS-2024-03-ENG-Mec-016', 'RLP-ENG-2024-03-024', 12, 11, 'Approval for purchasing Spare and Conveyance Bill for EX-09 [Brand : LIUGONG, Model : CLG925E]  and Site Equipment\'s.', 'NA', '28', 'SID-028', '', '', '', '', 0, 14000, 0, 0, 0, 14000, 14000, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days.</li>\r\n\r\n							<li>Mode of payment: CASH</li>\r\n\r\n						</ul>\r\n', 'Created', 6, 0, 0, '1710053395R.jpg', '2024-03-10 07:49:55', 3369, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(103, 'NS-2024-03-ENG-Mec-017', 'RLP-ENG-2024-03-022', 12, 11, 'Approval for purchasing Spares for Ex-6 [Brand : XEMG, Model : XE-370PA]', 'NA', '24', 'SID-024', '', '', '', '', 0, 33000, 0, 0, 0, 33000, 33000, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days .</li>\r\n\r\n							<li>Mode of payment: CASH</li>\r\n\r\n						</ul>\r\n', 'Created', 0, 0, 0, '1710225492s.jpg', '2024-03-12 07:38:12', 3369, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(104, 'NS-2024-03-ENG-Mec-018', 'RLP-ENG-2024-03-025', 12, 11, 'Approval for purchasing Spares for Ex-26 [Brand : Zoomlion, Model : ZE485E-10]', 'NA', '30', 'SID-030', '', '', '', '', 0, 16800, 0, 0, 0, 16800, 16800, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days.</li>\r\n\r\n							<li>Mode of payment: CASH</li>\r\n\r\n						</ul>\r\n', 'Created', 0, 0, 0, '1710225814T.jpg', '2024-03-12 07:43:34', 3369, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(105, 'NS-2024-03-ENG-Mec-019', 'RLP-ENG-2024-03-025', 12, 11, 'Approval for purchasing Spares for various  EX-05,06,07,09,26 .', 'NA', '7', 'SID-007', '', '', '', '', 0, 17500, 0, 0, 0, 17500, 17500, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days.</li>\r\n\r\n							<li>Mode of payment: CASH</li>\r\n\r\n						</ul>\r\n', 'Created', 0, 0, 0, '', '2024-03-12 07:51:23', 3369, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(106, 'NS-2024-03-ENG-Mec-020', 'RLP-ENG-2024-03-023', 12, 11, 'Approval for Emergency Site Cost for all Equipment\'s of CWLP .', 'NA', '16', 'SID-016', '', '', '', '', 0, 55000, 0, 0, 0, 55000, 55000, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Mode of payment: CASH</li>\r\n\r\n						</ul>\r\n', 'Created', 0, 0, 0, '', '2024-03-12 07:55:12', 3369, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(107, 'NS-2024-03-ENG-Mec-021', 'RLP-ENG-2024-03-021', 3, 34, 'Approval for conveyance bill for EX-19 & EX-25 [Brand : Doosan ,Model : DX220LCA], DT-35[Brand : Sino, Model : 	ZZ3257N3647A]  [Rental Site]', 'NA', '7', 'SID-007', '', '', '', '', 0, 17500, 0, 0, 0, 17500, 17500, '', '<ul>\r\n\r\n							<li>Date of Commencement</li>\r\n\r\n							<li>Delivery of Goods: Within 03(Three) days</li>\r\n\r\n							<li>Mode of payment: CASH</li>\r\n\r\n						</ul>\r\n', 'Created', 0, 0, 0, '', '2024-03-12 08:07:26', 3369, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -9114,6 +9845,96 @@ CREATE TABLE `notesheet_acknowledgement` (
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `notesheet_acknowledgement`
+--
+
+INSERT INTO `notesheet_acknowledgement` (`id`, `notesheet_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
+(568, 87, 3360, 1, 6, '2024-03-04 06:22:47', '2024-03-04 16:39:30', 1, 3369, 3360),
+(569, 87, 3361, 2, 0, '2024-03-04 16:39:31', NULL, 1, 3369, NULL),
+(570, 87, 3359, 3, 0, '2024-03-04 06:22:46', NULL, 0, 3369, NULL),
+(571, 87, 616, 4, 0, '2024-03-04 06:22:46', NULL, 0, 3369, NULL),
+(572, 88, 3360, 1, 6, '2024-03-04 06:27:37', '2024-03-04 16:38:53', 1, 3369, 3360),
+(573, 88, 3361, 2, 6, '2024-03-04 16:38:53', '2024-03-12 11:02:11', 1, 3369, 3361),
+(574, 88, 3359, 3, 6, '2024-03-12 11:02:11', '2024-03-12 12:20:14', 1, 3369, 3359),
+(575, 88, 616, 4, 1, '2024-03-12 12:20:14', '2024-03-12 07:32:25', 1, 3369, 616),
+(576, 89, 3360, 1, 6, '2024-03-04 06:32:38', '2024-03-04 16:38:25', 1, 3369, 3360),
+(577, 89, 3361, 2, 6, '2024-03-04 16:38:25', '2024-03-12 11:02:52', 1, 3369, 3361),
+(578, 89, 3359, 3, 6, '2024-03-12 11:02:52', '2024-03-12 12:22:10', 1, 3369, 3359),
+(579, 89, 616, 4, 1, '2024-03-12 12:22:10', '2024-03-12 07:32:43', 1, 3369, 616),
+(580, 90, 3360, 1, 6, '2024-03-04 07:20:16', '2024-03-04 16:39:16', 1, 328, 3360),
+(581, 90, 3361, 2, 6, '2024-03-04 16:39:16', '2024-03-04 16:41:00', 1, 328, 3361),
+(582, 90, 3359, 3, 6, '2024-03-04 16:41:01', '2024-03-06 15:16:24', 1, 328, 3359),
+(583, 90, 616, 4, 1, '2024-03-06 15:16:24', '2024-03-12 07:32:56', 1, 328, 616),
+(584, 91, 3360, 1, 6, '2024-03-05 06:25:40', '2024-03-07 14:55:52', 1, 328, 3360),
+(585, 91, 3361, 2, 6, '2024-03-07 14:55:52', '2024-03-07 15:44:51', 1, 328, 3361),
+(586, 91, 3359, 3, 6, '2024-03-07 15:44:51', '2024-03-10 11:10:19', 1, 328, 3359),
+(587, 91, 616, 4, 1, '2024-03-10 11:10:19', '2024-03-12 07:34:30', 1, 328, 616),
+(588, 92, 3360, 1, 6, '2024-03-05 06:58:11', '2024-03-07 14:58:02', 1, 328, 3360),
+(589, 92, 3361, 2, 6, '2024-03-07 14:58:02', '2024-03-07 15:44:31', 1, 328, 3361),
+(590, 92, 3359, 3, 6, '2024-03-07 15:44:31', '2024-03-10 11:11:21', 1, 328, 3359),
+(591, 92, 616, 4, 1, '2024-03-10 11:09:41', '2024-03-12 07:34:37', 1, 328, 616),
+(592, 93, 3360, 1, 6, '2024-03-06 10:49:45', '2024-03-07 15:13:17', 1, 3369, 3360),
+(593, 93, 3361, 2, 6, '2024-03-07 15:13:17', '2024-03-07 15:44:11', 1, 3369, 3361),
+(594, 93, 3359, 3, 6, '2024-03-07 15:44:11', '2024-03-10 11:08:49', 1, 3369, 3359),
+(595, 93, 616, 4, 1, '2024-03-10 11:08:49', '2024-03-12 07:57:44', 1, 3369, 616),
+(596, 94, 3360, 1, 6, '2024-03-06 10:57:34', '2024-03-07 14:57:13', 1, 3369, 3360),
+(597, 94, 3361, 2, 6, '2024-03-07 14:57:13', '2024-03-07 15:43:47', 1, 3369, 3361),
+(598, 94, 3359, 3, 6, '2024-03-07 15:43:47', '2024-03-10 11:08:10', 1, 3369, 3359),
+(599, 94, 616, 4, 1, '2024-03-10 11:08:10', '2024-03-12 07:57:54', 1, 3369, 616),
+(600, 95, 3360, 1, 6, '2024-03-06 11:14:09', '2024-03-07 14:57:00', 1, 3369, 3360),
+(601, 95, 3361, 2, 6, '2024-03-07 14:56:52', '2024-03-07 15:43:27', 1, 3369, 3361),
+(602, 95, 3359, 3, 6, '2024-03-07 14:57:00', '2024-03-10 11:06:51', 1, 3369, 3359),
+(603, 95, 616, 4, 1, '2024-03-07 15:43:27', '2024-03-12 07:58:02', 1, 3369, 616),
+(604, 96, 3360, 1, 6, '2024-03-06 11:47:17', '2024-03-07 14:54:33', 1, 3369, 3360),
+(605, 96, 3361, 2, 6, '2024-03-07 14:54:33', '2024-03-07 15:43:14', 1, 3369, 3361),
+(606, 96, 3359, 3, 6, '2024-03-07 15:43:14', '2024-03-10 11:06:13', 1, 3369, 3359),
+(607, 96, 616, 4, 1, '2024-03-10 11:06:13', '2024-03-12 07:58:10', 1, 3369, 616),
+(608, 97, 3360, 1, 6, '2024-03-06 11:52:54', '2024-03-07 14:55:37', 1, 3369, 3360),
+(609, 97, 3361, 2, 6, '2024-03-07 14:55:37', '2024-03-07 15:42:54', 1, 3369, 3361),
+(610, 97, 3359, 3, 6, '2024-03-07 15:42:54', '2024-03-10 11:05:25', 1, 3369, 3359),
+(611, 97, 616, 4, 1, '2024-03-10 11:05:25', '2024-03-12 07:58:29', 1, 3369, 616),
+(612, 98, 3360, 1, 6, '2024-03-06 12:12:21', '2024-03-07 14:55:27', 1, 3369, 3360),
+(613, 98, 3361, 2, 6, '2024-03-07 14:55:27', '2024-03-07 15:42:39', 1, 3369, 3361),
+(614, 98, 3359, 3, 6, '2024-03-07 15:42:39', '2024-03-10 11:04:38', 1, 3369, 3359),
+(615, 98, 616, 4, 1, '2024-03-10 11:04:39', '2024-03-12 08:00:29', 1, 3369, 616),
+(616, 99, 3360, 1, 6, '2024-03-07 09:39:37', '2024-03-07 14:54:17', 1, 3369, 3360),
+(617, 99, 3361, 2, 6, '2024-03-07 14:54:17', '2024-03-07 15:42:19', 1, 3369, 3361),
+(618, 99, 3359, 3, 6, '2024-03-07 15:42:01', '2024-03-10 11:02:56', 1, 3369, 3359),
+(619, 99, 616, 4, 1, '2024-03-07 15:42:19', '2024-03-12 08:00:37', 1, 3369, 616),
+(620, 100, 3360, 1, 6, '2024-03-07 09:53:38', '2024-03-07 14:53:48', 1, 3369, 3360),
+(621, 100, 3361, 2, 0, '2024-03-07 14:53:48', NULL, 1, 3369, NULL),
+(622, 100, 3359, 3, 0, '2024-03-07 09:53:38', NULL, 0, 3369, NULL),
+(623, 100, 616, 4, 0, '2024-03-07 09:53:38', NULL, 0, 3369, NULL),
+(624, 101, 3360, 1, 6, '2024-03-07 09:58:11', '2024-03-07 15:13:03', 1, 3369, 3360),
+(625, 101, 3361, 2, 6, '2024-03-07 15:12:51', '2024-03-07 15:41:29', 1, 3369, 3361),
+(626, 101, 3359, 3, 6, '2024-03-07 15:13:03', '2024-03-10 11:02:25', 1, 3369, 3359),
+(627, 101, 616, 4, 1, '2024-03-07 15:41:11', '2024-03-12 08:00:49', 1, 3369, 616),
+(628, 102, 3360, 1, 6, '2024-03-10 07:49:56', '2024-03-12 13:03:43', 1, 3369, 3360),
+(629, 102, 3361, 2, 0, '2024-03-12 13:00:05', NULL, 1, 3369, NULL),
+(630, 102, 3359, 3, 0, '2024-03-12 13:03:43', NULL, 1, 3369, NULL),
+(631, 102, 616, 4, 0, '2024-03-10 07:49:56', NULL, 0, 3369, NULL),
+(632, 103, 3360, 1, 0, '2024-03-12 07:38:12', NULL, 1, 3369, NULL),
+(633, 103, 3361, 2, 0, '2024-03-12 07:38:12', NULL, 0, 3369, NULL),
+(634, 103, 3359, 3, 0, '2024-03-12 07:38:12', NULL, 0, 3369, NULL),
+(635, 103, 616, 4, 0, '2024-03-12 07:38:12', NULL, 0, 3369, NULL),
+(636, 104, 3360, 1, 0, '2024-03-12 07:43:35', NULL, 1, 3369, NULL),
+(637, 104, 3361, 2, 0, '2024-03-12 07:43:34', NULL, 0, 3369, NULL),
+(638, 104, 3359, 3, 0, '2024-03-12 07:43:35', NULL, 0, 3369, NULL),
+(639, 104, 616, 4, 0, '2024-03-12 07:43:35', NULL, 0, 3369, NULL),
+(640, 105, 3360, 1, 0, '2024-03-12 07:51:24', NULL, 1, 3369, NULL),
+(641, 105, 3361, 2, 0, '2024-03-12 07:51:24', NULL, 0, 3369, NULL),
+(642, 105, 3359, 3, 0, '2024-03-12 07:51:24', NULL, 0, 3369, NULL),
+(643, 105, 616, 4, 0, '2024-03-12 07:51:24', NULL, 0, 3369, NULL),
+(644, 106, 3360, 1, 0, '2024-03-12 07:55:12', NULL, 1, 3369, NULL),
+(645, 106, 3361, 2, 0, '2024-03-12 07:55:12', NULL, 0, 3369, NULL),
+(646, 106, 3359, 3, 0, '2024-03-12 07:55:12', NULL, 0, 3369, NULL),
+(647, 106, 616, 4, 0, '2024-03-12 07:55:12', NULL, 0, 3369, NULL),
+(648, 107, 3360, 1, 0, '2024-03-12 08:07:26', NULL, 1, 3369, NULL),
+(649, 107, 3361, 2, 0, '2024-03-12 08:07:26', NULL, 0, 3369, NULL),
+(650, 107, 3359, 3, 0, '2024-03-12 08:07:26', NULL, 0, 3369, NULL),
+(651, 107, 616, 4, 0, '2024-03-12 08:07:26', NULL, 0, 3369, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -9127,6 +9948,76 @@ CREATE TABLE `notesheet_remarks_history` (
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `notesheet_remarks_history`
+--
+
+INSERT INTO `notesheet_remarks_history` (`id`, `notesheet_id`, `user_id`, `remarks`, `remarks_date`) VALUES
+(257, 89, 3360, 'Ok', '2024-03-04 16:38:25'),
+(258, 88, 3360, 'Ok', '2024-03-04 16:38:53'),
+(259, 90, 3360, 'Ok', '2024-03-04 16:39:16'),
+(260, 87, 3360, 'Ok', '2024-03-04 16:39:31'),
+(261, 90, 3361, 'Approved', '2024-03-04 16:41:01'),
+(262, 90, 3359, 'okay', '2024-03-06 15:16:24'),
+(263, 100, 3360, 'Ok', '2024-03-07 14:53:48'),
+(264, 99, 3360, 'Ok', '2024-03-07 14:54:17'),
+(265, 96, 3360, 'Ok', '2024-03-07 14:54:33'),
+(266, 98, 3360, 'Ok', '2024-03-07 14:55:27'),
+(267, 97, 3360, 'Ok', '2024-03-07 14:55:37'),
+(268, 91, 3360, 'Ok', '2024-03-07 14:55:52'),
+(269, 95, 3360, 'Ok', '2024-03-07 14:56:52'),
+(270, 95, 3360, 'Ok', '2024-03-07 14:57:00'),
+(271, 94, 3360, 'Ok', '2024-03-07 14:57:13'),
+(272, 92, 3360, 'Ok', '2024-03-07 14:58:02'),
+(273, 101, 3360, 'Ok', '2024-03-07 15:12:51'),
+(274, 101, 3360, 'Ok', '2024-03-07 15:13:03'),
+(275, 93, 3360, 'Ok', '2024-03-07 15:13:17'),
+(276, 101, 3361, 'Approved', '2024-03-07 15:41:11'),
+(277, 101, 3361, 'Approved', '2024-03-07 15:41:29'),
+(278, 99, 3361, 'Approved', '2024-03-07 15:42:01'),
+(279, 99, 3361, 'Approved', '2024-03-07 15:42:19'),
+(280, 98, 3361, 'Approved', '2024-03-07 15:42:39'),
+(281, 97, 3361, 'Approved', '2024-03-07 15:42:54'),
+(282, 96, 3361, 'Approved', '2024-03-07 15:43:14'),
+(283, 95, 3361, 'Approved', '2024-03-07 15:43:27'),
+(284, 94, 3361, 'Approved', '2024-03-07 15:43:47'),
+(285, 93, 3361, 'Approved', '2024-03-07 15:44:11'),
+(286, 92, 3361, 'Approved', '2024-03-07 15:44:31'),
+(287, 91, 3361, 'Approved', '2024-03-07 15:44:51'),
+(288, 101, 3359, 'OKAY', '2024-03-10 11:00:36'),
+(289, 101, 3359, 'OKAY', '2024-03-10 11:00:36'),
+(290, 99, 3359, 'OKAY', '2024-03-10 11:01:25'),
+(291, 101, 3359, 'OKAY', '2024-03-10 11:02:25'),
+(292, 99, 3359, 'OKAY', '2024-03-10 11:02:56'),
+(293, 98, 3359, 'OKAY', '2024-03-10 11:04:39'),
+(294, 97, 3359, 'OKAY', '2024-03-10 11:05:25'),
+(295, 96, 3359, 'OKAY', '2024-03-10 11:06:13'),
+(296, 95, 3359, 'OKAY', '2024-03-10 11:06:52'),
+(297, 94, 3359, 'OKAY', '2024-03-10 11:08:10'),
+(298, 93, 3359, 'OKAY', '2024-03-10 11:08:49'),
+(299, 92, 3359, 'OKAY', '2024-03-10 11:09:41'),
+(300, 91, 3359, 'OKAY', '2024-03-10 11:10:19'),
+(301, 92, 3359, 'OKAY', '2024-03-10 11:11:21'),
+(302, 88, 3361, 'Approved', '2024-03-12 11:02:11'),
+(303, 89, 3361, 'Approved', '2024-03-12 11:02:52'),
+(304, 88, 3359, 'OKAY', '2024-03-12 12:20:14'),
+(305, 89, 3359, 'OKAY', '2024-03-12 12:22:10'),
+(306, 102, 3360, 'Ok', '2024-03-12 13:00:05'),
+(307, 102, 3360, 'Ok', '2024-03-12 13:03:43'),
+(308, 88, 616, 'Approved', '2024-03-12 07:32:25'),
+(309, 89, 616, 'Approved', '2024-03-12 07:32:43'),
+(310, 90, 616, 'Approved', '2024-03-12 07:32:56'),
+(311, 91, 616, 'Approved', '2024-03-12 07:34:30'),
+(312, 92, 616, 'Approved', '2024-03-12 07:34:37'),
+(313, 93, 616, 'Approved', '2024-03-12 07:57:44'),
+(314, 94, 616, 'Approved', '2024-03-12 07:57:54'),
+(315, 95, 616, 'Approved', '2024-03-12 07:58:02'),
+(316, 96, 616, 'Approved', '2024-03-12 07:58:10'),
+(317, 97, 616, 'Approved', '2024-03-12 07:58:29'),
+(318, 98, 616, 'Approved', '2024-03-12 08:00:29'),
+(319, 99, 616, 'Approved', '2024-03-12 08:00:37'),
+(320, 101, 616, 'Approved', '2024-03-12 08:00:49');
 
 -- --------------------------------------------------------
 
@@ -9491,7 +10382,66 @@ INSERT INTO `permission_role` (`id`, `permission_id`, `role_id`) VALUES
 (313, 21, 2),
 (314, 15, 2),
 (315, 14, 2),
-(316, 13, 2);
+(316, 13, 2),
+(317, 62, 1),
+(318, 61, 1),
+(319, 28, 1),
+(320, 27, 1),
+(321, 32, 1),
+(322, 31, 1),
+(323, 26, 1),
+(324, 25, 1),
+(325, 86, 1),
+(326, 81, 1),
+(327, 76, 1),
+(328, 71, 1),
+(329, 66, 1),
+(330, 105, 5),
+(331, 104, 5),
+(332, 103, 5),
+(333, 102, 5),
+(334, 101, 5),
+(335, 100, 5),
+(336, 99, 5),
+(337, 98, 5),
+(338, 97, 5),
+(339, 96, 5),
+(340, 95, 5),
+(341, 94, 5),
+(342, 93, 5),
+(343, 92, 5),
+(344, 91, 5),
+(345, 90, 5),
+(346, 89, 5),
+(347, 88, 5),
+(348, 87, 5),
+(349, 86, 5),
+(350, 85, 5),
+(351, 84, 5),
+(352, 83, 5),
+(353, 82, 5),
+(354, 81, 5),
+(355, 80, 5),
+(356, 79, 5),
+(357, 78, 5),
+(358, 77, 5),
+(359, 76, 5),
+(360, 75, 5),
+(361, 74, 5),
+(362, 73, 5),
+(363, 72, 5),
+(364, 71, 5),
+(365, 70, 5),
+(366, 69, 5),
+(367, 68, 5),
+(368, 67, 5),
+(369, 66, 5),
+(370, 65, 5),
+(371, 64, 5),
+(372, 63, 5),
+(373, 62, 5),
+(374, 61, 5),
+(375, 63, 1);
 
 -- --------------------------------------------------------
 
@@ -9696,7 +10646,9 @@ INSERT INTO `projects` (`id`, `code`, `project_name`, `address`, `type`, `client
 (36, '105', 'Potia,CTG', '', 'Own', 12, 1, NULL, '2019-02-10 09:05:36', '2019-05-12 13:09:34', NULL),
 (37, '106', 'Mongla jetty project', '', 'Own', 12, 5, NULL, '2019-05-12 13:14:45', '2019-05-12 13:14:45', NULL),
 (38, '03', 'Afcons infras, Ashuganj', ',', 'Own', 12, 5, NULL, '2019-05-14 07:54:29', '2019-05-14 07:54:29', NULL),
-(39, NULL, 'Construction of Bangladesh Border Road', '-', 'Rental', 13, NULL, NULL, NULL, NULL, NULL);
+(39, NULL, 'Construction of Bangladesh Border Road', '-', 'Rental', 13, NULL, NULL, NULL, NULL, NULL),
+(44, 'PR-019', 'Chittagong city corporation ', '', 'Rental', 12, NULL, NULL, NULL, NULL, NULL),
+(45, 'PR-020', 'Raujan ', '', 'Rental', 12, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -9929,6 +10881,71 @@ CREATE TABLE `rlp_acknowledgement` (
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `rlp_acknowledgement`
+--
+
+INSERT INTO `rlp_acknowledgement` (`id`, `rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
+(1411, 1, 3354, 1, 6, '2024-02-19 08:32:52', '2024-03-03 11:25:17', 1, 396, 3354),
+(1412, 1, 3359, 2, 1, '2024-03-03 11:25:17', '2024-03-03 13:37:46', 1, 396, 3359),
+(1413, 2, 3354, 1, 6, '2024-02-27 06:46:41', '2024-03-03 11:24:26', 1, 396, 3354),
+(1414, 2, 3359, 2, 1, '2024-03-03 11:24:26', '2024-03-03 13:37:11', 1, 396, 3359),
+(1415, 3, 3354, 1, 6, '2024-02-27 06:58:29', '2024-03-03 11:23:37', 1, 396, 3354),
+(1416, 3, 3359, 2, 1, '2024-03-03 11:23:37', '2024-03-03 13:36:21', 1, 396, 3359),
+(1417, 4, 3354, 1, 6, '2024-02-29 06:24:56', '2024-03-03 11:22:36', 1, 396, 3354),
+(1418, 4, 3359, 2, 1, '2024-03-03 11:22:36', '2024-03-03 13:35:40', 1, 396, 3359),
+(1419, 5, 3359, 1, 1, '2024-02-29 07:29:01', '2024-03-03 13:35:13', 1, 3367, 3359),
+(1420, 6, 3364, 1, 0, '2024-02-29 09:29:20', NULL, 1, 3355, NULL),
+(1421, 6, 3359, 2, 0, '2024-02-29 09:29:20', NULL, 0, 3355, NULL),
+(1422, 7, 3364, 1, 0, '2024-03-02 05:30:26', NULL, 1, 3355, NULL),
+(1423, 7, 3359, 2, 0, '2024-03-02 05:30:26', NULL, 0, 3355, NULL),
+(1424, 8, 3354, 1, 6, '2024-03-03 05:12:55', '2024-03-03 11:21:13', 1, 396, 3354),
+(1425, 8, 3359, 2, 1, '2024-03-03 11:21:13', '2024-03-03 13:34:10', 1, 396, 3359),
+(1426, 9, 3359, 1, 0, '2024-03-03 10:25:12', NULL, 1, 3367, NULL),
+(1427, 10, 3354, 1, 6, '2024-03-03 15:34:55', '2024-03-04 12:29:22', 1, 396, 3354),
+(1428, 10, 3359, 2, 1, '2024-03-04 12:29:22', '2024-03-06 15:14:35', 1, 396, 3359),
+(1429, 11, 3364, 1, 0, '2024-03-04 06:36:16', NULL, 1, 3355, NULL),
+(1430, 11, 3359, 2, 0, '2024-03-04 06:36:16', NULL, 0, 3355, NULL),
+(1431, 12, 3359, 1, 1, '2024-03-04 07:09:18', '2024-03-06 15:13:40', 1, 3367, 3359),
+(1432, 13, 3359, 1, 1, '2024-03-04 07:15:15', '2024-03-06 15:13:02', 1, 3367, 3359),
+(1433, 14, 3359, 1, 1, '2024-03-04 07:29:33', '2024-03-06 15:12:15', 1, 3367, 3359),
+(1434, 15, 3354, 1, 6, '2024-03-04 07:32:58', '2024-03-04 12:38:26', 1, 396, 3354),
+(1435, 15, 3359, 2, 1, '2024-03-04 12:38:27', '2024-03-06 15:11:24', 1, 396, 3359),
+(1436, 16, 3359, 1, 1, '2024-03-04 07:48:35', '2024-03-06 15:10:49', 1, 3367, 3359),
+(1437, 17, 3359, 1, 0, '2024-03-04 07:59:26', NULL, 1, 3367, NULL),
+(1438, 18, 3354, 1, 6, '2024-03-04 08:15:35', '2024-03-04 14:26:07', 1, 396, 3354),
+(1439, 18, 3359, 2, 1, '2024-03-04 14:26:07', '2024-03-06 15:09:03', 1, 396, 3359),
+(1440, 19, 3359, 1, 1, '2024-03-05 06:38:07', '2024-03-06 15:08:05', 1, 3367, 3359),
+(1441, 20, 3359, 1, 1, '2024-03-05 06:58:00', '2024-03-06 15:06:59', 1, 3367, 3359),
+(1442, 21, 3354, 1, 6, '2024-03-07 05:35:44', '2024-03-07 12:34:33', 1, 396, 3354),
+(1443, 21, 3359, 2, 1, '2024-03-07 12:33:54', '2024-03-12 12:27:01', 1, 396, 3359),
+(1444, 22, 3364, 1, 0, '2024-03-07 09:09:20', NULL, 1, 3355, NULL),
+(1445, 22, 3359, 2, 0, '2024-03-07 09:09:20', NULL, 0, 3355, NULL),
+(1446, 23, 3364, 1, 0, '2024-03-07 09:23:36', NULL, 1, 3355, NULL),
+(1447, 23, 3359, 2, 0, '2024-03-07 09:23:36', NULL, 0, 3355, NULL),
+(1448, 24, 3364, 1, 0, '2024-03-07 09:29:45', NULL, 1, 3355, NULL),
+(1449, 24, 3359, 2, 0, '2024-03-07 09:29:44', NULL, 0, 3355, NULL),
+(1450, 25, 3364, 1, 0, '2024-03-07 09:36:28', NULL, 1, 3355, NULL),
+(1451, 25, 3359, 2, 0, '2024-03-07 09:36:28', NULL, 0, 3355, NULL),
+(1452, 26, 3359, 1, 1, '2024-03-09 05:57:20', '2024-03-12 12:26:12', 1, 3367, 3359),
+(1453, 27, 3359, 1, 1, '2024-03-09 06:15:40', '2024-03-12 12:25:36', 1, 3367, 3359),
+(1454, 28, 3354, 1, 6, '2024-03-09 06:40:06', '2024-03-09 13:34:10', 1, 396, 3354),
+(1455, 28, 3359, 2, 1, '2024-03-09 13:34:10', '2024-03-12 12:24:09', 1, 396, 3359),
+(1456, 29, 3354, 1, 6, '2024-03-09 07:17:37', '2024-03-09 13:33:01', 1, 396, 3354),
+(1457, 29, 3359, 2, 1, '2024-03-09 13:33:01', '2024-03-12 12:23:29', 1, 396, 3359),
+(1458, 30, 3354, 1, 6, '2024-03-09 07:28:08', '2024-03-09 13:32:27', 1, 396, 3354),
+(1459, 30, 3359, 2, 1, '2024-03-09 13:32:27', '2024-03-10 11:13:35', 1, 396, 3359),
+(1460, 31, 3354, 1, 6, '2024-03-11 05:43:34', '2024-03-11 13:33:35', 1, 396, 3354),
+(1461, 31, 3359, 2, 1, '2024-03-11 13:33:35', '2024-03-12 12:23:00', 1, 396, 3359),
+(1462, 32, 3354, 1, 0, '2024-03-12 08:17:31', NULL, 1, 396, NULL),
+(1463, 32, 3359, 2, 0, '2024-03-12 08:17:31', NULL, 0, 396, NULL),
+(1464, 33, 3354, 1, 0, '2024-03-12 08:50:05', NULL, 1, 396, NULL),
+(1465, 33, 3359, 2, 0, '2024-03-12 08:50:05', NULL, 0, 396, NULL),
+(1466, 34, 3354, 1, 0, '2024-03-12 09:14:41', NULL, 1, 396, NULL),
+(1467, 34, 3359, 2, 0, '2024-03-12 09:14:41', NULL, 0, 396, NULL),
+(1468, 35, 3359, 1, 0, '2024-03-12 09:29:26', NULL, 1, 3367, NULL),
+(1469, 36, 3359, 1, 0, '2024-03-12 09:51:13', NULL, 1, 3367, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -9966,6 +10983,132 @@ CREATE TABLE `rlp_details` (
   `is_ns` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `rlp_details`
+--
+
+INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `material_id`, `material_name`, `part_no`, `purpose`, `quantity`, `unit`, `unit_price`, `amount`, `estimated_price`, `supplier`, `details_remarks`, `is_ns`) VALUES
+(1, 1, NULL, '', '408', '', 'EX-06', '2', '20', 15000, 30000, NULL, NULL, NULL, 0),
+(2, 2, NULL, '04-68', '134', 'AZ9921161100', 'TT-27', '1', '20', 7400, 7400, NULL, NULL, NULL, 1),
+(3, 3, NULL, '02-04', '96', '(VG-46)', 'ALL EQUIPMENT', '400', '21', 415, 166000, NULL, NULL, NULL, 1),
+(4, 3, NULL, '02-01', '13', '345', 'ALL EQUIPMENT', '400', '21', 260, 104000, NULL, NULL, NULL, 1),
+(5, 4, NULL, '04-182', '357', '1039800605', 'TT-38', '1', '20', 5500, 5500, NULL, NULL, NULL, 1),
+(6, 4, NULL, '02-09', '428', '', 'TT-38', '2', '32', 450, 900, NULL, NULL, NULL, 1),
+(7, 4, NULL, '01-135', '429', '', 'TT-38', '2', '20', 30, 60, NULL, NULL, NULL, 1),
+(8, 4, NULL, '04-193', '368', '', 'TT-38', '2', '22', 25, 50, NULL, NULL, NULL, 1),
+(9, 5, NULL, '04-20', '54', '10.00-20', 'Dump truck-17', '06', '20', 0, 0, NULL, NULL, NULL, 1),
+(10, 6, NULL, '04-275', '464', '', 'Concrete Batching Plant( CBP-03/04)', '06', '20', 0, 0, NULL, NULL, NULL, 0),
+(11, 7, NULL, '04-276', '465', 'WG9100680067', 'Low Bed Trailer-02, Transit Mixture-2/3, Dump Truck-1/2', '10', '20', 0, 0, NULL, NULL, NULL, 0),
+(12, 7, NULL, '04-277', '466', 'WG910068068', 'Low Bed Trailer-02, Transit Mixture-2/3, Dump Truck-1/2', '10', '20', 0, 0, NULL, NULL, NULL, 0),
+(13, 8, NULL, '04-278', '467', '12.00-R20', 'DT-20,22,31', '5', '20', 2200, 11000, NULL, NULL, NULL, 1),
+(14, 9, NULL, '04-21', '55', '12.00-20', 'Dump Truck-30 Rental site Dhaka Air Port', '1', '20', 0, 0, NULL, NULL, NULL, 0),
+(15, 10, NULL, '04-337', '529', 'ASP', 'WT-02', '2', '20', 15500, 31000, NULL, NULL, NULL, 1),
+(16, 10, NULL, '04-144', '303', '32213', 'WT-02', '2', '20', 2750, 5500, NULL, NULL, NULL, 1),
+(17, 10, NULL, '04-336', '528', '32216', 'WT-02', '2', '20', 160, 320, NULL, NULL, NULL, 1),
+(18, 11, NULL, '04-341', '533', '-', 'Dump Truck-07, Six Wheeler, Model: ZZ316803615C1R, 160HP,SINO.', '01', '27', 0, 0, NULL, NULL, NULL, 0),
+(19, 12, NULL, '08-01', '549', '1/2 Inch', 'Ahm Hy Ex-02', '1', '20', 3000, 3000, NULL, NULL, NULL, 0),
+(20, 12, NULL, '08-02', '550', '22 No', 'Ahm Hy Ex-02', '1', '20', 700, 700, NULL, NULL, NULL, 0),
+(21, 12, NULL, '04-207', '386', '', 'Ahm Hy Ex-02', '1', '20', 1500, 1500, NULL, NULL, NULL, 0),
+(22, 12, NULL, '09-11', '548', '--', 'Ahm Hy Ex-02', '1', '20', 1000, 1000, NULL, NULL, NULL, 0),
+(23, 12, NULL, '09-10', '547', '--', 'Ahm Hy Ex-02', '1', '20', 500, 500, NULL, NULL, NULL, 0),
+(24, 12, NULL, '09-10', '547', '--', 'Excavator-20', '1', '20', 1300, 1300, NULL, NULL, NULL, 0),
+(25, 13, NULL, '04-328', '520', 'SKMI1U3352', 'Excavator-20', '4', '20', 3000, 12000, NULL, NULL, NULL, 1),
+(26, 13, NULL, '04-217', '397', '', 'Excavator-20', '5', '20', 500, 2500, NULL, NULL, NULL, 1),
+(27, 14, NULL, '07-01', '534', 'APS', 'Dump Truck-16', '1', '27', 0, 0, NULL, NULL, NULL, 1),
+(28, 14, NULL, '04-111', '214', 'ASP', 'Dump Truck-16', '1', '27', 0, 0, NULL, NULL, NULL, 1),
+(29, 14, NULL, '04-342', '537', 'ASP', 'Dump Truck-16', '1', '20', 0, 0, NULL, NULL, NULL, 1),
+(30, 14, NULL, '09-07', '544', '--', 'Dump Truck-16', '1', '20', 1000, 1000, NULL, NULL, NULL, 1),
+(31, 15, NULL, '04-102', '202', 'ASP', 'TT-40', '2', '20', 550, 1100, NULL, NULL, NULL, 1),
+(32, 15, NULL, '04-343', '552', '3984/1850087M91', 'TT-40', '2', '20', 2500, 5000, NULL, NULL, NULL, 1),
+(33, 15, NULL, '04-329', '521', 'HJ003', 'TT-40', '2', '27', 370, 740, NULL, NULL, NULL, 1),
+(34, 15, NULL, '06-15', '244', 'Big', 'TT-40', '2', '20', 120, 240, NULL, NULL, NULL, 1),
+(35, 15, NULL, '09-10', '547', '--', 'TT-40', '1', '20', 500, 500, NULL, NULL, NULL, 1),
+(36, 16, NULL, '09-03', '540', '--', 'PCY Yard Expense', '1', '20', 25000, 25000, NULL, NULL, NULL, 1),
+(37, 16, NULL, '09-04', '541', '--', 'PCY Yard Expense', '2', '20', 5500, 11000, NULL, NULL, NULL, 1),
+(38, 16, NULL, '09-05', '542', '--', 'PCY Yard Expense', '1', '20', 2000, 2000, NULL, NULL, NULL, 1),
+(39, 16, NULL, '09-06', '543', '--', 'PCY Yard Expense', '1', '20', 8575, 8575, NULL, NULL, NULL, 1),
+(40, 16, NULL, '09-02', '539', '--', 'PCY Yard Expense', '4', '20', 600, 2400, NULL, NULL, NULL, 1),
+(41, 16, NULL, '09-09', '546', '--', 'PCY Yard Expense', '1', '20', 1000, 1000, NULL, NULL, NULL, 1),
+(42, 17, NULL, '09-08', '545', '--', 'PCT Yard Expense Purpose', '2', '20', 14000, 28000, NULL, NULL, NULL, 0),
+(43, 18, NULL, '04-153', '329', 'NX120-7', 'TT-27,40', '2', '20', 11500, 23000, NULL, NULL, NULL, 1),
+(44, 19, NULL, '04-144', '303', '32213', 'Tractor -35', '2', '20', 1400, 2800, NULL, NULL, NULL, 1),
+(45, 19, NULL, '04-347', '556', '72-75', 'Tractor -35', '1', '20', 950, 950, NULL, NULL, NULL, 1),
+(46, 19, NULL, '04-348', '560', 'ASP', 'Tractor -35', '2', '20', 100, 200, NULL, NULL, NULL, 1),
+(47, 19, NULL, '09-10', '547', '--', 'Bulldozer-12', '1', '20', 2000, 2000, NULL, NULL, NULL, 1),
+(48, 19, NULL, '09-01', '538', '--', 'Bulldozer-12', '1', '20', 1290, 1290, NULL, NULL, NULL, 1),
+(49, 19, NULL, '01-136', '558', 'B2/925994', 'Vibrator Roller -07', '1', '20', 1300, 1300, NULL, NULL, NULL, 1),
+(50, 19, NULL, '01-136', '559', '320/A7170', 'Vibrator Roller -07', '1', '20', 1300, 1300, NULL, NULL, NULL, 1),
+(51, 19, NULL, '09-10', '547', '--', 'Vibrator Roller -01,WL-10', '1', '20', 2930, 2930, NULL, NULL, NULL, 1),
+(52, 19, NULL, '09-01', '538', '--', 'Vibrator Roller -01,WL-10', '1', '20', 4045, 4045, NULL, NULL, NULL, 1),
+(53, 19, NULL, '09-12', '557', '--', 'Vibrator Roller -01,WL-10', '1', '20', 2800, 2800, NULL, NULL, NULL, 1),
+(54, 19, NULL, '09-10', '547', '--', 'Vibrator Roller -07', '1', '20', 4110, 4110, NULL, NULL, NULL, 1),
+(55, 19, NULL, '09-01', '538', '--', 'Vibrator Roller -07', '1', '20', 1220, 1220, NULL, NULL, NULL, 1),
+(56, 19, NULL, '09-10', '547', '--', 'jamuna rail bridge project,Jolsiri Project,Assugong,Progect Different equipment auto electric work purpose', '1', '20', 4930, 4930, NULL, NULL, NULL, 1),
+(57, 19, NULL, '09-01', '538', '--', 'jamuna rail bridge project,Jolsiri Project,Assugong,Progect Different equipment auto electric work purpose', '1', '20', 2955, 2955, NULL, NULL, NULL, 1),
+(58, 19, NULL, '09-12', '557', '--', 'jamuna rail bridge project,Jolsiri Project,Assugong,Progect Different equipment auto electric work purpose', '1', '20', 600, 600, NULL, NULL, NULL, 1),
+(59, 20, NULL, '01-03', '18', '(LF-3349)/VG6100007005', 'Dump Truck-17 Rental site Assugong', '3', '20', 0, 0, NULL, NULL, NULL, 1),
+(60, 20, NULL, '01-138', '561', 'ID320867', 'Dump Truck-17 Rental site Assugong', '3', '20', 0, 0, NULL, NULL, NULL, 1),
+(61, 20, NULL, '01-138', '562', 'ID328310', 'Dump Truck-17 Rental site Assugong', '3', '20', 0, 0, NULL, NULL, NULL, 1),
+(62, 20, NULL, '01-138', '563', 'ID600243', 'Dump Truck-17 Rental site Assugong', '3', '20', 0, 0, NULL, NULL, NULL, 1),
+(63, 20, NULL, '01-138', '564', 'ID341946', 'Dump Truck-17 Rental site Assugong', '3', '20', 0, 0, NULL, NULL, NULL, 1),
+(64, 20, NULL, '01-138', '565', 'ID341947', 'Dump Truck-17 Rental site Assugong', '3', '20', 0, 0, NULL, NULL, NULL, 1),
+(65, 21, NULL, '06-22', '566', 'ASP', 'EX-07', '1', '20', 20000, 20000, NULL, NULL, NULL, 0),
+(66, 21, NULL, '09-10', '547', '--', 'EX-07', '1', '20', 2000, 2000, NULL, NULL, NULL, 0),
+(67, 22, NULL, '06-23', '567', '-', 'Concrete Batching Plant(CBP-04)', '420', '22', 110, 46200, NULL, NULL, NULL, 0),
+(68, 22, NULL, '06-04', '197', 'ASP', '', '12', '21', 300, 3600, NULL, NULL, NULL, 0),
+(69, 22, NULL, '06-24', '568', 'Deep', '', '12', '32', 400, 4800, NULL, NULL, NULL, 0),
+(70, 22, NULL, '06-25', '569', 'T-6', '', '4', '32', 215, 860, NULL, NULL, NULL, 0),
+(71, 23, NULL, '04-159', '334', '', 'Transit Mixture/Dump Truck/LBT/CBP/LV use', '24', '32', 0, 0, NULL, NULL, NULL, 0),
+(72, 24, NULL, '17-01', '570', '-', 'All Crane Wire oiling', '60', '21', 420, 25200, NULL, NULL, NULL, 0),
+(73, 25, NULL, '01-143', '571', 'C-1805', 'Transit Mixture (TMT-2,3,5,6), Brand: ZOOMLION, Model: 9JBH-R', '5', '20', 500, 2500, NULL, NULL, NULL, 0),
+(74, 26, NULL, '04-351', '578', 'ASP', 'Excavator-20', '18', '20', 0, 0, NULL, NULL, NULL, 0),
+(75, 26, NULL, '04-354', '579', 'ASP', 'Excavator-20', '1', '20', 1500, 1500, NULL, NULL, NULL, 0),
+(76, 26, NULL, '04-354', '580', 'ASP', 'Excavator-20', '1', '20', 500, 500, NULL, NULL, NULL, 0),
+(77, 26, NULL, '02-10', '581', '00', 'Pk -13-6397  Pct Yard To Naikhancuri ,Bandarbon.Up Down', '65', '21', 109, 7085, NULL, NULL, NULL, 0),
+(78, 26, NULL, '09-01', '538', '--', 'Excavator-20', '5 Person 02 Days', '20', 1000, 5000, NULL, NULL, NULL, 0),
+(79, 26, NULL, '04-207', '386', '', 'Excavator-15,20,25,Bulldozer-06', '4', '20', 1500, 6000, NULL, NULL, NULL, 0),
+(80, 26, NULL, '08-04', '574', 'ASP', 'Excavator-20', '1', '20', 250, 250, NULL, NULL, NULL, 0),
+(81, 26, NULL, '08-04', '575', 'ASP', 'Excavator-20', '1', '20', 250, 250, NULL, NULL, NULL, 0),
+(82, 26, NULL, '08-03', '551', '--', 'Excavator-20', '1', '20', 1500, 1500, NULL, NULL, NULL, 0),
+(83, 26, NULL, '04-217', '397', '', 'Excavator-20', '10', '20', 500, 5000, NULL, NULL, NULL, 0),
+(84, 27, NULL, '09-10', '547', '--', 'Excavator-15 Rental site Jamuna Rail Bridge project', '2 Person', '20', 3000, 6000, NULL, NULL, NULL, 1),
+(85, 27, NULL, '09-01', '538', '--', 'Excavator-15 Rental site Jamuna Rail Bridge project', '2 Person 5 Days', '20', 2500, 5000, NULL, NULL, NULL, 1),
+(86, 27, NULL, '09-11', '548', '--', 'Excavator-15 (280 ltr Hydraulic oil Send Chittagong to Jamuna Rail Bridge Project)', '1', '20', 5500, 5500, NULL, NULL, NULL, 1),
+(87, 27, NULL, '09-11', '548', '--', 'Excavator-25,Dump truck-35(65 ltr engine oil and filter send Assugong,B-baria)', '1', '20', 1000, 1000, NULL, NULL, NULL, 1),
+(88, 28, NULL, '04-226', '409', '22318E , SKF. CY. T BRITAIN', 'EX-076', '2', '20', 15000, 30000, NULL, NULL, NULL, 1),
+(89, 28, NULL, '09-10', '547', '--', 'EX-06', '1', '20', 3000, 3000, NULL, NULL, NULL, 1),
+(90, 29, NULL, '04-356', '582', 'ASP', 'ALL EQUIPMENT', '20', '20', 2000, 40000, NULL, NULL, NULL, 1),
+(91, 29, NULL, '09-10', '547', '--', 'ALL EQUIPMENT', '5', '20', 3000, 15000, NULL, NULL, NULL, 1),
+(92, 30, NULL, '04-357', '583', '8PK -1540/1500/1475/1450/1400/', 'EX-09', '5', '20', 1500, 7500, NULL, NULL, NULL, 1),
+(93, 30, NULL, '09-10', '547', '--', 'ALL EQUIPMENT', '1', '20', 6500, 6500, NULL, NULL, NULL, 1),
+(94, 31, NULL, '04-332', '524', 'ASP', 'EX-26', '12', '27', 1400, 16800, NULL, NULL, NULL, 1),
+(95, 31, NULL, '04-333', '525', 'ASP', 'EX-05,06', '4', '30', 2100, 8400, NULL, NULL, NULL, 1),
+(96, 31, NULL, '04-70', '137', '44 inch x 1/2 inch', 'EX-26', '2', '29', 1650, 3300, NULL, NULL, NULL, 1),
+(97, 31, NULL, '04-338', '530', 'ASP', 'EX-07', '1', '30', 1200, 1200, NULL, NULL, NULL, 1),
+(98, 31, NULL, '04-141', '287', '60 x 600', 'EX-09', '1', '20', 4000, 4000, NULL, NULL, NULL, 1),
+(99, 31, NULL, '04-340', '532', 'ASP', 'EX-07', '2', '34', 300, 600, NULL, NULL, NULL, 1),
+(100, 32, NULL, '01-146', '587', 'LF3000', 'EX-07', '4', '20', 1300, 5200, NULL, NULL, NULL, 0),
+(101, 32, NULL, '01-61', '182', '1000400217/FF5018', 'EX-07', '4', '20', 300, 1200, NULL, NULL, NULL, 0),
+(102, 32, NULL, '01-62', '183', '1000400151/FS1280', 'EX-07', '4', '20', 450, 1800, NULL, NULL, NULL, 0),
+(103, 32, NULL, '01-150', '590', 'FS1242', 'EX-07', '4', '20', 1000, 4000, NULL, NULL, NULL, 0),
+(104, 32, NULL, '01-151', '591', 'CV20948', 'EX-07', '2', '27', 4500, 9000, NULL, NULL, NULL, 0),
+(105, 33, NULL, '01-153', '593', '40050800093 / LF734', 'EX-12', '3', '20', 1000, 3000, NULL, NULL, NULL, 0),
+(106, 33, NULL, '01-155', '595', '40040300126 / FF5485', 'EX-12', '3', '20', 700, 2100, NULL, NULL, NULL, 0),
+(107, 33, NULL, '01-157', '597', '40050800063', 'EX-12', '3', '20', 7000, 21000, NULL, NULL, NULL, 0),
+(108, 33, NULL, '01-159', '599', 'CH11217', 'EX-12', '2', '23', 5000, 10000, NULL, NULL, NULL, 0),
+(109, 34, NULL, '01-161', '601', '320 / 04134', 'VR-09', '2', '20', 1200, 2400, NULL, NULL, NULL, 0),
+(110, 34, NULL, '01-162', '602', '320 / A7170', 'VR-09', '2', '20', 1400, 2800, NULL, NULL, NULL, 0),
+(111, 34, NULL, '01-164', '604', '320 / A7088', 'VR-09', '2', '27', 1400, 2800, NULL, NULL, NULL, 0),
+(112, 34, NULL, '01-165', '605', 'C16400 / CF400', 'VR-09', '1', '27', 2500, 2500, NULL, NULL, NULL, 0),
+(113, 35, NULL, '11-01', '606', '235/75R15', 'Pk -13-6397', '02', '20', 0, 0, NULL, NULL, NULL, 0),
+(114, 36, NULL, '09-10', '547', '--', 'Bulldozer-14 Rental site Pct Yard to Udoypur Up-Down 01 Person With Heavy Weight Material', '1', '20', 5760, 5760, NULL, NULL, NULL, 0),
+(115, 36, NULL, '09-01', '538', '--', 'Bulldozer-14 Rental site Udoypur 01 Person 04 Days', '4', '20', 500, 2000, NULL, NULL, NULL, 0),
+(116, 36, NULL, '04-112', '220', 'ASP', 'Bulldozer-07 Rental site Marrissah,Khagracuri', '2', '20', 1200, 2400, NULL, NULL, NULL, 0),
+(117, 36, NULL, '09-11', '548', '--', 'Bulldozer-07 Rental site Marrissah ,Khagracuri Hydraulic Pipe Send Purpose', '1', '20', 400, 400, NULL, NULL, NULL, 0),
+(118, 36, NULL, '09-10', '547', '--', 'Bulldozer-07 Rental site Marrissah ,KhagracuriHydraulic Pipe Collection Purpose Majipara to Marrissah Up Down 01 Person', '2', '20', 1000, 2000, NULL, NULL, NULL, 0),
+(119, 36, NULL, '09-10', '547', '--', 'Excavator-19 Rental site Jamuna rail Bridge Project Hydraulic oil Change Purpose Pct to Tangail Up-Down', '2', '20', 3050, 6100, NULL, NULL, NULL, 0),
+(120, 36, NULL, '09-01', '538', '--', 'Excavator-19Rental site Jamuna rail Bridge Project Hydraulic oil Change Purpose 2 person 5 Days', '2', '20', 2500, 5000, NULL, NULL, NULL, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -9999,6 +11142,67 @@ CREATE TABLE `rlp_info` (
   `is_delete` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `rlp_info`
+--
+
+INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_warehouse`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `totalamount`, `rlp_status`, `is_viewd`, `is_ns`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
+(1, 'RLP-ENG-CWL-2024-02-001', 396, 'ENG-000431', 1, '2024-02-19 12:00:00', 1, 11, 12, 0, 'ENG-000431', NULL, '', NULL, 'rental purpose for ashugonj', 30000, 1, 0, 0, 396, '2024-02-19 08:32:52', 3359, '2024-03-03 13:37:46', 0),
+(2, 'RLP-ENG-CWL-2024-02-002', 396, 'ENG-000431', 1, '2024-02-27 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, '', 7400, 1, 0, 0, 396, '2024-02-27 06:46:41', 3359, '2024-03-03 13:37:11', 0),
+(3, 'RLP-ENG-CWL-2024-02-003', 396, 'ENG-000431', 1, '2024-02-27 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, '', 270000, 1, 0, 0, 396, '2024-02-27 06:58:28', 3359, '2024-03-03 13:36:21', 0),
+(4, 'RLP-ENG-CWL-2024-02-004', 396, 'ENG-000431', 1, '2024-02-29 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, '', 6510, 1, 0, 0, 396, '2024-02-29 06:24:55', 3359, '2024-03-03 13:35:40', 0),
+(5, 'RLP-ENG-PCT-2024-02-001', 3367, 'ENG-001244', 1, '2024-02-29 12:00:00', 1, 11, 3, 34, 'ENG-001244', NULL, '', NULL, 'Use For Rental site Assugong.B Baria', 0, 1, 0, 0, 3367, '2024-02-29 07:29:01', 3359, '2024-03-03 13:35:13', 0),
+(6, 'RLP-ENG-MON-2024-02-001', 3355, 'ENG-000759', 1, '2024-02-29 12:00:00', 1, 11, 11, 26, 'ENG-000759', NULL, '', NULL, 'Concrete Batching Plant( CBP-03/04), Brand: NICOL.', 0, 5, 0, 0, 3355, '2024-02-29 09:29:20', NULL, '0000-00-00 00:00:00', 0),
+(7, 'RLP-ENG-MON-2024-03-001', 3355, 'ENG-000759', 2, '2024-03-02 12:00:00', 1, 11, 11, 26, 'ENG-000759', NULL, '', NULL, '', 0, 5, 0, 0, 3355, '2024-03-02 05:30:26', NULL, '0000-00-00 00:00:00', 0),
+(8, 'RLP-ENG-CWL-2024-03-001', 396, 'ENG-000431', 2, '2024-03-03 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, '', 11000, 1, 0, 0, 396, '2024-03-03 05:12:54', 3359, '2024-03-03 13:34:10', 0),
+(9, 'RLP-ENG-PCT-2024-03-001', 3367, 'ENG-001244', 1, '2024-03-03 12:00:00', 1, 11, 3, 34, 'ENG-001244', NULL, '', NULL, '', 0, 5, 0, 0, 3367, '2024-03-03 10:25:12', NULL, '0000-00-00 00:00:00', 0),
+(10, 'RLP-ENG-CWL-2024-03-002', 396, 'ENG-000431', 1, '2024-03-03 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, 'CCC ROAD PROJECT PURPOSE', 36820, 1, 0, 0, 396, '2024-03-03 03:34:55', 3359, '2024-06-03 15:14:35', 0),
+(11, 'RLP-ENG-MON-2024-03-002', 3355, 'ENG-000759', 1, '2024-03-04 12:00:00', 1, 11, 11, 26, 'ENG-000759', NULL, '', NULL, '', 0, 5, 0, 0, 3355, '2024-03-04 06:36:16', NULL, '0000-00-00 00:00:00', 0),
+(12, 'RLP-ENG-PCT-2024-03-002', 3367, 'ENG-001244', 1, '2024-03-04 12:00:00', 1, 11, 3, 34, 'ENG-001244', NULL, '', NULL, 'Rental site Conveyance Bill 500 TK ar Dhaka air port to Mir pur 10 Up-Down Ahmphibious Hydraulic Ex-02 Repair and maintenance work purpose and Conveyance Bill 1300/- Labucuri ,Naikhancuri BGB Camp To Coxbazer Up-Down Bucket Teeth Collect From Currier Purpose', 8000, 1, 0, 0, 3367, '2024-03-04 07:09:17', 3359, '2024-06-03 15:13:40', 0),
+(13, 'RLP-ENG-PCT-2024-03-003', 3367, 'ENG-001244', 1, '2024-03-04 12:00:00', 1, 11, 3, 34, 'ENG-001244', NULL, '', NULL, 'Use For Rental site Naikhancuri,Bandarbon', 14500, 1, 0, 0, 3367, '2024-03-04 07:15:14', 3359, '2024-06-03 15:13:02', 0),
+(14, 'RLP-ENG-PCT-2024-03-004', 3367, 'ENG-001244', 1, '2024-03-04 12:00:00', 1, 11, 3, 34, 'ENG-001244', NULL, '', NULL, '', 1000, 1, 0, 0, 3367, '2024-03-04 07:29:33', 3359, '2024-06-03 15:12:15', 0),
+(15, 'RLP-ENG-CWL-2024-03-003', 396, 'ENG-000431', 1, '2024-03-04 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, 'Note: CCC Road project purpose, prices are approximately , (local purchase)', 7580, 1, 0, 0, 396, '2024-03-04 07:32:58', 3359, '2024-06-03 15:11:24', 0),
+(16, 'RLP-ENG-PCT-2024-03-005', 3367, 'ENG-001244', 1, '2024-03-04 12:00:00', 1, 11, 3, 34, 'ENG-001244', NULL, '', NULL, 'Electricity Expense are 15 Days Purpose', 49975, 1, 0, 0, 3367, '2024-03-04 07:48:34', 3359, '2024-06-03 15:10:49', 0),
+(17, 'RLP-ENG-PCT-2024-03-006', 3367, 'ENG-001244', 1, '2024-03-04 12:00:00', 1, 11, 3, 34, 'ENG-001244', NULL, '', NULL, 'Weight scale Man and Imam Salary on January-2024 and February-2024', 28000, 5, 0, 0, 3367, '2024-03-04 07:59:26', NULL, '0000-00-00 00:00:00', 0),
+(18, 'RLP-ENG-CWL-2024-03-004', 396, 'ENG-000431', 2, '2024-03-04 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, '', 23000, 1, 0, 0, 396, '2024-03-04 08:15:35', 3359, '2024-06-03 15:09:03', 0),
+(19, 'RLP-ENG-PCT-2024-03-007', 3367, 'ENG-001244', 1, '2024-03-05 12:00:00', 1, 11, 3, 34, 'ENG-001244', NULL, '', NULL, 'use for different project of rental site equipment repair and maintenance work purpose', 33430, 1, 0, 0, 3367, '2024-03-05 06:38:06', 3359, '2024-06-03 15:08:05', 0),
+(20, 'RLP-ENG-PCT-2024-03-008', 3367, 'ENG-001244', 1, '2024-03-05 12:00:00', 1, 11, 3, 34, 'ENG-001244', NULL, '', NULL, 'Dump Truck-17 ,Brand: EICHER Model: Pro5025T Rental site Assugong,B-Baria', 0, 1, 0, 0, 3367, '2024-03-05 06:57:59', 3359, '2024-06-03 15:06:59', 0),
+(21, 'RLP-ENG-2024-03-015', 396, 'ENG-000431', 1, '2024-03-07 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, 'Note : For Ex-07 ( Long boom ) Rental site at Ashugonja. This work is very emergency due to running project. Repair work contains bucket pin, bush H link, link arm, bucket body, washer making, bucket rudder fitting, pin bush opening fitting etc.', 22000, 1, 0, 0, 396, '2024-03-07 05:35:43', 3359, '2024-12-03 12:27:01', 0),
+(22, 'RLP-ENG-2024-03-016', 3355, 'ENG-000759', 2, '2024-03-07 12:00:00', 1, 11, 11, 26, 'ENG-000759', NULL, '', NULL, '', 55460, 5, 0, 0, 3355, '2024-03-07 09:09:20', NULL, '0000-00-00 00:00:00', 0),
+(23, 'RLP-ENG-2024-03-017', 3355, 'ENG-000759', 1, '2024-03-07 12:00:00', 1, 11, 11, 26, 'ENG-000759', NULL, '', NULL, 'Ref.:RLP NO: RLP-ENGMON-2024-01-005\r\nRequest Date: 4th Jan, 2024\r\n03:35:am', 0, 5, 0, 0, 3355, '2024-03-07 09:23:36', NULL, '0000-00-00 00:00:00', 0),
+(24, 'RLP-ENG-2024-03-018', 3355, 'ENG-000759', 1, '2024-03-07 12:00:00', 1, 11, 11, 26, 'ENG-000759', NULL, '', NULL, 'N.B.: Approximate amount per liter: BDT: 420/-,\r\nRef-1.:  Previous Ref: RLP-ENG-MON-2023-05-004,\r\nRef-2.:P NO: RLP-ENGMON-2023-10-004\r\nRequest Date: 17th Oct, 2023\r\n10:37:am', 25200, 5, 0, 0, 3355, '2024-03-07 09:29:44', NULL, '0000-00-00 00:00:00', 0),
+(25, 'RLP-ENG-2024-03-019', 3355, 'ENG-000759', 1, '2024-03-07 12:00:00', 1, 11, 11, 26, 'ENG-000759', NULL, '', NULL, 'N.B.: Approximate amount per price BDT.: 500/-\r\nRef.:LP NO: RLP-ENGMON-2023-10-002\r\nRequest Date: 15th Oct, 2023\r\n10:48:am', 2500, 5, 0, 0, 3355, '2024-03-07 09:36:27', NULL, '0000-00-00 00:00:00', 0),
+(26, 'RLP-ENG-2024-03-020', 3367, 'ENG-001244', 1, '2024-03-09 12:00:00', 1, 11, 3, 34, 'ENG-001244', NULL, '', NULL, 'use for Rental site Naikhancuri,Bandarbon Chain link replace Purpose', 27085, 1, 0, 0, 3367, '2024-03-09 05:57:19', 3359, '2024-12-03 12:26:12', 0),
+(27, 'RLP-ENG-2024-03-021', 3367, 'ENG-001244', 1, '2024-03-09 12:00:00', 1, 11, 3, 34, 'ENG-001244', NULL, '', NULL, '', 17500, 1, 0, 0, 3367, '2024-03-09 06:15:40', 3359, '2024-12-03 12:25:37', 0),
+(28, 'RLP-ENG-2024-03-022', 396, 'ENG-000431', 1, '2024-03-09 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, 'NOTE:  Sirajgong  EX-06 Purpose  Urgent basis need to bearing , minimum 1 nos', 33000, 1, 0, 0, 396, '2024-03-09 06:40:06', 3359, '2024-12-03 12:24:09', 0),
+(29, 'RLP-ENG-2024-03-023', 396, 'ENG-000431', 2, '2024-03-09 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, '', 55000, 1, 0, 0, 396, '2024-03-09 07:17:37', 3359, '2024-12-03 12:23:29', 0),
+(30, 'RLP-ENG-2024-03-024', 396, 'ENG-000431', 1, '2024-03-09 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, '', 14000, 1, 0, 0, 396, '2024-03-09 07:28:08', 3359, '2024-10-03 11:13:35', 0),
+(31, 'RLP-ENG-2024-03-025', 396, 'ENG-000431', 1, '2024-03-11 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, 'NOTE: Rental site purpose', 34300, 1, 0, 0, 396, '2024-03-11 05:43:33', 3359, '2024-12-03 12:23:00', 0),
+(32, 'RLP-ENG-2024-03-026', 396, 'ENG-000431', 1, '2024-03-12 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, 'NOTE: EX-07 IS NOW WORKING AT RENTAL SITE ( ASHUGONJA ). AS THIS PROJECT IS RUNNING AND THAT IS WHY EX-07  IS WORKING VERY QUICK. SO WE NEED ABOVE FILTER ITEMS URGENT. PREVIOUS ENGINE SERVICING AT 6044 HRS. AND PRESENT HMR IS 6270 HRS.', 21200, 5, 0, 0, 396, '2024-03-12 08:17:31', NULL, '0000-00-00 00:00:00', 0),
+(33, 'RLP-ENG-2024-03-027', 396, 'ENG-000431', 1, '2024-03-12 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, 'NOTE: ALL UNIT PRICES ARE GIVEN APPROXIMATELY. EX-12 IS NOW WORKING AT CWLP FOR KHAL CLEANING.  PREVIOUS ENGINE SERVICING HMR = 4246 HRS. PRESENT HMR = 4329 HRS.', 36100, 5, 0, 0, 396, '2024-03-12 08:50:05', NULL, '0000-00-00 00:00:00', 0),
+(34, 'RLP-ENG-2024-03-028', 396, 'ENG-000431', 1, '2024-03-12 12:00:00', 1, 11, 12, 11, 'ENG-000431', NULL, '', NULL, 'NOTE: ALL UNIT PRICES ARE GIVEN APPROXIMATELY. VR-09 IS NOW WORKING AT CCC ROAD PROJECT.', 10500, 5, 0, 0, 396, '2024-03-12 09:14:41', NULL, '0000-00-00 00:00:00', 0),
+(35, 'RLP-ENG-2024-03-029', 3367, 'ENG-001244', 1, '2024-03-12 12:00:00', 1, 11, 3, 34, 'ENG-001244', NULL, '', NULL, '', 0, 5, 0, 0, 3367, '2024-03-12 09:29:26', NULL, '0000-00-00 00:00:00', 0),
+(36, 'RLP-ENG-2024-03-030', 3367, 'ENG-001244', 1, '2024-03-12 12:00:00', 1, 11, 3, 34, 'ENG-001244', NULL, '', NULL, 'Use For Different rental site project', 23660, 5, 0, 0, 3367, '2024-03-12 09:51:12', NULL, '0000-00-00 00:00:00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rlp_other_cost`
+--
+
+CREATE TABLE `rlp_other_cost` (
+  `id` int(11) NOT NULL,
+  `rlp_info_id` varchar(50) NOT NULL,
+  `oc_name` varchar(100) NOT NULL,
+  `oc_qty` int(11) NOT NULL,
+  `oc_unit_price` float NOT NULL,
+  `oc_amount` float NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `warehouse_id` int(11) NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `created_by` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- --------------------------------------------------------
 
 --
@@ -10012,6 +11216,75 @@ CREATE TABLE `rlp_remarks_history` (
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `rlp_remarks_history`
+--
+
+INSERT INTO `rlp_remarks_history` (`id`, `rlp_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
+(829, 8, 3354, 'Emergency Requirement', '2024-03-03 11:21:13'),
+(830, 8, 3354, 'Emergency Requirement', '2024-03-03 11:21:13'),
+(831, 4, 3354, 'Urgent for CCC Road Project ', '2024-03-03 11:22:36'),
+(832, 3, 3354, 'Over all Required for Rental, WLP & CCC Road Project', '2024-03-03 11:23:37'),
+(833, 2, 3354, 'CCC Road Project', '2024-03-03 11:24:26'),
+(834, 2, 3354, 'CCC Road Project', '2024-03-03 11:24:26'),
+(835, 1, 3354, 'Rental & Sirajgong Solar Power Plant Project', '2024-03-03 11:25:17'),
+(836, 8, 3359, 'OK', '2024-03-03 13:34:10'),
+(837, 5, 3359, 'OKAY', '2024-03-03 13:35:13'),
+(838, 4, 3359, 'OKAY', '2024-03-03 13:35:40'),
+(839, 3, 3359, 'OKAY', '2024-03-03 13:36:21'),
+(840, 2, 3359, 'OKAY', '2024-03-03 13:37:11'),
+(841, 1, 3359, 'OKAY', '2024-03-03 13:37:46'),
+(842, 10, 3354, 'Urgent for CCC Project', '2024-03-04 12:29:22'),
+(843, 10, 3354, 'Urgent for CCC Project', '2024-03-04 12:29:22'),
+(844, 15, 3354, 'Urgent for CCC Road Project', '2024-03-04 12:38:27'),
+(845, 17, 3367, 'Approved', '2024-03-04 13:51:13'),
+(846, 18, 3354, 'Urgent CCC Road Project', '2024-03-04 14:26:07'),
+(847, 89, 3361, 'Approved', '2024-03-04 16:41:12'),
+(848, 87, 3361, 'Approved', '2024-03-04 16:41:23'),
+(849, 88, 3361, 'Approved', '2024-03-04 16:41:32'),
+(850, 90, 3361, 'Approved', '2024-03-04 16:41:47'),
+(851, 89, 3361, 'Approved', '2024-03-04 16:41:53'),
+(852, 88, 3361, 'Approved', '2024-03-04 16:41:59'),
+(853, 87, 3361, 'Approved', '2024-03-04 16:42:04'),
+(854, 20, 3359, 'Okay', '2024-03-06 15:06:59'),
+(855, 19, 3359, 'okay', '2024-03-06 15:08:05'),
+(856, 18, 3359, 'okay\r\n', '2024-03-06 15:09:03'),
+(857, 16, 3359, 'okay', '2024-03-06 15:10:49'),
+(858, 15, 3359, 'okay', '2024-03-06 15:11:24'),
+(859, 14, 3359, 'okay', '2024-03-06 15:12:15'),
+(860, 13, 3359, 'okay', '2024-03-06 15:13:02'),
+(861, 12, 3359, 'okay', '2024-03-06 15:13:40'),
+(862, 10, 3359, 'okay', '2024-03-06 15:14:35'),
+(863, 21, 3354, 'For Ashugong Project', '2024-03-07 12:33:55'),
+(864, 21, 3354, 'For Ashugong Project', '2024-03-07 12:34:33'),
+(865, 101, 3361, 'Approved', '2024-03-07 15:39:25'),
+(866, 100, 3361, 'Approved', '2024-03-07 15:39:32'),
+(867, 99, 3361, 'Approved', '2024-03-07 15:39:39'),
+(868, 98, 3361, 'Approved', '2024-03-07 15:39:44'),
+(869, 97, 3361, 'Approved', '2024-03-07 15:39:49'),
+(870, 96, 3361, 'Approved', '2024-03-07 15:39:53'),
+(871, 95, 3361, 'Approved', '2024-03-07 15:39:57'),
+(872, 94, 3361, 'Approved', '2024-03-07 15:40:03'),
+(873, 93, 3361, 'Approved', '2024-03-07 15:40:07'),
+(874, 92, 3361, 'Approved', '2024-03-07 15:40:11'),
+(875, 91, 3361, 'Approved', '2024-03-07 15:40:15'),
+(876, 90, 3361, 'Approved', '2024-03-07 15:40:19'),
+(877, 89, 3361, 'Approved', '2024-03-07 15:40:25'),
+(878, 88, 3361, 'Approved', '2024-03-07 15:40:29'),
+(879, 87, 3361, 'Approved', '2024-03-07 15:40:33'),
+(880, 30, 3354, 'EX-09', '2024-03-09 13:32:27'),
+(881, 29, 3354, 'All Equipment', '2024-03-09 13:33:01'),
+(882, 28, 3354, 'EX-06', '2024-03-09 13:34:10'),
+(883, 30, 3359, 'OKAY', '2024-03-10 11:13:35'),
+(884, 31, 3354, 'Excavator', '2024-03-11 13:33:35'),
+(885, 31, 3359, 'OKAY', '2024-03-12 12:23:00'),
+(886, 29, 3359, 'OKAY', '2024-03-12 12:23:29'),
+(887, 28, 3359, 'OKAY', '2024-03-12 12:24:09'),
+(888, 27, 3359, 'OKAY', '2024-03-12 12:25:31'),
+(889, 27, 3359, 'OKAY', '2024-03-12 12:25:37'),
+(890, 26, 3359, 'OKAY', '2024-03-12 12:26:12'),
+(891, 21, 3359, 'OKAY', '2024-03-12 12:27:01');
 
 -- --------------------------------------------------------
 
@@ -10031,9 +11304,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `short_name`, `show_order`) VALUES
-(1, 'member', 'sa', 1),
+(1, 'member', 'mb', 1),
 (2, 'acknowledgers', 'ak', 0),
-(3, 'approval', 'ap', 0),
+(3, 'approval', 'ab', 0),
 (4, 'team88', '88', 0),
 (5, 'superadmin', 'sa', 0),
 (6, 'admin', 'ad', 0),
@@ -10316,7 +11589,35 @@ CREATE TABLE `suppliers` (
 INSERT INTO `suppliers` (`id`, `code`, `name`, `address`, `contact_person`, `supplier_phone`, `email`, `supplier_op_balance`, `supplier_type`, `material_type`) VALUES
 (1, 'SID-001', 'Saif Powertec Ltd', '-', '-', '-', '', '-', 'cash', '50'),
 (2, 'SID-002', 'Global Soft Park', 'Lalmtia, Dhaka', 'Saiful Islam', '01575846988', 'gp@gmail.com', '0', 'cash', '50'),
-(3, 'SID-003', 'ABC International', 'Dhaka', '---', '123456789', '', '0', 'cash', '48');
+(3, 'SID-003', 'ABC International', 'Dhaka', '---', '123456789', '', '0', 'cash', '48'),
+(4, 'SID-004', 'N/S Reliance Enterprize', '1199, DT road, Acia market, Dhaniapara CTG', 'Mr Liton ', '01784704948', '', '', 'cash', '48'),
+(5, 'SID-005', 'M/S Reliance Enterprize', '1199, DT road, Acia market, Dhaniapara CTG', '', '', '', '', 'cash', '48'),
+(6, 'SID-006', 'Metal parts Limited', 'Gulshan model Town ', 'Mr Li', '01784704948', '', '', 'cash', '48'),
+(7, 'SID-007', 'Local Marlet ', 'CTg/Dhaka ', 'Mr Liton ', '01784704948', '', '', 'cash', '48'),
+(8, 'SID-008', 'Samad iron Mart', 'kodomtoli padantoli road 903', '', '01785647366', '', '', 'cash', '48'),
+(9, 'SID-009', 'M/S, Manha Engineering Workshop', '348 commerce  collage  Road Mugotoli  Kodomtoli ctg. ', 'Salauddin', '01875774067', '', '', 'cash', '50'),
+(10, 'SID-010', 'M/S.S.K. Hardware mart', '', '', '', '', '', 'cash', '48'),
+(11, 'SID-011', 'Abid Engineering ', 'port connecting Road, soraipara mor', 'abdul momin', '01812686848', '', '', 'cash', '50'),
+(12, 'SID-012', 'M/S, Arif Engineering Workshop worksa', '', '', '', '', '', 'cash', '50'),
+(13, 'SID-013', 'Ahammed tools & Machinery', ' padantoli 483 Road kodam toi ctg', '', '01818357878', '', '', 'cash', '48'),
+(14, 'SID-014', 'New ali Enterprise', 'rashid market , Dewanhatctg', '', '01711038660', '', '', 'cash', '48'),
+(15, 'SID-015', 'SK Machinery international ', '1: no shupariwala para mukhe,D.T Road,dewanhat ctg', '', '01999920283', '', '', 'cash', '48'),
+(16, 'SID-016', 'Saif powertec ltd', 'Rupayan Centre 8 th floor 72 mohakhali dhaka', 'Prodip', '01755630116', '', '', 'cash', '48'),
+(17, 'SID-017', '	M/S Reliance Enterprize', '1199, DT road, Acia market, Dhaniapara CTG', 'Mr Liton ', '01784704948', '', '', 'cash', '48'),
+(18, 'SID-018', 'M/S Bangladesh New Tyre House', '722 DT Road , Munsurabadh , Chottogram', 'Md Ibrahim Khalil', '01815592069', '', '', 'cash', '55'),
+(19, 'SID-019', 'Impex Energy Limited', '185, Shahid Syed Nazrul Islam Sarani, Navana Rahim Ardent, Suite:C-6, Dhaka-1000.', 'Jahid Iqbal, Manager, Corporate Sales, ', '01716235795', '', '560000', 'credit', '61'),
+(20, 'SID-020', 'Impex Energy Limited', '185, Shahid Syed Nazrul Islam Sarani, Navana Rahim Ardent, Suite:C-6, Dhaka-1000.', 'Jahid Iqbal, Manager, Corporate Sales, ', '01716235795', '', '560000', 'credit', '61'),
+(21, 'SID-021', 'MJL Bangladesh PLC', 'Mobil House,CW S(A), 13/A, Gulshan Avenue, Dhaka-1212', 'Jubaer Hossain', '01799985397', '', '', 'cash', '61'),
+(22, 'SID-022', 'Shahadath Machinery', 'Mamtaz building 172, Shodarghat  Road ctg. ', 'Rubel', '01914206325', '', '', 'cash', '48'),
+(23, 'SID-023', 'Ureka Motors ', '524, DT road, jan super market ,kadamtoli,Ctg ', 'Saidul Islam', '01706611436', '', '', 'cash', '48'),
+(24, 'SID-024', 'Shahadat Machinery', '172, Sodorghat,Alkoron,Ctg', 'Mr Liton ', '01784704948', '', '', 'cash', '48'),
+(25, 'SID-025', 'Mehrab Enterprize ', 'shop-83, 192-202, nawabpur tower, nawabpur, Dhaka-1100', 'Mr Alamgir ', '01711377593', '', '', 'cash', '41'),
+(26, 'SID-026', 'M/S MA Babar Doa Enterprize', 'Dhokhina bazar, Putina, Rupgonj,Naraygonj, ', 'Saidul Islam', '01706611436', '', '', 'cash', '48'),
+(27, 'SID-027', 'Equipment parts Bangladesh', 'Akboria market, nawabpur,shop-03, Dhaka ', 'Saidul Islam', '01706611436', '', '', 'cash', '48'),
+(28, 'SID-028', 'M/S Munna Traders ', '363 D.T Road sorafot alimarket,kodomtoli,Ctg ', 'Mr Liton ', '01784704948', '', '', 'cash', '48'),
+(29, 'SID-029', 'A.  Lotik Engineering Workshop', 'New Ferry Ghat ,Ashugonj, B.Baria', 'Mr Liton ', '01784704948', '', '', 'cash', '48'),
+(30, 'SID-030', 'N.R. Traders ', '594,861, Nahar vobon, kodomtoli,CTG', 'Mr Liton ', '01784704948', '', '', 'cash', '48'),
+(31, 'SID-031', 'Local Marlet ', 'PCT , CTG', 'Saidul Islam', '01706611436', '', '', 'cash', '48');
 
 -- --------------------------------------------------------
 
@@ -11044,7 +12345,198 @@ INSERT INTO `userlog` (`id`, `userId`, `username`, `role_id`, `employee_id`, `us
 (589, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-14 11:14:52'),
 (590, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-15 05:08:49'),
 (591, 3360, 'Farhad Hossain Bhuiya', 3, '', 0x3130332e35342e33362e39, '2024-02-15 05:14:53'),
-(592, 3357, 'Zakir Hossain', 2, '', 0x3130332e35342e33362e39, '2024-02-15 05:15:25');
+(592, 3357, 'Zakir Hossain', 2, '', 0x3130332e35342e33362e39, '2024-02-15 05:15:25'),
+(593, 3360, 'Farhad Hossain Bhuiya', 3, '', 0x3130332e35342e33362e39, '2024-02-18 09:57:37'),
+(594, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-18 11:50:10'),
+(595, 3357, 'Zakir Hossain', 2, '', 0x3130332e35342e33362e39, '2024-02-19 04:47:45'),
+(596, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-19 05:24:12'),
+(597, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-19 05:29:19'),
+(598, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-02-19 05:44:40'),
+(599, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-19 06:01:11'),
+(600, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-02-19 06:16:24'),
+(601, 3359, 'Alauddin Ahmed', 3, '', 0x3130332e35342e33362e39, '2024-02-19 06:54:14'),
+(602, 1, 'Super Admin', 1, '', 0x3130332e35342e33362e39, '2024-02-19 07:14:35'),
+(603, 396, 'Md. Liton Mridha', 1, '', 0x3130332e35342e33362e39, '2024-02-19 07:34:46'),
+(604, 3355, 'Myin uddin', 1, '', 0x3130332e35342e33362e39, '2024-02-19 08:12:47'),
+(605, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-19 10:00:45'),
+(606, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-19 10:02:52'),
+(607, 396, 'Md. Liton Mridha', 1, '', 0x3130332e35342e33362e39, '2024-02-19 10:06:14'),
+(608, 3357, 'Zakir Hossain', 2, '', 0x3130332e35342e33362e39, '2024-02-20 04:02:37'),
+(609, 1, 'Super Admin', 1, '', 0x3130332e35342e33362e39, '2024-02-20 05:31:21'),
+(610, 1, 'Super Admin', 1, '', 0x3130332e35342e33362e39, '2024-02-20 05:36:26'),
+(611, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-20 05:39:10'),
+(612, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-02-20 05:42:17'),
+(613, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-02-20 05:42:51'),
+(614, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-02-20 05:43:14'),
+(615, 374, 'Md. Ayub Ali', 1, '', 0x3130332e35342e33362e39, '2024-02-20 06:22:56'),
+(616, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-02-20 07:03:58'),
+(617, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-02-20 09:12:02'),
+(618, 1, 'Super Admin', 1, '', 0x3130332e35342e33362e39, '2024-02-22 04:32:43'),
+(619, 1, 'Super Admin', 1, '', 0x3130332e35342e33362e39, '2024-02-22 04:32:46'),
+(620, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-02-22 05:42:46'),
+(621, 3361, 'Md Mahfuz Rahman Sarkar', 11, '', 0x3130332e35342e33362e39, '2024-02-22 08:01:52'),
+(622, 3355, 'Myin uddin', 1, '', 0x3130332e35342e33362e39, '2024-02-23 05:14:01'),
+(623, 396, 'Md. Liton Mridha', 1, '', 0x3130332e35342e33362e39, '2024-02-25 03:45:26'),
+(624, 3355, 'Myin uddin', 1, '', 0x3130332e35342e33362e39, '2024-02-25 08:11:56'),
+(625, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-02-26 04:46:20'),
+(626, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-27 03:52:01'),
+(627, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-27 03:55:03'),
+(628, 396, 'Md. Liton Mridha', 1, '', 0x3130332e35342e33362e39, '2024-02-27 03:57:15'),
+(629, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-02-27 04:04:11'),
+(630, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-27 04:04:42'),
+(631, 3355, 'Myin uddin', 1, '', 0x3130332e35342e33362e39, '2024-02-27 04:10:19'),
+(632, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-02-27 05:07:23'),
+(633, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-02-27 05:12:52'),
+(634, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-27 05:15:57'),
+(635, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-02-27 05:34:44'),
+(636, 396, 'Md. Liton Mridha', 1, '', 0x3130332e35342e33362e39, '2024-02-27 05:42:24'),
+(637, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-02-27 06:09:36'),
+(638, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-27 06:43:47'),
+(639, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-02-27 06:44:02'),
+(640, 3359, 'Alauddin Ahmed', 3, '', 0x3130332e35342e33362e39, '2024-02-27 06:57:10'),
+(641, 3360, 'Farhad Hossain Bhuiya', 3, '', 0x3130332e35342e33362e39, '2024-02-27 07:00:43'),
+(642, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-27 07:01:05'),
+(643, 3360, 'Farhad Hossain Bhuiya', 2, '', 0x3130332e35342e33362e39, '2024-02-27 07:01:49'),
+(644, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-27 07:03:07'),
+(645, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-02-27 07:09:58'),
+(646, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-02-28 03:32:07'),
+(647, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-28 04:57:28'),
+(648, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-02-28 07:27:31'),
+(649, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-02-28 11:13:47'),
+(650, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-29 04:31:55'),
+(651, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-02-29 04:35:34'),
+(652, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-02-29 04:38:52'),
+(653, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-02-29 04:41:55'),
+(654, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-02-29 04:50:52'),
+(655, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-02-29 04:51:08'),
+(656, 396, 'Md. Liton Mridha', 1, '', 0x3130332e35342e33362e39, '2024-02-29 04:56:37'),
+(657, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-02-29 05:12:41'),
+(658, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-02-29 06:20:40'),
+(659, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-02-29 08:13:32'),
+(660, 3362, 'Kamrul', 2, '', 0x3130332e35342e33362e39, '2024-02-29 08:16:38'),
+(661, 3355, 'Myin uddin', 1, '', 0x3130332e35342e33362e39, '2024-02-29 08:26:44'),
+(662, 396, 'Md. Liton Mridha', 1, '', 0x3130332e35342e33362e39, '2024-02-29 17:21:54'),
+(663, 3355, 'Myin uddin', 1, '', 0x3130332e35342e33362e39, '2024-03-01 15:09:04'),
+(664, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-02 03:09:35'),
+(665, 396, 'Md. Liton Mridha', 1, '', 0x3130332e35342e33362e39, '2024-03-02 03:15:45'),
+(666, 3355, 'Myin uddin', 1, '', 0x3130332e35342e33362e39, '2024-03-02 03:27:25'),
+(667, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-02 03:40:53'),
+(668, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-02 04:10:01'),
+(669, 3355, 'Myin uddin', 5, '', 0x3130332e35342e33362e39, '2024-03-02 04:14:42'),
+(670, 396, 'Md. Liton Mridha', 5, '', 0x3130332e35342e33362e39, '2024-03-02 04:24:26'),
+(671, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-02 07:38:50'),
+(672, 3359, 'Alauddin Ahmed', 3, '', 0x3130332e35342e33362e39, '2024-03-02 07:42:27'),
+(673, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-02 07:42:49'),
+(674, 3355, 'Myin uddin', 5, '', 0x3130332e35342e33362e39, '2024-03-02 13:06:55'),
+(675, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-02 13:17:11'),
+(676, 396, 'Md. Liton Mridha', 5, '', 0x3130332e35342e33362e39, '2024-03-03 03:26:09'),
+(677, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-03-03 03:48:12'),
+(678, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-03 03:54:22'),
+(679, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-03 04:23:27'),
+(680, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-03 04:36:55'),
+(681, 3354, 'Masud Alam', 2, '', 0x3130332e35342e33362e39, '2024-03-03 05:15:43'),
+(682, 3354, 'Masud Alam', 2, '', 0x3130332e35342e33362e39, '2024-03-03 05:15:43'),
+(683, 3359, 'Alauddin Ahmed', 3, '', 0x3130332e35342e33362e39, '2024-03-03 07:30:41'),
+(684, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-03 08:03:23'),
+(685, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-03-03 09:11:35'),
+(686, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-03 09:37:25');
+INSERT INTO `userlog` (`id`, `userId`, `username`, `role_id`, `employee_id`, `userIp`, `loginTime`) VALUES
+(687, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-03-03 10:03:13'),
+(688, 3360, 'Farhad Hossain Bhuiya', 2, '', 0x3130332e35342e33362e39, '2024-03-03 10:05:17'),
+(689, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-03 10:05:49'),
+(690, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-03-03 10:12:05'),
+(691, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-03-03 10:20:53'),
+(692, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-03 10:21:03'),
+(693, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-03-03 10:23:07'),
+(694, 3360, 'Farhad Hossain Bhuiya', 2, '', 0x3130332e35342e33362e39, '2024-03-03 10:25:26'),
+(695, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-03-03 10:25:39'),
+(696, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-03 10:26:45'),
+(697, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-03 10:27:24'),
+(698, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-03 10:38:12'),
+(699, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-03 10:40:15'),
+(700, 3367, 'Saidul  Islam', 1, '', 0x3130332e35342e33362e39, '2024-03-03 11:05:45'),
+(701, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-03 11:12:08'),
+(702, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-03 13:06:24'),
+(703, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-03 13:40:01'),
+(704, 396, 'Md. Liton Mridha', 5, '', 0x3130332e35342e33362e39, '2024-03-03 15:24:13'),
+(705, 396, 'Md. Liton Mridha', 5, '', 0x3130332e35342e33362e39, '2024-03-04 03:12:33'),
+(706, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-04 03:29:09'),
+(707, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-04 03:36:45'),
+(708, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-04 03:55:09'),
+(709, 3362, 'Kamrul', 2, '', 0x3130332e35342e33362e39, '2024-03-04 04:09:01'),
+(710, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-03-04 04:25:03'),
+(711, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-04 04:28:37'),
+(712, 3355, 'Myin uddin', 5, '', 0x3130332e35342e33362e39, '2024-03-04 04:52:10'),
+(713, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-04 05:17:37'),
+(714, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-04 05:23:03'),
+(715, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-04 05:28:14'),
+(716, 396, 'Md. Liton Mridha', 5, '', 0x3130332e35342e33362e39, '2024-03-04 06:08:32'),
+(717, 3354, 'Masud Alam', 2, '', 0x3130332e35342e33362e39, '2024-03-04 06:28:42'),
+(718, 3354, 'Masud Alam', 2, '', 0x3130332e35342e33362e39, '2024-03-04 06:37:35'),
+(719, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-04 07:50:21'),
+(720, 3360, 'Farhad Hossain Bhuiya', 2, '', 0x3130332e35342e33362e39, '2024-03-04 10:37:18'),
+(721, 3361, 'Md Mahfuz Rahman Sarkar', 2, '', 0x3130332e35342e33362e39, '2024-03-04 10:40:30'),
+(722, 3354, 'Masud Alam', 2, '', 0x3130332e35342e33362e39, '2024-03-04 11:06:42'),
+(723, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-04 11:43:41'),
+(724, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-05 03:58:39'),
+(725, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-05 04:25:50'),
+(726, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-05 04:45:07'),
+(727, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-05 04:45:08'),
+(728, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-05 04:58:10'),
+(729, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-03-05 05:06:26'),
+(730, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-05 06:08:10'),
+(731, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-05 06:08:53'),
+(732, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-05 06:21:16'),
+(733, 396, 'Md. Liton Mridha', 5, '', 0x3130332e35342e33362e39, '2024-03-05 06:44:38'),
+(734, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-06 05:00:50'),
+(735, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-06 05:00:52'),
+(736, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-06 05:42:59'),
+(737, 3354, 'Masud Alam', 2, '', 0x3130332e35342e33362e39, '2024-03-06 06:02:13'),
+(738, 3359, 'Alauddin Ahmed', 3, '', 0x3130332e35342e33362e39, '2024-03-06 09:05:11'),
+(739, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-03-06 09:54:13'),
+(740, 396, 'Md. Liton Mridha', 5, '', 0x3130332e35342e33362e39, '2024-03-06 10:27:42'),
+(741, 396, 'Md. Liton Mridha', 5, '', 0x3130332e35342e33362e39, '2024-03-06 10:36:24'),
+(742, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-06 13:19:21'),
+(743, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-07 05:48:49'),
+(744, 3354, 'Masud Alam', 2, '', 0x3130332e35342e33362e39, '2024-03-07 06:32:45'),
+(745, 3354, 'Masud Alam', 2, '', 0x3130332e35342e33362e39, '2024-03-07 06:32:45'),
+(746, 3355, 'Myin uddin', 5, '', 0x3130332e35342e33362e39, '2024-03-07 07:48:48'),
+(747, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-07 08:10:35'),
+(748, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-03-07 08:16:20'),
+(749, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-07 08:32:38'),
+(750, 3360, 'Farhad Hossain Bhuiya', 2, '', 0x3130332e35342e33362e39, '2024-03-07 08:50:57'),
+(751, 3361, 'Md Mahfuz Rahman Sarkar', 2, '', 0x3130332e35342e33362e39, '2024-03-07 09:39:08'),
+(752, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-09 04:14:21'),
+(753, 396, 'Md. Liton Mridha', 5, '', 0x3130332e35342e33362e39, '2024-03-09 04:31:36'),
+(754, 396, 'Md. Liton Mridha', 5, '', 0x3130332e35342e33362e39, '2024-03-09 05:34:32'),
+(755, 3354, 'Masud Alam', 2, '', 0x3130332e35342e33362e39, '2024-03-09 07:31:52'),
+(756, 3362, 'Kamrul', 2, '', 0x3130332e35342e33362e39, '2024-03-09 07:56:07'),
+(757, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-10 03:52:00'),
+(758, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-03-10 03:52:06'),
+(759, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-10 03:59:25'),
+(760, 3359, 'Alauddin Ahmed', 3, '', 0x3130332e35342e33362e39, '2024-03-10 04:59:15'),
+(761, 3359, 'Alauddin Ahmed', 3, '', 0x3130332e35342e33362e39, '2024-03-10 04:59:19'),
+(762, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-10 05:15:41'),
+(763, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-11 04:04:30'),
+(764, 3354, 'Masud Alam', 2, '', 0x3130332e35342e33362e39, '2024-03-11 07:33:01'),
+(765, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-11 08:25:54'),
+(766, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-11 08:51:50'),
+(767, 328, 'Md. Jalil Khan Noyan', 5, '', 0x3130332e35342e33362e39, '2024-03-12 04:06:08'),
+(768, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-12 04:08:05'),
+(769, 3361, 'Md Mahfuz Rahman Sarkar', 2, '', 0x3130332e35342e33362e39, '2024-03-12 05:01:02'),
+(770, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-12 05:46:29'),
+(771, 3359, 'Alauddin Ahmed', 3, '', 0x3130332e35342e33362e39, '2024-03-12 06:19:11'),
+(772, 3359, 'Alauddin Ahmed', 3, '', 0x3130332e35342e33362e39, '2024-03-12 06:24:49'),
+(773, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-12 06:36:09'),
+(774, 616, 'Tarafder Md. Ruhul Saif', 16, '', 0x3130332e35342e33362e39, '2024-03-12 06:55:12'),
+(775, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-12 06:58:36'),
+(776, 3360, 'Farhad Hossain Bhuiya', 2, '', 0x3130332e35342e33362e39, '2024-03-12 06:58:47'),
+(777, 3367, 'Saidul  Islam', 5, '', 0x3130332e35342e33362e39, '2024-03-12 08:24:47'),
+(778, 3369, 'Afra', 5, '', 0x3130332e35342e33362e39, '2024-03-13 04:34:43'),
+(779, 3362, 'Kamrul', 2, '', 0x3130332e35342e33362e39, '2024-03-13 04:38:44'),
+(780, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-13 05:03:50'),
+(781, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-13 05:39:42'),
+(782, 3368, 'Super Admin', 5, '', 0x3130332e35342e33362e39, '2024-03-13 06:16:13');
 
 -- --------------------------------------------------------
 
@@ -11085,9 +12577,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `branch_id`, `department_id`, `project_id`, `warehouse_id`, `office_id`, `role_id`, `type`, `store_id`, `designation`, `role_name`, `name`, `email`, `contact_number`, `profile_image`, `signature_image`, `password`, `is_password_changed`, `is_status`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
 (1, 1, 11, 21, 3, 'SA-000001', 1, '', 0, '10', 'sa', 'Super Admin', 'sa@rlp.com', NULL, '', '1669634775not_approve.png', '55587a910882016321201e6ebbc9f595', 1, 1, 0, '2020-03-16 09:03:06', 3368, '2023-11-19 21:18:57'),
 (84, 1, 7, 5, 9, 'ENG-000096', 15, '', 0, '42', '', 'Md. Abdullah-al-mamun', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
-(328, 1, 11, 21, 3, 'ENG-000363', 8, 'user', 0, '8', 'g6', 'Md. Jalil Khan Noyan', '123456', NULL, NULL, NULL, 'b6748aff5e69907e77e08ce1a02ac8c2', 1, 1, 0, NULL, 1, '2022-12-15 05:21:08'),
+(328, 1, 11, 21, 3, 'ENG-000363', 5, 'user', 0, '8', 'g6', 'Md. Jalil Khan Noyan', '123456', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-12-15 05:21:08'),
 (374, 1, 11, 22, 28, 'ENG-000409', 1, 'user', 0, '83', 'g6', 'Md. Ayub Ali', 'aali@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-11-30 21:49:08'),
-(396, 1, 11, 12, 11, 'ENG-000431', 1, 'user', 0, '92', 'g8', 'Md. Liton Mridha', '123456', NULL, NULL, NULL, 'a18065c5d2488eda24b1bf708aaca255', 1, 1, 0, NULL, 1, '2022-11-30 21:07:40'),
+(396, 1, 11, 12, 11, 'ENG-000431', 5, 'user', 0, '92', 'g8', 'Md. Liton Mridha', '123456', NULL, NULL, NULL, 'a18065c5d2488eda24b1bf708aaca255', 1, 1, 0, NULL, 1, '2022-11-30 21:07:40'),
 (614, 5, 26, 0, 0, 'SPL-000001', 20, '', 0, '112', 'g19', 'Tarafder Md. Ruhul Amin', '123456', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-02-22 16:56:47'),
 (615, 5, 26, 0, 0, 'SPL-000002', 21, '', 0, '113', '', 'Tarafder Nigar Sultana', '', NULL, NULL, NULL, 'e522c42d71cb28e5811cc071cffce26c', 0, 1, 0, NULL, NULL, NULL),
 (616, 6, 42, 0, 0, 'SPL-000004', 16, '', 0, '29', 'g18', 'Tarafder Md. Ruhul Saif', 's@gmail.com', NULL, NULL, '1670756283saif-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-12-10 22:58:03'),
@@ -11098,21 +12590,21 @@ INSERT INTO `users` (`id`, `branch_id`, `department_id`, `project_id`, `warehous
 (3352, 1, 11, 11, 26, 'ENG-000555', 2, 'user', 0, '36', 'g7', 'Shahadat Hossain', 'sh@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 17:26:10', NULL, NULL),
 (3353, 1, 12, 11, 26, 'SPHL-000017', 3, 'user', 0, '18', 'g10', 'Hasan Tareq', 'ht@gmail.com', NULL, NULL, NULL, '13968d941558106b161c9ab1f233d0c8', 1, 1, 0, '2022-11-05 17:27:41', NULL, NULL),
 (3354, 1, 12, 12, 11, 'ENG-000665', 2, 'user', 0, '18', 'g10', 'Masud Alam', 'ma@gmail.com', NULL, NULL, NULL, '08f35e3dab180a76c6ed91fe707e374a', 1, 1, 0, '2022-11-05 17:28:47', NULL, NULL),
-(3355, 1, 11, 11, 26, 'ENG-000759', 1, 'user', 0, '36', 'g7', 'Myin uddin', 'mu@gmail.com', NULL, NULL, '1673172279Myin-uddin.png', '21ef05aed5af92469a50b35623d52101', 1, 1, 0, '2022-11-05 17:29:55', 1, '2023-01-07 22:04:39'),
+(3355, 1, 11, 11, 26, 'ENG-000759', 5, 'user', 0, '36', 'g7', 'Myin uddin', 'mu@gmail.com', NULL, NULL, '1673172279Myin-uddin.png', '21ef05aed5af92469a50b35623d52101', 1, 1, 0, '2022-11-05 17:29:55', 1, '2023-01-07 22:04:39'),
 (3356, 1, 12, 3, 34, 'ENG-000829', 3, 'user', 0, '18', 'g10', 'MD Rasel Alam', 'ra@gmail.com', NULL, NULL, '1673169677rasel-alom.png', 'c33367701511b4f6020ec61ded352059', 1, 1, 0, '2022-11-05 17:30:48', 1, '2023-01-07 21:21:17'),
 (3357, 1, 12, 5, 9, 'ENG-000842', 2, 'user', 0, '36', 'g7', 'Zakir Hossain', 'zh@gmail.com', NULL, NULL, '1673163868zakir-bashanchar.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-05 17:31:40', 1, '2023-01-07 19:44:28'),
 (3358, 1, 12, 22, 28, 'ENG-000867', 9, 'user', 0, '16', 'g15', 'Azhar Mahmud', 'am@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 17:33:10', NULL, NULL),
 (3359, 1, 11, 21, 3, 'ENG-001003', 3, '', 0, '109', 'g16', 'Alauddin Ahmed', 'aa@gmail.com', NULL, NULL, '1670756206alauddin-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-23 22:03:43', 3368, '2023-11-23 06:40:22'),
-(3360, 1, 11, 21, 3, 'ENG-000056', 3, '', 0, '8', 'g10', 'Farhad Hossain Bhuiya', 'rupom.e-eengineering@gmail.com', NULL, NULL, '1670756230forhad-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-28 04:37:09', 1, '2022-12-10 22:57:10'),
-(3361, 1, 3, 21, 3, 'ENG-000058', 11, '', 0, '134', 'g13', 'Md Mahfuz Rahman Sarkar', 'mahfuz@eel.com', NULL, NULL, '1670756260mahfuz-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-28 04:48:15', 3368, '2023-11-27 23:03:34'),
+(3360, 1, 11, 21, 3, 'ENG-000056', 2, '', 0, '8', 'g10', 'Farhad Hossain Bhuiya', 'rupom.e-eengineering@gmail.com', NULL, NULL, '1670756230forhad-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-28 04:37:09', 1, '2022-12-10 22:57:10'),
+(3361, 1, 3, 21, 3, 'ENG-000058', 2, '', 0, '134', 'g13', 'Md Mahfuz Rahman Sarkar', 'mahfuz@eel.com', NULL, NULL, '1670756260mahfuz-sir.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-28 04:48:15', 3368, '2023-11-27 23:03:34'),
 (3362, 1, 11, 11, 26, 'ENG-000316', 2, 'user', 0, '66', 'g7', 'Kamrul', 'k@gmail.com', NULL, NULL, '1673157875kamrul-hasan-mongla.png', 'bbdf56e2fbd1dbb503ceb433bed825ca', 1, 1, 0, '2022-11-30 21:14:38', 1, '2023-01-08 06:04:35'),
 (3363, 5, 32, 21, 3, 'SPL-007009', 14, 'user', 0, '30', 'g12', 'Nazmul Karim', 'nk@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-12-11 23:02:45', NULL, NULL),
 (3364, 1, 12, 11, 26, 'ENG-000204', 2, 'user', 0, '18', 'g10', 'Aryan Khan Md Saifullah', 'ak@gmail.com', NULL, NULL, '1673158014Aryan-Khan-Md-Saifullah.png', 'e268bde125bae2c61d8d1c84b471c334', 1, 1, 0, '2022-12-26 21:16:03', 1, '2023-01-08 06:06:54'),
 (3365, 1, 11, 0, 0, 'ENG-000654', 3, 'user', 0, '30', 'g10', 'Rezoyan Mahabub', 'rm@gmail.com', NULL, NULL, '1673166278Rezoyan-Mahabub.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2023-01-01 19:17:26', 1, '2023-01-07 20:24:53'),
 (3366, 1, 12, 0, 28, 'ENG-000474', 2, '', 0, '67', 'g10', 'MD Mokhlesur Rahman', 'mr@gmail.com', NULL, NULL, '1674711812md-mokhlesur-rahman_page-0001.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2023-01-26 05:32:36', 1, '2023-01-26 05:43:32'),
-(3367, 1, 11, 3, 34, 'ENG-001244', 1, 'user', 0, '2', 'g7', 'Saidul  Islam', 'si@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2023-02-22 04:57:32', NULL, NULL),
+(3367, 1, 11, 3, 34, 'ENG-001244', 5, 'user', 0, '2', 'g7', 'Saidul  Islam', 'si@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2023-02-22 04:57:32', NULL, NULL),
 (3368, 1, 11, 21, 3, 'admin@saifpowertec.com', 5, '', 0, '10', 'sa', 'Super Admin', 'admin@saifpowertec.com', NULL, '', '1669634775not_approve.png', '77420bb74cf785398911d47854a2bfab', 1, 1, 0, '2020-03-16 09:03:06', 1, '2022-11-27 23:26:15'),
-(3369, 1, 9, 21, 3, 'ENG-001260', 5, '', 0, '8', 'g8', 'Afra', 'afra@gmail.com', NULL, NULL, NULL, 'fcea920f7412b5da7be0cf42b8c93759', 1, 1, 0, '2023-11-19 21:20:52', NULL, NULL),
+(3369, 1, 11, 21, 3, 'ENG-001260', 5, '', 0, '8', 'g8', 'Afra', 'afra@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2023-11-19 21:20:52', NULL, NULL),
 (3370, 1, 11, 21, 3, 'jobaer@88i.com', 5, '', 0, '10', 'sa', 'Super Admin', 'jobaer@88i.com', NULL, '', '1669634775not_approve.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2020-03-16 09:03:06', 1, '2022-11-27 23:26:15');
 
 -- --------------------------------------------------------
@@ -11361,6 +12853,18 @@ ALTER TABLE `inv_material_level4`
 -- Indexes for table `inv_material_partno_detail`
 --
 ALTER TABLE `inv_material_partno_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `inv_op`
+--
+ALTER TABLE `inv_op`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `inv_opdetail`
+--
+ALTER TABLE `inv_opdetail`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -11670,6 +13174,12 @@ ALTER TABLE `rlp_info`
   ADD KEY `rlp_user_id` (`rlp_user_id`);
 
 --
+-- Indexes for table `rlp_other_cost`
+--
+ALTER TABLE `rlp_other_cost`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
@@ -11840,7 +13350,7 @@ ALTER TABLE `equipments`
 -- AUTO_INCREMENT for table `equipment_assign`
 --
 ALTER TABLE `equipment_assign`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1485;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1488;
 
 --
 -- AUTO_INCREMENT for table `equips_rlp_acknowledgement`
@@ -11912,19 +13422,19 @@ ALTER TABLE `inv_issuedetail`
 -- AUTO_INCREMENT for table `inv_item_unit`
 --
 ALTER TABLE `inv_item_unit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `inv_material`
 --
 ALTER TABLE `inv_material`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=408;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=607;
 
 --
 -- AUTO_INCREMENT for table `inv_materialbalance`
 --
 ALTER TABLE `inv_materialbalance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2816;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2830;
 
 --
 -- AUTO_INCREMENT for table `inv_materialcategory`
@@ -11936,7 +13446,7 @@ ALTER TABLE `inv_materialcategory`
 -- AUTO_INCREMENT for table `inv_materialcategorysub`
 --
 ALTER TABLE `inv_materialcategorysub`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `inv_material_level3`
@@ -11954,25 +13464,37 @@ ALTER TABLE `inv_material_level4`
 -- AUTO_INCREMENT for table `inv_material_partno_detail`
 --
 ALTER TABLE `inv_material_partno_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=475;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=680;
+
+--
+-- AUTO_INCREMENT for table `inv_op`
+--
+ALTER TABLE `inv_op`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `inv_opdetail`
+--
+ALTER TABLE `inv_opdetail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `inv_product_price`
 --
 ALTER TABLE `inv_product_price`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `inv_receive`
 --
 ALTER TABLE `inv_receive`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `inv_receivedetail`
 --
 ALTER TABLE `inv_receivedetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `inv_return`
@@ -12002,7 +13524,7 @@ ALTER TABLE `inv_supplier`
 -- AUTO_INCREMENT for table `inv_supplierbalance`
 --
 ALTER TABLE `inv_supplierbalance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `inv_technicianinfo`
@@ -12062,37 +13584,37 @@ ALTER TABLE `inv_warehosueinfo`
 -- AUTO_INCREMENT for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `maintenance_cost`
 --
 ALTER TABLE `maintenance_cost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=421;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=423;
 
 --
 -- AUTO_INCREMENT for table `maintenance_details`
 --
 ALTER TABLE `maintenance_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `maintenance_mechanic`
 --
 ALTER TABLE `maintenance_mechanic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=490;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=492;
 
 --
 -- AUTO_INCREMENT for table `maintenance_other_cost`
 --
 ALTER TABLE `maintenance_other_cost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `maintenance_spare_parts`
 --
 ALTER TABLE `maintenance_spare_parts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=937;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=941;
 
 --
 -- AUTO_INCREMENT for table `materialbalance`
@@ -12104,13 +13626,13 @@ ALTER TABLE `materialbalance`
 -- AUTO_INCREMENT for table `notesheets`
 --
 ALTER TABLE `notesheets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=320;
 
 --
 -- AUTO_INCREMENT for table `notesheets_master`
 --
 ALTER TABLE `notesheets_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `notesheet_access_chain`
@@ -12122,13 +13644,13 @@ ALTER TABLE `notesheet_access_chain`
 -- AUTO_INCREMENT for table `notesheet_acknowledgement`
 --
 ALTER TABLE `notesheet_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=564;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=652;
 
 --
 -- AUTO_INCREMENT for table `notesheet_remarks_history`
 --
 ALTER TABLE `notesheet_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=321;
 
 --
 -- AUTO_INCREMENT for table `notesheet_roles_group`
@@ -12158,7 +13680,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `permission_role`
 --
 ALTER TABLE `permission_role`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=317;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=376;
 
 --
 -- AUTO_INCREMENT for table `present_condition`
@@ -12182,7 +13704,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `rental_project`
@@ -12236,7 +13758,7 @@ ALTER TABLE `rlp_access_chain`
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
 --
 ALTER TABLE `rlp_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1411;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1470;
 
 --
 -- AUTO_INCREMENT for table `rlp_delete_history`
@@ -12257,10 +13779,16 @@ ALTER TABLE `rlp_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=389;
 
 --
+-- AUTO_INCREMENT for table `rlp_other_cost`
+--
+ALTER TABLE `rlp_other_cost`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=829;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=892;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -12308,7 +13836,7 @@ ALTER TABLE `sub_projects`
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `supplier_payment`
@@ -12344,7 +13872,7 @@ ALTER TABLE `tb_logsheet`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=593;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=783;
 
 --
 -- AUTO_INCREMENT for table `users`

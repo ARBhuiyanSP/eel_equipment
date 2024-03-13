@@ -206,7 +206,7 @@ function getRLPListDataW(){
             $listData1   = getRlpInfoAcknowledgeData($user_id);
             // get own RLp:
 			
-			$sql      = 'a1.id as id,a1.rlp_no as rlp_no,a1.rlp_status as rlp_status,a2.rlp_info_id as rlp_info_id,a2.user_id as user_id,a1.request_date as request_date,a1.request_project as request_project,a1.created_by as created_by,a1.is_ns as is_ns                                         
+			$sql      = 'a1.id as id,a1.rlp_no as rlp_no,a1.rlp_status as rlp_status,a2.rlp_info_id as rlp_info_id,a2.user_id as user_id,a2.ack_status as ack_status,a1.request_date as request_date,a1.request_project as request_project,a1.created_by as created_by,a1.is_ns as is_ns                                         
 							FROM `rlp_info` as a1 
 							INNER JOIN  `rlp_acknowledgement` as a2 ON a1.id=a2.rlp_info_id
 							WHERE 1=1 AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY a1.rlp_status DESC,a1.created_at DESC ';
@@ -229,7 +229,7 @@ function getRLPListDataW(){
             $listData1   = getRlpInfoAcknowledgeData($user_id);
             // get own RLp:
 			
-			$sql      = 'a1.id as id,a1.rlp_no as rlp_no,a1.rlp_status as rlp_status,a2.rlp_info_id as rlp_info_id,a2.user_id as user_id,a1.request_date as request_date,a1.request_project as request_project,a1.created_by as created_by,a1.is_ns as is_ns                                        
+			$sql      = 'a1.id as id,a1.rlp_no as rlp_no,a1.rlp_status as rlp_status,a2.rlp_info_id as rlp_info_id,a2.user_id as user_id,a2.ack_status as ack_status,a1.request_date as request_date,a1.request_project as request_project,a1.created_by as created_by,a1.is_ns as is_ns                                        
 							FROM `rlp_info` as a1 
 							INNER JOIN  `rlp_acknowledgement` as a2 ON a1.id=a2.rlp_info_id
 							WHERE 1=1 AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY  a1.rlp_status DESC,a1.created_at DESC ';

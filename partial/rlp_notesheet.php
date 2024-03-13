@@ -122,8 +122,8 @@
 							
 							<td><input type="text" class="form-control" name="purpose[]" id="purpose" value="<?php echo $data->purpose;
 								echo (isset($data->purpose) && !empty($data->purpose) ? $data->purpose : ''); ?>" readonly ></td>
-                            <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="quantity[]" id="quantity_<?php echo $data->id; ?>" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" required ></td>
-                            <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="unit_price[]" id="unit_price_<?php echo $data->id; ?>" value="" required ></td>
+                            <td><input type="number" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="quantity[]" id="quantity_<?php echo $data->id; ?>" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" required ></td>
+                            <td><input type="number" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="unit_price[]" id="unit_price_<?php echo $data->id; ?>" value="" required ></td>
                             <td>
                                 <div class="form-group">
                                     <input type="text" class="form-control total_amount" name="total[]" id="total_<?php echo $data->id; ?>" value="" readonly >
@@ -154,7 +154,7 @@
 						<tr>
                             <td colspan="3" style="text-align:right">Discount Amount : </td>
 							<td colspan="2">
-								<input type="text" class="form-control" id="discount" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
+								<input type="number" class="form-control" id="discount" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
                             </td>
 							<td>
 								<input type="text" class="form-control" name="discount" id="discountamount" readonly />
@@ -173,7 +173,7 @@
 						<tr>
                             <td colspan="3" style="text-align:right">AIT [%] : </td>
 							<td colspan="2">
-								<input type="text" class="form-control" id="ait" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
+								<input type="number" class="form-control" id="ait" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
                             </td>
 							<td>
 								<input type="text" class="form-control" name="ait" id="aitamount" readonly />
@@ -183,7 +183,7 @@
 						<tr>
                             <td colspan="3" style="text-align:right">VAT [%] : </td>
 							<td colspan="2">
-								<input type="text" class="form-control" id="vat" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
+								<input type="number" class="form-control" id="vat" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
                             </td>
 							<td>
 								<input type="text" class="form-control" name="vat" id="vatamount" readonly />
