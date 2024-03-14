@@ -1633,6 +1633,16 @@ function get_user_project_wise_rlp_chain_for_create(){
     include 'partial/rlp_chain_for_form.php';
 }
 
+function get_user_project_wise_rental_rlp_chain_for_create(){
+    $project_id  =   '23';
+    $table          =   "rlp_access_chain"
+            . " WHERE chain_type='default'"
+            . " AND project_id=$project_id";
+    $defaultChain       =   getDataRowIdAndTable($table);
+    $defaultChainUsers  =   (isset($defaultChain) && !empty($defaultChain) ? json_decode($defaultChain->users) : "");
+    include 'partial/rental_rlp_chain_for_form.php';
+}
+
 function get_user_wise_notesheet_chain_for_create(){
     $division_id    =   $_SESSION['logged']['branch_id'];
     $department_id  =   $_SESSION['logged']['department_id'];

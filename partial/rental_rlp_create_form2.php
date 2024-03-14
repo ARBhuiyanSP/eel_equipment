@@ -297,7 +297,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <?php echo get_user_project_wise_rlp_chain_for_create(); ?>
+            <?php echo get_user_project_wise_rental_rlp_chain_for_create(); ?>
             <?php //echo get_user_department_wise_rlp_chain_for_create($division_id, $department_id); ?>
         </div>
     </div>
