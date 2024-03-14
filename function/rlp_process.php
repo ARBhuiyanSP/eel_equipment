@@ -35,6 +35,7 @@ if (isset($_POST['rlp_create']) && !empty($_POST['rlp_create'])){
 function execute_rlp_info_table(){
     global $conn;
     $date		= (isset($_POST['date']) && !empty($_POST['date']) ? trim(mysqli_real_escape_string($conn,$_POST['date'])) : date("Y-m-d"));
+    $rlp_type		= (isset($_POST['rlp_type']) && !empty($_POST['rlp_type']) ? trim(mysqli_real_escape_string($conn,$_POST['rlp_type'])) : "");
     $priority		= (isset($_POST['priority']) && !empty($_POST['priority']) ? trim(mysqli_real_escape_string($conn,$_POST['priority'])) : "");
     $request_division		= (isset($_POST['request_division']) && !empty($_POST['request_division']) ? trim(mysqli_real_escape_string($conn,$_POST['request_division'])) : "");
     $request_department		= (isset($_POST['request_department']) && !empty($_POST['request_department']) ? trim(mysqli_real_escape_string($conn,$_POST['request_department'])) : "");
@@ -52,6 +53,7 @@ function execute_rlp_info_table(){
     $dataParam     =   [
         'id'                    =>  get_table_next_primary_id($table_sql),
         //'rlp_no'                =>  get_rlp_no(),
+        'rlp_type'              =>  $rlp_type,
         'rlp_no'                =>  $rlpNo,
         'rlp_user_id'           =>  $_SESSION['logged']['user_id'],
         'rlp_user_office_id'    =>  $_SESSION['logged']['office_id'],
@@ -197,7 +199,7 @@ function getRLPListDataW(){
             $listData1   = getRlpInfoAcknowledgeData($user_id);
             // get own RLp:
 			
-			$sql      = '* FROM `rlp_info` WHERE 1=1 ORDER BY `rlp_status` DESC , `rlp_no` DESC  ';
+			$sql      = '* FROM `rlp_info` WHERE 1=1 ORDER BY `rlp_status` DESC , `created_at` DESC  ';
            
             $listData   = getTableDataListByTableName($sql);
 	}else if($role_name == 'ak'){

@@ -94,6 +94,7 @@
 				 <input type="text" class="form-control" value="<?php echo getWarehouseNameById($_SESSION['logged']['warehouse_id']); ?>" readonly />
 				 <input name="request_warehouse" type="hidden" value="<?php echo $_SESSION['logged']['warehouse_id']; ?>" />
 				 <?php //} ?>
+				 <input type="hidden" class="form-control" value="Own" name="rlp_type" />
 			</div>
 		</div>
 	</div>

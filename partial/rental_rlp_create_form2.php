@@ -67,7 +67,7 @@
 				</select>
 				<?php //} else{?> -->
 				 <input type="text" class="form-control" value="<?php echo getProjectNameById($_SESSION['logged']['project_id']); ?>" readonly />
-				 <input name="request_project" type="hidden" value="<?php echo $_SESSION['logged']['project_id']; ?>" />
+				 <!-- <input name="request_project" type="hidden" value="<?php //echo $_SESSION['logged']['project_id']; ?>" /> -->
 				 <?php //} ?>
 			</div>
 		</div>
@@ -96,7 +96,7 @@
 		<div class="col-sm-2">
 			<div class="form-group">
 				<label>Request For</label>
-				<select class="form-control material_select_2" id="project_id" name="project_id" required >
+				<select class="form-control material_select_2" id="request_project" name="request_project" required >
 						<option value="">Select a Project</option>
 						<?php $results = mysqli_query($conn, "SELECT * FROM `projects` WHERE `type`='Rental'"); 
 						while ($row = mysqli_fetch_array($results)) {
@@ -111,6 +111,7 @@
 				</select>
 			</div>
 		</div>
+		<input type="hidden" class="form-control" value="Rental" name="rlp_type" />
 	</div>
 	<div class="row">
 		<div class="col-sm-4">
@@ -159,16 +160,16 @@
 	
 	            	
 					<div class="row" id="div1"  style="">
+						<div class="col-md-8">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dynamic_field">
                                 <thead>
-                                <th width="30%">Material Name<span class="reqfield"> ***required</span></th>
-                                <th>Material ID</th>
+                                <th width="30%">Material Name<span class="reqfield"> *</span></th>
                                 <th width="10%">Unit</th>
                                 <th>Part No</th>
                                 <th>Purpose</th>
-                                <th>Qty<span class="reqfield"> ***required</span></th>
-                                <th>Unit Price<span class="reqfield"> ***req</span></th>
+                                <th>Qty<span class="reqfield"> *</span></th>
+                                <th>Unit Price<span class="reqfield"> *</span></th>
                                 <th>Amount</th>
                                 <th></th>
                                 </thead>
@@ -189,7 +190,7 @@
                                                 ?>
                                             </select>
                                         </td>
-                                        <td><input type="text" name="material_id[]" id="material_id0" class="form-control" required readonly></td>
+                                        <input type="hidden" name="material_id[]" id="material_id0" class="form-control" required readonly>
                                         <td>
                                             <select class="form-control" id="unit0" name="unit[]" required readonly>
                                                 <option value="">Select</option>
@@ -222,6 +223,10 @@
 								</tr>
 							</table>
                         </div>
+						</div>
+						<div class="col-md-4">
+							<?php include('partial/other_cost.php'); ?>
+						</div>
                     </div>
 					<script>
     var i = 0;
@@ -234,7 +239,7 @@
                                                     foreach ($projectsData as $data) {
                                                         ?><option value="<?php echo $data['id']; ?>"><?php echo $data['material_name']; ?> - <?php echo $data['part_no']; ?> - <?php echo $data['spec']; ?> - <?php echo $data['item_code']; ?></option><?php }
                                                 }
-                                                ?></select></td><td><input type="text" name="material_id[]" id="material_id' + i + '" class="form-control" required readonly></td><td><select class="form-control select2" id="unit' + i + '" name="unit[]' + i + '" required readonly onchange="getAppendItemCodeByParam(' + i + ",'inv_material'" + ",'material_id_code'" + ",'material_id''" + ",'qty_unit'" + ')"><option value="">Select</option><?php
+                                                ?></select></td><input type="hidden" name="material_id[]" id="material_id' + i + '" class="form-control" required readonly><td><select class="form-control select2" id="unit' + i + '" name="unit[]' + i + '" required readonly onchange="getAppendItemCodeByParam(' + i + ",'inv_material'" + ",'material_id_code'" + ",'material_id''" + ",'qty_unit'" + ')"><option value="">Select</option><?php
                                                 $projectsData = getTableDataByTableName('inv_item_unit', '', 'unit_name');
                                                 if (isset($projectsData) && !empty($projectsData)) {
                                                     foreach ($projectsData as $data) {

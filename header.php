@@ -387,6 +387,8 @@ footer.sticky-footer{
           <i class="fas fa-fw fa-server"></i> Rent
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="rentDropdown">
+            <a class="dropdown-item" href="rental_rlp_create.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Rental RLP</span></a>
+			
             <a class="dropdown-item" href="rent.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Rent/Bill Entry</span></a>
             <a class="dropdown-item" href="rent_list.php">
                 <i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
