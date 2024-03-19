@@ -43,9 +43,11 @@
                         <tr>
                             <th>S/N</th>
                             <th>Item Description</th>
-                            <th width="10%">Quantity</th>
+                            <th>Part No</th>
+                            <th width="5%">QTY</th>
                             <th width="10%">Unit Price</th>
                             <th width="10%">Total</th>
+                            <th width="20%">Remarks</th>
                         </tr>
                     </thead>
                     <tbody id="tbl_posts_body">
@@ -63,9 +65,11 @@
                             <td><?php $dataresult =   getDataRowByTableAndId('inv_material', $data->item);
 								echo (isset($dataresult) && !empty($dataresult) ? $dataresult->material_description : ''); ?></td>
                             
+                            <td><?php echo getMaterialPartNoByIdAndTableandId('inv_material', $data->item); ?></td>
                             <td><?php echo $data->quantity; ?></td>
                             <td><?php echo $data->unit_price; ?></td>
                             <td><?php echo $data->total; ?></td>
+                            <td><?php echo $data->remarks; ?></td>
                         </tr>                        
                             <?php } ?>
 						<tr id="rec-1">

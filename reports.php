@@ -31,6 +31,7 @@ include 'header.php';
 								<ul>
 									<a href="notesheet_report.php"><li><b>Project & Datewise Notesheet Report</b></li></a>
 									<a href="ns_report.php"><li><b>Notesheet Details Report</b></li></a>
+									<a href="ns_sm_report.php"><li><b>Notesheet Summary Report</b></li></a>
 								</ul>
 								
 								<h5>Workorders Reports</h5>
