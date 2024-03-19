@@ -46,9 +46,11 @@
                         <tr>
                             <th>S/N</th>
                             <th>Item Description</th>
+                            <th>Part No</th>
                             <th width="10%">Quantity</th>
                             <th width="10%">Unit Price</th>
                             <th width="10%">Total</th>
+                            <th width="20%">Remarks</th>
                         </tr>
                     </thead>
                     <tbody id="tbl_posts_body">
@@ -63,25 +65,27 @@
                         <tr id="rec-1">
                             <td><?php echo $sl++; ?></td>
                             <td><?php echo getMaterialNameByIdAndTableandId('inv_material',$data->item); ?></td>
+                            <td><?php echo getMaterialPartNoByIdAndTableandId('inv_material', $data->item); ?></td>
                             <td><?php echo $data->quantity; ?></td>
                             <td><?php echo $data->unit_price; ?></td>
                             <td><?php echo $data->total; ?></td>
+                            <td><?php echo $data->remarks; ?></td>
                         </tr>                        
                             <?php } ?>
 						<tr id="rec-1">
-                            <td colspan="4" style="text-align:right">Sub Total: </td>
+                            <td colspan="5" style="text-align:right">Sub Total: </td>
                             <td><?php echo $notesheets_master->sub_total; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="4" style="text-align:right">Discount: </td>
+                            <td colspan="5" style="text-align:right">Discount: </td>
                             <td><?php echo $notesheets_master->discount; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="4" style="text-align:right">Total After Discount: </td>
+                            <td colspan="5" style="text-align:right">Total After Discount: </td>
                             <td><?php echo $notesheets_master->total_afterdiscount; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="4" style="text-align:right">AIT: </td>
+                            <td colspan="5" style="text-align:right">AIT: </td>
                             <td><?php echo $notesheets_master->ait; ?></td>
                         </tr>
 						<tr id="rec-1">
@@ -89,11 +93,11 @@
                             <td><?php echo $notesheets_master->vat; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="4" style="text-align:right">Grand Total: </td>
+                            <td colspan="5" style="text-align:right">Grand Total: </td>
                             <td><?php echo $notesheets_master->grand_total; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="6" style="text-align:left"><b>In word: <?php echo convertNumberToWords($notesheets_master->grand_total); ?> Only</b></td>
+                            <td colspan="7" style="text-align:left"><b>In word: <?php echo convertNumberToWords($notesheets_master->grand_total); ?> Only</b></td>
                         </tr>
                     </tbody>
                 </table>
