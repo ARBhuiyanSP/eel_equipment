@@ -119,7 +119,7 @@
 					?>
 					
 					<?php //echo (isset($dat->ack_updated_date) && !empty($dat->ack_updated_date) ? human_format_date($dat->ack_updated_date) : ""); ?>
-					<div class="col-sm-3 col-xs-3" style="">
+					<div class="col-sm-3 col-xs-3" style="padding-top:50px">
 						<center><?php if(get_status_name($dat->ack_status)=='Approve' || get_status_name($dat->ack_status)=='Recommended'){ ?><img src="images/signatures/<?php echo getSignatureByUserId($dat->user_id); ?>" height="70px"/><?php } ?></br><?php echo getUserNameByUserId($dat->user_id) ?></br>________________________</br><?php echo getDesignationByUserId($dat->user_id) ?></center>
 					</div>
 					<?php
