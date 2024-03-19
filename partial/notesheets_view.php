@@ -108,7 +108,7 @@
 				<p style="text-decoration:underline;"><b>Other terms and conditions</b></p>
 				<?php echo $notesheets_master->terms_condition; ?>
             </div>
-			<div class="row">
+			
 					<?php
 					$table = "notesheet_acknowledgement WHERE notesheet_id=$notesheet_id";
 					$order = 'DESC';
@@ -119,14 +119,14 @@
 					?>
 					
 					<?php //echo (isset($dat->ack_updated_date) && !empty($dat->ack_updated_date) ? human_format_date($dat->ack_updated_date) : ""); ?>
-					<div class="col-sm-12 col-xs-12" style="padding-top:100px;">
+					<div class="col-sm-3 col-xs-3" style="">
 						<center><?php if(get_status_name($dat->ack_status)=='Approve' || get_status_name($dat->ack_status)=='Recommended'){ ?><img src="images/signatures/<?php echo getSignatureByUserId($dat->user_id); ?>" height="70px"/><?php } ?></br><?php echo getUserNameByUserId($dat->user_id) ?></br>________________________</br><?php echo getDesignationByUserId($dat->user_id) ?></center>
 					</div>
 					<?php
 					}
 				}
 				?>			
-			</div>
+			
             <!-- /.col -->
         </div>
     </form>
