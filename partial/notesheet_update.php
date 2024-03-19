@@ -73,23 +73,23 @@
                         </tr>                        
                             <?php } ?>
 						<tr id="rec-1">
-                            <td colspan="4" style="text-align:right">Sub Total: </td>
+                            <td colspan="5" style="text-align:right">Sub Total: </td>
                             <td><?php echo $notesheets_master->sub_total; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="4" style="text-align:right">AIT: </td>
+                            <td colspan="5" style="text-align:right">AIT: </td>
                             <td><?php echo $notesheets_master->ait; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="4" style="text-align:right">VAT: </td>
+                            <td colspan="5" style="text-align:right">VAT: </td>
                             <td><?php echo $notesheets_master->vat; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="4" style="text-align:right">Grand Total: </td>
+                            <td colspan="5" style="text-align:right">Grand Total: </td>
                             <td><?php echo $notesheets_master->grand_total; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="6" style="text-align:left"><b>In word: <?php echo convertNumberToWords($notesheets_master->grand_total); ?> Only</b></td>
+                            <td colspan="7" style="text-align:left"><b>In word: <?php echo convertNumberToWords($notesheets_master->grand_total); ?> Only</b></td>
                         </tr>
                     </tbody>
                 </table>
