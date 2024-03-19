@@ -89,7 +89,7 @@
                             <td><?php echo $notesheets_master->ait; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="4" style="text-align:right">VAT: </td>
+                            <td colspan="5" style="text-align:right">VAT: </td>
                             <td><?php echo $notesheets_master->vat; ?></td>
                         </tr>
 						<tr id="rec-1">
