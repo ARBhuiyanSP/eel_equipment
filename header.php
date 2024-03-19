@@ -307,6 +307,16 @@ footer.sticky-footer{
 					<span class="sub_menu_text_design"> RLP List</span>
 				</a> 
 				
+		
+				<a class="dropdown-item" href="rental_rlp_create.php">
+					<i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i>
+					<span class="sub_menu_text_design"> Rental RLP Entry</span>
+				</a> 
+				<a class="dropdown-item" href="rental_site_rlp_list.php">
+					<i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i>
+					<span class="sub_menu_text_design"> Rental RLP List</span>
+				</a> 
+				
 			</div>
 		</li>
       

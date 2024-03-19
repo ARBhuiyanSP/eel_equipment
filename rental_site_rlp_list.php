@@ -12,17 +12,18 @@ include 'header.php';
         <li class="breadcrumb-item">
             <a href="dashboard.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active"> Rental RLP Info</li>
+        <li class="breadcrumb-item active"> Rental Site RLP List</li>
     </ol>
     <!-- DataTables Example -->
     <div class="card mb-3">
         <div class="card-header">
-            <i class="fas fa-table"></i> Rental RLP Create
-            <a href="rental_site_rlp_list.php" style="float:right"><i class="fas fa-list"></i> List<a>
+            <i class="fas fa-table"></i> Rental Site RLP List
+            <a href="rental_rlp_create.php" style="float:right"><i class="fas fa-plus"></i> Create New<a>
         </div>
         <div class="card-body">
-                        <?php include 'partial/rental_rlp_create_form2.php'; ?>
-                    </div>
+                        <?php include 'partial/rental_site_rlp_list.php'; ?>
+                        <?php //include 'partial/rlp_list2.php'; ?>
+                     </div>
     </div>
 
 </div>

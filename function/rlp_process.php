@@ -184,7 +184,61 @@ function update_supplier_details(){
         updateData('rlp_details', $dataParam, $where);
     }
 }
+// get rental site rlp list data depends on user:
 
+function getRentalSiteRLPListDataW(){
+    $user_id            =   $_SESSION['logged']['user_id'];
+    $warehouse_id            =   $_SESSION['logged']['warehouse_id'];
+    $role_id            =   $_SESSION['logged']['role_id'];    
+    $role_name          =   get_role_shortcode_by_role_id($role_id);
+	
+	if($role_name == 'sa'){
+			$listData   =   [];
+            // get others rlp for approval:
+            $listData1   = getRlpInfoAcknowledgeData($user_id);
+            // get own RLp:
+			
+			$sql      = '* FROM `rlp_info` WHERE 1=1 AND `rlp_type`= "Rental" ORDER BY `rlp_status` DESC , `created_at` DESC  ';
+           
+            $listData   = getTableDataListByTableName($sql);
+	}else if($role_name == 'ak'){
+			$listData   =   [];
+            // get others rlp for approval:
+            $listData1   = getRlpInfoAcknowledgeData($user_id);
+            // get own RLp:
+			
+			$sql      = 'a1.id as id,a1.rlp_no as rlp_no,a1.rlp_status as rlp_status,a2.rlp_info_id as rlp_info_id,a2.user_id as user_id,a2.ack_status as ack_status,a1.request_date as request_date,a1.request_project as request_project,a1.created_by as created_by,a1.is_ns as is_ns                                         
+							FROM `rlp_info` as a1 
+							INNER JOIN  `rlp_acknowledgement` as a2 ON a1.id=a2.rlp_info_id
+							WHERE 1=1 AND a1.rlp_type="Rental" AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY a1.rlp_status DESC,a1.created_at DESC ';
+           
+            $listData   = getTableDataListByTableName($sql);
+			
+	}else if($role_name == 'mb'){
+			$listData   =   [];
+            // get others rlp for approval:
+            $listData1   = getRlpInfoAcknowledgeData($user_id);
+            // get own RLp:
+			
+			$sql      = '* FROM `rlp_info` WHERE 1=1 AND `rlp_type`="Rental" AND created_by='.$user_id.' ORDER BY created_at DESC ';
+           
+            $listData   = getTableDataListByTableName($sql);
+			
+	}else if($role_name == 'ab'){
+			$listData   =   [];
+            // get others rlp for approval:
+            $listData1   = getRlpInfoAcknowledgeData($user_id);
+            // get own RLp:
+			
+			$sql      = 'a1.id as id,a1.rlp_no as rlp_no,a1.rlp_status as rlp_status,a2.rlp_info_id as rlp_info_id,a2.user_id as user_id,a2.ack_status as ack_status,a1.request_date as request_date,a1.request_project as request_project,a1.created_by as created_by,a1.is_ns as is_ns                                        
+							FROM `rlp_info` as a1 
+							INNER JOIN  `rlp_acknowledgement` as a2 ON a1.id=a2.rlp_info_id
+							WHERE 1=1 AND a1.rlp_type="Rental" AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY  a1.rlp_status DESC,a1.created_at DESC ';
+           
+            $listData   = getTableDataListByTableName($sql);
+	}
+    return $listData;
+}
 // get rlp list data depends on user:
 
 function getRLPListDataW(){
@@ -199,7 +253,7 @@ function getRLPListDataW(){
             $listData1   = getRlpInfoAcknowledgeData($user_id);
             // get own RLp:
 			
-			$sql      = '* FROM `rlp_info` WHERE 1=1 ORDER BY `rlp_status` DESC , `created_at` DESC  ';
+			$sql      = '* FROM `rlp_info` WHERE 1=1 AND `rlp_type`= "Own" ORDER BY `rlp_status` DESC , `created_at` DESC  ';
            
             $listData   = getTableDataListByTableName($sql);
 	}else if($role_name == 'ak'){
@@ -211,7 +265,7 @@ function getRLPListDataW(){
 			$sql      = 'a1.id as id,a1.rlp_no as rlp_no,a1.rlp_status as rlp_status,a2.rlp_info_id as rlp_info_id,a2.user_id as user_id,a2.ack_status as ack_status,a1.request_date as request_date,a1.request_project as request_project,a1.created_by as created_by,a1.is_ns as is_ns                                         
 							FROM `rlp_info` as a1 
 							INNER JOIN  `rlp_acknowledgement` as a2 ON a1.id=a2.rlp_info_id
-							WHERE 1=1 AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY a1.rlp_status DESC,a1.created_at DESC ';
+							WHERE 1=1 AND a1.rlp_type="Own" AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY a1.rlp_status DESC,a1.created_at DESC ';
            
             $listData   = getTableDataListByTableName($sql);
 			
@@ -221,7 +275,7 @@ function getRLPListDataW(){
             $listData1   = getRlpInfoAcknowledgeData($user_id);
             // get own RLp:
 			
-			$sql      = '* FROM `rlp_info` WHERE 1=1 AND created_by='.$user_id.' ORDER BY created_at DESC ';
+			$sql      = '* FROM `rlp_info` WHERE 1=1 AND `rlp_type`= "Own" AND created_by='.$user_id.' ORDER BY created_at DESC ';
            
             $listData   = getTableDataListByTableName($sql);
 			
@@ -234,7 +288,7 @@ function getRLPListDataW(){
 			$sql      = 'a1.id as id,a1.rlp_no as rlp_no,a1.rlp_status as rlp_status,a2.rlp_info_id as rlp_info_id,a2.user_id as user_id,a2.ack_status as ack_status,a1.request_date as request_date,a1.request_project as request_project,a1.created_by as created_by,a1.is_ns as is_ns                                        
 							FROM `rlp_info` as a1 
 							INNER JOIN  `rlp_acknowledgement` as a2 ON a1.id=a2.rlp_info_id
-							WHERE 1=1 AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY  a1.rlp_status DESC,a1.created_at DESC ';
+							WHERE 1=1 AND a1.rlp_type="Own" AND a2.user_id='.$user_id.' AND a2.is_visible=1 ORDER BY  a1.rlp_status DESC,a1.created_at DESC ';
            
             $listData   = getTableDataListByTableName($sql);
 	}
