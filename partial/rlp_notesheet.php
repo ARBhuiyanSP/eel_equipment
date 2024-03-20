@@ -154,7 +154,7 @@
 						<tr>
                             <td colspan="3" style="text-align:right">Discount Amount : </td>
 							<td colspan="2">
-								<input type="number" class="form-control" id="discount" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
+								<input type="number" class="form-control" id="discount" onkeyup="calculate_total_buy_amount()" step=".01" required /><small style="color:red">Type '0' If Not Applicable</small>
                             </td>
 							<td>
 								<input type="text" class="form-control" name="discount" id="discountamount" readonly />
@@ -173,7 +173,7 @@
 						<tr>
                             <td colspan="3" style="text-align:right">AIT [%] : </td>
 							<td colspan="2">
-								<input type="number" class="form-control" id="ait" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
+								<input type="number" class="form-control" id="ait" onkeyup="calculate_total_buy_amount()" step=".01" required /><small style="color:red">Type '0' If Not Applicable</small>
                             </td>
 							<td>
 								<input type="text" class="form-control" name="ait" id="aitamount" readonly />
@@ -183,7 +183,7 @@
 						<tr>
                             <td colspan="3" style="text-align:right">VAT [%] : </td>
 							<td colspan="2">
-								<input type="number" class="form-control" id="vat" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
+								<input type="number" class="form-control" id="vat" onkeyup="calculate_total_buy_amount()" step=".01" required /><small style="color:red">Type '0' If Not Applicable</small>
                             </td>
 							<td>
 								<input type="text" class="form-control" name="vat" id="vatamount" readonly />
