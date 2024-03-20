@@ -47,10 +47,10 @@
                             <th>S/N</th>
                             <th>Item Description</th>
                             <th>Part No</th>
-                            <th width="10%">Quantity</th>
+                            <th width="5%">QTY</th>
                             <th width="10%">Unit Price</th>
                             <th width="10%">Total</th>
-                            <th width="20%">Remarks</th>
+                            <th width="30%">Remarks</th>
                         </tr>
                     </thead>
                     <tbody id="tbl_posts_body">
