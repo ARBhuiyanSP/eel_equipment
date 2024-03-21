@@ -60,7 +60,7 @@ if (isset($rlpListData) && !empty($rlpListData)) {
 								$sql = "SELECT DISTINCT purpose FROM rlp_details WHERE rlp_info_id = $rlp_id";
 								$resultUser = $conn->query($sql);
 								$userData = $resultUser->fetch_object();
-								echo $userData->purpose;
+								echo $userData->purpose .',';
 							?>
 						</td>
 						

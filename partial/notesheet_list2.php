@@ -65,7 +65,7 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
 								$sql = "SELECT DISTINCT purpose FROM notesheets WHERE notesheet_id = $ns_id";
 								$resultUser = $conn->query($sql);
 								$userData = $resultUser->fetch_object();
-								echo $userData->purpose;
+								echo $userData->purpose .',';
 							?>
 						</td>
 						 
