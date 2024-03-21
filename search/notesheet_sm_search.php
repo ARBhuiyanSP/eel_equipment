@@ -60,7 +60,7 @@ if(isset($_GET['submit'])){
 						<p>
 							<img src="images/Saif_Engineering_Logo_165X72.png" height="50px;"/><br>
 							<h5>E-Engineering Ltd</h5> 
-							<span>Notesheet Details Report</span></br>
+							<span>Notesheet Summary Report</span></br>
 							From <span class="dtext"><?php echo date("jS F Y", strtotime($from_date));?></span> To  <span class="dtext"><?php echo date("jS F Y", strtotime($to_date));?> </span><br>
 						</p>
 					</center>
@@ -69,12 +69,16 @@ if(isset($_GET['submit'])){
             <table id="" class="table table-bordered">
 					<thead>
 						<tr style="">
-							<th>Material Name</th>
+							<th>Date</th>
+							<th>RLP</th>
+							<th>Notesheet</th>
+							<th>Parts Name</th>
 							<th>Part No</th>
 							<th>QTY</th>
 							<th>Price</th>
 							<th>Amount</th>
 							<th>Purpose/Equips</th>
+							<th>Project</th>
 							<th>Supplier/Vendor</th>
 						</tr>
 					</thead>
@@ -84,15 +88,8 @@ if(isset($_GET['submit'])){
 							$result = mysqli_query($conn, $sql);
 							while($row=mysqli_fetch_array($result))
 							{
-						?>
-						<tr style="background-color:#E9ECEF;">
-							<td colspan="2"><b>NS No :</b> <?php echo $row['notesheet_no']; ?></td>
-							<td colspan="2"><b>RLP No :</b> <?php echo $row['rlp_no']; ?></td>
-							<td colspan="2"><b>Project :</b> <?php echo getProjectNameById($row['request_project']); ?></td>
-							<td colspan="1"><b>Date :</b> <?php echo date("m-d-Y", strtotime($row['created_at']));?></td>
-							
-						</tr>
-						<?php
+						
+						
 							$totalQty = 0;
 							$totalAmount = 0;
 							$notesheet_no = $row['notesheet_no'];
@@ -107,6 +104,9 @@ if(isset($_GET['submit'])){
                                 
 						?>
 						<tr style="text-align:right;">
+							<td><?php echo date("m-d-Y", strtotime($row['created_at']));?></td>
+							<td><?php echo $row['rlp_no']; ?></td>
+							<td><?php echo $row['notesheet_no']; ?></td>
 							<td><?php 
 								$mb_materialid = $rowall['item'];
 								$sqlname	=	"SELECT * FROM `inv_material` WHERE `id` = '$mb_materialid' ";
@@ -121,6 +121,7 @@ if(isset($_GET['submit'])){
 							<td><?php echo $rowall['unit_price']; ?></td>
 							<td><?php echo $rowall['total']; ?></td>
 							<td><?php echo $rowall['purpose']; ?></td>
+							<td><?php echo getProjectNameById($row['request_project']); ?></td>
 							<td><?php 
 								$supplier_id = $row['supplier_name'];
 								$sqlunit	=	"SELECT * FROM `suppliers` WHERE `id` = '$supplier_id'  ";
@@ -130,20 +131,11 @@ if(isset($_GET['submit'])){
 								?>
 							</td>
 						</tr>
-						<?php } ?>
-						<tr style="text-align:right;font-weight:bold;">
-							<td colspan="2" class="grand_total" style="text-align:right">Sub Total:</td>
-							<td><?php echo $totalQty; ?></td>
-							<td></td>
-							<td><?php echo $totalAmount; ?></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<?php } ?>
+						<?php }} ?>
 					</tbody>
                     <tfoot>
 						<tr style="text-align:right;">
-							<th colspan="2"><b style='float:right'>GRAND TOTAL</b></th>
+							<th colspan="2"><b style='float:right'> TOTAL</b></th>
 							<th><?php echo $grand_total_qty; ?></th>
                             <th></th>
                             <th><?php echo $grand_total_amount; ?></th>
