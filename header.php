@@ -355,8 +355,8 @@ footer.sticky-footer{
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-server"></i> Equipments
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-			<a class="dropdown-item" href="equipment_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments Entry</span></a>            
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">  
+			<a class="dropdown-item" href="equipment_entry.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments Entry</span></a> 
 			<a class="dropdown-item" href="equipments-list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments List</span></a>  
 			<a class="dropdown-item" href="shifting-list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments Shifting</span></a>  
 			<a class="dropdown-item" href="inspection.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Equipments Inspection</span></a>  
@@ -374,8 +374,9 @@ footer.sticky-footer{
         <a class="nav-link dropdown-toggle" href="#" id="mainTainceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#000;">
           <i class="fas fa-fw fa-server"></i> Maintenance
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="mainTainceDropdown">
-
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="mainTainceDropdown">           
+			<a class="dropdown-item" href="task_assign.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Task Entry</span></a>            
+			<a class="dropdown-item" href="task-list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Task List</span></a>
 			<a class="dropdown-item" href="logsheet.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Logsheet Entry</span></a> 
             <a class="dropdown-item" href="logsheet_list.php"><i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Logsheet List</span></a>            
 			<?php //if(check_permission('material-receive-add')){ ?>
