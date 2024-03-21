@@ -53,7 +53,17 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                         </td>
                         <td><?php echo (isset($adata['request_date']) && !empty($adata['request_date']) ? human_format_date($adata['request_date']) : 'No data'); ?></td>
 						
-                        <td><?php  foreach($rlp_details as $dataDetails){ echo $dataDetails->purpose.','; }?></td>
+                        <!-- <td><?php  //foreach($rlp_details as $dataDetails){ echo $dataDetails->purpose.','; }?></td> -->
+						<td>
+							<?php 
+								$rlp_id = $adata['id'];
+								$sql = "SELECT DISTINCT purpose FROM rlp_details WHERE rlp_info_id = $rlp_id";
+								$resultUser = $conn->query($sql);
+								$userData = $resultUser->fetch_object();
+								echo $userData->purpose;
+							?>
+						</td>
+						
 						
                         <td><?php echo (isset($adata['created_by']) && !empty($adata['created_by']) ? getUserNameByUserId($adata['created_by']) : 'No data'); ?></td>
                         <td><?php echo (isset($adata['request_project']) && !empty($adata['request_project']) ? getProjectNameById($adata['request_project']) : 'No data'); ?></td>

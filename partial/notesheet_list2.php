@@ -56,7 +56,19 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
                             </div>
                         </td>
 						 <td><?php echo (isset($adata['rlp_no']) && !empty($adata['rlp_no']) ? $adata['rlp_no'] : 'No data'); ?></td>
-						 <td><?php  foreach($notesheetsDetails as $dataDetails){ echo $dataDetails->purpose.','; }?></td>
+						 
+						 <!--<td><?php  //foreach($notesheetsDetails as $dataDetails){ echo $dataDetails->purpose.','; }?></td> -->
+						 
+						 <td>
+							<?php 
+								$ns_id = $adata['id'];
+								$sql = "SELECT DISTINCT purpose FROM notesheets WHERE notesheet_id = $ns_id";
+								$resultUser = $conn->query($sql);
+								$userData = $resultUser->fetch_object();
+								echo $userData->purpose;
+							?>
+						</td>
+						 
 						 <td><?php echo (isset($adata['grand_total']) && !empty($adata['grand_total']) ? $adata['grand_total'] : 'No data'); ?></td>
 						 <td><?php echo (isset($adata['supplier_name']) && !empty($adata['supplier_name']) ? $adata['supplier_name'] : 'No data'); ?></td>
 						 
