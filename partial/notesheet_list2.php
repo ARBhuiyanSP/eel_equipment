@@ -9,9 +9,11 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
                     <th>SLN#</th>
                     <th>Notesheet No</th>
                     <th>RLP No</th>
+                    <th style="width:20%">Purpose / Equipments</th>
+                    <th>Amount</th>
                     <th>Supplier</th>
                     <th>Created At</th>
-                    <th>Project name</th>
+                    <th>Project</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -39,6 +41,10 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
 					$approve_url =   "function/rlp_process.php?process_type=rlp_dh_common_update_execute";
 				}
                 foreach ($NotesheetListData as $adata) {
+					
+					$notesheetsDetails    		=   getNotesheetDetailsData($adata['id']);   
+					$notesheets_master	=   $notesheetsDetails['notesheets_master'];
+					$notesheetsDetails    		=   $notesheetsDetails['notesheets'];
                     ?>
                     <tr id="row_id_<?php echo $adata['id']; ?>">
                         <td><?php echo ++$sl; ?> </td>
@@ -50,6 +56,8 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
                             </div>
                         </td>
 						 <td><?php echo (isset($adata['rlp_no']) && !empty($adata['rlp_no']) ? $adata['rlp_no'] : 'No data'); ?></td>
+						 <td><?php  foreach($notesheetsDetails as $dataDetails){ echo $dataDetails->purpose.','; }?></td>
+						 <td><?php echo (isset($adata['grand_total']) && !empty($adata['grand_total']) ? $adata['grand_total'] : 'No data'); ?></td>
 						 <td><?php echo (isset($adata['supplier_name']) && !empty($adata['supplier_name']) ? $adata['supplier_name'] : 'No data'); ?></td>
 						 
                         <td><?php echo (isset($adata['created_at']) && !empty($adata['created_at']) ? human_format_date($adata['created_at']) : 'No data'); ?></td>
@@ -102,7 +110,7 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
 							<?php //if(check_permission('notesheet-approve') && get_status_name($adata->notesheet_status)=='Approve' && $adata->is_wo==0){ ?>
 							<?php if(get_status_name($adata['notesheet_status'])=='Approve' && $adata['is_wo']==0 && $role_name == 'sa'){ ?>
                             <a title="Edit RLP" class="btn btn-sm btn-success" href="create_workorder.php?id=<?php echo $adata['id']; ?>">
-                                <span class="fa fa-plus"> Work Order</span>
+                                <span class="fa fa-plus"> WO</span>
                             </a>
                             <?php } ?>
                         </td>
