@@ -97,8 +97,8 @@
             </tr>
         </tbody>
     </table>
-	<input type="text" name="task_assign_by_office_id" value="<?php echo $UserOfficeId; ?>" />
-	<input type="text" name="task_assign_by_name" value="<?php echo $UserName; ?>" />
+	<input type="hidden" name="task_assign_by_office_id" value="<?php echo $UserOfficeId; ?>" />
+	<input type="hidden" name="task_assign_by_name" value="<?php echo $UserName; ?>" />
     <div class="row">
         <div class="col-sm-12">
             <input type="submit" name="task_assign" id="submit" class="btn btn-block btn-primary" value="ASSIGN TASK" />
