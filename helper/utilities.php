@@ -2448,6 +2448,19 @@ function get_product_stock_by_material_id($param)
  * 1. mb_materialid
  * 2. warehouse_id
  */
+ 
+ 
+ function getEmployeeNameByOfficeId($table, $id){
+    global $conn;
+    $sql = "SELECT * FROM $table WHERE `office_id`='$id'";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        $name   =   $result->fetch_object()->name;
+    }
+    return $name;
+}
+
 function get_material_balance_opening_quantity($param)
 {
     global $conn;

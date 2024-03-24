@@ -36,6 +36,7 @@ include 'includes/user_process.php';
 include 'includes/order_process.php';
 include 'includes/role_process.php';
 include 'includes/op_process.php';
+include 'function/task_process.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -376,7 +377,7 @@ footer.sticky-footer{
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="mainTainceDropdown">           
 			<a class="dropdown-item" href="task_assign.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Task Entry</span></a>            
-			<a class="dropdown-item" href="task-list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Task List</span></a>
+			<a class="dropdown-item" href="task_list.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Task List</span></a>
 			<a class="dropdown-item" href="logsheet.php"><i class="fa fa-plus" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Logsheet Entry</span></a> 
             <a class="dropdown-item" href="logsheet_list.php"><i class="fa fa-list" aria-hidden="true" style="color: #007BFF;"></i><span class="sub_menu_text_design"> Logsheet List</span></a>            
 			<?php //if(check_permission('material-receive-add')){ ?>

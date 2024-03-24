@@ -4,13 +4,13 @@
 	<form action="" method="post" enctype="multipart/form-data">
     <div class="row">
         <div class="col-sm-2">
-				<div class="form-group">
-					<label>Date</label>
-					<input name="assign_date" type="text" class="form-control" id="rlpdate" autocomplete="off" />
-				</div>
+			<div class="form-group">
+				<label>Date</label>
+				<input name="task_assign_date" type="text" class="form-control" id="rlpdate" autocomplete="off" />
 			</div>
+		</div>
 			
-			<div class="col-sm-3">
+		<div class="col-sm-3">
             <div class="form-group">
                 <label for="exampleId">Priority</label>
                 <div class="radio">
@@ -19,7 +19,7 @@
                         if(isset($priorities) && !empty($priorities)){
                             foreach($priorities as $priority){
                     ?>
-                            <label><input type="radio" name="priority" value="<?php echo $priority->id; ?>" <?php if($priority->name == 'Low'){ echo 'checked';} ?>>                                
+                            <label><input type="radio" name="priority" value="<?php echo $priority->id; ?>" <?php if($priority->name == 'Low'){ echo 'checked';} ?>>                        
                                 <span class="label label-<?php echo $priority->color_code; ?>"><?php echo $priority->name; ?></span>
                             </label>
                     <?php
@@ -50,10 +50,12 @@
 				<div class="form-group">
 					
 					<label>Assign To</label>
-					<select id="dv" name="project_id" class="form-control material_select_2">
+					<select id="dv" name="assign_to" class="form-control material_select_2">
 						<option>Select User</option>
 						<?php
-						$warehouse_id            =   $_SESSION['logged']['warehouse_id'];					
+						$UserName            =   $_SESSION['logged']['user_name'];					
+						$UserOfficeId        =   $_SESSION['logged']['office_id'];					
+						$warehouse_id        =   $_SESSION['logged']['warehouse_id'];					
 						$sqllt	= "select * from `users` WHERE warehouse_id=$warehouse_id ORDER BY id ASC";
 						$resultlt = mysqli_query($conn, $sqllt);
 						while($rowlt=mysqli_fetch_array($resultlt))
@@ -95,8 +97,8 @@
             </tr>
         </tbody>
     </table>
-<input type="hidden" name="task_assign_by_office_id" value="<?php //echo $UserOfficeId; ?>" />
-<input type="hidden" name="task_assign_by_name" value="<?php //echo getEmployeeNameByOfficeId('users',$UserOfficeId); ?>" />
+	<input type="text" name="task_assign_by_office_id" value="<?php echo $UserOfficeId; ?>" />
+	<input type="text" name="task_assign_by_name" value="<?php echo $UserName; ?>" />
     <div class="row">
         <div class="col-sm-12">
             <input type="submit" name="task_assign" id="submit" class="btn btn-block btn-primary" value="ASSIGN TASK" />
@@ -110,8 +112,8 @@
         <tr id="">
             <td><span class="sn"></span>.</td>
             <td><input type="text" class="form-control" id="" name="task_details[]" value="" size=""  required /></td>
-            <td><input type="text" class="form-control" id="" name="estimated_time[]" value="" size=""  required /></td>
-            <td><input type="text" class="form-control" id="" name="estimated_time[]" value="" size=""  required /></td>
+            <td><input type="text" class="form-control" id="" name="working_hrs[]" value="" size=""  required /></td>
+            <td><input type="text" class="form-control" id="" name="working_mins[]" value="" size=""  required /></td>
 			<td><a class="btn btn-xs delete-record" data-id="0" style="background-color:#f26522;color:#ffffff;">X</a></td>
         </tr>
     </table>
