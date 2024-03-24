@@ -5,9 +5,9 @@ include('connection/connect.php');
 include 'helper/utilities.php';
 $done_by = $_SESSION['logged']['office_id'];
 
-$column = array("tasks.id", "tasks.task_assign_date", "tasks.task_details", "projects.project_name", "tasks.status");
+$column = array("tasks.id", "tasks.task_assign_date","tasks.project_id", "tasks.task_details", "projects.project_name", "tasks.status");
 $query = "
- SELECT tasks.id,tasks.task_assign_date,tasks.working_hrs,tasks.task_assign_by_office_id,tasks.task_assign_by_name,tasks.task_done_by_office_id,tasks.task_done_by_name,projects.project_name,tasks.task_assign_date,tasks.task_details, tasks.status FROM tasks 
+ SELECT tasks.id,tasks.task_assign_date,tasks.working_hrs,tasks.project_id,tasks.task_assign_by_office_id,tasks.task_assign_by_name,tasks.task_done_by_office_id,tasks.task_done_by_name,projects.project_name,tasks.task_assign_date,tasks.task_details, tasks.status FROM tasks 
  INNER JOIN projects 
  ON projects.id = tasks.project_id
 ";
