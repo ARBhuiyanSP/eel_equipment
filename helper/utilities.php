@@ -2460,6 +2460,26 @@ function get_product_stock_by_material_id($param)
     }
     return $name;
 }
+function getUsersName($table) {
+    global $conn;
+    $dataContainer  =   [];
+    $sql = "SELECT * FROM $table WHERE 1=1 order by name ASC";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        if (isset($dataType) && $dataType == 'obj') {
+            while ($row = $result->fetch_object()) {
+                $dataContainer[] = $row;
+            }
+        } else {
+            while ($row = $result->fetch_assoc()) {
+                $dataContainer[] = $row;
+            }
+        }
+    }
+    return $dataContainer;
+}
 
 function get_material_balance_opening_quantity($param)
 {

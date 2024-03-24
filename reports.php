@@ -95,6 +95,10 @@ include 'header.php';
 									<a href="client-history.php"><li><b>Party/Client Ledger Report</b></li></a>
 									<a href="allsupplierbalance_report_search.php"><li><b>All Party/Client Account Status Report</b></li></a>
 								</ul>
+								<h5>Task Reports</h5>
+								<ul>
+									<a href="user_wise_task_report.php"><li><b>Userwise task Report</b></li></a>
+								</ul>
 							</div>
 						</div>
             <!--here your code will go-->
